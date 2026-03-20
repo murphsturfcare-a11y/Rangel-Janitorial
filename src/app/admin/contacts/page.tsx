@@ -57,7 +57,7 @@ const initialContacts: Contact[] = [
     status: 'replied',
     date: '2026-03-15',
     repliedAt: '2026-03-16',
-    repliedBy: 'admin@murphysturfcare.com',
+    repliedBy: 'admin@murphysturf.com',
   },
   {
     id: 4,
@@ -89,7 +89,7 @@ const initialContacts: Contact[] = [
     status: 'replied',
     date: '2026-03-12',
     repliedAt: '2026-03-13',
-    repliedBy: 'admin@murphysturfcare.com',
+    repliedBy: 'admin@murphysturf.com',
   },
   {
     id: 7,
@@ -167,7 +167,7 @@ export default function AdminContactsPage() {
               ...(newStatus === 'replied'
                 ? {
                     repliedAt: new Date().toISOString().split('T')[0],
-                    repliedBy: 'admin@murphysturfcare.com',
+                    repliedBy: 'admin@murphysturf.com',
                   }
                 : {}),
             }

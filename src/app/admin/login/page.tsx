@@ -33,7 +33,7 @@ export default function AdminLoginPage() {
               <Leaf className="w-7 h-7 text-[#2D5016]" />
             </div>
             <h1 className="text-2xl font-bold text-[#2D5016] tracking-tight">
-              Murphy&apos;s Turf Care
+              Murphy&apos;s Turf
             </h1>
             <p className="text-sm text-[#5D4037] mt-1">Admin Portal</p>
           </div>
@@ -53,7 +53,7 @@ export default function AdminLoginPage() {
                 type="email"
                 required
                 autoComplete="email"
-                placeholder="admin@murphysturfcare.com"
+                placeholder="admin@murphysturf.com"
                 className="w-full rounded-lg border border-gray-300 px-3.5 py-2.5 text-[#212121] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7CB342] focus:border-transparent transition"
               />
             </div>

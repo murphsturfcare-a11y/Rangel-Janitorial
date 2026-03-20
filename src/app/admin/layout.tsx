@@ -51,7 +51,7 @@ export default function AdminLayout({
       <div className="flex items-center gap-2 px-6 py-5">
         <Leaf className="h-6 w-6" style={{ color: "#7CB342" }} />
         <span className="text-lg font-bold" style={{ color: "#7CB342" }}>
-          Murphy&apos;s Turf Care Admin
+          Murphy&apos;s Turf Admin
         </span>
       </div>
 
@@ -138,7 +138,7 @@ export default function AdminLayout({
             </button>
             <h1 className="text-lg font-semibold text-gray-800">Admin Panel</h1>
           </div>
-          <span className="text-sm text-gray-500">admin@murphysturfcare.com</span>
+          <span className="text-sm text-gray-500">admin@murphysturf.com</span>
         </header>
 
         {/* Main content */}

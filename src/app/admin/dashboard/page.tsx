@@ -56,16 +56,16 @@ interface Lead {
 }
 
 const recentLeads: Lead[] = [
-  { name: 'Michael Rivera', email: 'mrivera@email.com', service: 'Lawn Mowing', status: 'New', date: 'Mar 19, 2026' },
-  { name: 'Sarah Thompson', email: 'sthompson@email.com', service: 'Fertilization', status: 'Contacted', date: 'Mar 18, 2026' },
-  { name: 'James O\'Brien', email: 'jobrien@email.com', service: 'Aeration', status: 'Qualified', date: 'Mar 18, 2026' },
-  { name: 'Linda Chen', email: 'lchen@email.com', service: 'Landscaping', status: 'Converted', date: 'Mar 17, 2026' },
-  { name: 'Robert Martinez', email: 'rmartinez@email.com', service: 'Sod Installation', status: 'New', date: 'Mar 17, 2026' },
-  { name: 'Emily Watson', email: 'ewatson@email.com', service: 'Sprinkler Repair', status: 'Contacted', date: 'Mar 16, 2026' },
-  { name: 'David Kim', email: 'dkim@email.com', service: 'Lawn Mowing', status: 'Qualified', date: 'Mar 15, 2026' },
-  { name: 'Jessica Nguyen', email: 'jnguyen@email.com', service: 'Fertilization', status: 'New', date: 'Mar 14, 2026' },
-  { name: 'Brian Foster', email: 'bfoster@email.com', service: 'Landscaping', status: 'Converted', date: 'Mar 13, 2026' },
-  { name: 'Amanda Reyes', email: 'areyes@email.com', service: 'Aeration', status: 'Contacted', date: 'Mar 12, 2026' },
+  { name: 'Michael Rivera', email: 'mrivera@email.com', service: 'Pet Hair & Debris Removal', status: 'New', date: 'Mar 19, 2026' },
+  { name: 'Sarah Thompson', email: 'sthompson@email.com', service: 'Disinfect & Deodorize', status: 'Contacted', date: 'Mar 18, 2026' },
+  { name: 'James O\'Brien', email: 'jobrien@email.com', service: 'Blooming & De-Compacting', status: 'Qualified', date: 'Mar 18, 2026' },
+  { name: 'Linda Chen', email: 'lchen@email.com', service: 'Powered By OxyTurf', status: 'Converted', date: 'Mar 17, 2026' },
+  { name: 'Robert Martinez', email: 'rmartinez@email.com', service: 'Poop Scooping & Removal', status: 'New', date: 'Mar 17, 2026' },
+  { name: 'Emily Watson', email: 'ewatson@email.com', service: 'Disinfect & Deodorize', status: 'Contacted', date: 'Mar 16, 2026' },
+  { name: 'David Kim', email: 'dkim@email.com', service: 'Pet Hair & Debris Removal', status: 'Qualified', date: 'Mar 15, 2026' },
+  { name: 'Jessica Nguyen', email: 'jnguyen@email.com', service: 'Blooming & De-Compacting', status: 'New', date: 'Mar 14, 2026' },
+  { name: 'Brian Foster', email: 'bfoster@email.com', service: 'Powered By OxyTurf', status: 'Converted', date: 'Mar 13, 2026' },
+  { name: 'Amanda Reyes', email: 'areyes@email.com', service: 'Poop Scooping & Removal', status: 'Contacted', date: 'Mar 12, 2026' },
 ];
 
 type ContactStatus = 'Unread' | 'Read' | 'Replied';
@@ -116,7 +116,7 @@ export default function AdminDashboardPage() {
             Admin Dashboard
           </h1>
           <p className="mt-1 text-sm text-gray-500">
-            Welcome back. Here&#39;s what&#39;s happening with Murphy&#39;s Turf Care today.
+            Welcome back. Here&#39;s what&#39;s happening with Murphy&#39;s Turf today.
           </p>
         </div>
       </header>
