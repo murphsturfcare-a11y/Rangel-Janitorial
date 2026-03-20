@@ -66,43 +66,42 @@ export interface RateLimitInfo {
   resetAt: Date;
 }
 
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  author: string;
+  publishedDate: string;
+  category: string;
+  tags: string[];
+  metaTitle: string;
+  metaDescription: string;
+  featuredImage: string;
+  location?: string;
+}
+
 // ---------------------------------------------------------------------------
-// Data layer types (used by src/data/*.ts)
+// Seed Data Types (used by src/data/ files)
 // ---------------------------------------------------------------------------
 
-export interface Company {
+export interface ServiceFAQ {
+  question: string;
+  answer: string;
+}
+
+export interface Service {
+  slug: string;
   name: string;
-  tagline: string;
-  phone: string;
-  email: string;
-  address: {
-    street: string;
-    city: string;
-    state: string;
-    zip: string;
-  };
-  businessHours: {
-    weekdays: string;
-    saturday: string;
-    sunday: string;
-  };
-  founded: number;
-  description: string;
-  mission: string;
-  values: { title: string; description: string }[];
-  stats: {
-    yearsInBusiness: number;
-    customersServed: string;
-    satisfactionRate: string;
-    projectsCompleted: string;
-  };
-  socialMedia: {
-    facebook: string;
-    instagram: string;
-    google: string;
-    yelp: string;
-  };
-  certifications: string[];
+  shortDescription: string;
+  fullDescription: string;
+  benefits: string[];
+  whatIncludes: string[];
+  startingPrice: number;
+  iconName: string;
+  metaTitle: string;
+  metaDescription: string;
+  faqs: ServiceFAQ[];
 }
 
 export interface Location {
@@ -118,20 +117,6 @@ export interface Location {
   metaDescription: string;
 }
 
-export interface Service {
-  slug: string;
-  name: string;
-  shortDescription: string;
-  fullDescription: string;
-  benefits: string[];
-  whatIncludes: string[];
-  startingPrice: number;
-  iconName: string;
-  metaTitle: string;
-  metaDescription: string;
-  faqs: { question: string; answer: string }[];
-}
-
 export interface Testimonial {
   customerName: string;
   customerLocation: string;
@@ -143,9 +128,57 @@ export interface Testimonial {
 export interface FAQItem {
   question: string;
   answer: string;
-  category: string;
+  category: "general" | "pricing" | "services" | "scheduling" | "locations";
   serviceSlug?: string;
   locationSlug?: string;
+}
+
+export interface CompanyAddress {
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
+}
+
+export interface BusinessHours {
+  weekdays: string;
+  saturday: string;
+  sunday: string;
+}
+
+export interface CompanyValue {
+  title: string;
+  description: string;
+}
+
+export interface CompanyStats {
+  yearsInBusiness: number;
+  customersServed: string;
+  satisfactionRate: string;
+  projectsCompleted: string;
+}
+
+export interface SocialMedia {
+  facebook: string;
+  instagram: string;
+  google: string;
+  yelp: string;
+}
+
+export interface Company {
+  name: string;
+  tagline: string;
+  phone: string;
+  email: string;
+  address: CompanyAddress;
+  businessHours: BusinessHours;
+  founded: number;
+  description: string;
+  mission: string;
+  values: CompanyValue[];
+  stats: CompanyStats;
+  socialMedia: SocialMedia;
+  certifications: string[];
 }
 
 export interface SEOMetadata {

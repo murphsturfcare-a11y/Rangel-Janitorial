@@ -216,3 +216,66 @@ export function generateWebPageSchema(
     },
   };
 }
+
+export function generateBlogPostSchema(post: {
+  title: string;
+  slug: string;
+  description: string;
+  datePublished: string;
+  dateModified?: string;
+  author?: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    url: `${SITE_URL}/blog/${post.slug}`,
+    datePublished: post.datePublished,
+    dateModified: post.dateModified || post.datePublished,
+    author: {
+      "@type": "Organization",
+      name: post.author || COMPANY_NAME,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: COMPANY_NAME,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/logo.png`,
+      },
+    },
+    image: post.image
+      ? post.image.startsWith("http")
+        ? post.image
+        : `${SITE_URL}${post.image}`
+      : `${SITE_URL}/images/og-default.jpg`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}`,
+    },
+  };
+}
+
+export function generateBlogListSchema(posts: { title: string; slug: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: `${COMPANY_NAME} Blog`,
+    description: "Lawn care tips, seasonal guides, and turf maintenance advice for California homeowners.",
+    url: `${SITE_URL}/blog`,
+    publisher: {
+      "@type": "Organization",
+      name: COMPANY_NAME,
+      url: SITE_URL,
+    },
+    blogPost: posts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      url: `${SITE_URL}/blog/${post.slug}`,
+    })),
+  };
+}

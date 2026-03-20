@@ -11,6 +11,7 @@ import {
   Star,
   MapPin,
   Wrench,
+  FileText,
   LogOut,
   Menu,
   X,
@@ -24,6 +25,7 @@ const navLinks = [
   { label: "Testimonials", href: "/admin/testimonials", icon: Star },
   { label: "Locations", href: "/admin/locations", icon: MapPin },
   { label: "Services", href: "/admin/services", icon: Wrench },
+  { label: "Blog Posts", href: "/admin/blog", icon: FileText },
 ];
 
 export default function AdminLayout({

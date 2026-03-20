@@ -2,6 +2,8 @@ import {
   generatePageMetadata,
   generateServiceMetadata,
   generateLocationMetadata,
+  generateBlogMetadata,
+  generateBlogIndexMetadata,
 } from "./metadata";
 
 export const homeMetadata = generatePageMetadata(
@@ -69,7 +71,7 @@ const services = [
     name: "Seasonal Maintenance",
     slug: "seasonal-maintenance" as const,
     shortDescription:
-      "Year-round seasonal lawn maintenance including spring cleanup, summer care, and winterization.",
+      "Year-round seasonal lawn maintenance including spring cleanup, summer care, and fall preparation.",
   },
 ];
 
@@ -89,13 +91,13 @@ const locations = [
     name: "Murrieta",
     slug: "murrieta" as const,
     description:
-      "Murphy's Turf Care headquarters — professional turf cleaning and lawn care in the Inland Empire.",
+      "Professional turf cleaning and lawn care for Murrieta homeowners and businesses in the Inland Empire.",
   },
   {
     name: "Martinez",
     slug: "martinez" as const,
     description:
-      "Professional turf cleaning and lawn care for Martinez and East Bay homeowners and businesses.",
+      "Reliable lawn care services in Martinez and the Bay Area — from aeration to seasonal maintenance.",
   },
   {
     name: "Sacramento",
@@ -108,4 +110,86 @@ const locations = [
 export const locationMetadata: Record<string, ReturnType<typeof generateLocationMetadata>> = {};
 for (const location of locations) {
   locationMetadata[location.slug] = generateLocationMetadata(location);
+}
+
+export const blogIndexMetadata = generateBlogIndexMetadata();
+
+const blogPosts = [
+  {
+    title: "The Ultimate Guide to Lawn Care in Los Angeles",
+    slug: "ultimate-guide-lawn-care-los-angeles",
+    description:
+      "Everything LA homeowners need to know about maintaining a lush, green lawn in Southern California's unique climate. Watering tips, seasonal schedules, and more.",
+  },
+  {
+    title: "Turf Maintenance in Murrieta: Beating the Hot Summers",
+    slug: "turf-maintenance-murrieta-hot-summers",
+    description:
+      "How to keep your Murrieta lawn thriving through Inland Empire heat. Heat-tolerant grass types, smart irrigation, and professional care tips.",
+  },
+  {
+    title: "Bay Area Lawn Care: A Guide for Martinez Homeowners",
+    slug: "bay-area-lawn-care-martinez-homeowners",
+    description:
+      "Lawn care strategies for Martinez and Bay Area homeowners. Dealing with fog, microclimates, and coastal conditions for a beautiful yard.",
+  },
+  {
+    title: "Sacramento Valley Lawn Care: Thriving in Central Valley Heat",
+    slug: "sacramento-valley-lawn-care-central-valley-heat",
+    description:
+      "Expert tips for Sacramento homeowners to maintain healthy lawns despite Central Valley summers. Water-wise strategies and seasonal care guides.",
+  },
+  {
+    title: "Water-Smart Lawn Care During California Drought",
+    slug: "water-smart-lawn-care-california-drought",
+    description:
+      "Practical strategies for maintaining a beautiful lawn while conserving water during California drought conditions. Drought-tolerant grasses and smart irrigation.",
+  },
+  {
+    title: "When to Aerate Your Lawn in Southern California",
+    slug: "when-to-aerate-lawn-southern-california",
+    description:
+      "Learn the best times and methods for aerating your Southern California lawn. Improve drainage, reduce compaction, and promote healthier turf growth.",
+  },
+  {
+    title: "The Benefits of Professional Turf Cleaning",
+    slug: "benefits-professional-turf-cleaning",
+    description:
+      "Discover why professional turf cleaning is essential for a healthy lawn. Remove thatch, debris, and buildup to restore your yard's natural beauty.",
+  },
+  {
+    title: "Spring Lawn Care Checklist for California",
+    slug: "spring-lawn-care-checklist-california",
+    description:
+      "Your complete spring lawn care checklist for California homeowners. From fertilization to weed control, prepare your lawn for the growing season.",
+  },
+  {
+    title: "Choosing the Right Grass Type for California",
+    slug: "choosing-right-grass-type-california",
+    description:
+      "Compare warm-season and cool-season grasses for California lawns. Find the best grass type for your region, climate, and lifestyle.",
+  },
+  {
+    title: "Eco-Friendly Lawn Care for a Greener California",
+    slug: "eco-friendly-lawn-care-greener-california",
+    description:
+      "Sustainable lawn care practices for environmentally conscious California homeowners. Organic fertilizers, native plants, and reduced water usage.",
+  },
+  {
+    title: "Common Lawn Pests in California and How to Stop Them",
+    slug: "common-lawn-pests-california",
+    description:
+      "Identify and eliminate common California lawn pests including grubs, chinch bugs, and armyworms. Prevention tips and treatment options.",
+  },
+  {
+    title: "Fall Lawn Preparation: Getting Your California Lawn Ready",
+    slug: "fall-lawn-preparation-california",
+    description:
+      "Prepare your California lawn for the cooler months ahead. Overseeding, fertilization, and maintenance tips for a strong fall and winter lawn.",
+  },
+];
+
+export const blogMetadata: Record<string, ReturnType<typeof generateBlogMetadata>> = {};
+for (const post of blogPosts) {
+  blogMetadata[post.slug] = generateBlogMetadata(post);
 }

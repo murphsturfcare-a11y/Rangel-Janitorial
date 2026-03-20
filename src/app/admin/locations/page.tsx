@@ -15,9 +15,9 @@ const initialLocations: Location[] = [
   {
     id: '1',
     name: 'Los Angeles',
-    phone: '(951) 331-3300',
+    phone: '(213) 555-0101',
     description:
-      'Serving the greater Los Angeles metro area including Hollywood, Westwood, and Santa Monica',
+      'Serving the greater Los Angeles metro area including Hollywood, Santa Monica, and Pasadena',
     active: true,
   },
   {
@@ -25,21 +25,23 @@ const initialLocations: Location[] = [
     name: 'Murrieta',
     phone: '(951) 331-3300',
     description:
-      'Headquarters location providing full service lawn care for Murrieta and surrounding communities',
+      'Headquarters location — full service lawn care for Murrieta, Temecula, and the Inland Empire',
     active: true,
   },
   {
     id: '3',
-    name: 'Martinez',
-    phone: '(951) 331-3300',
-    description: 'Comprehensive lawn services for Martinez and Contra Costa County residents',
+    name: 'Martinez / Bay Area',
+    phone: '(925) 555-0103',
+    description:
+      'Comprehensive lawn services for Martinez, Concord, Walnut Creek, and the greater Bay Area',
     active: true,
   },
   {
     id: '4',
     name: 'Sacramento',
-    phone: '(951) 331-3300',
-    description: "Sacramento and the greater Capital Region's premier lawn care provider",
+    phone: '(916) 555-0104',
+    description:
+      "Sacramento's trusted lawn care provider serving Elk Grove, Roseville, and Folsom",
     active: true,
   },
 ];

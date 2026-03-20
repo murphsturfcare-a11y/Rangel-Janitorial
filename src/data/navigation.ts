@@ -20,7 +20,7 @@ export const mainNav: NavItem[] = [
     children: [
       { label: "Los Angeles", href: "/locations/los-angeles" },
       { label: "Murrieta", href: "/locations/murrieta" },
-      { label: "Martinez", href: "/locations/martinez" },
+      { label: "Martinez / Bay Area", href: "/locations/martinez" },
       { label: "Sacramento", href: "/locations/sacramento" },
     ],
   },
@@ -46,7 +46,7 @@ export const footerNav: NavGroup[] = [
     links: [
       { label: "Los Angeles", href: "/locations/los-angeles" },
       { label: "Murrieta", href: "/locations/murrieta" },
-      { label: "Martinez", href: "/locations/martinez" },
+      { label: "Martinez / Bay Area", href: "/locations/martinez" },
       { label: "Sacramento", href: "/locations/sacramento" },
     ],
   },
