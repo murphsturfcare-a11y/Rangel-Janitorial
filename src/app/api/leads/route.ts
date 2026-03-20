@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/db/supabase';
+import { createServerClient } from '@/lib/db/supabase';
 import { validateLeadForm, sanitizeInput } from '@/lib/validation';
 import { leadsRateLimiter } from '@/lib/rate-limit';
 import { sendLeadNotification, sendLeadConfirmation } from '@/lib/email';
@@ -87,7 +87,7 @@ export async function POST(
       updated_at: now,
     };
 
-    const supabase = createServiceClient();
+    const supabase = await createServerClient();
 
     const { data, error } = await supabase
       .from('leads')
@@ -106,7 +106,7 @@ export async function POST(
       );
     }
 
-    sendLeadNotification(data as Lead).catch((err: unknown) => {
+    sendLeadNotification(data as unknown as Lead).catch((err: unknown) => {
       console.error('Failed to send lead notification:', err);
     });
 

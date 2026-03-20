@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/db/supabase';
+import { createServerClient } from '@/lib/db/supabase';
 import { validateContactForm, sanitizeInput } from '@/lib/validation';
 import { contactRateLimiter } from '@/lib/rate-limit';
 import { sendContactNotification } from '@/lib/email';
@@ -78,7 +78,7 @@ export async function POST(
       created_at: now,
     };
 
-    const supabase = createServiceClient();
+    const supabase = await createServerClient();
 
     const { data, error } = await supabase
       .from('contacts')
@@ -97,7 +97,7 @@ export async function POST(
       );
     }
 
-    sendContactNotification(data as Contact).catch((err: unknown) => {
+    sendContactNotification(data as unknown as Contact).catch((err: unknown) => {
       console.error('Failed to send contact notification:', err);
     });
 

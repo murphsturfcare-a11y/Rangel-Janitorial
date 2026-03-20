@@ -65,3 +65,102 @@ export interface RateLimitInfo {
   remaining: number;
   resetAt: Date;
 }
+
+// ---------------------------------------------------------------------------
+// Data layer types (used by src/data/*.ts)
+// ---------------------------------------------------------------------------
+
+export interface Company {
+  name: string;
+  tagline: string;
+  phone: string;
+  email: string;
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  businessHours: {
+    weekdays: string;
+    saturday: string;
+    sunday: string;
+  };
+  founded: number;
+  description: string;
+  mission: string;
+  values: { title: string; description: string }[];
+  stats: {
+    yearsInBusiness: number;
+    customersServed: string;
+    satisfactionRate: string;
+    projectsCompleted: string;
+  };
+  socialMedia: {
+    facebook: string;
+    instagram: string;
+    google: string;
+    yelp: string;
+  };
+  certifications: string[];
+}
+
+export interface Location {
+  slug: string;
+  name: string;
+  state: string;
+  description: string;
+  serviceAreaDescription: string;
+  neighborhoods: string[];
+  phone: string;
+  address: string;
+  metaTitle: string;
+  metaDescription: string;
+}
+
+export interface Service {
+  slug: string;
+  name: string;
+  shortDescription: string;
+  fullDescription: string;
+  benefits: string[];
+  whatIncludes: string[];
+  startingPrice: number;
+  iconName: string;
+  metaTitle: string;
+  metaDescription: string;
+  faqs: { question: string; answer: string }[];
+}
+
+export interface Testimonial {
+  customerName: string;
+  customerLocation: string;
+  rating: number;
+  reviewText: string;
+  serviceType: string;
+}
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+  category: string;
+  serviceSlug?: string;
+  locationSlug?: string;
+}
+
+export interface SEOMetadata {
+  title: string;
+  description: string;
+  keywords: string[];
+}
+
+export interface NavItem {
+  label: string;
+  href: string;
+  children?: NavItem[];
+}
+
+export interface NavGroup {
+  title: string;
+  links: NavItem[];
+}

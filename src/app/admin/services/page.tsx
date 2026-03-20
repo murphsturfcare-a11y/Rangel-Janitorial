@@ -155,7 +155,7 @@ export default function AdminServicesPage() {
       </header>
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-4">
-        {/* ── Service Cards ──────────────────────────────────────── */}
+        {/* -- Service Cards ---------------------------------------- */}
         {services.map((service, index) => (
           <div
             key={service.id}
@@ -247,7 +247,7 @@ export default function AdminServicesPage() {
         ))}
       </main>
 
-      {/* ── Edit Modal ───────────────────────────────────────────── */}
+      {/* -- Edit Modal --------------------------------------------- */}
       {editingService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           {/* Backdrop */}

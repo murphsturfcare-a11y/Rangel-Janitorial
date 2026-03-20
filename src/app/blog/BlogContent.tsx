@@ -13,19 +13,27 @@ import {
 } from 'lucide-react';
 import type { BlogPost } from './page';
 
-/* ─────────────────────── TYPES ─────────────────────── */
+/* ----------------------- TYPES ----------------------- */
 
 interface BlogContentProps {
   posts: BlogPost[];
   categories: string[];
   categoryColors: Record<string, { bg: string; text: string }>;
   categoryCounts: Record<string, number>;
-  formatDate: (dateStr: string) => string;
 }
 
-/* ─────────────────────── CONSTANTS ─────────────────────── */
+/* ----------------------- CONSTANTS ----------------------- */
 
 const POSTS_PER_PAGE = 6;
+
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr + 'T00:00:00');
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
 
 /* ═══════════════════════ COMPONENT ═══════════════════════ */
 
@@ -34,13 +42,12 @@ export default function BlogContent({
   categories,
   categoryColors,
   categoryCounts,
-  formatDate,
 }: BlogContentProps) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
-  /* ── Filtered posts ── */
+  /* -- Filtered posts -- */
   const filteredPosts = useMemo(() => {
     let result = posts;
 
@@ -62,7 +69,7 @@ export default function BlogContent({
     return result;
   }, [posts, activeCategory, searchQuery]);
 
-  /* ── Pagination ── */
+  /* -- Pagination -- */
   const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
   const safePage = Math.min(currentPage, totalPages);
   const paginatedPosts = filteredPosts.slice(
@@ -84,7 +91,7 @@ export default function BlogContent({
 
   return (
     <>
-      {/* ───────────────── CATEGORY FILTER TABS ───────────────── */}
+      {/* ----------------- CATEGORY FILTER TABS ----------------- */}
       <section className="bg-white border-b border-gray-200 sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 py-4 overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
@@ -105,11 +112,11 @@ export default function BlogContent({
         </div>
       </section>
 
-      {/* ───────────────── MAIN CONTENT ───────────────── */}
+      {/* ----------------- MAIN CONTENT ----------------- */}
       <section className="bg-cream py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
-            {/* ── LEFT COLUMN: Post Grid ── */}
+            {/* -- LEFT COLUMN: Post Grid -- */}
             <div className="flex-1 min-w-0">
               {/* Results count */}
               <div className="mb-6">
@@ -246,7 +253,7 @@ export default function BlogContent({
                 </div>
               )}
 
-              {/* ───────────────── PAGINATION ───────────────── */}
+              {/* ----------------- PAGINATION ----------------- */}
               {totalPages > 1 && (
                 <div className="mt-10 flex items-center justify-center gap-3">
                   <button
@@ -298,7 +305,7 @@ export default function BlogContent({
               )}
             </div>
 
-            {/* ── RIGHT COLUMN: Sidebar (desktop only) ── */}
+            {/* -- RIGHT COLUMN: Sidebar (desktop only) -- */}
             <aside className="w-full lg:w-80 xl:w-96 flex-shrink-0 space-y-8 hidden lg:block">
               {/* Search */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
@@ -417,7 +424,7 @@ export default function BlogContent({
             </aside>
           </div>
 
-          {/* ── MOBILE SIDEBAR CONTENT ── */}
+          {/* -- MOBILE SIDEBAR CONTENT -- */}
           <div className="lg:hidden mt-12 space-y-8">
             {/* Mobile Search */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">

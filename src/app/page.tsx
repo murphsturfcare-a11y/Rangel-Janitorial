@@ -24,7 +24,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 
-/* ─────────────────────────── DATA ─────────────────────────── */
+/* --------------------------- DATA --------------------------- */
 
 const stats = [
   { label: 'Years Experience', value: '8+' },
@@ -206,7 +206,7 @@ const faqs = [
   },
 ];
 
-/* ───────────────────── FAQ ACCORDION ITEM ───────────────────── */
+/* --------------------- FAQ ACCORDION ITEM --------------------- */
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
@@ -237,7 +237,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
-/* ───────────────────── QUOTE FORM ───────────────────── */
+/* --------------------- QUOTE FORM --------------------- */
 
 function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -399,7 +399,7 @@ function QuoteForm() {
 export default function Home() {
   return (
     <>
-      {/* ───────────────── 1. HERO ───────────────── */}
+      {/* ----------------- 1. HERO ----------------- */}
       <section className="relative overflow-hidden">
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-forest-dark/95 via-forest/90 to-forest-light/85" />
@@ -457,7 +457,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────────── 2. TRUST BADGES ───────────────── */}
+      {/* ----------------- 2. TRUST BADGES ----------------- */}
       <section className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -481,7 +481,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────────── 3. SERVICES OVERVIEW ───────────────── */}
+      {/* ----------------- 3. SERVICES OVERVIEW ----------------- */}
       <section className="bg-cream py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -526,7 +526,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────────── 4. WHY CHOOSE US ───────────────── */}
+      {/* ----------------- 4. WHY CHOOSE US ----------------- */}
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -568,7 +568,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────────── 5. BEFORE / AFTER GALLERY ───────────────── */}
+      {/* ----------------- 5. BEFORE / AFTER GALLERY ----------------- */}
       <section className="bg-cream py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -620,7 +620,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────────── 6. TESTIMONIALS ───────────────── */}
+      {/* ----------------- 6. TESTIMONIALS ----------------- */}
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -675,7 +675,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────────── 7. CTA BANNER ───────────────── */}
+      {/* ----------------- 7. CTA BANNER ----------------- */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-forest-dark via-forest to-forest-light" />
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_75%_50%,white_1px,transparent_1px)] bg-[length:32px_32px]" />
@@ -708,7 +708,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────────── 8. SERVICE AREAS ───────────────── */}
+      {/* ----------------- 8. SERVICE AREAS ----------------- */}
       <section className="bg-cream py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -754,7 +754,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────────── 9. FAQ ACCORDION ───────────────── */}
+      {/* ----------------- 9. FAQ ACCORDION ----------------- */}
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -781,7 +781,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────────── 10. QUOTE FORM ───────────────── */}
+      {/* ----------------- 10. QUOTE FORM ----------------- */}
       <section className="bg-cream py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">

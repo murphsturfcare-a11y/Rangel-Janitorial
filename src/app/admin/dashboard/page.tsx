@@ -122,7 +122,7 @@ export default function AdminDashboardPage() {
       </header>
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
-        {/* ── Stat Cards ────────────────────────────────────────── */}
+        {/* -- Stat Cards ------------------------------------------ */}
         <section className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {stats.map((stat) => {
             const Icon = stat.icon;
@@ -154,7 +154,7 @@ export default function AdminDashboardPage() {
           })}
         </section>
 
-        {/* ── Recent Leads Table ────────────────────────────────── */}
+        {/* -- Recent Leads Table ---------------------------------- */}
         <section>
           <h2 className="mb-4 text-lg font-semibold text-[#212121]">
             Recent Leads
@@ -211,7 +211,7 @@ export default function AdminDashboardPage() {
           </div>
         </section>
 
-        {/* ── Recent Contacts Table ─────────────────────────────── */}
+        {/* -- Recent Contacts Table ------------------------------- */}
         <section>
           <h2 className="mb-4 text-lg font-semibold text-[#212121]">
             Recent Contacts
@@ -263,7 +263,7 @@ export default function AdminDashboardPage() {
           </div>
         </section>
 
-        {/* ── Quick Actions ─────────────────────────────────────── */}
+        {/* -- Quick Actions --------------------------------------- */}
         <section>
           <h2 className="mb-4 text-lg font-semibold text-[#212121]">
             Quick Actions

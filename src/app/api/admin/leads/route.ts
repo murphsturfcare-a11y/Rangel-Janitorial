@@ -33,7 +33,7 @@ export async function GET(
     let query = supabase.from('leads').select('*');
 
     if (status) {
-      query = query.eq('status', status);
+      query = query.eq('status', status as 'new' | 'contacted' | 'qualified' | 'converted' | 'lost');
     }
 
     if (search) {
@@ -67,7 +67,7 @@ export async function GET(
       .select('*', { count: 'exact', head: true });
 
     if (status) {
-      countQuery = countQuery.eq('status', status);
+      countQuery = countQuery.eq('status', status as 'new' | 'contacted' | 'qualified' | 'converted' | 'lost');
     }
 
     if (search) {

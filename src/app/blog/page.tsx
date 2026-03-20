@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
 };
 
-/* ─────────────────────────── DATA ─────────────────────────── */
+/* --------------------------- DATA --------------------------- */
 
 export interface BlogPost {
   slug: string;
@@ -165,7 +165,7 @@ function formatDate(dateStr: string): string {
   });
 }
 
-/* ─────────────────────── CATEGORY COUNTS ─────────────────────── */
+/* ----------------------- CATEGORY COUNTS ----------------------- */
 
 const categoryCounts: Record<string, number> = {};
 blogPosts.forEach((post) => {
@@ -177,7 +177,7 @@ blogPosts.forEach((post) => {
 export default function BlogPage() {
   return (
     <>
-      {/* ───────────────── HERO ───────────────── */}
+      {/* ----------------- HERO ----------------- */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-forest-dark/95 via-forest/90 to-sage/80" />
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_25%_25%,white_1px,transparent_1px)] bg-[length:40px_40px]" />
@@ -195,13 +195,12 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* ───────────────── BLOG CONTENT ───────────────── */}
+      {/* ----------------- BLOG CONTENT ----------------- */}
       <BlogContent
         posts={blogPosts}
         categories={categories as unknown as string[]}
         categoryColors={categoryColors}
         categoryCounts={categoryCounts}
-        formatDate={formatDate}
       />
     </>
   );

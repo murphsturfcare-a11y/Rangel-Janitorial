@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/db/supabase';
+import { createServerClient } from '@/lib/db/supabase';
 import { validateEmail, sanitizeInput } from '@/lib/validation';
 import { newsletterRateLimiter } from '@/lib/rate-limit';
 import type { ApiResponse } from '@/types';
@@ -68,7 +68,7 @@ export async function POST(
 
     const sanitizedEmail = sanitizeInput(email);
 
-    const supabase = createServiceClient();
+    const supabase = await createServerClient();
 
     // Check for existing subscriber
     const { data: existing, error: lookupError } = await supabase
@@ -89,7 +89,7 @@ export async function POST(
     }
 
     // Already subscribed and active
-    if (existing && existing.active) {
+    if (existing && existing.is_active) {
       return NextResponse.json(
         {
           success: true,
@@ -100,10 +100,10 @@ export async function POST(
     }
 
     // Previously unsubscribed — reactivate
-    if (existing && !existing.active) {
+    if (existing && !existing.is_active) {
       const { error: updateError } = await supabase
         .from('newsletter_subscribers')
-        .update({ active: true })
+        .update({ is_active: true })
         .eq('id', existing.id);
 
       if (updateError) {
