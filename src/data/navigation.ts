@@ -18,15 +18,14 @@ export const mainNav: NavItem[] = [
     label: "Locations",
     href: "/locations",
     children: [
-      { label: "Denver", href: "/locations/denver" },
-      { label: "Colorado Springs", href: "/locations/colorado-springs" },
-      { label: "Aurora", href: "/locations/aurora" },
-      { label: "Lakewood", href: "/locations/lakewood" },
-      { label: "Boulder", href: "/locations/boulder" },
-      { label: "Fort Collins", href: "/locations/fort-collins" },
+      { label: "Los Angeles", href: "/locations/los-angeles" },
+      { label: "Murrieta", href: "/locations/murrieta" },
+      { label: "Martinez / Bay Area", href: "/locations/martinez" },
+      { label: "Sacramento", href: "/locations/sacramento" },
     ],
   },
   { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -45,18 +44,17 @@ export const footerNav: NavGroup[] = [
   {
     title: "Locations",
     links: [
-      { label: "Denver", href: "/locations/denver" },
-      { label: "Colorado Springs", href: "/locations/colorado-springs" },
-      { label: "Aurora", href: "/locations/aurora" },
-      { label: "Lakewood", href: "/locations/lakewood" },
-      { label: "Boulder", href: "/locations/boulder" },
-      { label: "Fort Collins", href: "/locations/fort-collins" },
+      { label: "Los Angeles", href: "/locations/los-angeles" },
+      { label: "Murrieta", href: "/locations/murrieta" },
+      { label: "Martinez / Bay Area", href: "/locations/martinez" },
+      { label: "Sacramento", href: "/locations/sacramento" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "/about" },
+      { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Terms of Service", href: "/terms" },

@@ -2,149 +2,108 @@ import type { Location } from '../types';
 
 export const locations: Location[] = [
   {
-    slug: 'denver',
-    name: 'Denver',
-    state: 'CO',
-    description:
-      "As the Mile High City, Denver presents a unique set of challenges and rewards for homeowners who take pride in their lawns. With over 300 days of sunshine each year and a semi-arid climate that delivers intense UV exposure, turf across Denver's diverse neighborhoods — from the tree-lined streets of Washington Park to the bustling urban lots of LoDo and RiNo — requires specialized attention that goes beyond a simple mow-and-go approach. The dry climate means irrigation management, soil amendment, and targeted cleaning are essential to keeping grass healthy, vibrant, and free of the dust and debris that accumulate quickly at 5,280 feet.\n\nMurphy's Turf is proud to serve Denver homeowners across every corner of this sprawling, energetic city. Whether you maintain a compact Capitol Hill yard, a sprawling Cherry Creek estate lawn, or a newer Stapleton development plot, our team understands the local soil composition, water restrictions, and seasonal patterns that define lawn care along the Front Range. We help Denver residents protect their outdoor investment so they can spend less time battling dry patches and brown spots, and more time enjoying the incredible Colorado lifestyle right outside their front door.",
+    slug: 'los-angeles',
+    name: 'Los Angeles',
+    state: 'CA',
+    description: `Los Angeles is a city defined by sunshine — with over 340 days of it each year, lawns here face a unique set of challenges that homeowners in cooler climates never encounter. Prolonged drought conditions and increasingly strict water restrictions have fundamentally reshaped how Angelenos think about their outdoor spaces, pushing many to rethink traditional lawn care in favor of smarter, more sustainable approaches. The sheer diversity of the city's neighborhoods adds another layer of complexity: a coastal lawn in Santa Monica, cooled by marine fog and salt air, demands an entirely different care regimen than a sun-baked yard in Pasadena or a compact urban plot in Silver Lake. From the manicured estates of Beverly Hills and Brentwood to the creative bungalows of Echo Park and the beachside homes of Venice, every lawn in Los Angeles tells a different story — and every one deserves expert attention tailored to its specific microclimate and soil conditions. The region's Mediterranean climate, with its bone-dry summers and brief rainy winters, means that irrigation management and soil health are not optional extras but absolute necessities for any homeowner who wants to maintain a green, inviting yard.
+
+Murphy's Turf Care brings a deep understanding of Los Angeles's wildly varied microclimates to every property we serve across the metro area. We know that the marine layer rolling off the Pacific keeps coastal neighborhoods cooler and more humid, while the San Fernando Valley and inland communities like Pasadena and Culver City bake under direct sun with temperatures that can swing twenty degrees higher on the same afternoon. Our team specializes in warm-season grass varieties — Bermuda, St. Augustine, and Buffalo grass — that thrive in Southern California's arid conditions, and we pair that expertise with water-efficient practices designed to keep your lawn lush without running afoul of municipal watering restrictions. Whether we are reviving a neglected yard in Hollywood, maintaining a pristine turf in West Hollywood, or helping a homeowner in Brentwood transition to a drought-tolerant landscape, Murphy's Turf Care delivers neighborhood-specific solutions rooted in real local knowledge. We work closely with our clients to develop maintenance programs that respect the city's water conservation mandates while still producing the kind of vibrant, healthy turf that makes a Los Angeles home feel complete, because we believe every Angeleno deserves a beautiful outdoor space regardless of their zip code.`,
     serviceAreaDescription:
-      'Murphy\'s Turf provides professional turf cleaning and lawn care services throughout the Denver metro area, covering neighborhoods from Capitol Hill and Highlands in the urban core to Park Hill, Stapleton, and Congress Park in the east.',
+      "Murphy's Turf Care provides professional turf cleaning and lawn care throughout the Los Angeles metro area, from Hollywood and Beverly Hills to Santa Monica, Silver Lake, Echo Park, Venice, Pasadena, Brentwood, and Culver City.",
     neighborhoods: [
-      'Capitol Hill',
-      'LoDo',
-      'Cherry Creek',
-      'Washington Park',
-      'Park Hill',
-      'Highlands',
-      'Baker',
-      'Congress Park',
-      'Stapleton',
-      'RiNo',
+      'Hollywood',
+      'Santa Monica',
+      'Beverly Hills',
+      'West Hollywood',
+      'Silver Lake',
+      'Echo Park',
+      'Venice',
+      'Pasadena',
+      'Brentwood',
+      'Culver City',
     ],
-    phone: '(720) 555-0147',
-    address: '1847 Welton St, Denver, CO 80202',
-    metaTitle: 'Turf Cleaning & Lawn Care in Denver, CO | Murphy\'s Turf',
+    phone: '(951) 331-3300',
+    address: '8721 W Sunset Blvd, Los Angeles, CA 90069',
+    metaTitle: "Turf Cleaning & Lawn Care in Los Angeles, CA | Murphy's Turf Care",
     metaDescription:
-      'Murphy\'s Turf offers expert turf cleaning and lawn care in Denver, CO. Serving Capitol Hill, Washington Park, Cherry Creek, LoDo & more. Call (720) 555-0147 for a free estimate.',
+      'Professional turf cleaning and lawn care in Los Angeles, CA. Serving Hollywood, Beverly Hills, Santa Monica, Pasadena & more. Water-smart solutions. Call (951) 331-3300.',
   },
   {
-    slug: 'colorado-springs',
-    name: 'Colorado Springs',
-    state: 'CO',
-    description:
-      "Nestled at the base of Pikes Peak and surrounded by iconic landmarks like Garden of the Gods, Colorado Springs is a city where natural beauty meets everyday life — and that includes the lawns and turf spaces that families depend on year-round. The city's elevation of over 6,000 feet creates unique microclimates that shift dramatically from one neighborhood to the next; a yard in the Broadmoor area faces very different conditions than one up near Briargate or Northgate. With a large population of active-duty military families and veterans who take real pride in their properties, maintaining clean, healthy turf is more than cosmetic — it reflects the discipline and care that define this community.\n\nMurphy's Turf brings specialized knowledge of Colorado Springs' particular challenges to every job we take on. From the clay-heavy soils common in Rockrimmon and Flying Horse to the wind-exposed lots near the Manitou Springs corridor, our team tailors each service to your property's specific conditions. We understand how rapidly the weather can shift at this elevation — a sunny 60-degree afternoon can give way to a spring snowstorm in hours — and we plan our treatments accordingly. Whether you are near the red rock formations of Garden of the Gods or tucked into a quiet Old Colorado City side street, Murphy's Turf keeps your outdoor spaces looking their best through every season.",
+    slug: 'murrieta',
+    name: 'Murrieta',
+    state: 'CA',
+    description: `Nestled in the heart of the Inland Empire, Murrieta has emerged as one of California's fastest-growing cities — a place where master-planned communities and brand-new subdivisions seem to spring up as quickly as the wildflowers that dot the surrounding hillsides each spring. That rapid growth brings a distinctive set of lawn care challenges that few other cities face at this scale. Newly constructed homes in developments like Spencer's Crossing, Greer Ranch, and Bear Creek often come with freshly graded lots where the topsoil has been stripped or compacted by heavy equipment, leaving homeowners to establish lawns in less-than-ideal conditions. Add in Inland Empire summers that regularly push past 100 degrees Fahrenheit with punishing, bone-dry heat, and it becomes clear why so many Murrieta residents struggle to keep their turf healthy through the brutal months between June and October. The clay-heavy soils common throughout the region retain heat and resist water penetration, creating an environment where even well-intentioned watering schedules can leave grass stressed, patchy, and vulnerable to disease without the right professional guidance.
+
+Murphy's Turf Care was founded right here in Murrieta — this is our home, our headquarters, and the community where we built our reputation one lawn at a time. We understand the Inland Empire's soil composition, its extreme temperature swings, and the specific irrigation demands of this region because we live and work in it every single day. From the established family neighborhoods of French Valley and Rancho Bella Vista to the newer communities at Copper Canyon and Ivy at Murrieta Hot Springs, we have cared for lawns at every stage — from first seeding on bare construction dirt to ongoing maintenance of mature, thriving turf. Our deep roots in Murrieta mean we know which grass varieties perform best in this climate, how to amend the stubborn local soils for better drainage and root health, and how to design watering programs that keep lawns green without wasting a drop. Murphy's Turf Care is proud to serve the community that started it all, and we bring that hometown commitment to every yard we touch across Murrieta, Bear Creek, The Meadows, and beyond, ensuring our neighbors enjoy the beautiful outdoor spaces they deserve year-round.`,
     serviceAreaDescription:
-      'Murphy\'s Turf serves the entire Colorado Springs metropolitan area, from Old Colorado City and the Broadmoor in the south to Briargate, Northgate, and Flying Horse in the north, including the greater Manitou Springs corridor.',
+      "As our hometown and headquarters, Murphy's Turf Care serves every corner of Murrieta — from French Valley and Greer Ranch to Spencer's Crossing, Bear Creek, The Meadows, and all surrounding Inland Empire communities.",
     neighborhoods: [
-      'Old Colorado City',
-      'Broadmoor',
-      'Briargate',
-      'Northgate',
-      'Manitou Springs area',
-      'Rockrimmon',
-      'Flying Horse',
-      'Garden of the Gods area',
-    ],
-    phone: '(720) 555-0238',
-    address: '2340 N Academy Blvd, Colorado Springs, CO 80909',
-    metaTitle:
-      'Turf Cleaning & Lawn Care in Colorado Springs, CO | Murphy\'s Turf',
-    metaDescription:
-      'Professional turf cleaning and lawn care in Colorado Springs, CO. Serving Broadmoor, Briargate, Old Colorado City & beyond. Call Murphy\'s Turf at (720) 555-0238 today.',
-  },
-  {
-    slug: 'aurora',
-    name: 'Aurora',
-    state: 'CO',
-    description:
-      "Aurora is one of Colorado's fastest-growing and most diverse communities, stretching from the edge of Denver's urban core out toward the sweeping eastern plains. That geographic range means turf conditions here vary widely: newer developments in Tallyn's Reach and Saddle Rock sit on recently graded soil that is still settling and compacting, while established neighborhoods like Heather Ridge and Mission Viejo feature mature landscapes with deeper root systems and older irrigation infrastructure. Across all of Aurora, wind exposure is a defining challenge — the open terrain to the east funnels strong gusts that dry out turf quickly, deposit grit and debris, and stress grass that is already contending with Colorado's low humidity and intense sunshine.\n\nMurphy's Turf is committed to helping Aurora homeowners keep their lawns clean, green, and resilient regardless of which part of this expansive city they call home. Our crews understand the transition zone between the metro area and the plains, where soil types shift and wind patterns intensify. From the popular Southlands shopping district neighborhoods to the family-friendly streets around Murphy Creek and the Quincy Reservoir area, we deliver thorough turf cleaning and targeted lawn care that addresses the real, on-the-ground conditions Aurora residents face every day. Let us handle the hard work so you can enjoy your yard without worrying about what the next wind event will leave behind.",
-    serviceAreaDescription:
-      'Murphy\'s Turf provides full-service turf cleaning and lawn care across Aurora, from the western neighborhoods near the Denver border to the newer eastern communities of Southlands, Tallyn\'s Reach, and Saddle Rock.',
-    neighborhoods: [
-      'Southlands',
-      "Tallyn's Reach",
-      'Saddle Rock',
-      'Murphy Creek',
-      'Heather Ridge',
-      'Mission Viejo',
-      'Quincy Reservoir area',
-    ],
-    phone: '(720) 555-0319',
-    address: '15105 E Alameda Pkwy, Aurora, CO 80012',
-    metaTitle: 'Turf Cleaning & Lawn Care in Aurora, CO | Murphy\'s Turf',
-    metaDescription:
-      'Aurora, CO turf cleaning and lawn care by Murphy\'s Turf. Serving Southlands, Saddle Rock, Tallyn\'s Reach, Murphy Creek & more. Call (720) 555-0319 for service.',
-  },
-  {
-    slug: 'lakewood',
-    name: 'Lakewood',
-    state: 'CO',
-    description:
-      "Lakewood sits right where the Denver metro area meets the foothills of the Rocky Mountains, giving this community a character all its own. With Red Rocks Amphitheatre just minutes away and Bear Creek Lake Park winding through the southern part of the city, residents here enjoy a deep connection to the outdoors — and that extends to the care they put into their own properties. Lakewood's varied elevations create distinct microzones for turf health: lower-lying neighborhoods like Belmar and Kendrick Lake have different drainage patterns and sun exposure than hillside properties near Green Mountain or the Morrison corridor. Mature trees in established neighborhoods like Applewood and Carmody provide welcome shade but also compete with lawns for water and nutrients in the thin, rocky soils common along the foothills.\n\nMurphy's Turf has the local expertise Lakewood homeowners need to navigate these elevation-driven challenges. Our team knows that a property in the Green Mountain area may need a completely different care plan than one down near Kendrick Lake, and we adjust our turf cleaning and maintenance approach accordingly. We work with the natural contours of Lakewood's landscape rather than against them, factoring in slope, sun angle, soil depth, and proximity to foothill drainages. From the revitalized Belmar district to the quiet, tree-canopied streets of Applewood, Murphy's Turf delivers results that reflect how much you value your home and the stunning natural setting that surrounds it.",
-    serviceAreaDescription:
-      'Murphy\'s Turf serves all of Lakewood, from the Belmar urban district and Kendrick Lake area in the east to the Green Mountain, Bear Creek, and Morrison foothills communities in the west.',
-    neighborhoods: [
-      'Belmar',
-      'Green Mountain',
+      'French Valley',
+      'Greer Ranch',
+      "Spencer's Crossing",
       'Bear Creek',
-      'Carmody',
-      'Applewood',
-      'Kendrick Lake',
-      'Morrison area',
+      'The Meadows',
+      'Rancho Bella Vista',
+      'Copper Canyon',
+      'Ivy at Murrieta Hot Springs',
     ],
-    phone: '(720) 555-0425',
-    address: '7580 W Colfax Ave, Lakewood, CO 80214',
-    metaTitle: 'Turf Cleaning & Lawn Care in Lakewood, CO | Murphy\'s Turf',
+    phone: '(951) 331-3300',
+    address: '26323 Jefferson Avenue, Murrieta, CA 92562',
+    metaTitle: "Turf Cleaning & Lawn Care in Murrieta, CA | Murphy's Turf Care",
     metaDescription:
-      'Lakewood, CO turf cleaning and lawn care from Murphy\'s Turf. Serving Belmar, Green Mountain, Applewood, Bear Creek & nearby areas. Call (720) 555-0425 for a quote.',
+      "Murphy's Turf Care headquarters in Murrieta, CA. Professional lawn care for French Valley, Greer Ranch, Spencer's Crossing & all Inland Empire communities. Call (951) 331-3300.",
   },
   {
-    slug: 'boulder',
-    name: 'Boulder',
-    state: 'CO',
-    description:
-      "Framed by the dramatic Flatirons rock formations and home to the University of Colorado, Boulder is a community that takes its relationship with the natural environment seriously. This eco-conscious city has long been a leader in sustainable living, and that mindset extends to how residents approach lawn care and outdoor maintenance. High-altitude gardening challenges are real here — at over 5,400 feet, the intense UV radiation, rapid temperature swings, and thin soils test even the hardiest turf varieties. Boulder homeowners, whether in the historic bungalows of Mapleton Hill, the academic enclave of University Hill, or the open spaces bordering Chautauqua Park, want their lawns to look great without compromising the environmental values that define the city.\n\nMurphy's Turf aligns with Boulder's sustainability-first ethos by using responsible, efficient practices that deliver excellent results without unnecessary waste or chemical overload. We understand that Boulder residents expect more from their service providers, and we meet that standard on every visit. Our crews are experienced with the specific turf conditions found across Boulder's diverse neighborhoods — from the irrigated lawns of South Boulder and Table Mesa to the windswept properties in Gunbarrel and the established yards of North Boulder and Newlands. Whether you are a longtime homeowner, a university-area landlord, or new to this remarkable mountain town, Murphy's Turf provides the thoughtful, high-quality turf cleaning and lawn care that Boulder demands.",
+    slug: 'martinez',
+    name: 'Martinez / Bay Area',
+    state: 'CA',
+    description: `Martinez sits along the southern shore of the Carquinez Strait in Contra Costa County, a charming waterfront city with tree-lined streets and a rich history that stretches back to the Gold Rush era. As the county seat, Martinez anchors a broader East Bay region that includes the bustling suburban corridors of Concord, Pleasant Hill, and Walnut Creek, the waterfront community of Benicia just across the strait, and the rapidly expanding cities of Antioch, Pittsburg, and Brentwood further inland toward the Sacramento-San Joaquin River Delta. What makes lawn care in this part of the Bay Area so fascinating — and so demanding — is the dramatic range of microclimates packed into a relatively compact geography. Near the strait and closer to the coast, marine influence keeps temperatures moderate, with cool mornings, afternoon breezes, and fog that can linger well into midday. Drive just thirty minutes inland toward Antioch or Brentwood, however, and you will find yourself in an entirely different climate zone where summer highs regularly exceed 95 degrees and the air turns dry and still. This gradient creates vastly different growing conditions, meaning the grass that flourishes in a shaded Walnut Creek backyard may struggle in a sun-exposed Brentwood lot, and vice versa.
+
+Murphy's Turf Care brings specialized knowledge of the East Bay's diverse conditions to every property we serve throughout Contra Costa County. We understand that the cool-season fescues and ryegrasses favored in Pleasant Hill and Martinez need different mowing heights, fertilization schedules, and irrigation timing than the warm-season Bermuda blends that perform better in the hotter inland communities. Our team is equally comfortable working in Martinez's established older neighborhoods — where mature oak trees create complex shade patterns and decades-old root systems compete with turf for nutrients — and in the newer master-planned developments of east Brentwood and Antioch, where builders often leave behind compacted subsoil that requires careful amendment before any lawn can truly take hold. The Bay Area's Mediterranean climate offers genuine advantages for lawn care, with mild, wet winters that naturally replenish soil moisture and long, dry summers that allow for predictable maintenance scheduling, but it also demands a firm commitment to water conservation. Murphy's Turf Care embraces that responsibility, employing smart irrigation practices and drought-conscious turf management strategies that keep East Bay lawns healthy and green while respecting the region's precious water resources.`,
     serviceAreaDescription:
-      'Murphy\'s Turf covers the entire Boulder area, from University Hill and Mapleton Hill near downtown to Table Mesa and South Boulder in the south, Gunbarrel to the northeast, and the Chautauqua and North Boulder neighborhoods.',
+      "Murphy's Turf Care serves Martinez and the greater Contra Costa County area, including Concord, Pleasant Hill, Walnut Creek, Benicia, Antioch, Pittsburg, and Brentwood throughout the East Bay.",
     neighborhoods: [
-      'University Hill',
-      'Mapleton Hill',
-      'Chautauqua',
-      'North Boulder',
-      'South Boulder',
-      'Table Mesa',
-      'Gunbarrel',
-      'Newlands',
+      'Martinez',
+      'Concord',
+      'Pleasant Hill',
+      'Walnut Creek',
+      'Benicia',
+      'Antioch',
+      'Pittsburg',
+      'Brentwood',
     ],
-    phone: '(720) 555-0531',
-    address: '1738 Pearl St, Boulder, CO 80302',
-    metaTitle: 'Turf Cleaning & Lawn Care in Boulder, CO | Murphy\'s Turf',
-    metaDescription:
-      'Eco-friendly turf cleaning and lawn care in Boulder, CO from Murphy\'s Turf. Serving University Hill, Chautauqua, Table Mesa, Gunbarrel & more. Call (720) 555-0531.',
-  },
-  {
-    slug: 'fort-collins',
-    name: 'Fort Collins',
-    state: 'CO',
-    description:
-      "Fort Collins blends small-town community feel with the energy of a thriving university city, anchored by Colorado State University and a nationally renowned craft beer culture that draws visitors from across the country. But beyond the bustling Old Town brewpubs and the scenic Cache la Poudre River corridor, Fort Collins is a city of neighborhoods — families in Fossil Creek and Warren Farms, students and young professionals near Campus West, and long-established residents in the Midtown and Richards Lake areas who have watched this northern Colorado gem grow while retaining its welcoming character. The climate here is noticeably different from Denver and the southern Front Range: winters are colder and longer, spring arrives later, and the growing season is compressed, which means turf management requires precise timing and a deep understanding of northern Colorado's particular rhythms.\n\nMurphy's Turf brings that local knowledge to every Fort Collins property we service. We know that a late-April snowstorm can undo weeks of early spring lawn progress, and we plan our cleaning and care schedules to account for Fort Collins' shorter, more intense growing season. The Cache la Poudre River's influence on local humidity and soil moisture, the wind exposure along the Harmony Road corridor, and the heavy clay soils common in newer Timberline-area developments all factor into the customized plans we build for each client. From the charming Victorian homes of Old Town to the spacious lots in Richards Lake and the family subdivisions off Harmony, Murphy's Turf delivers dependable, professional service that keeps Fort Collins lawns looking sharp — even when winter tries to hang on a little longer than anyone would like.",
-    serviceAreaDescription:
-      'Murphy\'s Turf proudly serves Fort Collins and surrounding areas, from the historic Old Town district and Campus West through the Harmony corridor, Timberline, Fossil Creek, and the Richards Lake and Warren Farms communities.',
-    neighborhoods: [
-      'Old Town',
-      'Midtown',
-      'Campus West',
-      'Harmony area',
-      'Timberline',
-      'Richards Lake',
-      'Fossil Creek',
-      'Warren Farms',
-    ],
-    phone: '(720) 555-0642',
-    address: '4612 S Mason St, Fort Collins, CO 80525',
+    phone: '(951) 331-3300',
+    address: '615 Main St, Martinez, CA 94553',
     metaTitle:
-      'Turf Cleaning & Lawn Care in Fort Collins, CO | Murphy\'s Turf',
+      "Turf Cleaning & Lawn Care in Martinez & Bay Area, CA | Murphy's Turf Care",
     metaDescription:
-      'Fort Collins, CO turf cleaning and lawn care by Murphy\'s Turf. Serving Old Town, Harmony, Campus West, Fossil Creek & more neighborhoods. Call (720) 555-0642 today.',
+      "Professional lawn care in Martinez, Concord, Walnut Creek & the East Bay. Murphy's Turf Care serves Contra Costa County with water-smart turf solutions. Call (951) 331-3300.",
+  },
+  {
+    slug: 'sacramento',
+    name: 'Sacramento',
+    state: 'CA',
+    description: `Sacramento, California's capital city, occupies a unique position at the confluence of the Sacramento and American Rivers in the heart of the Central Valley — a geographic setting that delivers some of the most extreme lawn care conditions in the entire state. Summer temperatures here routinely soar past 100 degrees Fahrenheit, sometimes for weeks on end, with low humidity that can desiccate an unprotected lawn in a matter of days. Unlike coastal cities where ocean breezes provide relief, Sacramento's Central Valley location means the heat is relentless and inescapable from June through September, placing enormous stress on turf grass and the irrigation systems that sustain it. The city itself is remarkably diverse in character, ranging from the historic, oak-canopied streets of Land Park and the charming Craftsman homes of East Sacramento to the vibrant urban energy of Midtown, the sprawling newer developments in Natomas, and the family-oriented suburbs of Elk Grove, Folsom, Roseville, and Rancho Cordova. Each of these communities presents its own lawn care profile — older neighborhoods contend with mature tree root systems and aging sprinkler infrastructure, while newer subdivisions face the challenges of establishing healthy turf in freshly graded, nutrient-depleted soil under a punishing sun.
+
+Murphy's Turf Care serves the entire Sacramento metropolitan area with a level of expertise that only comes from truly understanding the Central Valley's demanding climate and soil conditions. We know that the region's heavy clay soils — prevalent from Arden-Arcade to Citrus Heights and beyond — require specific amendment and aeration strategies to promote healthy root growth and prevent water runoff. Our team specializes in warm-season grass management, helping Sacramento homeowners select and maintain varieties like Bermuda and Zoysia that can withstand triple-digit heat while still delivering that lush, inviting green that makes a backyard feel like an oasis. From the established, tree-shaded lots of Land Park, where cool-season blends can thrive under the canopy, to the wide-open, sun-drenched yards of Natomas and Rancho Cordova, we tailor our approach to the specific conditions of each neighborhood. Water efficiency is at the core of everything we do in Sacramento — with increasing pressure on Central Valley water resources, Murphy's Turf Care designs irrigation programs and maintenance plans that maximize every gallon, keeping lawns healthy and vibrant through even the most brutal 100-plus-degree summers without unnecessary waste. We are proud to help Sacramento homeowners enjoy beautiful outdoor spaces that stand up to the valley heat.`,
+    serviceAreaDescription:
+      "Murphy's Turf Care serves the entire Sacramento metropolitan area, including Elk Grove, Folsom, Roseville, Natomas, Land Park, East Sacramento, Midtown, Arden-Arcade, Citrus Heights, and Rancho Cordova.",
+    neighborhoods: [
+      'Elk Grove',
+      'Folsom',
+      'Roseville',
+      'Natomas',
+      'Land Park',
+      'East Sacramento',
+      'Midtown',
+      'Arden-Arcade',
+      'Citrus Heights',
+      'Rancho Cordova',
+    ],
+    phone: '(951) 331-3300',
+    address: '2100 J Street, Sacramento, CA 95816',
+    metaTitle: "Turf Cleaning & Lawn Care in Sacramento, CA | Murphy's Turf Care",
+    metaDescription:
+      'Professional turf cleaning and lawn care in Sacramento, CA. Serving Elk Grove, Folsom, Roseville, Natomas, Land Park & more. Beat the Central Valley heat. Call (951) 331-3300.',
   },
 ];

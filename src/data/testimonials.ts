@@ -3,122 +3,107 @@ import type { Testimonial } from '../types';
 export const testimonials: Testimonial[] = [
   {
     customerName: 'Mike Thompson',
-    customerLocation: 'Denver',
+    customerLocation: 'Los Angeles',
     rating: 5,
-    reviewText:
-      "After the brutal winter we had, I honestly thought my lawn was a lost cause. Murphy's Turf came out, did their thing, and within a few weeks I had the greenest lawn on the block. My neighbor actually stopped me to ask who I was using. Can't recommend them enough.",
+    reviewText: "Our lawn was looking rough after the summer drought restrictions. Murphy's Turf Care came out, did a full deep cleaning and dethatching, and within a few weeks we had the greenest lawn on the block. My neighbor in Beverly Hills actually stopped me to ask who I was using. Can't recommend them enough.",
     serviceType: 'lawn-cleaning',
   },
   {
     customerName: 'Sarah Chen',
-    customerLocation: 'Boulder',
+    customerLocation: 'Murrieta',
     rating: 5,
-    reviewText:
-      "Anyone in Boulder knows the clay soil up here is no joke. I'd been fighting compaction issues for years before I called Murphy's. After just one aeration treatment the difference was night and day — my grass actually started filling in on its own. They really know what they're doing with Front Range soil.",
+    reviewText: "Anyone in the Inland Empire knows how hard it is to keep grass alive in 110-degree summers. I'd been fighting compacted soil for years before I called Murphy's. After just one aeration treatment the difference was night and day — my grass in Spencer's Crossing actually started filling in on its own. They really know Inland Empire soil.",
     serviceType: 'aeration',
   },
   {
     customerName: 'Carlos Rodriguez',
-    customerLocation: 'Aurora',
+    customerLocation: 'Sacramento',
     rating: 5,
-    reviewText:
-      "We had these ugly bare patches all over our backyard that nothing seemed to fix. Murphy's came out, overseeded with a drought-resistant blend, and walked me through the watering schedule. Three months later you'd never know those patches existed. Seriously impressed with the results.",
+    reviewText: "We had ugly bare patches all over our Elk Grove backyard that nothing seemed to fix. Murphy's came out, overseeded with a drought-resistant warm-season blend, and walked me through the watering schedule. Three months later you'd never know those patches existed. Seriously impressed with the results.",
     serviceType: 'seeding',
   },
   {
     customerName: 'Jennifer Walsh',
-    customerLocation: 'Lakewood',
+    customerLocation: 'Martinez',
     rating: 4,
-    reviewText:
-      "Our lawn is greener than it's been since we moved in six years ago. I was nervous about fertilizer because our kids are out there constantly, but Murphy's uses family-safe products and explained everything they were putting down. Only reason I'm not giving five stars is I wish the scheduling was a little more flexible, but the results speak for themselves.",
+    reviewText: "Our lawn in Walnut Creek is greener than it's been since we moved in six years ago. I was nervous about fertilizer because our kids are out there constantly, but Murphy's uses family-safe products and explained everything they were putting down. Only reason I'm not giving five stars is I wish the scheduling was a little more flexible, but the results speak for themselves.",
     serviceType: 'fertilization',
   },
   {
     customerName: 'David Okafor',
-    customerLocation: 'Colorado Springs',
+    customerLocation: 'Los Angeles',
     rating: 5,
-    reviewText:
-      "We had a terrible grub infestation — brown spots everywhere and the lawn felt spongy underfoot. Murphy's identified the problem on the first visit and treated it with products that are safe around our two dogs. Within a month the grubs were gone and the grass started bouncing back. These guys saved our yard.",
+    reviewText: "We had a terrible grub infestation in our Pasadena yard — brown spots everywhere and the lawn felt spongy underfoot. Murphy's Turf Care identified the problem on the first visit and treated it with products that are safe around our two dogs. Within a month the grubs were gone and the grass started bouncing back. These guys saved our yard.",
     serviceType: 'pest-control',
   },
   {
     customerName: 'Lisa Martinez',
-    customerLocation: 'Fort Collins',
+    customerLocation: 'Murrieta',
     rating: 5,
-    reviewText:
-      "I signed up for the spring and fall seasonal packages and it's the best decision I've made for my home. My yard looks incredible year-round now and I don't have to think about it. The crew is always on time, super professional, and they leave the place looking perfect every single visit.",
+    reviewText: "I signed up for the seasonal maintenance packages and it's the best decision I've made for my home in French Valley. My yard looks incredible year-round now even through those brutal Inland Empire summers and I don't have to think about it. The crew is always on time, super professional, and they leave the place looking perfect.",
     serviceType: 'seasonal-maintenance',
   },
   {
     customerName: 'Robert Kim',
-    customerLocation: 'Denver',
+    customerLocation: 'Sacramento',
     rating: 5,
-    reviewText:
-      "Our soil was so compacted that water would just pool on the surface after every rain. Murphy's did a core aeration and the improvement was immediate — water actually soaks in now instead of running off. The lawn thickened up noticeably within a couple weeks. Worth every penny.",
+    reviewText: "Our soil in Natomas was so compacted that water would just pool on the surface. Murphy's did a core aeration and the improvement was immediate — water actually soaks in now instead of running off into the street. The lawn thickened up noticeably within a couple weeks. Worth every penny, especially with Sacramento water prices.",
     serviceType: 'aeration',
   },
   {
     customerName: 'Amanda Foster',
-    customerLocation: 'Boulder',
+    customerLocation: 'Martinez',
     rating: 4,
-    reviewText:
-      "I specifically went with Murphy's because of their eco-friendly approach — that matters a lot to me. They did a really thorough cleanup of our yard after a long winter and were careful about what products they used. I'd give five stars but they were a day late on the initial appointment. That said, the work itself was excellent.",
+    reviewText: "I specifically went with Murphy's because of their eco-friendly, water-smart approach — that matters a lot here in the Bay Area. They did a really thorough cleanup of our Pleasant Hill yard and were careful about what products they used near our garden beds. I'd give five stars but they were a day late on the initial appointment. That said, the work itself was excellent.",
     serviceType: 'lawn-cleaning',
   },
   {
     customerName: 'James Murphy',
-    customerLocation: 'Colorado Springs',
+    customerLocation: 'Los Angeles',
     rating: 5,
-    reviewText:
-      "No, I'm not related to the owner — I just have great taste in lawn care companies! All jokes aside, Murphy's did an outstanding job reseeding our front yard after we had some construction work done. The new grass came in thick and even, and they matched it perfectly to our existing lawn. Fellow Murphys know quality when they see it.",
+    reviewText: "No, I'm not related to the owner — I just have great taste in lawn care companies! All jokes aside, Murphy's did an outstanding job reseeding our Silver Lake front yard after we had some renovation work done. The new warm-season grass came in thick and even, and they matched it perfectly to our existing lawn. Fellow Murphys know quality when they see it.",
     serviceType: 'seeding',
   },
   {
     customerName: 'Patricia Nguyen',
-    customerLocation: 'Aurora',
+    customerLocation: 'Murrieta',
     rating: 5,
-    reviewText:
-      "Murphy's put together a custom fertilization program for our yard and the results have been unreal. My lawn has never looked this lush. At least three neighbors have knocked on my door asking what I'm using — I just tell them to call Murphy's. It's like having a secret weapon for your grass.",
+    reviewText: "Murphy's put together a custom fertilization program for our Greer Ranch yard and the results have been unreal. My lawn has never looked this lush, even in August when everything around here is usually scorched. At least three neighbors have knocked on my door asking what I'm using — I just tell them to call Murphy's Turf Care.",
     serviceType: 'fertilization',
   },
   {
     customerName: 'Tom Bradley',
-    customerLocation: 'Lakewood',
+    customerLocation: 'Sacramento',
     rating: 5,
-    reviewText:
-      "I manage twelve residential properties across Lakewood and I use Murphy's for all of them. They handle the seasonal maintenance for every single property and the consistency is remarkable. My tenants are happy, the properties look sharp, and I don't have to chase down a different crew for each location. For any property managers out there — just call these guys.",
+    reviewText: "I manage twelve residential properties across the Sacramento metro and I use Murphy's for all of them. They handle the seasonal maintenance for every property from Folsom to Rancho Cordova and the consistency is remarkable. My tenants are happy, the properties look sharp, and I don't have to chase down a different crew for each location. For any property managers out there — just call these guys.",
     serviceType: 'seasonal-maintenance',
   },
   {
     customerName: 'Rachel Goldstein',
-    customerLocation: 'Denver',
+    customerLocation: 'Los Angeles',
     rating: 5,
-    reviewText:
-      "Our yard was basically a dandelion farm by the time I called Murphy's. I'm not exaggerating — it was embarrassing. They came out with an organic treatment plan and within two seasons we actually have a lawn again, not a weed garden. I love that they offered organic options without me even having to ask.",
+    reviewText: "Our Culver City yard was basically a weed farm by the time I called Murphy's. I'm not exaggerating — it was embarrassing. They came out with an eco-friendly treatment plan and within two seasons we actually have a lawn again, not a weed garden. I love that they offered organic options without me even having to ask.",
     serviceType: 'pest-control',
   },
   {
     customerName: 'Mark Stevens',
-    customerLocation: 'Fort Collins',
+    customerLocation: 'Martinez',
     rating: 4,
-    reviewText:
-      "I had no idea how much dead thatch was choking out my lawn until Murphy's did a dethatching. The before and after was honestly shocking — it looked like a completely different yard. My only regret is not calling them two years ago when the problem started. Don't make my mistake, just pick up the phone.",
+    reviewText: "I had no idea how much dead thatch was choking out my Concord lawn until Murphy's did a dethatching. The before and after was honestly shocking — it looked like a completely different yard. My only regret is not calling them two years ago when the problem started. Don't make my mistake, just pick up the phone.",
     serviceType: 'lawn-cleaning',
   },
   {
     customerName: 'Diane Cooper',
-    customerLocation: 'Colorado Springs',
+    customerLocation: 'Murrieta',
     rating: 5,
-    reviewText:
-      "Growing a nice lawn at our altitude isn't easy, and most companies I've tried just use a generic one-size-fits-all approach. Murphy's actually understands Colorado soil and the challenges we deal with up here. Their fertilization program is tailored to our specific conditions and the difference shows. Finally found a company that gets it.",
+    reviewText: "Keeping a nice lawn in the Inland Empire heat isn't easy, and most companies I've tried just use a generic one-size-fits-all approach. Murphy's Turf Care actually understands our soil and the challenges we deal with out here in Copper Canyon. Their fertilization program is tailored to our specific conditions and the difference shows. Finally found a company that gets it.",
     serviceType: 'fertilization',
   },
   {
     customerName: "Kevin O'Brien",
-    customerLocation: 'Boulder',
+    customerLocation: 'Sacramento',
     rating: 5,
-    reviewText:
-      "I handed my entire lawn care over to Murphy's seasonal maintenance program and I haven't worried about my yard once since. They handle aeration, fertilization, cleanup — all of it. The comprehensive approach means nothing falls through the cracks. I recommend them to literally everyone who compliments our lawn, which happens a lot now.",
+    reviewText: "I handed my entire lawn care over to Murphy's seasonal maintenance program and I haven't worried about my East Sacramento yard once since. They handle aeration, fertilization, cleanup — all of it, even through those 100-degree Central Valley summers. I recommend them to literally everyone who compliments our lawn, which happens a lot now.",
     serviceType: 'seasonal-maintenance',
   },
 ];
