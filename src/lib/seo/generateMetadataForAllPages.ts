@@ -8,70 +8,64 @@ import {
 
 export const homeMetadata = generatePageMetadata(
   "Professional Artificial Turf Cleaning in California",
-  "Murphy's Turf Care provides expert artificial turf cleaning, sanitization, pet odor removal, and synthetic turf maintenance across California. Free estimates — call (951) 331-3300 today!",
+  "Murphy's Turf — 30+ years of professional artificial turf cleaning, sanitization, and deodorizing across California. Our OxyTurf solution keeps your synthetic turf fresh and clean. Serving Huntington Beach, Murrieta, Martinez & Sacramento. Call 951-331-3300!",
   "/"
 );
 
 export const aboutMetadata = generatePageMetadata(
-  "About Us",
-  "Learn about Murphy's Turf Care — California's trusted artificial turf cleaning professionals. Locally operated and committed to keeping your synthetic turf fresh, clean, and odor-free.",
+  "About Us — 30+ Years of Turf Cleaning Experience",
+  "Murphy's Turf brings 30+ years of experience to artificial turf cleaning. Based in Murrieta, CA, we serve communities across California with our proprietary OxyTurf cleaning solution. When you care about clean turf, call Murphy's Turf.",
   "/about"
 );
 
 export const contactMetadata = generatePageMetadata(
   "Contact Us",
-  "Get in touch with Murphy's Turf Care for a free artificial turf cleaning quote. Serving Los Angeles, Murrieta, Martinez, Sacramento, and more. Call (951) 331-3300 or fill out our form.",
+  "Get a free artificial turf cleaning quote from Murphy's Turf. Serving Huntington Beach, Murrieta, Martinez, and Sacramento. Call 951-331-3300 or fill out our form.",
   "/contact"
 );
 
 export const servicesMetadata = generatePageMetadata(
   "Our Artificial Turf Cleaning Services",
-  "Explore Murphy's Turf Care professional services: artificial turf cleaning, pet odor treatment, turf deodorizing, turf repair, commercial turf cleaning, and turf sanitization throughout California.",
+  "Murphy's Turf offers complete artificial turf cleaning: pet hair & debris removal, blooming & decompacting, disinfecting & deodorizing, poop scooping, and our signature OxyTurf treatment. 30+ years experience.",
   "/services"
 );
 
 export const locationsMetadata = generatePageMetadata(
   "Artificial Turf Cleaning Locations in California",
-  "Murphy's Turf Care serves Los Angeles, Murrieta, Martinez, Sacramento, and surrounding areas. Find professional artificial turf cleaning services near you.",
+  "Murphy's Turf serves Huntington Beach, Murrieta, Martinez, Sacramento, and surrounding areas. Find professional artificial turf cleaning and sanitization near you.",
   "/locations"
 );
 
 const services = [
   {
-    name: "Artificial Turf Cleaning",
-    slug: "turf-cleaning" as const,
+    name: "Pet Hair & Debris Removal",
+    slug: "pet-hair-debris" as const,
     shortDescription:
-      "Deep cleaning for artificial turf to remove dirt, debris, bacteria, and buildup — restoring your synthetic lawn to like-new condition.",
+      "Thorough removal of pet hair, leaves, dirt, and embedded debris from your artificial turf using professional-grade equipment.",
   },
   {
-    name: "Pet Odor Treatment",
-    slug: "pet-odor-treatment" as const,
+    name: "Blooming & Decompacting",
+    slug: "blooming-decompacting" as const,
     shortDescription:
-      "Specialized pet urine and odor treatment for artificial turf. Eliminates bacteria and neutralizes odors from pet waste on synthetic grass.",
+      "Restore your turf's natural look with professional blooming and decompacting — lifts matted fibers and loosens compacted infill for a fresh, upright appearance.",
   },
   {
-    name: "Turf Deodorizing",
-    slug: "turf-deodorizing" as const,
+    name: "Disinfect & Deodorize",
+    slug: "disinfect-deodorize" as const,
     shortDescription:
-      "Professional turf deodorizing to eliminate persistent odors from artificial grass using enzyme-based treatments and eco-friendly solutions.",
+      "Kill 99.9% of bacteria and eliminate odors from your artificial turf with our professional disinfecting and deodorizing treatment. Safe for pets and kids.",
   },
   {
-    name: "Turf Repair",
-    slug: "turf-repair" as const,
+    name: "Poop Scooping",
+    slug: "poop-scooping" as const,
     shortDescription:
-      "Expert artificial turf repair services including seam fixes, infill replenishment, and damaged section replacement to extend your turf's lifespan.",
+      "Regular poop scooping service for artificial turf — we remove pet waste and sanitize the affected area to prevent odor buildup and bacteria growth.",
   },
   {
-    name: "Commercial Turf Cleaning",
-    slug: "commercial-turf-cleaning" as const,
+    name: "OxyTurf Treatment",
+    slug: "oxyturf" as const,
     shortDescription:
-      "Professional artificial turf cleaning for commercial properties, sports facilities, playgrounds, and HOA common areas across California.",
-  },
-  {
-    name: "Turf Sanitization",
-    slug: "turf-sanitization" as const,
-    shortDescription:
-      "Hospital-grade sanitization for artificial turf surfaces. Kills 99.9% of bacteria, mold, and allergens for a safe, hygienic synthetic lawn.",
+      "Our signature OxyTurf cleaning solution — a proprietary, eco-friendly formula that deep cleans, deodorizes, and revitalizes artificial turf without harsh chemicals.",
   },
 ];
 
@@ -82,28 +76,28 @@ for (const service of services) {
 
 const locations = [
   {
-    name: "Los Angeles",
-    slug: "los-angeles" as const,
+    name: "Huntington Beach",
+    slug: "huntington-beach" as const,
     description:
-      "Serving the Los Angeles metro area with expert artificial turf cleaning, sanitization, and pet odor removal services.",
+      "Serving Huntington Beach and Orange County with expert artificial turf cleaning, pet odor removal, and OxyTurf sanitization.",
   },
   {
     name: "Murrieta",
     slug: "murrieta" as const,
     description:
-      "Professional artificial turf cleaning for Murrieta homeowners and businesses in the Inland Empire.",
+      "Murphy's Turf headquarters in Murrieta. Professional artificial turf cleaning for the Inland Empire including Temecula, Menifee, and Lake Elsinore.",
   },
   {
     name: "Martinez",
     slug: "martinez" as const,
     description:
-      "Reliable artificial turf cleaning services in Martinez and the Bay Area — from deep cleaning to pet odor treatment.",
+      "Professional artificial turf cleaning in Martinez and the East Bay. Serving Contra Costa County, Walnut Creek, Concord, and the greater Bay Area.",
   },
   {
     name: "Sacramento",
     slug: "sacramento" as const,
     description:
-      "Full-service artificial turf cleaning in Sacramento — keeping Central Valley synthetic lawns fresh and sanitized year-round.",
+      "Artificial turf cleaning in Sacramento and surrounding areas including Elk Grove, Roseville, Folsom, and the Central Valley.",
   },
 ];
 
@@ -116,76 +110,76 @@ export const blogIndexMetadata = generateBlogIndexMetadata();
 
 const blogPosts = [
   {
-    title: "The Ultimate Guide to Artificial Turf Cleaning",
-    slug: "ultimate-guide-artificial-turf-cleaning",
+    title: "How to Clean Artificial Turf: The Complete Guide",
+    slug: "how-to-clean-artificial-turf",
     description:
-      "Everything you need to know about cleaning artificial turf — methods, frequency, DIY vs. professional cleaning, and how to keep synthetic grass looking pristine.",
+      "Everything you need to know about cleaning artificial turf — from basic maintenance to deep cleaning. Learn the methods professionals use to keep synthetic grass pristine.",
   },
   {
-    title: "Pet Turf Odor Removal: Tips That Actually Work",
-    slug: "pet-turf-odor-removal-tips",
+    title: "Professional Turf Cleaning in Huntington Beach: What to Expect",
+    slug: "professional-turf-cleaning-huntington-beach",
     description:
-      "How to eliminate pet urine odor from artificial turf. Proven methods for neutralizing bacteria and keeping your synthetic lawn fresh for pets and family.",
+      "What Huntington Beach and Orange County homeowners should know about professional artificial turf cleaning. Services, pricing, and why coastal turf needs special attention.",
+  },
+  {
+    title: "Removing Pet Odors from Artificial Turf in Murrieta's Heat",
+    slug: "removing-pet-odors-murrieta",
+    description:
+      "How Inland Empire heat intensifies pet odors on artificial turf, and the proven methods Murphy's Turf uses to eliminate them. Tips specific to Murrieta and Temecula homeowners.",
+  },
+  {
+    title: "Artificial Turf Maintenance in the Bay Area",
+    slug: "artificial-turf-maintenance-bay-area",
+    description:
+      "Bay Area-specific artificial turf maintenance tips for Martinez, Walnut Creek, and Contra Costa County. How fog, moisture, and coastal conditions affect synthetic turf care.",
+  },
+  {
+    title: "Sacramento Turf Cleaning Tips: Beating Central Valley Heat",
+    slug: "sacramento-turf-cleaning-tips",
+    description:
+      "Artificial turf cleaning strategies for Sacramento homeowners dealing with extreme Central Valley heat. Maintenance schedules, cooling tips, and when to call the professionals.",
+  },
+  {
+    title: "The Health Benefits of Regular Turf Sanitization",
+    slug: "health-benefits-turf-sanitization",
+    description:
+      "Why regular artificial turf sanitization matters for your family's health. Bacteria, allergens, and pathogens that accumulate on synthetic grass — and how to eliminate them.",
   },
   {
     title: "How Often Should You Clean Artificial Turf?",
     slug: "how-often-clean-artificial-turf",
     description:
-      "Learn the recommended cleaning frequency for residential and commercial artificial turf. Seasonal schedules, maintenance tips, and signs it's time for a deep clean.",
+      "The recommended cleaning frequency for residential and commercial artificial turf. Factors that affect your schedule: pets, foot traffic, trees, and California climate.",
   },
   {
-    title: "Artificial Turf vs. Natural Grass: Maintenance Compared",
-    slug: "artificial-turf-vs-natural-grass-maintenance",
+    title: "What Is OxyTurf? The Safe Way to Clean Synthetic Turf",
+    slug: "what-is-oxyturf-safe-turf-cleaning",
     description:
-      "A detailed comparison of artificial turf and natural grass maintenance costs, time, water usage, and long-term care requirements for California homeowners.",
+      "Learn about OxyTurf — Murphy's Turf proprietary cleaning solution. How it works, why it's safe for pets and children, and what makes it different from generic turf cleaners.",
   },
   {
-    title: "Why Commercial Properties Need Professional Turf Cleaning",
-    slug: "commercial-turf-cleaning-benefits",
+    title: "DIY vs. Professional Turf Cleaning: Is It Worth It?",
+    slug: "diy-vs-professional-turf-cleaning",
     description:
-      "The business case for professional artificial turf cleaning at commercial facilities, sports venues, and HOA common areas. ROI, hygiene, and liability benefits.",
+      "Comparing DIY artificial turf cleaning to professional services. When a garden hose isn't enough, and why professional-grade equipment and solutions deliver better results.",
   },
   {
-    title: "The Synthetic Turf Sanitization Process Explained",
-    slug: "synthetic-turf-sanitization-process",
+    title: "Artificial Turf and Pets: Keeping It Clean and Safe",
+    slug: "artificial-turf-pets-clean-safe",
     description:
-      "A step-by-step look at professional synthetic turf sanitization — from initial assessment to enzyme treatment, UV sanitization, and infill grooming.",
+      "The complete guide to maintaining artificial turf with pets. Odor prevention, cleaning routines, safe sanitization methods, and tips from 30+ years of experience.",
   },
   {
-    title: "Keeping Artificial Turf Cool in California Heat",
-    slug: "keeping-artificial-turf-cool-california-heat",
+    title: "Why Does My Artificial Turf Smell? Causes and Fixes",
+    slug: "why-artificial-turf-smells-fix",
     description:
-      "Practical solutions for reducing artificial turf heat in California summers. Cooling infills, shade strategies, and maintenance tips for comfortable synthetic grass.",
+      "Common causes of artificial turf odor — pet urine, bacteria, trapped moisture, and organic buildup. Professional solutions that actually eliminate the smell, not just mask it.",
   },
   {
-    title: "Artificial Turf Cleaning Mistakes to Avoid",
-    slug: "artificial-turf-cleaning-mistakes-to-avoid",
+    title: "5 Signs Your Turf Needs Professional Cleaning",
+    slug: "signs-turf-needs-professional-cleaning",
     description:
-      "Common mistakes homeowners make when cleaning artificial turf — harsh chemicals, pressure washing errors, and neglecting infill — and how to avoid them.",
-  },
-  {
-    title: "Why Professional Turf Cleaning Matters",
-    slug: "why-professional-turf-cleaning-matters",
-    description:
-      "The difference between DIY and professional artificial turf cleaning. Why expert equipment, enzyme treatments, and proper techniques deliver superior results.",
-  },
-  {
-    title: "How to Extend the Lifespan of Your Artificial Turf",
-    slug: "extending-lifespan-artificial-turf",
-    description:
-      "Maximize your artificial turf investment with proper maintenance. Tips for extending synthetic grass lifespan from 15 to 25+ years with regular professional care.",
-  },
-  {
-    title: "The Complete Artificial Turf Guide for Pet Owners",
-    slug: "artificial-turf-pet-owners-guide",
-    description:
-      "Everything pet owners need to know about artificial turf — choosing pet-friendly turf, cleaning routines, odor prevention, and keeping it safe for dogs and cats.",
-  },
-  {
-    title: "Seasonal Artificial Turf Maintenance in California",
-    slug: "seasonal-artificial-turf-maintenance-california",
-    description:
-      "A season-by-season guide to artificial turf maintenance in California. Spring refresh, summer heat management, fall cleanup, and winter care for synthetic lawns.",
+      "How to tell when your artificial turf needs professional attention. Visible warning signs, smell indicators, and drainage issues that signal it's time to call Murphy's Turf.",
   },
 ];
 
