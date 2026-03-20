@@ -1,7 +1,7 @@
 export const SITE_URL = "https://murphysturf.com";
 export const COMPANY_NAME = "Murphy's Turf Care";
 export const COMPANY_DESCRIPTION =
-  "Professional turf cleaning and lawn care services across California. From aeration and seeding to fertilization and pest control, Murphy's Turf Care keeps your lawn healthy and beautiful year-round.";
+  "Professional artificial turf cleaning, sanitization, and maintenance services across California. Murphy's Turf Care specializes in pet turf cleaning, odor removal, turf deodorizing, and synthetic turf repair to keep your artificial lawn fresh, clean, and looking like new.";
 export const COMPANY_PHONE = "(951) 331-3300";
 export const COMPANY_EMAIL = "info@murphysturf.com";
 
@@ -23,12 +23,12 @@ export const SOCIAL_LINKS = {
 };
 
 export const SERVICE_SLUGS = [
-  "lawn-cleaning",
-  "aeration",
-  "seeding",
-  "fertilization",
-  "pest-control",
-  "seasonal-maintenance",
+  "turf-cleaning",
+  "pet-odor-treatment",
+  "turf-deodorizing",
+  "turf-repair",
+  "commercial-turf-cleaning",
+  "turf-sanitization",
 ] as const;
 
 export const LOCATION_SLUGS = [
@@ -39,18 +39,18 @@ export const LOCATION_SLUGS = [
 ] as const;
 
 export const BLOG_SLUGS = [
-  "ultimate-guide-lawn-care-los-angeles",
-  "turf-maintenance-murrieta-hot-summers",
-  "bay-area-lawn-care-martinez-homeowners",
-  "sacramento-valley-lawn-care-central-valley-heat",
-  "water-smart-lawn-care-california-drought",
-  "when-to-aerate-lawn-southern-california",
-  "benefits-professional-turf-cleaning",
-  "spring-lawn-care-checklist-california",
-  "choosing-right-grass-type-california",
-  "eco-friendly-lawn-care-greener-california",
-  "common-lawn-pests-california",
-  "fall-lawn-preparation-california",
+  "ultimate-guide-artificial-turf-cleaning",
+  "pet-turf-odor-removal-tips",
+  "how-often-clean-artificial-turf",
+  "artificial-turf-vs-natural-grass-maintenance",
+  "commercial-turf-cleaning-benefits",
+  "synthetic-turf-sanitization-process",
+  "keeping-artificial-turf-cool-california-heat",
+  "artificial-turf-cleaning-mistakes-to-avoid",
+  "why-professional-turf-cleaning-matters",
+  "extending-lifespan-artificial-turf",
+  "artificial-turf-pet-owners-guide",
+  "seasonal-artificial-turf-maintenance-california",
 ] as const;
 
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];

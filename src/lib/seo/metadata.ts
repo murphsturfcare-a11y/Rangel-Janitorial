@@ -51,8 +51,8 @@ export function generateServiceMetadata(service: {
   slug: string;
   shortDescription: string;
 }): Metadata {
-  const title = `${service.name} Services in California`;
-  const description = `${service.shortDescription} Professional ${service.name.toLowerCase()} services across California by ${COMPANY_NAME}. Get a free quote today!`;
+  const title = `${service.name} in California`;
+  const description = `${service.shortDescription} Professional ${service.name.toLowerCase()} across California by ${COMPANY_NAME}. Get a free quote today!`;
 
   return generatePageMetadata(title, description, `/services/${service.slug}`);
 }
@@ -62,8 +62,8 @@ export function generateLocationMetadata(location: {
   slug: string;
   description: string;
 }): Metadata {
-  const title = `Turf Cleaning & Lawn Care in ${location.name}, CA`;
-  const description = `${location.description} ${COMPANY_NAME} provides professional turf cleaning in ${location.name}, CA. Call today for a free estimate!`;
+  const title = `Artificial Turf Cleaning in ${location.name}, CA`;
+  const description = `${location.description} ${COMPANY_NAME} provides professional artificial turf cleaning and sanitization in ${location.name}, CA. Call today for a free estimate!`;
 
   return generatePageMetadata(
     title,
@@ -113,8 +113,8 @@ export function generateBlogMetadata(post: {
 
 export function generateBlogIndexMetadata(): Metadata {
   return generatePageMetadata(
-    "Lawn Care Blog — Tips & Guides for California Homeowners",
-    "Expert lawn care tips, seasonal maintenance guides, and turf care advice from Murphy's Turf Care. Learn how to keep your California lawn healthy and green.",
+    "Artificial Turf Cleaning Blog — Tips & Guides",
+    "Expert artificial turf cleaning tips, synthetic turf maintenance guides, and pet turf care advice from Murphy's Turf Care. Keep your California artificial turf fresh and clean.",
     "/blog"
   );
 }
@@ -126,6 +126,18 @@ export const DEFAULT_METADATA: Metadata = {
   },
   description: COMPANY_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
+  keywords: [
+    "artificial turf cleaning",
+    "synthetic turf cleaning",
+    "turf sanitization",
+    "pet turf cleaning",
+    "turf odor removal",
+    "turf deodorizing",
+    "artificial grass cleaning",
+    "turf maintenance California",
+    "commercial turf cleaning",
+    "turf repair",
+  ],
   alternates: {
     canonical: SITE_URL,
   },

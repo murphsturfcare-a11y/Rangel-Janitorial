@@ -7,71 +7,71 @@ import {
 } from "./metadata";
 
 export const homeMetadata = generatePageMetadata(
-  "Professional Lawn Care & Turf Cleaning in California",
-  "Murphy's Turf Care provides expert lawn care, turf cleaning, aeration, seeding, and fertilization services across California. Free estimates — call (951) 331-3300 today!",
+  "Professional Artificial Turf Cleaning in California",
+  "Murphy's Turf Care provides expert artificial turf cleaning, sanitization, pet odor removal, and synthetic turf maintenance across California. Free estimates — call (951) 331-3300 today!",
   "/"
 );
 
 export const aboutMetadata = generatePageMetadata(
   "About Us",
-  "Learn about Murphy's Turf Care — California's trusted lawn care professionals. Family-owned, locally operated, and committed to keeping your turf healthy and beautiful.",
+  "Learn about Murphy's Turf Care — California's trusted artificial turf cleaning professionals. Locally operated and committed to keeping your synthetic turf fresh, clean, and odor-free.",
   "/about"
 );
 
 export const contactMetadata = generatePageMetadata(
   "Contact Us",
-  "Get in touch with Murphy's Turf Care for a free lawn care quote. Serving Los Angeles, Murrieta, Martinez, Sacramento, and more. Call (951) 331-3300 or fill out our form.",
+  "Get in touch with Murphy's Turf Care for a free artificial turf cleaning quote. Serving Los Angeles, Murrieta, Martinez, Sacramento, and more. Call (951) 331-3300 or fill out our form.",
   "/contact"
 );
 
 export const servicesMetadata = generatePageMetadata(
-  "Our Lawn Care Services",
-  "Explore Murphy's Turf Care professional lawn care services: cleaning, aeration, seeding, fertilization, pest control, and seasonal maintenance throughout California.",
+  "Our Artificial Turf Cleaning Services",
+  "Explore Murphy's Turf Care professional services: artificial turf cleaning, pet odor treatment, turf deodorizing, turf repair, commercial turf cleaning, and turf sanitization throughout California.",
   "/services"
 );
 
 export const locationsMetadata = generatePageMetadata(
-  "Service Locations in California",
-  "Murphy's Turf Care serves Los Angeles, Murrieta, Martinez, Sacramento, and surrounding areas. Find lawn care services near you.",
+  "Artificial Turf Cleaning Locations in California",
+  "Murphy's Turf Care serves Los Angeles, Murrieta, Martinez, Sacramento, and surrounding areas. Find professional artificial turf cleaning services near you.",
   "/locations"
 );
 
 const services = [
   {
-    name: "Lawn Cleaning",
-    slug: "lawn-cleaning" as const,
+    name: "Artificial Turf Cleaning",
+    slug: "turf-cleaning" as const,
     shortDescription:
-      "Comprehensive lawn cleaning to remove debris, thatch, and buildup for a pristine yard.",
+      "Deep cleaning for artificial turf to remove dirt, debris, bacteria, and buildup — restoring your synthetic lawn to like-new condition.",
   },
   {
-    name: "Aeration",
-    slug: "aeration" as const,
+    name: "Pet Odor Treatment",
+    slug: "pet-odor-treatment" as const,
     shortDescription:
-      "Core aeration to reduce soil compaction, improve drainage, and promote deep root growth.",
+      "Specialized pet urine and odor treatment for artificial turf. Eliminates bacteria and neutralizes odors from pet waste on synthetic grass.",
   },
   {
-    name: "Seeding",
-    slug: "seeding" as const,
+    name: "Turf Deodorizing",
+    slug: "turf-deodorizing" as const,
     shortDescription:
-      "Overseeding and reseeding with premium grass varieties suited to California's climate.",
+      "Professional turf deodorizing to eliminate persistent odors from artificial grass using enzyme-based treatments and eco-friendly solutions.",
   },
   {
-    name: "Fertilization",
-    slug: "fertilization" as const,
+    name: "Turf Repair",
+    slug: "turf-repair" as const,
     shortDescription:
-      "Custom fertilization programs to nourish your lawn through every season in California.",
+      "Expert artificial turf repair services including seam fixes, infill replenishment, and damaged section replacement to extend your turf's lifespan.",
   },
   {
-    name: "Pest Control",
-    slug: "pest-control" as const,
+    name: "Commercial Turf Cleaning",
+    slug: "commercial-turf-cleaning" as const,
     shortDescription:
-      "Targeted pest control to protect your turf from grubs, insects, and lawn-damaging pests.",
+      "Professional artificial turf cleaning for commercial properties, sports facilities, playgrounds, and HOA common areas across California.",
   },
   {
-    name: "Seasonal Maintenance",
-    slug: "seasonal-maintenance" as const,
+    name: "Turf Sanitization",
+    slug: "turf-sanitization" as const,
     shortDescription:
-      "Year-round seasonal lawn maintenance including spring cleanup, summer care, and fall preparation.",
+      "Hospital-grade sanitization for artificial turf surfaces. Kills 99.9% of bacteria, mold, and allergens for a safe, hygienic synthetic lawn.",
   },
 ];
 
@@ -85,25 +85,25 @@ const locations = [
     name: "Los Angeles",
     slug: "los-angeles" as const,
     description:
-      "Serving the Los Angeles metro area with expert lawn care and turf maintenance services.",
+      "Serving the Los Angeles metro area with expert artificial turf cleaning, sanitization, and pet odor removal services.",
   },
   {
     name: "Murrieta",
     slug: "murrieta" as const,
     description:
-      "Professional turf cleaning and lawn care for Murrieta homeowners and businesses in the Inland Empire.",
+      "Professional artificial turf cleaning for Murrieta homeowners and businesses in the Inland Empire.",
   },
   {
     name: "Martinez",
     slug: "martinez" as const,
     description:
-      "Reliable lawn care services in Martinez and the Bay Area — from aeration to seasonal maintenance.",
+      "Reliable artificial turf cleaning services in Martinez and the Bay Area — from deep cleaning to pet odor treatment.",
   },
   {
     name: "Sacramento",
     slug: "sacramento" as const,
     description:
-      "Full-service lawn care in Sacramento — keeping Central Valley lawns healthy year-round.",
+      "Full-service artificial turf cleaning in Sacramento — keeping Central Valley synthetic lawns fresh and sanitized year-round.",
   },
 ];
 
@@ -116,76 +116,76 @@ export const blogIndexMetadata = generateBlogIndexMetadata();
 
 const blogPosts = [
   {
-    title: "The Ultimate Guide to Lawn Care in Los Angeles",
-    slug: "ultimate-guide-lawn-care-los-angeles",
+    title: "The Ultimate Guide to Artificial Turf Cleaning",
+    slug: "ultimate-guide-artificial-turf-cleaning",
     description:
-      "Everything LA homeowners need to know about maintaining a lush, green lawn in Southern California's unique climate. Watering tips, seasonal schedules, and more.",
+      "Everything you need to know about cleaning artificial turf — methods, frequency, DIY vs. professional cleaning, and how to keep synthetic grass looking pristine.",
   },
   {
-    title: "Turf Maintenance in Murrieta: Beating the Hot Summers",
-    slug: "turf-maintenance-murrieta-hot-summers",
+    title: "Pet Turf Odor Removal: Tips That Actually Work",
+    slug: "pet-turf-odor-removal-tips",
     description:
-      "How to keep your Murrieta lawn thriving through Inland Empire heat. Heat-tolerant grass types, smart irrigation, and professional care tips.",
+      "How to eliminate pet urine odor from artificial turf. Proven methods for neutralizing bacteria and keeping your synthetic lawn fresh for pets and family.",
   },
   {
-    title: "Bay Area Lawn Care: A Guide for Martinez Homeowners",
-    slug: "bay-area-lawn-care-martinez-homeowners",
+    title: "How Often Should You Clean Artificial Turf?",
+    slug: "how-often-clean-artificial-turf",
     description:
-      "Lawn care strategies for Martinez and Bay Area homeowners. Dealing with fog, microclimates, and coastal conditions for a beautiful yard.",
+      "Learn the recommended cleaning frequency for residential and commercial artificial turf. Seasonal schedules, maintenance tips, and signs it's time for a deep clean.",
   },
   {
-    title: "Sacramento Valley Lawn Care: Thriving in Central Valley Heat",
-    slug: "sacramento-valley-lawn-care-central-valley-heat",
+    title: "Artificial Turf vs. Natural Grass: Maintenance Compared",
+    slug: "artificial-turf-vs-natural-grass-maintenance",
     description:
-      "Expert tips for Sacramento homeowners to maintain healthy lawns despite Central Valley summers. Water-wise strategies and seasonal care guides.",
+      "A detailed comparison of artificial turf and natural grass maintenance costs, time, water usage, and long-term care requirements for California homeowners.",
   },
   {
-    title: "Water-Smart Lawn Care During California Drought",
-    slug: "water-smart-lawn-care-california-drought",
+    title: "Why Commercial Properties Need Professional Turf Cleaning",
+    slug: "commercial-turf-cleaning-benefits",
     description:
-      "Practical strategies for maintaining a beautiful lawn while conserving water during California drought conditions. Drought-tolerant grasses and smart irrigation.",
+      "The business case for professional artificial turf cleaning at commercial facilities, sports venues, and HOA common areas. ROI, hygiene, and liability benefits.",
   },
   {
-    title: "When to Aerate Your Lawn in Southern California",
-    slug: "when-to-aerate-lawn-southern-california",
+    title: "The Synthetic Turf Sanitization Process Explained",
+    slug: "synthetic-turf-sanitization-process",
     description:
-      "Learn the best times and methods for aerating your Southern California lawn. Improve drainage, reduce compaction, and promote healthier turf growth.",
+      "A step-by-step look at professional synthetic turf sanitization — from initial assessment to enzyme treatment, UV sanitization, and infill grooming.",
   },
   {
-    title: "The Benefits of Professional Turf Cleaning",
-    slug: "benefits-professional-turf-cleaning",
+    title: "Keeping Artificial Turf Cool in California Heat",
+    slug: "keeping-artificial-turf-cool-california-heat",
     description:
-      "Discover why professional turf cleaning is essential for a healthy lawn. Remove thatch, debris, and buildup to restore your yard's natural beauty.",
+      "Practical solutions for reducing artificial turf heat in California summers. Cooling infills, shade strategies, and maintenance tips for comfortable synthetic grass.",
   },
   {
-    title: "Spring Lawn Care Checklist for California",
-    slug: "spring-lawn-care-checklist-california",
+    title: "Artificial Turf Cleaning Mistakes to Avoid",
+    slug: "artificial-turf-cleaning-mistakes-to-avoid",
     description:
-      "Your complete spring lawn care checklist for California homeowners. From fertilization to weed control, prepare your lawn for the growing season.",
+      "Common mistakes homeowners make when cleaning artificial turf — harsh chemicals, pressure washing errors, and neglecting infill — and how to avoid them.",
   },
   {
-    title: "Choosing the Right Grass Type for California",
-    slug: "choosing-right-grass-type-california",
+    title: "Why Professional Turf Cleaning Matters",
+    slug: "why-professional-turf-cleaning-matters",
     description:
-      "Compare warm-season and cool-season grasses for California lawns. Find the best grass type for your region, climate, and lifestyle.",
+      "The difference between DIY and professional artificial turf cleaning. Why expert equipment, enzyme treatments, and proper techniques deliver superior results.",
   },
   {
-    title: "Eco-Friendly Lawn Care for a Greener California",
-    slug: "eco-friendly-lawn-care-greener-california",
+    title: "How to Extend the Lifespan of Your Artificial Turf",
+    slug: "extending-lifespan-artificial-turf",
     description:
-      "Sustainable lawn care practices for environmentally conscious California homeowners. Organic fertilizers, native plants, and reduced water usage.",
+      "Maximize your artificial turf investment with proper maintenance. Tips for extending synthetic grass lifespan from 15 to 25+ years with regular professional care.",
   },
   {
-    title: "Common Lawn Pests in California and How to Stop Them",
-    slug: "common-lawn-pests-california",
+    title: "The Complete Artificial Turf Guide for Pet Owners",
+    slug: "artificial-turf-pet-owners-guide",
     description:
-      "Identify and eliminate common California lawn pests including grubs, chinch bugs, and armyworms. Prevention tips and treatment options.",
+      "Everything pet owners need to know about artificial turf — choosing pet-friendly turf, cleaning routines, odor prevention, and keeping it safe for dogs and cats.",
   },
   {
-    title: "Fall Lawn Preparation: Getting Your California Lawn Ready",
-    slug: "fall-lawn-preparation-california",
+    title: "Seasonal Artificial Turf Maintenance in California",
+    slug: "seasonal-artificial-turf-maintenance-california",
     description:
-      "Prepare your California lawn for the cooler months ahead. Overseeding, fertilization, and maintenance tips for a strong fall and winter lawn.",
+      "A season-by-season guide to artificial turf maintenance in California. Spring refresh, summer heat management, fall cleanup, and winter care for synthetic lawns.",
   },
 ];
 

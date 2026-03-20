@@ -53,6 +53,15 @@ export function generateLocalBusinessSchema() {
     url: SITE_URL,
     telephone: COMPANY_PHONE,
     email: COMPANY_EMAIL,
+    additionalType: "https://schema.org/ProfessionalService",
+    knowsAbout: [
+      "Artificial Turf Cleaning",
+      "Synthetic Turf Maintenance",
+      "Pet Turf Sanitization",
+      "Turf Odor Removal",
+      "Turf Deodorizing",
+      "Commercial Turf Cleaning",
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: COMPANY_ADDRESS.street,
@@ -99,6 +108,7 @@ export function generateServiceSchema(service: {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    serviceType: "Artificial Turf Cleaning Service",
     name: service.name,
     description: service.description,
     url: `${SITE_URL}/services/${service.slug}`,
@@ -132,6 +142,7 @@ export function generateLocationSchema(location: {
     description: location.description,
     url: `${SITE_URL}/locations/${location.slug}`,
     telephone: location.phone || COMPANY_PHONE,
+    additionalType: "https://schema.org/ProfessionalService",
     address: {
       "@type": "PostalAddress",
       addressLocality: location.name,
@@ -265,7 +276,7 @@ export function generateBlogListSchema(posts: { title: string; slug: string }[])
     "@context": "https://schema.org",
     "@type": "Blog",
     name: `${COMPANY_NAME} Blog`,
-    description: "Lawn care tips, seasonal guides, and turf maintenance advice for California homeowners.",
+    description: "Artificial turf cleaning tips, maintenance guides, and synthetic turf care advice for California homeowners and businesses.",
     url: `${SITE_URL}/blog`,
     publisher: {
       "@type": "Organization",
