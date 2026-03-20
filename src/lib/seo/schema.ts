@@ -24,10 +24,8 @@ export function generateOrganizationSchema() {
     },
     address: {
       "@type": "PostalAddress",
-      streetAddress: COMPANY_ADDRESS.street,
       addressLocality: COMPANY_ADDRESS.city,
       addressRegion: COMPANY_ADDRESS.state,
-      postalCode: COMPANY_ADDRESS.zip,
       addressCountry: "US",
     },
     areaServed: {
@@ -37,8 +35,7 @@ export function generateOrganizationSchema() {
     sameAs: [
       SOCIAL_LINKS.facebook,
       SOCIAL_LINKS.instagram,
-      SOCIAL_LINKS.google,
-      SOCIAL_LINKS.yelp,
+      SOCIAL_LINKS.youtube,
     ],
   };
 }
@@ -56,18 +53,17 @@ export function generateLocalBusinessSchema() {
     additionalType: "https://schema.org/ProfessionalService",
     knowsAbout: [
       "Artificial Turf Cleaning",
-      "Synthetic Turf Maintenance",
-      "Pet Turf Sanitization",
-      "Turf Odor Removal",
+      "Synthetic Turf Sanitization",
+      "Pet Turf Odor Removal",
       "Turf Deodorizing",
-      "Commercial Turf Cleaning",
+      "Turf Blooming & Decompacting",
+      "OxyTurf Cleaning Solution",
+      "Poop Scooping",
     ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: COMPANY_ADDRESS.street,
       addressLocality: COMPANY_ADDRESS.city,
       addressRegion: COMPANY_ADDRESS.state,
-      postalCode: COMPANY_ADDRESS.zip,
       addressCountry: "US",
     },
     geo: {
@@ -94,8 +90,7 @@ export function generateLocalBusinessSchema() {
     sameAs: [
       SOCIAL_LINKS.facebook,
       SOCIAL_LINKS.instagram,
-      SOCIAL_LINKS.google,
-      SOCIAL_LINKS.yelp,
+      SOCIAL_LINKS.youtube,
     ],
   };
 }
@@ -276,7 +271,7 @@ export function generateBlogListSchema(posts: { title: string; slug: string }[])
     "@context": "https://schema.org",
     "@type": "Blog",
     name: `${COMPANY_NAME} Blog`,
-    description: "Artificial turf cleaning tips, maintenance guides, and synthetic turf care advice for California homeowners and businesses.",
+    description: "Artificial turf cleaning tips, OxyTurf guides, pet turf maintenance advice, and synthetic turf care for California homeowners and businesses.",
     url: `${SITE_URL}/blog`,
     publisher: {
       "@type": "Organization",

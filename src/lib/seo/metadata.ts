@@ -51,8 +51,8 @@ export function generateServiceMetadata(service: {
   slug: string;
   shortDescription: string;
 }): Metadata {
-  const title = `${service.name} in California`;
-  const description = `${service.shortDescription} Professional ${service.name.toLowerCase()} across California by ${COMPANY_NAME}. Get a free quote today!`;
+  const title = `${service.name} | Artificial Turf Cleaning California`;
+  const description = `${service.shortDescription} Professional ${service.name.toLowerCase()} by ${COMPANY_NAME} — 30+ years experience. Call 951-331-3300 for a free quote!`;
 
   return generatePageMetadata(title, description, `/services/${service.slug}`);
 }
@@ -63,7 +63,7 @@ export function generateLocationMetadata(location: {
   description: string;
 }): Metadata {
   const title = `Artificial Turf Cleaning in ${location.name}, CA`;
-  const description = `${location.description} ${COMPANY_NAME} provides professional artificial turf cleaning and sanitization in ${location.name}, CA. Call today for a free estimate!`;
+  const description = `${location.description} ${COMPANY_NAME} provides professional artificial turf cleaning and sanitization in ${location.name}, CA. Call 951-331-3300 for a free estimate!`;
 
   return generatePageMetadata(
     title,
@@ -114,7 +114,7 @@ export function generateBlogMetadata(post: {
 export function generateBlogIndexMetadata(): Metadata {
   return generatePageMetadata(
     "Artificial Turf Cleaning Blog — Tips & Guides",
-    "Expert artificial turf cleaning tips, synthetic turf maintenance guides, and pet turf care advice from Murphy's Turf Care. Keep your California artificial turf fresh and clean.",
+    "Expert artificial turf cleaning tips, OxyTurf guides, and synthetic turf maintenance advice from Murphy's Turf. 30+ years of experience keeping California turf clean and fresh.",
     "/blog"
   );
 }
@@ -133,10 +133,13 @@ export const DEFAULT_METADATA: Metadata = {
     "pet turf cleaning",
     "turf odor removal",
     "turf deodorizing",
-    "artificial grass cleaning",
-    "turf maintenance California",
-    "commercial turf cleaning",
-    "turf repair",
+    "OxyTurf",
+    "artificial grass cleaning California",
+    "turf cleaning Huntington Beach",
+    "turf cleaning Murrieta",
+    "turf cleaning Martinez",
+    "turf cleaning Sacramento",
+    "Murphy's Turf",
   ],
   alternates: {
     canonical: SITE_URL,
