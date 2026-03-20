@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Star,
   ThumbsUp,
@@ -15,7 +16,6 @@ import {
   PawPrint,
   Shield,
   Sparkles,
-  Droplets,
   Send,
 } from 'lucide-react';
 
@@ -25,42 +25,42 @@ const services = [
   {
     name: 'Pet Hair & Debris Removal',
     slug: 'pet-hair-debris',
+    image: '/images/services/debris-removal.png',
     description:
       'We remove pet hair, waste, leaves, branches, and run a magnet for metal objects while de-weeding edges and seams to leave your turf spotless.',
     gradient: 'from-forest/60 via-sage/40 to-sage-light/30',
-    // Future image: /images/services/pet-hair-debris.jpg
   },
   {
     name: 'Blooming & De-Compacting',
     slug: 'blooming-decompacting',
+    image: '/images/services/blooming.png',
     description:
       'We bring matted, flattened turf back to life by fluffing blades upright so your artificial grass looks and feels like natural grass again.',
     gradient: 'from-sage/50 via-forest/40 to-forest-light/30',
-    // Future image: /images/services/blooming-decompacting.jpg
   },
   {
     name: 'Disinfect & Deodorize',
     slug: 'disinfect-deodorize',
+    image: '/images/services/oxyturf-spray.jpg',
     description:
       'Power-spraying OxyTurf kills 99.9% of germs and bacteria on your turf without hazardous chemicals, leaving your yard fresh and safe.',
     gradient: 'from-forest-dark/50 via-forest/40 to-sage/30',
-    // Future image: /images/services/disinfect-deodorize.jpg
   },
   {
     name: 'Poop Scooping & Removal',
     slug: 'poop-scooping',
+    image: '/images/services/poop-scooping.jpg',
     description:
       'Convenient pet waste removal plans designed to keep your yard fresh, clean, and ready for your family to enjoy every day.',
     gradient: 'from-brown/40 via-sage/30 to-forest/30',
-    // Future image: /images/services/poop-scooping.jpg
   },
   {
     name: 'Powered By OxyTurf',
     slug: 'oxyturf',
+    image: '/images/services/oxyturf-palms.jpg',
     description:
       'Our hydrogen peroxide-based cleaner-deodorizer contains no bleach or ammonia and is completely safe for pets and kids.',
     gradient: 'from-sage-light/50 via-sage/40 to-forest/30',
-    // Future image: /images/services/oxyturf.jpg
   },
 ];
 
@@ -341,7 +341,15 @@ export default function Home() {
     <>
       {/* ────────────────── 1. HERO SECTION ────────────────── */}
       <section className="relative overflow-hidden">
-        {/* Gradient background */}
+        {/* Hero background image */}
+        <Image
+          src="/images/hero.jpg"
+          alt="Murphy's Turf - Professional Artificial Turf Cleaning"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-forest-dark/95 via-forest/90 to-sage/80" />
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_25%_25%,white_1px,transparent_1px)] bg-[length:40px_40px]" />
@@ -471,10 +479,14 @@ export default function Home() {
                 href={`/services/${service.slug}`}
                 className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 hover:border-sage/30 transition-all duration-300 hover:-translate-y-1 flex flex-col"
               >
-                {/* Image placeholder */}
-                <div className={`aspect-[16/10] bg-gradient-to-br ${service.gradient} relative`}>
-                  {/* Future: <Image src="/images/services/..." /> */}
-                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_50%_50%,rgba(255,255,255,0.3)_0%,transparent_70%)]" />
+                {/* Service image */}
+                <div className="aspect-[16/10] relative overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-heading font-bold text-xl text-charcoal group-hover:text-forest transition-colors">
@@ -510,37 +522,15 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Large before/after comparison */}
+          {/* Before/After comparison */}
           <div className="bg-cream rounded-3xl overflow-hidden shadow-lg border border-gray-100 max-w-5xl mx-auto">
-            <div className="flex flex-col md:flex-row">
-              {/* Before */}
-              <div className="relative md:w-1/2">
-                {/* Placeholder for /images/before-after.png */}
-                <div className="aspect-[4/3] bg-gradient-to-br from-brown/70 via-brown-light/50 to-amber-800/40 flex items-center justify-center relative">
-                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_60%_40%,rgba(121,85,72,0.5)_0%,transparent_70%)]" />
-                  <div className="absolute inset-0 opacity-30 bg-[linear-gradient(135deg,transparent_40%,rgba(93,64,55,0.3)_60%,transparent_80%)]" />
-                  <span className="relative font-heading font-bold text-white/60 text-lg tracking-wide">
-                    Before
-                  </span>
-                </div>
-                <span className="absolute top-4 left-4 bg-brown/90 backdrop-blur-sm text-white text-sm font-heading font-bold px-4 py-1.5 rounded-full uppercase tracking-wide">
-                  Before
-                </span>
-              </div>
-              {/* After */}
-              <div className="relative md:w-1/2">
-                <div className="aspect-[4/3] bg-gradient-to-br from-forest/60 via-sage/50 to-sage-light/40 flex items-center justify-center relative">
-                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_40%_60%,rgba(124,179,66,0.5)_0%,transparent_70%)]" />
-                  <div className="absolute inset-0 opacity-30 bg-[linear-gradient(135deg,transparent_40%,rgba(45,80,22,0.2)_60%,transparent_80%)]" />
-                  <span className="relative font-heading font-bold text-white/60 text-lg tracking-wide">
-                    After
-                  </span>
-                </div>
-                <span className="absolute top-4 right-4 bg-sage/90 backdrop-blur-sm text-white text-sm font-heading font-bold px-4 py-1.5 rounded-full uppercase tracking-wide">
-                  After
-                </span>
-              </div>
-            </div>
+            <Image
+              src="/images/before-after.png"
+              alt="Before and after artificial turf cleaning"
+              width={800}
+              height={400}
+              className="rounded-t-3xl w-full h-auto"
+            />
             <div className="px-6 py-5 text-center bg-white">
               <p className="font-heading font-semibold text-charcoal text-lg">
                 Complete Turf Restoration
@@ -595,18 +585,15 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            {/* Image placeholder */}
+            {/* OxyTurf product image */}
             <div className="relative">
-              {/* Future: <Image src="/images/services/oxyturf-palms.jpg" /> */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-sage-light/40 via-sage/50 to-forest/60 rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_30%_70%,rgba(124,179,66,0.6)_0%,transparent_70%)]" />
-                <div className="absolute inset-0 opacity-15 bg-[radial-gradient(ellipse_at_70%_30%,rgba(255,255,255,0.4)_0%,transparent_60%)]" />
-                <div className="text-center relative">
-                  <Droplets className="w-16 h-16 text-white/50 mx-auto mb-3" />
-                  <span className="font-heading font-bold text-white/50 text-lg">
-                    OxyTurf
-                  </span>
-                </div>
+              <div className="aspect-[4/3] relative rounded-2xl shadow-xl overflow-hidden">
+                <Image
+                  src="/images/oxyturf-logo.png"
+                  alt="OxyTurf - Pet-safe artificial turf cleaner and deodorizer"
+                  fill
+                  className="object-cover"
+                />
               </div>
               {/* Decorative accent */}
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-sage/20 rounded-full blur-2xl" />

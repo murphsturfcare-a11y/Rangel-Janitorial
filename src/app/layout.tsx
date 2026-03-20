@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -60,6 +61,10 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <ExitIntentPopup />
+        <Script
+          src="https://link.msgsndr.com/js/form_embed.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

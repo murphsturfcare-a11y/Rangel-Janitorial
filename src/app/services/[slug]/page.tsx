@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   Check,
@@ -589,7 +590,16 @@ export default async function ServiceDetailPage({
       {/* ----------------------------------------------------------------- */}
       {/* Hero */}
       {/* ----------------------------------------------------------------- */}
-      <section className="relative bg-gradient-to-br from-forest via-forest-light to-sage py-16 sm:py-24">
+      <section className="relative py-16 sm:py-24 overflow-hidden">
+        {/* Hero background image */}
+        <Image
+          src={service.image}
+          alt={service.name}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-forest/90 via-forest-light/85 to-sage/80" />
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
@@ -709,32 +719,19 @@ export default async function ServiceDetailPage({
                 <h3 className="font-semibold font-heading text-charcoal text-center">
                   {pair.label}
                 </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {/* Before */}
-                  <div>
-                    <div
-                      className={`${pair.beforeColor} rounded-xl aspect-[4/3] flex items-center justify-center`}
-                    >
-                      {/* Replace with real before photo */}
-                      <span className="text-charcoal/60 font-heading font-bold text-lg">
-                        Before
-                      </span>
-                    </div>
-                    <p className="text-xs text-charcoal-light font-body mt-2 text-center">
+                <div className="rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/before-after.png"
+                    alt={`${pair.label} - Before and after`}
+                    width={800}
+                    height={400}
+                    className="w-full h-auto rounded-xl"
+                  />
+                  <div className="grid grid-cols-2 gap-3 mt-2">
+                    <p className="text-xs text-charcoal-light font-body text-center">
                       {pair.beforeCaption}
                     </p>
-                  </div>
-                  {/* After */}
-                  <div>
-                    <div
-                      className={`${pair.afterColor} rounded-xl aspect-[4/3] flex items-center justify-center`}
-                    >
-                      {/* Replace with real after photo */}
-                      <span className="text-forest font-heading font-bold text-lg">
-                        After
-                      </span>
-                    </div>
-                    <p className="text-xs text-charcoal-light font-body mt-2 text-center">
+                    <p className="text-xs text-charcoal-light font-body text-center">
                       {pair.afterCaption}
                     </p>
                   </div>

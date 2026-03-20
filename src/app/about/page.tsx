@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Phone,
   ShieldCheck,
@@ -167,16 +168,13 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-2xl overflow-hidden shadow-xl">
-            {/* Placeholder for /images/team/team-group.jpg */}
-            <div
-              className="w-full h-72 sm:h-96 lg:h-[28rem] bg-gradient-to-br from-forest/20 via-sage/20 to-brown/20 flex items-center justify-center"
-              data-image="/images/team/team-group.jpg"
-            >
-              <div className="text-center">
-                <PawPrint className="w-16 h-16 text-forest/40 mx-auto mb-4" />
-                <p className="text-charcoal-light font-body text-sm">Team Group Photo</p>
-              </div>
-            </div>
+            <Image
+              src="/images/team/team-group.jpg"
+              alt="The Murphy's Turf Team"
+              width={1200}
+              height={600}
+              className="rounded-2xl w-full h-auto object-cover"
+            />
           </div>
           <p className="text-center text-charcoal-light font-body text-sm mt-4 italic">
             The Murphy&apos;s Turf crew — keeping California&apos;s turf clean, one yard at a time
@@ -217,13 +215,17 @@ export default function AboutPage() {
                 </div>
 
                 <div className="p-8 pt-6 relative">
-                  {/* Photo placeholder */}
-                  {/* Image: {member.image} */}
+                  {/* Team member photo */}
                   <div
-                    className={`w-32 h-32 mx-auto rounded-full ring-4 ${member.ring} ring-offset-4 ring-offset-white bg-gradient-to-br from-cream to-cream-dark flex items-center justify-center mb-6`}
-                    data-image={member.image}
+                    className={`w-32 h-32 mx-auto rounded-full ring-4 ${member.ring} ring-offset-4 ring-offset-white overflow-hidden mb-6`}
                   >
-                    <PawPrint className="w-10 h-10 text-charcoal/20" />
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={160}
+                      height={160}
+                      className="rounded-full object-cover w-full h-full"
+                    />
                   </div>
 
                   {/* Name & Title */}

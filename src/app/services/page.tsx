@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowRight,
   Phone,
@@ -77,12 +78,14 @@ export default function ServicesPage() {
                 key={service.slug}
                 className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-sage/30 flex flex-col"
               >
-                {/* Image Placeholder */}
-                {/* Replace with <Image src={service.image} /> when real images are ready */}
-                <div className="aspect-[16/10] bg-gradient-to-br from-sage/20 via-forest/10 to-sage-light/20 flex items-center justify-center">
-                  <span className="text-forest/40 font-heading font-bold text-sm uppercase tracking-wider">
-                    {service.name}
-                  </span>
+                {/* Service image */}
+                <div className="aspect-[16/10] relative overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
 
                 <div className="p-8 flex-1 flex flex-col">

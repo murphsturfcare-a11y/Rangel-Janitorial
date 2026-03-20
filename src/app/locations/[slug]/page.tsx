@@ -6,7 +6,6 @@ import {
   Mail,
   ArrowRight,
   Star,
-  Map,
   Sparkles,
   Droplets,
   Sprout,
@@ -50,6 +49,8 @@ interface LocationData {
   metaDescription: string;
   climateNote: string;
   serviceAreaDescription: string;
+  formId: string;
+  mapQuery: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -148,6 +149,8 @@ const locationData: Record<string, LocationData> = {
       'The Huntington Beach and LA coastal corridor features a mild Mediterranean climate moderated by ocean breezes and marine layer. Morning coastal fog and humidity promote mold and mildew in turf systems, while afternoon sun intensifies pet odors and bakes contaminants into infill. Windblown sand from nearby beaches embeds in turf fibers and requires specialized extraction.',
     serviceAreaDescription:
       'Our Huntington Beach service area covers the LA coastal corridor from Long Beach in the north through Seal Beach and Huntington Beach, south to Newport Beach and Costa Mesa. We serve residential, commercial, and HOA properties throughout Orange County and southern LA County coastal communities.',
+    formId: 'HYkmRFcmdQ1GD7aEpXzq',
+    mapQuery: "Murphy's+Turf+Huntington+Beach+CA",
   },
 
   murrieta: {
@@ -204,6 +207,8 @@ const locationData: Record<string, LocationData> = {
       'Murrieta and the Inland Empire feature a hot semi-arid climate with summer temperatures regularly exceeding 100 degrees Fahrenheit, mild winters, and minimal rainfall. Heavy clay soil, Santa Ana winds through the Temecula Gap, and intense UV exposure are primary factors in artificial turf contamination and odor development.',
     serviceAreaDescription:
       'Our Murrieta service area covers the entire Inland Empire from Temecula and French Valley through Menifee and Lake Elsinore, out to Hemet and Perris, and including Wildomar, Canyon Lake, Temescal Valley, and Winchester. As our headquarters city, Murrieta customers enjoy the fastest response times in our network.',
+    formId: 'xBvd9OY1s3jhTIKq93sM',
+    mapQuery: '26323+Jefferson+Avenue+Murrieta+CA+92562',
   },
 
   martinez: {
@@ -255,6 +260,8 @@ const locationData: Record<string, LocationData> = {
       'Martinez and the East Bay feature a Mediterranean climate strongly influenced by fog, marine layer, and delta breezes from the Carquinez Strait. Temperatures are mild year-round near the water but significantly hotter inland toward Antioch and Brentwood. Coastal moisture promotes mold and mildew in turf systems, while inland heat amplifies pet odor and bacterial concerns.',
     serviceAreaDescription:
       'Our Martinez service area covers the East Bay from Martinez through Concord, Pleasant Hill, and Walnut Creek in the central corridor, east to Antioch and Brentwood. We serve residential, commercial, and HOA properties throughout Contra Costa County.',
+    formId: 'mSr8BxMIMWFW5iSStd5F',
+    mapQuery: "Murphy's+Turf+Martinez+CA",
   },
 
   sacramento: {
@@ -305,6 +312,8 @@ const locationData: Record<string, LocationData> = {
       'Sacramento features a hot-summer Mediterranean climate with extreme heat often exceeding 105 degrees Fahrenheit in summer and mild winters. The Central Valley receives minimal summer rainfall, and intense heat accelerates pet odor development, bacterial growth, and infill compaction in artificial turf systems. Sacramento\'s famous tree canopy contributes significant leaf and pollen debris to turf surfaces.',
     serviceAreaDescription:
       'Our Sacramento service area covers the greater capital region including Elk Grove to the south, Roseville to the north, Folsom to the east along the American River corridor, and Rancho Cordova in the central metro. We serve residential, commercial, and HOA properties throughout the Sacramento metropolitan area.',
+    formId: 'E4GmpR4mgHj6kL4dFr2w',
+    mapQuery: "Murphy's+Turf+Sacramento+CA",
   },
 };
 
@@ -381,7 +390,7 @@ export default async function LocationPage({
   }
 
   return (
-    <>
+    <div className="pb-20 lg:pb-0">
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-forest via-forest-light to-sage py-16 sm:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
@@ -577,6 +586,28 @@ export default async function LocationPage({
         </div>
       </section>
 
+      {/* Lead Form Embed */}
+      <section id="quote-form" className="py-16 sm:py-24 bg-cream scroll-mt-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-charcoal font-heading mb-4">
+              Get Your Free Quote in {location.city}
+            </h2>
+            <p className="text-lg text-charcoal-light font-body">
+              Fill out the form below and we&apos;ll get back to you within 24 hours
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg p-2 sm:p-4 border border-gray-100">
+            <iframe
+              src={`https://api.leadconnectorhq.com/widget/form/${location.formId}`}
+              style={{ width: '100%', height: '848px', border: 'none', borderRadius: '3px' }}
+              title={`Get a Free Quote - ${location.city}`}
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Service Area Details & Neighborhoods */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -603,220 +634,19 @@ export default async function LocationPage({
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="relative w-full h-[350px] sm:h-[400px] bg-gray-100 rounded-2xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200 opacity-50" />
-              <div className="relative flex flex-col items-center gap-4 text-center px-6">
-                <div className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center">
-                  <Map className="w-8 h-8 text-sage" />
-                </div>
-                <h3 className="text-xl font-bold text-charcoal font-heading">
-                  {location.city} Service Area Map
-                </h3>
-                <p className="text-charcoal-light font-body text-sm max-w-sm">
-                  Interactive Google Maps integration showing our complete service
-                  coverage across {location.city} and surrounding areas.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Local Contact & Quote Form */}
-      <section id="quote-form" className="py-16 sm:py-24 bg-cream scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <div>
-              <h2 className="text-3xl font-bold text-charcoal font-heading mb-6">
-                Get a Free Quote in {location.city}
-              </h2>
-              <p className="text-charcoal-light font-body leading-relaxed mb-8">
-                Ready for clean, fresh artificial turf in {location.city}? Fill out the form and our
-                local team will get back to you within one business day with a custom quote.
-                Or reach out directly:
-              </p>
-              <div className="space-y-4 mb-8">
-                <a
-                  href={`tel:${location.phone.replace(/[^\d+]/g, '')}`}
-                  className="flex items-center gap-4 bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:border-sage/30 hover:shadow-md transition-all"
-                >
-                  <div className="w-12 h-12 bg-sage/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-sage" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-charcoal font-heading text-sm">
-                      Call Us
-                    </p>
-                    <p className="text-sage font-body">{location.phone}</p>
-                  </div>
-                </a>
-                <a
-                  href={`mailto:${location.email}`}
-                  className="flex items-center gap-4 bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:border-sage/30 hover:shadow-md transition-all"
-                >
-                  <div className="w-12 h-12 bg-sage/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-sage" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-charcoal font-heading text-sm">
-                      Email Us
-                    </p>
-                    <p className="text-sage font-body">{location.email}</p>
-                  </div>
-                </a>
-                <div className="flex items-center gap-4 bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-                  <div className="w-12 h-12 bg-sage/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-sage" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-charcoal font-heading text-sm">
-                      Business Hours
-                    </p>
-                    <p className="text-charcoal-light font-body text-sm">
-                      Mon-Fri 7:00 AM - 6:00 PM &middot; Sat 8:00 AM - 4:00 PM
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Quote Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100">
-              <h3 className="text-xl font-bold text-charcoal font-heading mb-6">
-                Request Your Free Quote
-              </h3>
-              <form className="space-y-5">
-                <div>
-                  <label
-                    htmlFor="location"
-                    className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                  >
-                    Service Location
-                  </label>
-                  <input
-                    type="text"
-                    id="location"
-                    name="location"
-                    value={`${location.city}, ${location.state}`}
-                    readOnly
-                    className="w-full px-4 py-3 bg-cream border border-gray-200 rounded-lg font-body text-charcoal-light cursor-not-allowed"
-                  />
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="firstName"
-                      className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                    >
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      required
-                      placeholder="John"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg font-body text-charcoal placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-sage transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="lastName"
-                      className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                    >
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      required
-                      placeholder="Murphy"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg font-body text-charcoal placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-sage transition-colors"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="john@example.com"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg font-body text-charcoal placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-sage transition-colors"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                  >
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="(951) 331-3300"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg font-body text-charcoal placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-sage transition-colors"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="service"
-                    className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                  >
-                    Service Interested In
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg font-body text-charcoal focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-sage transition-colors"
-                  >
-                    <option value="">Select a service...</option>
-                    {services.map((s) => (
-                      <option key={s.slug} value={s.slug}>
-                        {s.name}
-                      </option>
-                    ))}
-                    <option value="multiple">Multiple Services</option>
-                    <option value="not-sure">Not Sure Yet</option>
-                  </select>
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                  >
-                    Additional Details
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    placeholder="Tell us about your turf and what you're looking for..."
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg font-body text-charcoal placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-sage transition-colors resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-sage hover:bg-sage-dark text-white font-semibold py-3.5 rounded-lg transition-colors font-body shadow-sm hover:shadow-md flex items-center justify-center gap-2"
-                >
-                  Get My Free Quote
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <p className="text-xs text-charcoal-light font-body text-center">
-                  We typically respond within 1 business day. No spam, ever.
-                </p>
-              </form>
+            {/* Google Map */}
+            <div className="w-full">
+              <iframe
+                src={`https://www.google.com/maps?q=${location.mapQuery}&output=embed`}
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={`Murphy's Turf - ${location.city}`}
+                className="rounded-xl"
+              />
             </div>
           </div>
         </div>
@@ -844,6 +674,25 @@ export default async function LocationPage({
           </div>
         </div>
       </section>
-    </>
+
+      {/* Mobile Sticky CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-forest shadow-[0_-4px_12px_rgba(0,0,0,0.15)]">
+        <div className="flex items-center justify-between px-4 py-3">
+          <a
+            href="#quote-form"
+            className="flex-1 mr-2 bg-sage hover:bg-sage-dark text-white font-bold text-sm py-2.5 px-4 rounded-lg text-center font-body transition-colors"
+          >
+            Get Free Quote
+          </a>
+          <a
+            href="tel:9513313300"
+            className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm py-2.5 px-4 rounded-lg font-body transition-colors whitespace-nowrap"
+          >
+            <Phone className="w-4 h-4" />
+            Call Now
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
