@@ -2,342 +2,338 @@ import type { Service } from '../types';
 
 export const services: Service[] = [
   {
-    slug: 'lawn-cleaning',
-    name: 'Lawn Cleaning',
+    slug: 'turf-cleaning',
+    name: 'Deep Cleaning & Sanitization',
     shortDescription:
-      'Professional deep cleaning, debris removal, and dethatching to restore your California lawn to peak health and appearance year-round.',
-    fullDescription: `California's year-round growing season and diverse climate zones create unique challenges that cause lawns to accumulate debris differently than anywhere else in the country. In Southern California and the Inland Empire, palm fronds, eucalyptus bark, and dry grass clippings pile up during extended dry seasons, while dust and fine particulate matter settle into turf during Santa Ana wind events. In the Bay Area and Sacramento Valley, seasonal leaf drop from ornamental trees combines with moss buildup in shaded areas to create a suffocating blanket over your lawn. Left unaddressed, this layer of thatch and debris blocks sunlight, traps excessive moisture against the crown of the grass plant in coastal regions or bakes into a hard crust in arid inland areas, and creates a breeding ground for fungal disease and pest infestations that can devastate an otherwise healthy lawn.
+      'Comprehensive professional deep cleaning and sanitization of artificial turf surfaces to eliminate bacteria, restore fiber pile, and make your synthetic lawn look and feel brand new.',
+    fullDescription: `Artificial turf is a fantastic investment for California homeowners and businesses — it saves water, stays green year-round, and eliminates mowing forever. But synthetic turf is not maintenance-free. Over time, dust, pollen, pet waste, organic debris, food particles, and airborne pollutants accumulate deep within the fibers and infill material, creating an environment where bacteria thrive and odors intensify. This problem is dramatically amplified by California's relentless heat — especially in the Inland Empire and Murrieta area, where summer temperatures routinely exceed 100 degrees Fahrenheit for weeks on end. That extreme heat essentially bakes pet waste, spilled liquids, and organic matter into the synthetic fibers and infill, making surface-level cleaning with a garden hose completely ineffective. What you cannot see is often far worse than what you can: embedded bacteria, uric acid crystals from pet urine, mold spores growing in shaded areas, and compacted debris that blocks drainage and flattens your turf's once-lush appearance.
 
-At Murphy's Turf Care, our professional lawn cleaning service goes far beyond what a standard rake-and-bag approach can achieve. We begin with a thorough debris removal pass, clearing palm fronds, fallen branches, eucalyptus litter, dried grass, and organic matter from every corner of your property including along fence lines, garden edges, and hard-to-reach areas. Next, we perform precision dethatching using commercial-grade equipment calibrated for California's most common grass varieties — Bermuda grass, St. Augustine, tall fescue, and Zoysia — carefully removing the compacted layer of dead roots and stems that sits between the soil surface and the living grass blades. This process opens up critical pathways for water, oxygen, and nutrients to reach the root zone where they are needed most, which is especially important in California where water conservation and efficient irrigation are paramount.
+Murphy's Turf Care provides a professional-grade deep cleaning process that addresses every layer of your artificial turf system. We begin with thorough debris removal — clearing leaves, pet waste, dirt, and any foreign material from the entire surface. Next, we perform power brushing with commercial-grade equipment specifically designed for synthetic turf fibers, restoring the pile to its upright position and breaking up compacted areas that have become matted from foot traffic or heavy furniture. We then apply a high-pressure rinse calibrated to clean effectively without displacing infill material, flushing contaminants out of the turf system. Following the rinse, we apply eco-friendly, turf-safe sanitizing agents that penetrate into the infill layer where bacteria actually live, eliminating harmful microorganisms at their source. Finally, we complete a UV-accelerated deodorizing treatment that leverages California's abundant sunshine to activate freshening agents, leaving your turf smelling clean and neutral.
 
-The difference between a DIY cleanup and a professional deep cleaning is dramatic and immediate. Our clients consistently report greener, more vibrant lawns within just two weeks of service. By removing the suffocating layer of thatch and debris, your grass can finally breathe, absorb water efficiently even under California's strict water-use guidelines, and access the nutrients in the soil. Whether you are dealing with post-summer drought stress in the Inland Empire, preparing your Bay Area lawn for the rainy season, or simply want your Los Angeles property to look its absolute best, Murphy's Turf Care delivers results that speak for themselves. We treat every lawn as if it were our own, because as a family-owned business since 2018, your satisfaction is our reputation.`,
+How often should your artificial turf be professionally cleaned? At minimum, we recommend quarterly deep cleaning for general residential use. Homes with pets should schedule monthly service — pet urine and waste are the number one cause of odor and bacterial buildup in synthetic turf, and California's heat accelerates this problem exponentially. Our clients across Los Angeles, the Inland Empire, the Bay Area, and Sacramento consistently tell us the same thing after their first professional cleaning: they had no idea their turf could look, smell, and feel this good again. Whether your turf is two years old or ten, professional deep cleaning restores it to a condition that rivals the day it was installed — soft underfoot, vibrant in color, and completely free of the odors and grime that accumulate with everyday use.`,
     benefits: [
-      'Dramatically healthier grass through improved air and light exposure',
-      'Better water absorption critical for meeting California water conservation goals',
-      'Significantly improved curb appeal and property appearance year-round',
-      'Prevents fungal disease caused by trapped moisture and thatch buildup',
-      'Promotes vigorous growth by clearing space for emerging grass blades in all seasons',
-      'Reduces pest habitat by eliminating debris where insects hide and reproduce',
-      'Prepares your lawn for overseeding, fertilization, or aeration treatments',
+      'Eliminates 99.9% of bacteria harbored in turf fibers and infill material',
+      'Removes deeply embedded debris that garden hoses cannot reach',
+      'Restores fiber pile to its original upright, lush position',
+      'Extends the lifespan of your artificial turf investment by years',
+      'Completely safe for pets and children immediately after drying',
+      'Improves drainage performance by clearing clogged infill passages',
+      'Enhances curb appeal with turf that looks vibrant and freshly installed',
     ],
     whatIncludes: [
-      'Complete debris removal across the entire property including edges and fence lines',
-      'Palm frond, eucalyptus bark, and leaf clearing with full disposal of organic waste',
-      'Commercial-grade dethatching calibrated for your California grass type',
-      'Thorough surface raking to lift matted grass and promote airflow',
-      'Spot treatment for areas with heavy buildup or visible damage',
-      'Edge cleanup along walkways, driveways, garden beds, and fence lines',
-      'Post-cleaning inspection with recommendations for follow-up care',
+      'Complete surface debris removal including pet waste, leaves, and dirt',
+      'Commercial-grade power brushing to restore fiber pile and break up matting',
+      'High-pressure rinse calibrated for synthetic turf without displacing infill',
+      'Application of eco-friendly, turf-safe sanitizing agents',
+      'UV-accelerated deodorizing treatment for lasting freshness',
+      'Infill redistribution to ensure even coverage and proper drainage',
+      'Post-cleaning inspection with maintenance recommendations',
     ],
     startingPrice: 149,
     iconName: 'Sparkles',
-    metaTitle: 'Professional Lawn Cleaning Services | Murphy\'s Turf Care',
+    metaTitle: 'Professional Artificial Turf Cleaning & Sanitization | Murphy\'s Turf Care',
     metaDescription:
-      'Expert lawn cleaning, debris removal, and dethatching services for California homes. Restore your lawn\'s health and curb appeal. Family-owned since 2018. Starting at $149.',
+      'Professional deep cleaning and sanitization for artificial turf in California. Eliminate bacteria, restore fiber pile, and make synthetic turf look new. Serving LA, Murrieta, Bay Area & Sacramento. Starting at $149.',
     faqs: [
       {
-        question: 'How often should I have my lawn professionally cleaned in California?',
+        question: 'How often should I have my artificial turf professionally cleaned?',
         answer:
-          'Because California lawns grow year-round in most regions, we recommend professional cleaning at least two to three times per year. A thorough cleaning after the dry summer season removes dust, dead grass, and accumulated debris. A second cleaning in late fall addresses leaf drop before the rainy season, and a spring cleaning prepares your lawn for peak growing conditions. Properties in the Inland Empire or Central Valley with heavy dust accumulation may benefit from quarterly cleanings.',
+          'We recommend professional deep cleaning at least quarterly for residential turf with general use. If you have pets, monthly cleaning is strongly recommended because pet waste is the leading cause of odor and bacterial buildup — and California\'s intense heat accelerates decomposition rapidly. Commercial properties with high foot traffic may require bi-weekly or monthly service depending on usage levels.',
       },
       {
-        question: 'What is dethatching and why does my California lawn need it?',
+        question: 'How long does a professional turf cleaning take?',
         answer:
-          'Thatch is a layer of dead grass, roots, and organic material that accumulates between the soil surface and the living grass blades. Warm-season grasses like Bermuda and St. Augustine are particularly aggressive thatch producers because they grow year-round in California\'s mild climate. When this layer exceeds half an inch, it blocks water, nutrients, and oxygen from reaching the roots — wasting precious irrigation water in the process. Our dethatching process removes this barrier so your lawn can thrive while using water more efficiently.',
+          'A standard residential cleaning typically takes between one and two hours depending on the size of the turf area, the level of soiling, and whether pet odor treatment is included. Larger properties or heavily soiled turf may require additional time. We work efficiently and thoroughly so your turf is ready for use as soon as it dries, usually within one to two hours after we finish.',
       },
       {
-        question: 'Can professional lawn cleaning help with brown patches in my yard?',
+        question: 'Is the cleaning process safe for my pets and children?',
         answer:
-          'Absolutely. Brown patches are often caused by thatch buildup, compacted debris, or fungal issues that develop under trapped moisture — all common problems in California lawns that receive irrigation. Our deep cleaning process addresses all of these root causes. Many clients see their brown patches begin to recover within two to three weeks after service as the grass regains access to sunlight, water, and nutrients.',
+          'Absolutely. Every product we use is specifically selected to be non-toxic, eco-friendly, and safe for pets and children. Our sanitizing and deodorizing agents are plant-based and turf-safe. We recommend waiting until the turf is fully dry before resuming normal use, which typically takes one to two hours depending on sun exposure and temperature — California sunshine usually speeds this up considerably.',
       },
       {
-        question: 'How is professional lawn cleaning different from what I can do myself?',
+        question: 'Will the cleaning process damage or displace my infill material?',
         answer:
-          'Professional cleaning utilizes commercial-grade dethatching equipment and systematic techniques that achieve far deeper and more uniform results than hand raking. Our technicians are trained to identify problem areas specific to California grass types like Bermuda and St. Augustine, adjust equipment settings accordingly, and ensure every square foot of your property receives thorough attention. The time savings alone make it worthwhile — what takes a homeowner an entire weekend, we complete in a fraction of the time with superior results.',
+          'No. Our equipment and techniques are specifically calibrated for artificial turf systems. We use pressure settings that effectively clean without blowing out infill material. In fact, part of our service includes redistributing infill to ensure even coverage across the entire surface. If we identify areas where infill has depleted over time, we will let you know and can recommend an infill top-up as part of our turf repair service.',
       },
     ],
   },
   {
-    slug: 'aeration',
-    name: 'Aeration',
+    slug: 'pet-odor-treatment',
+    name: 'Pet Odor & Stain Removal',
     shortDescription:
-      'Core aeration to relieve soil compaction, improve root development, and help your lawn thrive in California\'s varied and often compacted soils.',
-    fullDescription: `If there is one lawn care service that delivers the most dramatic improvement for California properties, it is core aeration. Soils across the state vary widely — from the heavy clay common in the Inland Empire and parts of the Sacramento Valley, to the sandy loam found in coastal communities, to the alkaline hardpan soils of the Central Valley. Regardless of your soil type, compaction is a universal problem for California lawns because year-round use means constant foot traffic, mowing, and natural settling with no winter dormancy period to provide relief. Compacted soil restricts root growth, prevents precious irrigation water from penetrating the surface, and starves grass of the oxygen it needs to develop a strong, resilient root system. In a state where every drop of water counts, compacted soil that causes runoff is both wasteful and harmful to your lawn.
+      'Specialized enzyme-based treatment that eliminates pet urine odors and stains from artificial turf at the molecular level, leaving your synthetic lawn completely fresh and odor-free.',
+    fullDescription: `Pet urine is the single biggest problem artificial turf owners face — and in California's heat, it becomes an absolute nightmare if left untreated. When your dog urinates on synthetic turf, the liquid passes through the fibers and settles into the infill material and backing layer beneath. In cooler climates, this is manageable with regular rinsing. But in California, where summer temperatures in Los Angeles, Murrieta, the Inland Empire, and the Central Valley routinely exceed 95 to 110 degrees Fahrenheit, that urine bakes into the infill and crystallizes into uric acid deposits that no amount of water from a garden hose will dissolve. These uric acid crystals are the source of that persistent, overwhelming ammonia smell that intensifies with every degree of heat — and they reactivate with moisture, which means even morning dew or a light rinse can trigger the stench all over again. Homeowners often describe the odor as unbearable during summer evenings when they want to enjoy their outdoor spaces, and many have tried every retail product on the shelf with no lasting results.
 
-Our core aeration service uses professional-grade equipment to extract thousands of small soil plugs from your lawn, each approximately two to three inches deep. These cores create channels that allow water, oxygen, and nutrients to penetrate directly into the root zone, breaking through the compacted barrier that has been holding your lawn back. The extracted plugs are left on the surface to decompose naturally, returning valuable organic matter and beneficial microorganisms back into the soil. This process is fundamentally different from spike aeration, which merely pokes holes and can actually increase compaction around each puncture point. True core aeration removes material, creating lasting pathways for growth — and in California's drought-conscious landscape, these pathways mean dramatically better water penetration and less wasteful surface runoff.
+Murphy's Turf Care has developed a proprietary multi-step pet odor elimination process that treats the problem where it actually lives — deep in the infill layer, not just on the surface. We begin with a thorough odor source identification, using professional assessment techniques to locate the highest concentration areas where urine has accumulated. Next, we apply a professional-grade enzyme-based treatment that breaks down uric acid at the molecular level. Unlike masking agents or general-purpose cleaners, our enzyme formula specifically targets the organic compounds in pet urine, breaking them down into harmless, odorless byproducts through a natural biochemical process. This treatment penetrates deep into the infill material and turf backing where uric acid crystals have formed, dissolving them completely rather than merely covering up the smell.
 
-Timing for aeration in California differs from other parts of the country because our lawns often remain active year-round. For warm-season grasses like Bermuda, St. Augustine, and Zoysia, we recommend aerating in late spring or early summer when the grass is growing most vigorously and can recover quickly. For cool-season grasses like tall fescue, common in the Bay Area and Northern California, early fall or early spring aeration delivers the best results. At Murphy's Turf Care, we begin every aeration visit with a soil assessment and compaction test to determine the optimal depth and spacing for your specific conditions. Whether you are in Murrieta, Martinez, Sacramento, or Los Angeles, our technicians understand the unique soil challenges of your area and tailor every service to deliver maximum benefit for your lawn's long-term health and density.`,
+Over 70 percent of our residential clients are pet owners — we understand this problem intimately and have refined our process through thousands of treatments across Southern California, the Bay Area, and Sacramento. After enzyme treatment, we follow with a targeted infill treatment that neutralizes any remaining odor compounds within the fill material itself. Stain spots receive individual attention to restore the visual appearance of the turf fibers. A final neutralizing rinse flushes decomposed waste products out of the turf system, and we perform a freshness verification to ensure the treatment has achieved complete odor elimination. The result is artificial turf that smells completely clean and neutral — not like chemicals, not like perfume, simply fresh and odor-free, even in the peak of a California summer.`,
     benefits: [
-      'Relieves deep soil compaction common in California\'s clay and hardpan soils',
-      'Promotes stronger, deeper root growth for more resilient turf',
-      'Dramatically improves water penetration and reduces wasteful irrigation runoff',
-      'Strengthens turf to better withstand drought, intense sun, and heavy foot traffic',
-      'Enhances fertilizer absorption so nutrients reach the root zone efficiently',
-      'Creates ideal conditions for overseeding and new grass establishment',
-      'Supports California water conservation by maximizing every drop of irrigation',
+      'Eliminates pet urine odors permanently by destroying uric acid crystals',
+      'Breaks down organic waste at the molecular level using natural enzymes',
+      'Removes visible urine stains and discoloration from turf fibers',
+      'Uses safe, non-toxic enzyme-based formula that is harmless to pets and people',
+      'Treats the infill layer where 90% of odor-causing compounds actually reside',
+      'Prevents bacterial growth caused by accumulated pet waste residue',
+      'Restores a genuinely fresh, neutral scent to your entire outdoor space',
     ],
     whatIncludes: [
-      'Full-yard core aeration using commercial-grade equipment',
-      'Natural plug decomposition left on surface for soil enrichment',
-      'Pre-service soil assessment to identify compaction severity',
-      'Compaction testing to determine optimal aeration depth and pattern',
-      'Detailed post-aeration recommendations for watering and follow-up care',
-      'Coverage of all accessible turf areas including side yards and slopes',
-      'Consultation on pairing aeration with overseeding or fertilization',
+      'Professional odor source identification to locate high-concentration areas',
+      'Application of professional-grade enzyme treatment to break down uric acid',
+      'Deep infill layer treatment to neutralize embedded odor compounds',
+      'Individual stain spot treatment to restore turf fiber appearance',
+      'Neutralizing rinse to flush decomposed waste products from the turf system',
+      'Post-treatment freshness verification to confirm complete odor elimination',
     ],
     startingPrice: 99,
-    iconName: 'Wind',
-    metaTitle: 'Core Aeration Services | Murphy\'s Turf Care',
+    iconName: 'Droplets',
+    metaTitle: 'Pet Odor Removal from Artificial Turf | Murphy\'s Turf Care',
     metaDescription:
-      'Professional core aeration for California lawns. Relieve soil compaction, improve water absorption, and promote deep root growth. Starting at $99.',
+      'Eliminate pet urine odors from artificial turf with our enzyme-based treatment. Destroys uric acid crystals in infill for permanent results. Serving California pet owners. Starting at $99.',
     faqs: [
       {
-        question: 'When is the best time to aerate my lawn in California?',
+        question: 'Why does my artificial turf smell worse in hot weather?',
         answer:
-          'The optimal timing depends on your grass type. For warm-season grasses like Bermuda, St. Augustine, and Zoysia — common in Southern California, the Inland Empire, and the Central Valley — aerate in late spring through early summer when the grass is actively growing. For cool-season grasses like tall fescue, common in the Bay Area and Northern California, early fall or early spring is ideal. Our technician will assess your grass type and recommend the best timing for your specific property.',
+          'Heat activates and intensifies the ammonia compounds in pet urine that have accumulated in your turf\'s infill layer. When urine crystallizes into uric acid deposits, those crystals remain dormant in cooler conditions but release powerful odors when temperatures rise. In California, where summer heat regularly exceeds 100 degrees in many areas, this reaction is extreme. That is why hosing down your turf provides only temporary relief — the water reactivates the crystals briefly, but as soon as the turf dries and heats up again, the smell returns. Only enzyme-based treatment can break down these crystals permanently.',
       },
       {
-        question: 'Why are there small dirt plugs all over my lawn after aeration?',
+        question: 'Why doesn\'t rinsing my turf with water eliminate the pet smell?',
         answer:
-          'Those soil cores are an essential part of the process and a sign that the aeration was performed correctly. The plugs will break down naturally within one to two weeks, especially with normal watering and mowing. As they decompose, they return beneficial microorganisms and organic matter to the soil surface, which helps break down thatch and improve overall soil health.',
+          'Water alone cannot dissolve uric acid crystals, which are the primary source of persistent pet odor in artificial turf. Uric acid is not water-soluble — it binds to the infill material and turf backing and can only be broken down through a biochemical process. Our enzyme-based treatment contains specific biological agents that target uric acid molecules, breaking them into carbon dioxide and water-soluble compounds that rinse away completely. This is why professional enzyme treatment succeeds where water, vinegar, baking soda, and retail products consistently fail.',
       },
       {
-        question: 'How often should I aerate my California lawn?',
+        question: 'How often should I schedule pet odor treatment for my turf?',
         answer:
-          'Most California lawns benefit from aeration at least once per year due to year-round use and compaction. Lawns with heavy foot traffic, clay soils common in the Inland Empire and Sacramento Valley, or those struggling with water penetration issues may benefit from aeration twice per year. During your service visit, our technician will assess your soil conditions and recommend the ideal frequency for your property.',
+          'For homes with one or two dogs, we recommend monthly treatment during the warmer months (April through October) and bi-monthly during cooler months. Homes with three or more dogs or heavy pet use may benefit from bi-weekly service during peak summer. After your initial deep treatment eliminates the accumulated buildup, ongoing maintenance treatments are quicker, more affordable, and keep your turf odor-free year-round. We offer maintenance plans tailored to your household\'s specific needs.',
       },
       {
-        question: 'Will aeration help my lawn absorb water better and reduce runoff?',
+        question: 'Is the enzyme treatment safe for my pets to walk on afterward?',
         answer:
-          'Absolutely — improved water penetration is one of the primary benefits of core aeration and is especially valuable in California where water conservation is critical. By creating channels through compacted soil, aeration allows irrigation water to soak into the root zone instead of running off the surface. Many clients report being able to reduce their watering time while achieving better results after aeration because more water reaches the roots where it is actually needed.',
+          'Yes, completely. Our enzyme-based products are non-toxic, biodegradable, and specifically formulated to be safe for animals and humans. The enzymes are naturally occurring biological agents — the same types used in veterinary and pet-care applications. We recommend allowing the treated area to dry before pets resume normal use, which typically takes one to two hours in California\'s sunny conditions. There is no residual chemical risk once the surface has dried.',
       },
     ],
   },
   {
-    slug: 'seeding',
-    name: 'Seeding',
+    slug: 'turf-deodorizing',
+    name: 'Turf Deodorizing & Freshening',
     shortDescription:
-      'Expert overseeding and new lawn establishment using California-adapted grass varieties selected for drought tolerance and year-round performance.',
-    fullDescription: `Establishing a thick, healthy lawn in California requires more than simply scattering seed and hoping for the best. The state's diverse climate zones — from the mild, foggy Bay Area to the scorching Inland Empire and Central Valley where summer temperatures regularly exceed 100 degrees Fahrenheit — demand carefully selected, regionally adapted grass varieties that can handle intense sun, limited water availability, and year-round growing conditions. At Murphy's Turf Care, we have spent years refining our seed selection and establishment techniques specifically for the conditions our California customers face every day. Whether you need to fill in bare spots, thicken a thinning lawn, or establish an entirely new yard from scratch, our seeding service gives your property the best possible foundation for long-term success in California's demanding environment.
+      'Professional deodorizing and freshening service for artificial turf that eliminates general odors from organic debris, mold, mildew, and everyday use without the need for a full deep clean.',
+    fullDescription: `Not every artificial turf odor problem comes from pets. Over time, synthetic turf can develop unpleasant smells from a variety of sources that have nothing to do with animals — and California's climate creates conditions that accelerate every one of them. Organic debris like fallen leaves, grass clippings blown in from neighboring properties, tree sap, pollen, and food scraps from outdoor dining decompose in the warmth and create musty, sour odors within the turf system. Stagnant water that pools in low spots or poorly draining areas becomes a breeding ground for mold and mildew, producing that distinctive damp, earthy smell that permeates the surrounding area. In coastal regions like the Bay Area and parts of Los Angeles, marine moisture can promote algae growth in shaded sections of turf. Even something as simple as spilled beverages from a barbecue or party residue can create sticky buildup that attracts dirt and generates odors as it breaks down in the California sun.
 
-Our approach begins with understanding your property's unique conditions — sun exposure, soil type, irrigation capacity, local water restrictions, and how the lawn will be used. We then select from proven California-adapted varieties including Bermuda grass cultivars for their exceptional heat tolerance and aggressive self-repair in Southern California and the Inland Empire, St. Augustine for shaded areas and coastal properties where its thick blade and salt tolerance shine, Zoysia grass for homeowners seeking a dense, low-water lawn with excellent drought recovery, buffalo grass for ultra-low-maintenance areas, and tall fescue blends for Bay Area and Northern California properties where cool-season performance and deep root systems provide year-round green without excessive irrigation. For most California properties, we recommend a variety or blend specifically matched to your region's climate, water availability, and intended use rather than a one-size-fits-all approach.
+Murphy's Turf Care turf deodorizing service is designed for exactly these situations — when your turf needs a refresh but does not require a full deep cleaning and sanitization. Our process begins with surface preparation, removing any loose debris and lightly brushing the turf to open the fiber pile for treatment penetration. We then apply plant-based deodorizing agents that are specifically formulated for synthetic turf systems — not generic air fresheners or household cleaners that can damage turf fibers or leave sticky residues. These agents work by neutralizing odor-causing compounds at a molecular level rather than simply masking them with fragrance. We treat the infill layer directly, where decomposing organic matter and moisture create the majority of general odor issues. Our UV-activated freshening component takes advantage of California's abundant sunshine — the treatment actually works faster and more effectively in direct sunlight, turning the state's intense sun from a liability into an asset.
 
-The seeding process itself is where professional expertise makes the critical difference. Proper soil preparation is essential — we ensure optimal seed-to-soil contact through light grading, raking, or pairing with aeration so that each seed has the best chance of germination. We apply seed at calibrated rates using commercial spreaders for uniform coverage, follow with a starter fertilizer formulated to support establishment without excessive water demand, and provide you with a detailed watering schedule that maximizes germination success while respecting California's water conservation requirements. Establishing grass in California's warm, dry conditions requires careful attention to irrigation timing — watering during early morning hours to minimize evaporation and ensuring consistent moisture during the critical germination window. We guide you through the entire process and include a follow-up inspection to assess germination rates and address any areas that need additional attention.`,
+This service is especially popular with clients who schedule it between full deep cleaning appointments to maintain freshness, or before outdoor events, parties, and holidays when they want their backyard to be at its absolute best. Homeowners across Sacramento, the Inland Empire, and LA love booking a freshening treatment before summer entertaining season begins. The turnaround is fast — your turf is safe for immediate use after a short drying period, typically thirty minutes to an hour in California conditions. No harsh chemical smells, no residue, just clean, fresh-smelling turf that makes your outdoor space inviting for family, guests, and everyday enjoyment.`,
     benefits: [
-      'Fills bare spots and thin areas for a uniformly dense lawn',
-      'Creates a thicker, more luxurious turf that crowds out weeds naturally',
-      'Uses drought-tolerant varieties adapted to California\'s water-conscious landscape',
-      'Suppresses weed growth through competitive grass density',
-      'Improves lawn color and visual appeal with premium regionally matched cultivars',
-      'Builds long-term resilience against heat, drought, and heavy foot traffic',
-      'Reduces water consumption with deep-rooted, efficient grass varieties',
+      'Neutralizes general odors from organic debris, mold, mildew, and everyday use',
+      'Uses plant-based, eco-friendly deodorizing agents safe for turf systems',
+      'UV-activated formula works faster in California sunshine for enhanced effectiveness',
+      'Quick turnaround with turf ready for use within thirty minutes to one hour',
+      'Perfect maintenance option between full deep cleaning appointments',
+      'Eliminates musty and sour smells without masking them with artificial fragrance',
     ],
     whatIncludes: [
-      'Professional soil preparation to ensure optimal seed-to-soil contact',
-      'Expert seed selection from California-adapted warm-season and cool-season varieties',
-      'Calibrated seed application using commercial-grade spreaders',
-      'Starter fertilizer formulated for California soil conditions',
-      'Customized watering schedule designed for efficient germination under water restrictions',
-      'Follow-up inspection to assess germination and address thin areas',
-      'Written care guide for the critical establishment period',
-    ],
-    startingPrice: 129,
-    iconName: 'Sprout',
-    metaTitle: 'Overseeding & Lawn Seeding Services | Murphy\'s Turf Care',
-    metaDescription:
-      'Professional overseeding and new lawn establishment with California-adapted grass varieties. Thicker, greener, drought-tolerant lawns. Family-owned since 2018. Starting at $129.',
-    faqs: [
-      {
-        question: 'What grass types do you recommend for California lawns?',
-        answer:
-          'It depends on your region and conditions. For Southern California, the Inland Empire, and the Central Valley, we recommend warm-season grasses like Bermuda grass for full-sun areas, St. Augustine for shade and coastal properties, and Zoysia for a dense, low-water option. For the Bay Area and Northern California, tall fescue is the go-to choice for its year-round green color and deep root system. Buffalo grass is an excellent ultra-low-water option for low-traffic areas. We select the specific variety based on your property\'s sun exposure, soil conditions, water availability, and intended use.',
-      },
-      {
-        question: 'When is the best time to seed a lawn in California?',
-        answer:
-          'For warm-season grasses like Bermuda and St. Augustine, the ideal seeding or planting window is late spring through early summer when soil temperatures are warm and the grass can establish quickly before fall. For cool-season grasses like tall fescue, early fall (September through mid-October) is optimal — soil temperatures are still warm for germination but cooling air temperatures reduce stress on young seedlings. We strongly recommend pairing seeding with aeration for the best results regardless of season.',
-      },
-      {
-        question: 'How do I establish a new lawn while following California water restrictions?',
-        answer:
-          'We design our watering schedules to maximize germination success within local water-use guidelines. Key strategies include watering during approved early morning hours to minimize evaporation, using short frequent cycles rather than long soaking sessions during the establishment period, and selecting drought-tolerant varieties that require less water once established. Many California water districts offer exemptions or adjusted schedules for new lawn establishment — we can advise you on how to work within your local guidelines.',
-      },
-      {
-        question: 'Can you seed over my existing lawn or does the old grass need to be removed?',
-        answer:
-          'Overseeding into an existing lawn is one of the most effective ways to thicken thin turf and introduce improved grass varieties without starting over. We recommend mowing the existing lawn short and ideally aerating before overseeding to maximize seed-to-soil contact. For lawns that are severely damaged or more than 60 percent bare, a full renovation with soil preparation may produce better results. During your consultation, we will assess your lawn\'s condition and recommend the most effective and cost-efficient approach.',
-      },
-    ],
-  },
-  {
-    slug: 'fertilization',
-    name: 'Fertilization',
-    shortDescription:
-      'Custom fertilization programs designed for California\'s varied soils and year-round growing season to keep your lawn green and thriving in every season.',
-    fullDescription: `California soils present fertilization challenges that generic, off-the-shelf lawn products simply cannot address. Soil conditions vary dramatically across the state — the Inland Empire and Central Valley feature alkaline soils that often register pH levels between 7.5 and 8.5, locking out critical nutrients like iron, manganese, and phosphorus even when they are present in the soil. Coastal areas may have sandy soils that drain nutrients too quickly, while parts of the Bay Area contend with heavy clay that holds moisture but resists nutrient penetration. This is why so many California lawns develop that frustrating yellowish-green color despite regular fertilization — the grass literally cannot access the nutrients it needs because the soil chemistry is working against it. At Murphy's Turf Care, we have developed custom fertilization programs specifically engineered for the unique soil chemistry of California's diverse regions, ensuring every application delivers real, visible results rather than wasted product and money.
-
-Our fertilization approach begins where it should — with your soil. We conduct thorough soil testing to establish your lawn's baseline pH, nutrient levels, and organic matter content. From these results, we formulate a custom nutrient blend that addresses your specific deficiencies rather than applying a one-size-fits-all product. Because California lawns grow year-round in most regions, our feeding schedule is more consistent than in states with true winter dormancy. We design a program that typically includes five to seven applications spread across the full calendar year: a spring growth booster, sustained summer feeding to maintain color through intense heat and drought stress, a fall application to support root development heading into cooler months, and a mild-winter feeding that keeps your lawn active and green while it continues to grow. For properties with alkaline soils in the Inland Empire, Sacramento Valley, and Central Valley, we incorporate chelated iron supplements to combat the chlorosis — that yellowing that plagues lawns when iron becomes locked in high-pH soils — delivering the deep, rich green color that homeowners desire.
-
-Every product we use is selected for both performance and responsibility. We offer pet-safe and eco-friendly fertilization options that deliver professional-grade results without compromising the safety of your family, pets, or California's sensitive watersheds. Our slow-release formulations provide steady, sustained nutrition over weeks rather than a brief spike followed by a crash, which reduces the risk of fertilizer burn — especially important during California's hot, dry summers — and ensures your lawn receives consistent feeding throughout each growth cycle. As a family-owned company rooted in the California community since 2018, we take environmental stewardship seriously and apply only what your lawn needs — nothing more, nothing less.`,
-    benefits: [
-      'Noticeably greener lawn through iron supplementation for alkaline soils',
-      'Stronger, deeper root system that resists drought and intense California heat',
-      'Year-round nutrition timed to California\'s continuous growing season',
-      'Weed prevention through thick, competitive turf growth',
-      'Custom nutrient blends based on your soil\'s actual test results',
-      'Pet-safe and eco-friendly product options available',
-      'Reduced water consumption as healthier roots use water more efficiently',
-    ],
-    whatIncludes: [
-      'Comprehensive soil testing to establish pH and nutrient baselines',
-      'Custom fertilizer blend formulated for your lawn\'s specific needs',
-      'Professional application with calibrated commercial equipment',
-      'Year-round scheduling with five to seven applications per year',
-      'Follow-up assessment to monitor results and adjust the program',
-      'pH balancing treatments to improve nutrient availability in alkaline soils',
-      'Chelated iron applications to eliminate chlorosis and deepen color',
-      'Micronutrient supplementation tailored to your California soil profile',
+      'Surface debris removal and light brushing to prepare fibers for treatment',
+      'Application of plant-based deodorizing agents formulated for synthetic turf',
+      'Direct infill layer treatment to neutralize embedded odor compounds',
+      'UV-activated freshening treatment enhanced by natural sunlight',
+      'Post-treatment walkthrough to verify freshness and address any remaining areas',
     ],
     startingPrice: 79,
-    iconName: 'Leaf',
-    metaTitle: 'Custom Lawn Fertilization Programs | Murphy\'s Turf Care',
+    iconName: 'Wind',
+    metaTitle: 'Artificial Turf Deodorizing & Freshening Service | Murphy\'s Turf Care',
     metaDescription:
-      'Custom fertilization programs designed for California\'s varied soils. Soil testing, year-round applications, and iron treatments for a greener, healthier lawn. Starting at $79.',
+      'Professional deodorizing for artificial turf. Eliminate odors from mold, mildew, debris, and everyday use. Fast-acting, plant-based formula. Serving California homeowners. Starting at $79.',
     faqs: [
       {
-        question: 'Why does my lawn turn yellow even though I fertilize it regularly?',
+        question: 'What is the difference between deodorizing and a full deep cleaning?',
         answer:
-          'This is one of the most common frustrations for California homeowners, and it almost always comes down to soil pH. Inland Empire, Central Valley, and Sacramento-area soils are highly alkaline, which causes iron and other micronutrients to become chemically locked in the soil and unavailable to your grass. Standard fertilizers do not address this issue. Our programs include chelated iron and pH-balancing treatments that make nutrients accessible to your lawn, resolving the yellowing that plagues so many properties in these areas.',
+          'Our deodorizing service focuses specifically on odor elimination and freshening without the intensive cleaning steps included in our deep cleaning package. It is ideal for turf that is relatively clean but has developed general odors from organic debris, moisture, or everyday use. A full deep cleaning includes power brushing, high-pressure rinsing, sanitization, infill redistribution, and deodorizing — it is the complete reset for turf that needs comprehensive attention. Many clients alternate between the two services for optimal maintenance.',
       },
       {
-        question: 'How many fertilizer applications does my California lawn need per year?',
+        question: 'Can I schedule a deodorizing treatment before a party or outdoor event?',
         answer:
-          'Because California lawns grow year-round in most regions, they benefit from five to seven applications spread across the full calendar year — more than lawns in states with true winter dormancy. This includes spring and summer growth feedings, a fall root-builder, and mild-winter maintenance applications that keep your lawn active and green. The exact number and timing depend on your grass type, soil conditions, and region. We design a custom schedule for each property based on soil test results and your lawn\'s specific needs.',
+          'Absolutely — this is one of the most popular reasons clients book our freshening service. We recommend scheduling two to three days before your event to ensure the treatment has fully activated and your turf is at peak freshness. The turf is safe for use within thirty minutes to an hour after treatment, so same-day service is possible for last-minute needs. Contact us for rush availability in Los Angeles, Murrieta, the Bay Area, and Sacramento.',
       },
       {
-        question: 'Are your fertilizer products safe for kids and pets?',
+        question: 'Why does my artificial turf smell musty even though I don\'t have pets?',
         answer:
-          'Yes. We offer pet-safe and family-friendly fertilization options as part of every program. Our products are selected for both effectiveness and safety. We recommend staying off treated areas until the product has been watered in and the lawn has dried, which is typically within a few hours of application. Our technician will provide specific re-entry guidelines at each visit.',
+          'Non-pet odors in artificial turf are more common than most people realize. Organic debris like leaves, pollen, tree sap, and grass clippings decompose within the turf system and generate musty or sour smells. Stagnant moisture from poor drainage or overwatering promotes mold and mildew growth in the infill. Coastal humidity in the Bay Area and parts of LA can accelerate algae buildup. Even accumulated dust and air pollutants contribute to a stale smell over time. Our deodorizing treatment addresses all of these sources.',
       },
       {
-        question: 'What is the difference between your custom program and store-bought fertilizer?',
+        question: 'Are the deodorizing products safe for children and pets?',
         answer:
-          'Store-bought fertilizers use generic formulations designed for average conditions nationwide. They do not account for California\'s alkaline soils in the inland valleys, our year-round growing season, or the specific nutrient deficiencies common across the state. Our custom programs are built from soil test data specific to your property, use professional-grade products with chelated micronutrients that remain available in high-pH soils, and are applied at precise rates with calibrated equipment. The difference in results is visible within weeks.',
+          'Yes. All of our deodorizing agents are plant-based, non-toxic, and specifically formulated for use on artificial turf surfaces where families and pets spend time. There are no harsh chemicals, volatile organic compounds, or synthetic fragrances. The treated turf is safe for normal use once the surface has dried, which typically takes thirty minutes to one hour in California sunshine. The products leave no sticky residue and will not damage turf fibers, infill, or drainage systems.',
       },
     ],
   },
   {
-    slug: 'pest-control',
-    name: 'Pest Control',
+    slug: 'turf-repair',
+    name: 'Turf Repair & Maintenance',
     shortDescription:
-      'Targeted pest elimination, weed management, and insect treatment using integrated pest management strategies safe for California families and pets.',
-    fullDescription: `A beautiful lawn can be destroyed in a matter of weeks by pests and weeds that thrive in California's warm, year-round growing environment. Beneath the surface, white grubs — the larval stage of masked chafers and Japanese beetles — feed on grass roots, causing large sections of turf to brown, wilt, and pull up like loose carpet. Chinch bugs are devastating to St. Augustine and other warm-season grasses across Southern California and the Inland Empire, sucking plant juices and injecting toxins that cause expanding patches of yellow and brown turf. Armyworms march across lawns in late summer and fall, chewing through grass blades and leaving behind bare, ragged patches overnight. Bermuda grass mites create distinctive rosetting and stunted growth in Bermuda lawns, while sod webworms silently feed in the thatch layer. Above ground, aggressive weeds like nutsedge, crabgrass, spurge, and Bermuda grass invading fescue lawns exploit every thin spot and bare patch, competing with your desirable turf for water, nutrients, and sunlight in an already demanding climate.
+      'Expert repair and preventive maintenance for synthetic turf including seam repair, pile restoration, infill replenishment, and drainage correction to extend the life of your investment.',
+    fullDescription: `Synthetic turf is engineered to be durable and long-lasting, but it is not indestructible — and California's extreme climate puts unique stresses on artificial turf installations that accelerate wear and create repair needs you may not encounter in milder environments. One of the most common issues we see across Los Angeles, the Inland Empire, and the Central Valley is seam separation. California's dramatic temperature swings — from cool mornings to blistering afternoon heat that can push surface temperatures on synthetic turf well above 150 degrees Fahrenheit — cause the turf material to expand and contract repeatedly. Over months and years, this thermal cycling weakens adhesive bonds and pulls seams apart, creating visible gaps, raised edges, and trip hazards. Heavy furniture, play equipment, and concentrated foot traffic flatten the fiber pile in high-use areas, giving your turf a worn, matted appearance that makes it look far older than it actually is. Depleted infill is another widespread problem — infill naturally migrates, compacts, and washes out over time, leading to uneven surfaces, reduced cushioning, and compromised drainage performance.
 
-Murphy's Turf Care takes an integrated pest management approach that prioritizes targeted, effective treatment over blanket chemical applications. We begin every pest control engagement with a thorough identification process — because treating the wrong pest wastes time, money, and product while the real problem continues to spread. Our technicians are trained to identify the specific insects, grubs, and weed species present on your property and to select the most effective, least invasive treatment for each situation. For grub control, we use preventive applications timed to the insect's life cycle, targeting newly hatched larvae before they can cause significant root damage. For chinch bugs and armyworms, we apply targeted treatments during peak activity periods that vary by region across the state. For weeds, we combine pre-emergent barriers that prevent germination with targeted post-emergent treatments that eliminate established plants like nutsedge, crabgrass, and spurge without damaging your desirable grass.
+Murphy's Turf Care provides comprehensive repair and maintenance services that address every common issue synthetic turf faces in California's demanding conditions. For seam separations, our technicians re-bond the affected areas using professional-grade adhesives and seaming tape rated for high-temperature environments — the same materials and techniques used by professional turf installers, not the consumer-grade products available at hardware stores that fail within months under California sun. For flattened, matted pile, we use commercial power brushing equipment that lifts and restores fibers to their original upright position, dramatically improving the look and feel of high-traffic areas. Where infill has depleted, we replenish with the appropriate material — whether silica sand, crumb rubber, or specialized cooling infill — ensuring proper depth and distribution for optimal performance, cushioning, and drainage.
 
-Safety is a non-negotiable priority in everything we do. As a family-owned business, we understand that your lawn is where your children play, your pets run, and your family gathers. Every product we use is selected for its effectiveness against the target pest and its safety profile for people, pets, and the environment. We follow all EPA and California Department of Pesticide Regulation guidelines, apply products at label-recommended rates, and communicate clearly about re-entry times after each treatment. Our goal is not just to eliminate the current problem but to build a lawn that is naturally resistant to future pest and weed pressure through improved density, health, and vigor — because the best defense against California's year-round pest pressure is a thick, thriving lawn.`,
+Beyond individual repairs, we offer preventive maintenance programs designed to catch small problems before they become expensive failures. Our technicians inspect seams, edges, drainage function, infill levels, and overall turf condition during each visit, identifying emerging issues and addressing them proactively. This preventive approach is the single most effective way to extend the lifespan of your artificial turf. Well-maintained synthetic turf can last fifteen years or more, while neglected installations often need full replacement in as few as eight years. For homeowners and businesses across the Bay Area, Sacramento, Murrieta, and greater Los Angeles, our repair and maintenance service protects the significant investment you have made in your property and keeps your turf performing and looking its best for the long haul.`,
     benefits: [
-      'Effective grub and chinch bug elimination before damage becomes irreversible',
-      'Weed-free lawn through combined pre-emergent and post-emergent strategies',
-      'Safe products selected for family, pet, and environmental responsibility',
-      'Preventive treatments that stop pest problems before they start',
-      'Healthier, denser turf that naturally resists pest and weed invasion',
-      'Targeted approach that treats the specific problem without unnecessary chemicals',
-      'Year-round protection through strategically timed applications for California\'s climate',
+      'Repairs seam separations caused by California heat expansion and contraction cycles',
+      'Restores flattened, matted fiber pile to its original upright position and softness',
+      'Replenishes depleted infill for proper cushioning, drainage, and surface evenness',
+      'Fixes drainage problems that cause water pooling and mold growth',
+      'Corrects edge lifting and secures perimeter fastening to prevent trip hazards',
+      'Extends the useful lifespan of artificial turf from eight years to fifteen years or more',
+      'Preventive maintenance programs catch small issues before they become costly replacements',
     ],
     whatIncludes: [
-      'Thorough pest and weed identification by trained technicians',
-      'Targeted insect treatment for chinch bugs, armyworms, grubs, and sod webworms',
-      'Pre-emergent and post-emergent weed control for nutsedge, crabgrass, and spurge',
-      'Preventive barrier treatments to stop future infestations',
-      'Follow-up monitoring visits to verify treatment effectiveness',
-      'Year-round application schedule for continuous California pest protection',
-      'Detailed report of findings and treatment plan for your records',
-      'Bermuda grass mite identification and specialized treatment when detected',
+      'Comprehensive turf condition assessment covering seams, edges, pile, and infill',
+      'Professional seam re-bonding with high-temperature-rated adhesives and seaming tape',
+      'Commercial power brushing for pile restoration in matted and high-traffic areas',
+      'Infill replenishment with appropriate material to restore proper depth and coverage',
+      'Drainage testing and correction to eliminate water pooling',
+      'Edge and perimeter re-securing to prevent lifting and trip hazards',
+      'Detailed condition report with photographs and future maintenance recommendations',
+    ],
+    startingPrice: 129,
+    iconName: 'Wrench',
+    metaTitle: 'Artificial Turf Repair & Maintenance Services | Murphy\'s Turf Care',
+    metaDescription:
+      'Expert synthetic turf repair including seam fixes, pile restoration, infill replenishment, and drainage correction. Extend the life of your artificial turf in California. Starting at $129.',
+    faqs: [
+      {
+        question: 'How long do synthetic turf repairs typically take?',
+        answer:
+          'Most residential repairs are completed in two to four hours depending on the scope of work. Simple seam repairs and localized pile restoration can often be finished in under two hours. More extensive work involving multiple seam repairs, full-yard infill replenishment, or drainage corrections may require a half day. We provide a time estimate during your initial assessment so you can plan accordingly. The repaired areas are ready for normal use immediately in most cases.',
+      },
+      {
+        question: 'Can separated seams on artificial turf be permanently repaired?',
+        answer:
+          'Yes. Our seam repairs use professional-grade adhesives and seaming tape specifically rated for high-temperature environments — the same materials used during original installation by professional turf companies. When properly repaired with these commercial-grade materials, seams are as strong as or stronger than the original bond. We address the underlying cause of the separation as well, ensuring proper tension and alignment so the repair lasts through California\'s temperature cycling.',
+      },
+      {
+        question: 'When should I replace my artificial turf instead of repairing it?',
+        answer:
+          'Repair is almost always the more cost-effective option when the damage is localized — isolated seam separations, specific high-traffic areas with matted pile, depleted infill, or small tears and burns. Replacement becomes the better choice when damage is widespread, the turf backing has deteriorated significantly, UV degradation has made the fibers brittle across large areas, or the turf has exceeded its expected lifespan and multiple systems are failing simultaneously. Our honest assessment will tell you which option makes the most financial sense for your situation.',
+      },
+      {
+        question: 'How often should infill be replenished in artificial turf?',
+        answer:
+          'Infill naturally migrates and depletes over time through foot traffic, rain, wind, and maintenance activities. We recommend having infill levels assessed annually and replenished as needed — most residential installations require a top-up every two to three years. High-traffic areas, pet zones, and turf exposed to heavy wind may need more frequent replenishment. Maintaining proper infill depth is critical for drainage performance, fiber support, cushioning, and the overall longevity of your turf system.',
+      },
+    ],
+  },
+  {
+    slug: 'commercial-turf-cleaning',
+    name: 'Commercial Turf Cleaning',
+    shortDescription:
+      'Large-scale professional cleaning, sanitization, and maintenance programs for commercial artificial turf installations including dog parks, HOA common areas, sports facilities, and business properties.',
+    fullDescription: `Commercial properties with artificial turf face challenges that go far beyond what residential homeowners encounter. Higher foot traffic, stricter hygiene requirements, liability concerns, and vastly larger surface areas demand a fundamentally different approach to turf cleaning and maintenance — one that combines industrial-grade equipment, rigorous sanitization protocols, and reliable scheduling that businesses and property managers can depend on. Murphy's Turf Care has built a dedicated commercial division specifically to serve the unique needs of businesses, property management companies, municipalities, and organizations across Los Angeles, Murrieta and the Inland Empire, the Bay Area, and Sacramento.
+
+Dog parks and pet facilities represent the most demanding commercial turf environments we service. These high-use installations accumulate enormous volumes of pet waste from dozens or even hundreds of animals daily, creating extreme bacterial loads and odor concentrations that require aggressive, frequent treatment. Without professional maintenance on a regular schedule, dog park turf becomes a health hazard — breeding E. coli, Salmonella, Giardia, and other pathogens that can sicken both animals and the people who handle them. Our dog park cleaning protocol includes industrial-strength enzyme treatments, hospital-grade sanitization, and complete infill decontamination on a weekly or bi-weekly schedule that keeps these facilities safe and welcoming for the community.
+
+HOA common areas and apartment or condominium complexes need consistent maintenance to protect property values, satisfy residents, and meet the aesthetic standards that management companies require. We provide scheduled cleaning programs with detailed service documentation that property managers can share with boards and residents. Daycare centers and school play areas demand the highest level of sanitization because young children play directly on the surface and frequently put their hands in their mouths — our antimicrobial protocols for these facilities exceed standard cleaning and are designed to protect the most vulnerable users. Sports facilities, from practice fields to indoor training centers, require maintenance that preserves playing surface performance and safety while managing the bacteria and odor issues that come with heavy athletic use. Rooftop deck installations, restaurant patios, and hotel pool surrounds present their own unique challenges with food and beverage spills, sunscreen residue, and high guest turnover.
+
+Our commercial cleaning process utilizes larger equipment designed for efficiency on expansive surfaces — truck-mounted systems that deliver higher water volume, industrial power brushing units, and commercial-grade sanitizing and deodorizing agents applied at concentrations appropriate for high-use environments. We work during off-hours to minimize disruption to your business operations and can accommodate early morning, evening, and weekend scheduling. Every commercial client receives a customized maintenance plan, a dedicated account representative, and detailed service reports documenting the work performed at each visit — providing the documentation trail that property managers, business owners, and compliance officers need.`,
+    benefits: [
+      'Meets health code and hygiene compliance requirements for commercial facilities',
+      'Reduces liability exposure from unsanitized surfaces in public-use areas',
+      'Maintains property values and resident satisfaction for HOAs and multi-family communities',
+      'Flexible scheduled maintenance programs tailored to your facility\'s needs and traffic levels',
+      'Industrial-grade equipment and processes designed for large-area efficiency',
+      'Off-hours service availability to minimize disruption to business operations',
+      'Detailed service reports and documentation for management, boards, and compliance records',
+    ],
+    whatIncludes: [
+      'Comprehensive site assessment to determine cleaning scope and frequency requirements',
+      'Industrial-grade cleaning with truck-mounted equipment for large surface areas',
+      'Commercial-strength sanitization using hospital-grade antimicrobial agents',
+      'Complete odor elimination with enzyme treatments rated for high-volume pet use',
+      'Infill management including level assessment, redistribution, and replenishment',
+      'Drainage system inspection and performance verification',
+      'Customized maintenance schedule developed for your facility\'s specific usage patterns',
+      'Detailed service documentation with photos and condition reporting after each visit',
+    ],
+    startingPrice: 299,
+    iconName: 'Building2',
+    metaTitle: 'Commercial Artificial Turf Cleaning & Maintenance | Murphy\'s Turf Care',
+    metaDescription:
+      'Professional commercial turf cleaning for dog parks, HOAs, sports facilities, and businesses across California. Industrial-grade sanitization, scheduled maintenance, and service documentation. Starting at $299.',
+    faqs: [
+      {
+        question: 'Can you work around our business hours to minimize disruption?',
+        answer:
+          'Absolutely. We understand that commercial properties need cleaning performed with minimal impact on operations, tenants, and guests. We offer early morning, evening, and weekend scheduling to accommodate your facility\'s needs. For dog parks and public spaces, we can coordinate with management to schedule cleaning during low-traffic hours. Our commercial team is flexible and will work with you to find the optimal service window for your specific situation.',
+      },
+      {
+        question: 'How long does it take to clean a large commercial turf area?',
+        answer:
+          'Service time depends on the total area, the level of soiling, and the specific protocols required. As a general guide, a standard commercial cleaning for a 5,000 to 10,000 square foot area takes approximately three to five hours. Dog parks and pet facilities that require intensive enzyme treatment and sanitization may take longer. Our industrial-grade equipment is specifically designed for efficiency on large surfaces — we clean commercial areas significantly faster than residential-grade equipment could achieve while delivering superior results.',
+      },
+      {
+        question: 'Do you provide documentation for health compliance and property management?',
+        answer:
+          'Yes. Every commercial service visit includes detailed documentation — a service report describing the work performed, before-and-after photographs when requested, product safety data sheets for all agents used, and a signed completion record. This documentation supports health department compliance for dog parks and childcare facilities, satisfies HOA board reporting requirements, and provides the paper trail that property management companies need for their records and liability protection.',
+      },
+      {
+        question: 'What types of maintenance contracts do you offer for commercial clients?',
+        answer:
+          'We offer weekly, bi-weekly, monthly, and quarterly maintenance contracts depending on your facility type and usage levels. Dog parks and pet facilities typically require weekly service. HOA common areas and multi-family communities generally benefit from bi-weekly or monthly cleaning. Sports facilities and commercial properties are customized based on traffic and usage patterns. All contracts include priority scheduling, a dedicated account representative, volume pricing, and the flexibility to adjust frequency as your needs change. Contact us for a custom quote for your property in LA, Murrieta, the Bay Area, or Sacramento.',
+      },
+    ],
+  },
+  {
+    slug: 'turf-sanitization',
+    name: 'Anti-Bacterial Turf Treatment',
+    shortDescription:
+      'Hospital-grade antimicrobial treatment that kills 99.9% of bacteria, viruses, mold, and allergens living in your artificial turf, providing a safe and hygienic surface for families, pets, and athletes.',
+    fullDescription: `Your artificial turf may look perfectly green and clean from a distance, but the reality beneath the surface can be alarming. Synthetic turf harbors bacteria, viruses, mold, mildew, and allergens deep within its infill material and fiber structure — organisms that thrive in the warm, sometimes humid conditions found across California. The state's generally mild temperatures mean that harmful microorganisms remain active year-round rather than being killed off by hard freezes as they are in colder climates. This creates a persistent health risk that most turf owners are completely unaware of, particularly for the people most vulnerable to infection: young children who play on the surface and put their hands in their mouths, and pets whose entire bodies make contact with the turf.
+
+The specific health risks of unsanitized artificial turf are well documented. Pet waste introduces E. coli, Salmonella, Campylobacter, and parasites like Giardia into the turf system. Staph bacteria, including antibiotic-resistant MRSA, have been found on athletic turf surfaces where skin abrasions provide entry points for infection — a serious concern for sports facilities, training centers, and school athletic fields across Los Angeles, the Inland Empire, the Bay Area, and Sacramento. Mold and mildew proliferate in shaded areas and in turf that retains moisture, releasing spores that trigger allergic reactions and respiratory issues. Bird droppings, insect activity, and wind-borne contaminants add additional layers of microbial risk. All of these organisms colonize the infill material — the layer beneath the visible turf fibers — where they are protected from rain, UV light, and surface-level rinsing, allowing populations to grow unchecked until professional treatment intervenes.
+
+Murphy's Turf Care anti-bacterial treatment uses hospital-grade antimicrobial agents — the same class of disinfectants used in medical facilities, veterinary clinics, and food processing environments — applied with equipment and techniques specifically designed for artificial turf systems. Our process begins with a bacterial assessment to identify the types and concentrations of microorganisms present. We then apply our antimicrobial solution at concentrations that achieve verified 99.9% kill rates against bacteria, viruses, mold, and mildew. The treatment penetrates deep into the infill layer where microbial colonies actually reside, not just the visible surface. We follow with a targeted mold and mildew treatment for any areas showing fungal growth, and an allergen reduction application that neutralizes common triggers including pollen, dust mites, and mold spores trapped in the turf fibers. After a short drying period — typically one to two hours in California's sunny conditions — the turf is completely safe for children, pets, and barefoot use.
+
+This service is especially critical for homes with young children, multi-pet households, dog owners whose pets have compromised immune systems, sports fields and athletic training facilities, daycare centers and schools, and any property where people spend extended time in direct contact with the turf surface. We recommend anti-bacterial treatment quarterly for general residential use, monthly for homes with pets, and on a schedule determined by usage intensity for commercial and athletic facilities.`,
+    benefits: [
+      'Kills 99.9% of bacteria and viruses including E. coli, Staph, and Salmonella',
+      'Eliminates mold and mildew colonies that cause allergic reactions and respiratory issues',
+      'Reduces allergens including pollen, dust mites, and mold spores trapped in turf fibers',
+      'Completely safe for children, pets, and barefoot use after a short drying period',
+      'Protects against dangerous pathogens like MRSA on sports and athletic turf surfaces',
+      'Prevents biofilm buildup in infill that shelters and feeds microbial colonies',
+      'Provides peace of mind that your outdoor surface meets hospital-grade hygiene standards',
+    ],
+    whatIncludes: [
+      'Professional bacterial assessment to identify microorganism types and concentrations',
+      'Application of hospital-grade antimicrobial agents with verified 99.9% kill rates',
+      'Targeted mold and mildew treatment for affected and susceptible areas',
+      'UV-enhanced sanitization that leverages California sunlight for accelerated effectiveness',
+      'Allergen reduction treatment for pollen, dust mites, and trapped mold spores',
+      'Post-treatment sanitization verification to confirm microbial elimination',
     ],
     startingPrice: 89,
-    iconName: 'Shield',
-    metaTitle: 'Lawn Pest Control & Weed Management | Murphy\'s Turf Care',
+    iconName: 'ShieldCheck',
+    metaTitle: 'Anti-Bacterial Artificial Turf Sanitization | Murphy\'s Turf Care',
     metaDescription:
-      'Professional pest control, weed management, and insect treatment for California lawns. Chinch bugs, grubs, nutsedge, and more. Safe for families and pets. Starting at $89.',
+      'Hospital-grade antimicrobial treatment for artificial turf. Kills 99.9% of bacteria, viruses, mold, and allergens. Safe for kids and pets. Serving California homes and businesses. Starting at $89.',
     faqs: [
       {
-        question: 'What are the most common lawn pests in California?',
+        question: 'Is the anti-bacterial treatment safe for my children and pets?',
         answer:
-          'California lawns face a wide range of pests due to our warm, year-round growing conditions. The most damaging include white grubs that feed on roots, chinch bugs that devastate St. Augustine and warm-season grasses throughout Southern California and the Inland Empire, armyworms that can strip a lawn overnight in late summer, Bermuda grass mites that cause rosetting and stunted growth, and sod webworms that feed in the thatch layer. Common weed problems include nutsedge, crabgrass, spurge, and Bermuda grass invading fescue lawns. Our technicians identify the specific pest on your property before recommending treatment.',
+          'Yes, completely. While we use hospital-grade antimicrobial agents that are powerful enough to kill 99.9% of harmful microorganisms, these products are specifically selected for safety once the treatment has dried. After a drying period of one to two hours — which California\'s sunshine and warmth accelerate — the treated surface is safe for children, pets, and barefoot use. The antimicrobial agents bind to surfaces and break down harmful organisms without leaving toxic residues.',
       },
       {
-        question: 'When should I apply pre-emergent weed control in California?',
+        question: 'How often should I have my turf professionally sanitized?',
         answer:
-          'Because California has a longer growing season than most of the country, pre-emergent timing varies by region and target weed. For crabgrass prevention, apply in late January through February in Southern California and the Inland Empire, or March in Northern California and the Bay Area, before soil temperatures consistently reach 55 degrees Fahrenheit. A second application in late summer can help prevent fall-germinating weeds. Nutsedge requires a different approach with targeted post-emergent treatment during its active growth period. Our programs time every application precisely for your area.',
+          'For general residential use without pets, quarterly sanitization maintains a healthy surface. Homes with pets should schedule monthly treatments because animal waste continuously introduces new bacteria into the turf system. Sports fields and athletic facilities should be sanitized weekly to bi-weekly during active seasons depending on usage intensity. Daycare centers and schools should follow a monthly to bi-monthly schedule at minimum. We will assess your specific situation and recommend the optimal frequency for your property.',
       },
       {
-        question: 'Are your pest control treatments safe for my pets and children?',
+        question: 'What specific bacteria and pathogens does the treatment eliminate?',
         answer:
-          'Absolutely. We select every product with family and pet safety as a top priority, and all our treatments comply with California Department of Pesticide Regulation standards. Most treatments require only a brief drying period before the lawn is safe for normal activity — typically two to four hours depending on the product and conditions. Our technician will always communicate specific re-entry guidelines at the time of service and leave a door hanger with this information if no one is home.',
+          'Our hospital-grade antimicrobial treatment is verified effective against a broad spectrum of harmful microorganisms including E. coli, Staphylococcus aureus (Staph), Salmonella, MRSA, Campylobacter, Listeria, and common cold and flu viruses. It also eliminates mold species including Aspergillus and Cladosporium, mildew, and reduces allergens from pollen and dust mites. The 99.9% kill rate applies across this full spectrum of pathogens when applied at our professional concentrations and contact times.',
       },
       {
-        question: 'Why do weeds keep coming back even after I treat them?',
+        question: 'How long after treatment before I can use the turf?',
         answer:
-          'California\'s year-round growing season means weed seeds germinate almost continuously, and established weeds like nutsedge spread through underground tubers that single treatments cannot fully eliminate. A single weed plant can produce thousands of seeds per season. Effective long-term weed control requires a multi-pronged strategy: pre-emergent barriers to prevent germination, post-emergent treatments to eliminate established weeds, and improved lawn density through proper fertilization and overseeding so thick grass crowds out new weed growth. Our integrated approach addresses all three of these factors throughout the year.',
-      },
-    ],
-  },
-  {
-    slug: 'seasonal-maintenance',
-    name: 'Seasonal Maintenance',
-    shortDescription:
-      'Comprehensive year-round maintenance packages that keep your California lawn healthy through every season, from summer heat to drought preparation and beyond.',
-    fullDescription: `California's climate may be the envy of the nation, but maintaining a beautiful lawn here requires year-round attention that differs fundamentally from states with clear growing and dormant seasons. There is no true off-season for California lawns — warm-season grasses like Bermuda and St. Augustine slow down in winter but rarely go fully dormant in most of the state, while cool-season grasses like tall fescue remain active twelve months a year. Summer brings intense heat that regularly exceeds 100 degrees Fahrenheit in the Inland Empire, Central Valley, and Sacramento area, stressing turf and demanding careful irrigation management. Fall and spring are transition seasons where grass types shift their growth patterns and pest pressures change. Even California's mild winters require attention to prevent weed encroachment, manage moisture levels during the rainy season, and keep lawns looking presentable year-round. Without a coordinated seasonal plan, problems compound rapidly and what should be routine maintenance becomes expensive restoration.
-
-Murphy's Turf Care seasonal maintenance packages are comprehensive programs designed to address every aspect of your lawn's needs throughout the full calendar year. Our spring package ramps up care as temperatures rise: we clear any accumulated debris, assess turf health after the rainy season, apply a balanced spring fertilizer to fuel vigorous growth, address early weed pressure before it establishes, check irrigation system function and coverage, and provide mowing height and frequency recommendations as growth accelerates. Our summer program focuses on heat and drought resilience — we adjust fertilization to sustain color without stressing the turf, monitor for heat-related pest activity like chinch bugs and armyworms, fine-tune irrigation schedules to maximize water efficiency, and apply treatments that help your lawn survive the most punishing months of the year.
-
-Our fall and winter packages ensure your lawn transitions smoothly through the cooler months. In fall, we perform thorough cleanup of accumulated organic debris, apply a root-building fertilizer, address any lingering pest or weed issues, overseed thin areas while soil temperatures are still favorable, and prepare irrigation schedules for the rainy season. Winter maintenance includes monitoring for weed germination during the rainy season — when annual bluegrass, chickweed, and other cool-season weeds explode — applying pre-emergent and post-emergent treatments as needed, and performing light maintenance to keep your lawn looking sharp through the holidays and into the new year. As a family-owned business that has served California homeowners since 2018, we have seen firsthand how a proactive year-round approach saves our clients money and frustration compared to reactive, problem-by-problem care. These packages represent the single most impactful investment you can make in your lawn's long-term health and appearance.`,
-    benefits: [
-      'Year-round lawn health through proactive care in every California season',
-      'Drought-resilient turf through water-smart summer management practices',
-      'Accelerates recovery from heat stress so your lawn stays green longer',
-      'Comprehensive transition-season care that prevents problems before they start',
-      'All-inclusive care that addresses fertilization, cleanup, and soil health in every visit',
-      'Saves money long-term by preventing the expensive repairs that neglect causes',
-      'Professional property appearance through every month of the year',
-    ],
-    whatIncludes: [
-      'Complete debris removal including leaves, branches, and organic matter',
-      'Mowing preparation with height and frequency recommendations for each season',
-      'Irrigation system check and seasonal schedule adjustment for water efficiency',
-      'Soil amendment application to correct pH and improve nutrient availability',
-      'Seasonal fertilization tailored to your grass type and California region',
-      'Weed monitoring and treatment through the rainy season and beyond',
-      'Edge trimming along all walkways, driveways, and garden beds',
-      'Garden bed cleanup including removal of debris and dead plant material',
-      'Written seasonal care plan with recommendations for between-visit maintenance',
-    ],
-    startingPrice: 199,
-    iconName: 'Calendar',
-    metaTitle: 'Year-Round Lawn Maintenance Packages | Murphy\'s Turf Care',
-    metaDescription:
-      'Comprehensive year-round lawn maintenance packages for California homes. Seasonal fertilization, cleanup, drought preparation, and more. Family-owned since 2018. Starting at $199.',
-    faqs: [
-      {
-        question: 'What is included in the spring maintenance package?',
-        answer:
-          'Our spring package includes complete debris removal, assessment of turf health after the rainy season, spring fertilizer application to fuel growth, early-season weed treatment, irrigation system function check and coverage review, mowing height and frequency recommendations, edge trimming, and a written care plan for the spring growing season. We address everything your lawn needs to transition from the cooler rainy months into peak growing conditions.',
-      },
-      {
-        question: 'Why does my California lawn need year-round maintenance instead of just spring and fall?',
-        answer:
-          'Unlike states with harsh winters where lawns go dormant for months, California lawns grow year-round in most regions. This means continuous nutrient demands, constant weed pressure, ongoing pest activity, and irrigation management that never stops. Skipping any season creates gaps that pests and weeds exploit immediately. Our year-round programs ensure your lawn receives the right care at the right time in every season, which is far more effective and less expensive than dealing with problems after they develop.',
-      },
-      {
-        question: 'How do your summer maintenance practices help my lawn survive California heat?',
-        answer:
-          'Summer in the Inland Empire, Central Valley, and Sacramento area means temperatures regularly exceeding 100 degrees Fahrenheit. Our summer program includes heat-adapted fertilization that sustains color without burning stressed turf, irrigation schedule optimization to deliver water efficiently during peak demand, monitoring for heat-related pests like chinch bugs and armyworms that become most active in hot conditions, and targeted treatments that help your grass maintain root health through the toughest months. The result is a lawn that stays green and recovers quickly when temperatures moderate.',
-      },
-      {
-        question: 'Can I customize the seasonal maintenance package for my specific needs?',
-        answer:
-          'Absolutely. Every property is different, and we tailor our seasonal programs based on your grass type, soil conditions, irrigation system, local climate zone, and personal goals for your lawn. Whether you have Bermuda grass in Murrieta, tall fescue in Martinez, or a mixed lawn in Sacramento, we design a year-round plan that addresses your specific challenges. During your initial consultation, we assess your property and build a custom schedule that delivers the best results for your investment.',
+          'The turf is safe for normal use once the treated surface has fully dried. In California\'s typical sunny conditions, this takes one to two hours. On overcast or cooler days, allow two to three hours. We always verify dryness before leaving your property and will advise you on the expected timeline based on current weather conditions. There is no lingering chemical odor or residue — the turf will feel and smell completely normal once dry.',
       },
     ],
   },

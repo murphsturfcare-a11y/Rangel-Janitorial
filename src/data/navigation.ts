@@ -6,12 +6,12 @@ export const mainNav: NavItem[] = [
     label: "Services",
     href: "/services",
     children: [
-      { label: "Lawn Cleaning", href: "/services/lawn-cleaning" },
-      { label: "Aeration", href: "/services/aeration" },
-      { label: "Seeding", href: "/services/seeding" },
-      { label: "Fertilization", href: "/services/fertilization" },
-      { label: "Pest Control", href: "/services/pest-control" },
-      { label: "Seasonal Maintenance", href: "/services/seasonal-maintenance" },
+      { label: "Deep Cleaning & Sanitization", href: "/services/turf-cleaning" },
+      { label: "Pet Odor & Stain Removal", href: "/services/pet-odor-treatment" },
+      { label: "Turf Deodorizing", href: "/services/turf-deodorizing" },
+      { label: "Turf Repair & Maintenance", href: "/services/turf-repair" },
+      { label: "Commercial Turf Cleaning", href: "/services/commercial-turf-cleaning" },
+      { label: "Anti-Bacterial Treatment", href: "/services/turf-sanitization" },
     ],
   },
   {
@@ -33,12 +33,12 @@ export const footerNav: NavGroup[] = [
   {
     title: "Services",
     links: [
-      { label: "Lawn Cleaning", href: "/services/lawn-cleaning" },
-      { label: "Aeration", href: "/services/aeration" },
-      { label: "Seeding", href: "/services/seeding" },
-      { label: "Fertilization", href: "/services/fertilization" },
-      { label: "Pest Control", href: "/services/pest-control" },
-      { label: "Seasonal Maintenance", href: "/services/seasonal-maintenance" },
+      { label: "Deep Cleaning & Sanitization", href: "/services/turf-cleaning" },
+      { label: "Pet Odor & Stain Removal", href: "/services/pet-odor-treatment" },
+      { label: "Turf Deodorizing", href: "/services/turf-deodorizing" },
+      { label: "Turf Repair & Maintenance", href: "/services/turf-repair" },
+      { label: "Commercial Turf Cleaning", href: "/services/commercial-turf-cleaning" },
+      { label: "Anti-Bacterial Treatment", href: "/services/turf-sanitization" },
     ],
   },
   {
