@@ -92,7 +92,7 @@ export default function QuoteForm() {
   }
 
   const inputClasses =
-    'w-full border border-gray-300 rounded-lg px-4 py-3 text-charcoal font-body focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-colors';
+    'w-full border border-gray-300 rounded-lg px-4 py-3 min-h-[48px] text-base text-charcoal font-body focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-colors';
 
   return (
     <form
@@ -225,7 +225,7 @@ export default function QuoteForm() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="w-full bg-forest text-white font-heading font-semibold py-3 px-6 rounded-lg hover:bg-forest-dark transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full min-h-[48px] bg-forest text-white font-heading font-semibold py-3 px-6 rounded-lg hover:bg-forest-dark transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {status === 'submitting' ? (
             <>

@@ -12,10 +12,10 @@ export default function Hero() {
   return (
     <section className="relative min-h-[600px] lg:min-h-screen flex items-center justify-center bg-gradient-to-br from-forest to-sage">
       {/* Hero background image */}
-      <Image src="/images/hero.jpg" alt="Beautiful clean artificial turf" fill className="object-cover" priority />
+      <Image src="/images/hero.jpg" alt="Beautiful clean artificial turf" fill className="object-cover z-0" priority />
 
       {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/60 to-black/40" />
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center py-20">
