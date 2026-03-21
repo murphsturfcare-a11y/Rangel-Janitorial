@@ -1,4 +1,3 @@
-"use server";
 
 import { redirect } from "next/navigation";
 import type { User } from "@supabase/supabase-js";
