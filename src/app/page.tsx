@@ -347,21 +347,17 @@ export default function Home() {
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 z-[1] opacity-10 bg-[radial-gradient(circle_at_25%_25%,white_1px,transparent_1px)] bg-[length:40px_40px]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-24 sm:pt-44 sm:pb-32 lg:pt-52 lg:pb-40">
           <div className="max-w-3xl">
             <span className="inline-block bg-sage/20 border border-sage/40 text-sage-light font-body font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
               Professional Artificial Turf Cleaning
             </span>
             <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight tracking-tight">
-              When you care about clean turf call{' '}
-              <span className="text-sage-light">Murphy&apos;s Turf</span>
+              Your Turf, Like New.{' '}
+              <span className="text-sage-light">Guaranteed.</span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-gray-200 font-body leading-relaxed max-w-2xl">
-              Worried about your pets ruining your turf? Count on Murphy&apos;s to help
-              bring your artificial grass back to life with a variety of services
-              ranging from reblooming to debris &amp; deodorizing. Our chemicals are
-              no worry as we use pet-friendly and environmentally safe products to
-              refresh your lawn.
+              Pet-safe. Odor-free. Looks brand new. We clean, disinfect, and restore your artificial turf&nbsp;&mdash; or you don&apos;t pay.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
