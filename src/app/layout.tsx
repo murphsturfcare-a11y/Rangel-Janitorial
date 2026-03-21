@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
+import MobileStickyQuote from '@/components/ui/MobileStickyQuote';
 
 const montserrat = Montserrat({
   variable: '--font-heading',
@@ -61,6 +62,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <ExitIntentPopup />
+        <MobileStickyQuote />
         <Script
           src="https://link.msgsndr.com/js/form_embed.js"
           strategy="lazyOnload"
