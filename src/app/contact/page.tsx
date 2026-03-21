@@ -1,32 +1,25 @@
-'use client';
-
-import { useState, type FormEvent } from 'react';
 import {
   Phone,
   Mail,
   MapPin,
   Clock,
-  Send,
   ClipboardList,
   MessageCircle,
   CalendarCheck,
   AlertCircle,
+  ArrowRight,
 } from 'lucide-react';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
+import LocationPicker from '@/components/ui/LocationPicker';
+
+const phoneList = [
+  { name: 'Huntington Beach / LA Area', phone: '951-331-3300', tel: '9513313300' },
+  { name: 'Murrieta / Inland Empire', phone: '951-331-3300', tel: '9513313300' },
+  { name: 'Martinez / Bay Area', phone: '925-338-0048', tel: '9253380048' },
+  { name: 'Greater Sacramento', phone: '916-432-5033', tel: '9164325033' },
+];
 
 export default function ContactPage() {
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setFormStatus('submitting');
-
-    // Simulate form submission
-    setTimeout(() => {
-      setFormStatus('success');
-    }, 1500);
-  }
-
   return (
     <>
       {/* Hero Section */}
@@ -48,229 +41,51 @@ export default function ContactPage() {
       <section className="py-16 sm:py-24 bg-cream">
         <AnimateOnScroll direction="up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-            {/* LEFT: Contact Form */}
+            {/* LEFT: Location Picker */}
             <div className="lg:col-span-3">
               <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-10">
                 <h2 className="text-2xl sm:text-3xl font-bold text-forest font-heading mb-2">
-                  Send Us a Message
+                  Get a Free Quote
                 </h2>
                 <p className="text-charcoal-light font-body mb-8">
-                  Fill out the form below and we&apos;ll get back to you within 24 hours.
+                  Select your area below to request a free quote from your local Murphy&apos;s Turf team. You&apos;ll be taken to your location&apos;s page where you can fill out our quote form or call directly.
                 </p>
-
-                {formStatus === 'success' ? (
-                  <div className="text-center py-16">
-                    <div className="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <CalendarCheck className="w-8 h-8 text-sage" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-forest font-heading mb-3">
-                      Message Sent!
-                    </h3>
-                    <p className="text-charcoal-light font-body max-w-md mx-auto mb-6">
-                      Thank you for reaching out. A member of our team will contact you within 24
-                      hours to discuss your turf cleaning needs.
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => setFormStatus('idle')}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-forest text-white font-semibold font-body rounded-lg hover:bg-forest-light transition-colors"
-                    >
-                      Send Another Message
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6" noValidate={false}>
-                    {/* Full Name */}
-                    <div>
-                      <label
-                        htmlFor="fullName"
-                        className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                      >
-                        Full Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        required
-                        autoComplete="name"
-                        placeholder="John Murphy"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg font-body text-charcoal placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent transition-shadow"
-                      />
-                    </div>
-
-                    {/* Email + Phone Row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                        >
-                          Email <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          required
-                          autoComplete="email"
-                          placeholder="john@example.com"
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg font-body text-charcoal placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent transition-shadow"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="phone"
-                          className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                        >
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          autoComplete="tel"
-                          placeholder="(951) 331-3300"
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg font-body text-charcoal placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent transition-shadow"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Subject + Service Interest Row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div>
-                        <label
-                          htmlFor="subject"
-                          className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                        >
-                          Subject
-                        </label>
-                        <select
-                          id="subject"
-                          name="subject"
-                          defaultValue=""
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg font-body text-charcoal bg-white focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent transition-shadow appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23424242%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px] bg-[right_16px_center] bg-no-repeat"
-                        >
-                          <option value="" disabled>
-                            Select a subject
-                          </option>
-                          <option value="general">General Inquiry</option>
-                          <option value="quote">Request a Quote</option>
-                          <option value="schedule">Schedule Service</option>
-                          <option value="billing">Billing Question</option>
-                          <option value="feedback">Feedback</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="serviceInterest"
-                          className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                        >
-                          Service Interest
-                        </label>
-                        <select
-                          id="serviceInterest"
-                          name="serviceInterest"
-                          defaultValue=""
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg font-body text-charcoal bg-white focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent transition-shadow appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23424242%22%20d%3D%22M6%208L1%203h10z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px] bg-[right_16px_center] bg-no-repeat"
-                        >
-                          <option value="" disabled>
-                            Select a service
-                          </option>
-                          <option value="pet-hair-debris">Pet Hair &amp; Debris Removal</option>
-                          <option value="blooming-decompacting">Blooming &amp; De-Compacting</option>
-                          <option value="disinfect-deodorize">Disinfect &amp; Deodorize</option>
-                          <option value="poop-scooping">Poop Scooping &amp; Removal</option>
-                          <option value="oxyturf">Powered By OxyTurf</option>
-                          <option value="not-sure">Not Sure</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    {/* Message */}
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-semibold text-charcoal font-body mb-1.5"
-                      >
-                        Message <span className="text-red-500">*</span>
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        required
-                        rows={5}
-                        placeholder="Tell us about your artificial turf cleaning needs, property size, or any questions you have..."
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg font-body text-charcoal placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent transition-shadow resize-y"
-                      />
-                    </div>
-
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={formStatus === 'submitting'}
-                      className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-sage text-white font-bold font-body text-lg rounded-lg hover:bg-sage-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sage transition-colors disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
-                    >
-                      {formStatus === 'submitting' ? (
-                        <>
-                          <svg
-                            className="animate-spin h-5 w-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="4"
-                            />
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            />
-                          </svg>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-5 h-5" />
-                          Send Message
-                        </>
-                      )}
-                    </button>
-                  </form>
-                )}
+                <LocationPicker />
               </div>
             </div>
 
             {/* RIGHT: Contact Info Cards */}
             <div className="lg:col-span-2 space-y-6">
-              {/* Phone Card */}
-              <a
-                href="tel:+19513313300"
-                className="block bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl hover:-translate-y-0.5 transition-all group"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-sage/15 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-sage/25 transition-colors">
+              {/* Phone — pick your location */}
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-sage/15 rounded-xl flex items-center justify-center shrink-0">
                     <Phone className="w-6 h-6 text-sage" />
                   </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-charcoal-light font-body uppercase tracking-wide mb-1">
-                      Phone
-                    </h3>
-                    <p className="text-lg font-bold text-forest font-heading group-hover:text-sage-dark transition-colors">
-                      (951) 331-3300
-                    </p>
-                    <p className="text-sm text-charcoal-light font-body mt-0.5">
-                      Tap to call us directly
-                    </p>
-                  </div>
+                  <h3 className="text-sm font-semibold text-charcoal-light font-body uppercase tracking-wide">
+                    Call Your Local Office
+                  </h3>
                 </div>
-              </a>
+                <div className="space-y-2">
+                  {phoneList.map((loc) => (
+                    <a
+                      key={loc.tel}
+                      href={`tel:${loc.tel}`}
+                      className="flex items-center justify-between p-3 rounded-lg hover:bg-cream transition-colors group"
+                    >
+                      <div className="min-w-0">
+                        <span className="block text-sm font-semibold text-charcoal font-body">
+                          {loc.name}
+                        </span>
+                        <span className="block text-sm font-bold text-forest group-hover:text-sage-dark transition-colors">
+                          {loc.phone}
+                        </span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-sage shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  ))}
+                </div>
+              </div>
 
               {/* Email Card */}
               <a

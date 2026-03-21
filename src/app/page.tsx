@@ -14,16 +14,13 @@ import {
   ThumbsUp,
   Leaf,
   ChevronDown,
-  Phone,
   MapPin,
   ArrowRight,
-  Clock,
   CheckCircle2,
   PawPrint,
-  Shield,
   Sparkles,
-  Send,
 } from 'lucide-react';
+import LocationPicker from '@/components/ui/LocationPicker';
 
 /* ========================== DATA ========================== */
 
@@ -195,193 +192,6 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
-/* ======================= QUOTE FORM ======================= */
-
-function QuoteForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState('');
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError('');
-    setSubmitting(true);
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    const payload = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      phone: formData.get('phone') as string,
-      serviceType: formData.get('service') as string,
-      propertyAddress: formData.get('address') as string,
-      message: (formData.get('message') as string) || undefined,
-      sourceUrl: window.location.href,
-    };
-
-    try {
-      const res = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.message || 'Something went wrong. Please try again.');
-        return;
-      }
-
-      setSubmitted(true);
-    } catch {
-      setError('Network error. Please check your connection and try again.');
-    } finally {
-      setSubmitting(false);
-    }
-  }
-
-  if (submitted) {
-    return (
-      <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12 text-center">
-        <div className="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <CheckCircle2 className="w-8 h-8 text-sage" />
-        </div>
-        <h3 className="font-heading font-bold text-2xl text-charcoal mb-2">
-          Thank You!
-        </h3>
-        <p className="font-body text-charcoal-light max-w-md mx-auto">
-          We&apos;ve received your request and will get back to you within 24 hours
-          with a personalized quote. In the meantime, feel free to call us at{' '}
-          <a href="tel:+19513313300" className="text-forest font-semibold hover:underline">
-            (951) 331-3300
-          </a>.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white rounded-2xl shadow-lg p-6 sm:p-10"
-    >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {/* Full Name */}
-        <div>
-          <label htmlFor="name" className="block text-sm font-semibold font-body text-charcoal mb-1.5">
-            Full Name <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            placeholder="John Murphy"
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 font-body text-charcoal placeholder:text-gray-400 focus:border-sage focus:ring-2 focus:ring-sage/30 outline-none transition"
-          />
-        </div>
-
-        {/* Email */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-semibold font-body text-charcoal mb-1.5">
-            Email Address <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            placeholder="john@example.com"
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 font-body text-charcoal placeholder:text-gray-400 focus:border-sage focus:ring-2 focus:ring-sage/30 outline-none transition"
-          />
-        </div>
-
-        {/* Phone */}
-        <div>
-          <label htmlFor="phone" className="block text-sm font-semibold font-body text-charcoal mb-1.5">
-            Phone Number <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            required
-            placeholder="(951) 331-3300"
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 font-body text-charcoal placeholder:text-gray-400 focus:border-sage focus:ring-2 focus:ring-sage/30 outline-none transition"
-          />
-        </div>
-
-        {/* Service Dropdown */}
-        <div>
-          <label htmlFor="service" className="block text-sm font-semibold font-body text-charcoal mb-1.5">
-            Service Needed <span className="text-red-500">*</span>
-          </label>
-          <select
-            id="service"
-            name="service"
-            required
-            defaultValue=""
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 font-body text-charcoal focus:border-sage focus:ring-2 focus:ring-sage/30 outline-none transition appearance-none bg-white"
-          >
-            <option value="" disabled>
-              Select a service
-            </option>
-            {services.map((s) => (
-              <option key={s.slug} value={s.slug}>
-                {s.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Address */}
-        <div className="sm:col-span-2">
-          <label htmlFor="address" className="block text-sm font-semibold font-body text-charcoal mb-1.5">
-            Property Address <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="address"
-            name="address"
-            type="text"
-            required
-            placeholder="123 Main St, Murrieta, CA"
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 font-body text-charcoal placeholder:text-gray-400 focus:border-sage focus:ring-2 focus:ring-sage/30 outline-none transition"
-          />
-        </div>
-
-        {/* Message */}
-        <div className="sm:col-span-2">
-          <label htmlFor="message" className="block text-sm font-semibold font-body text-charcoal mb-1.5">
-            Message / Special Requests
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            placeholder="Tell us about your turf, any pet concerns, or questions you have..."
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 font-body text-charcoal placeholder:text-gray-400 focus:border-sage focus:ring-2 focus:ring-sage/30 outline-none transition resize-y"
-          />
-        </div>
-      </div>
-
-      {error && (
-        <p className="mt-4 text-red-600 font-body text-sm">{error}</p>
-      )}
-
-      <button
-        type="submit"
-        disabled={submitting}
-        className="btn-hover mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-sage hover:bg-sage-dark text-white font-heading font-bold text-lg px-10 py-4 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
-      >
-        <Send className="w-5 h-5" />
-        {submitting ? 'Submitting…' : 'Submit Free Quote Request'}
-      </button>
-    </form>
-  );
-}
-
 /* ==================== MAIN PAGE ==================== */
 
 export default function Home() {
@@ -425,7 +235,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-              className="mt-6 text-lg sm:text-xl text-gray-200 font-body leading-relaxed max-w-2xl"
+              className="mt-6 text-sm sm:text-base lg:text-lg text-gray-200 font-body leading-relaxed max-w-2xl"
             >
               Worried about your pets ruining your turf? Count on Murphy&apos;s to help
               bring your artificial grass back to life with a variety of services
@@ -440,11 +250,11 @@ export default function Home() {
               className="mt-8 flex flex-col sm:flex-row gap-4"
             >
               <Link
-                href="/services"
+                href="/locations"
                 className="btn-hover inline-flex items-center justify-center gap-2 bg-sage hover:bg-sage-dark text-white font-heading font-bold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
-                Read More
-                <ArrowRight className="w-5 h-5" />
+                Find Your Location
+                <MapPin className="w-5 h-5" />
               </Link>
               <Link
                 href="/contact"
@@ -452,13 +262,13 @@ export default function Home() {
               >
                 Contact Us
               </Link>
-              <a
-                href="tel:+19513313300"
+              <Link
+                href="/locations"
                 className="btn-hover inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white font-heading font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200"
               >
-                <Phone className="w-5 h-5" />
-                Call Us
-              </a>
+                <MapPin className="w-5 h-5" />
+                Find Your Local Office
+              </Link>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -839,22 +649,22 @@ export default function Home() {
                 Get Free Quote
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <a
-                href="tel:+19513313300"
+              <Link
+                href="/locations"
                 className="btn-hover inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white font-heading font-semibold text-lg px-10 py-4 rounded-xl transition-all duration-200"
               >
-                <Phone className="w-5 h-5" />
-                Call 951-331-3300
-              </a>
+                <MapPin className="w-5 h-5" />
+                Find Your Local Office
+              </Link>
             </div>
           </div>
         </AnimateOnScroll>
       </section>
 
-      {/* ────────────────── 11. QUOTE FORM SECTION ────────────────── */}
+      {/* ────────────────── 11. GET A QUOTE SECTION ────────────────── */}
       <section className="bg-cream py-20 sm:py-28">
         <AnimateOnScroll direction="up">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <span className="inline-block font-body font-semibold text-sage text-sm uppercase tracking-widest mb-3">
                 Free Estimate
@@ -863,26 +673,10 @@ export default function Home() {
                 Request Your Free Quote
               </h2>
               <p className="mt-4 font-body text-charcoal-light text-lg leading-relaxed max-w-2xl mx-auto">
-                Fill out the form below and one of our turf care specialists will get
-                back to you within 24 hours with a personalized quote.
+                Select your area below to get started with a free, no-obligation quote from your local Murphy&apos;s Turf team.
               </p>
-              <div className="flex items-center justify-center gap-6 mt-5 text-sm font-body text-charcoal-light flex-wrap">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-sage" />
-                  No Obligation
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-sage" />
-                  Response in 24hrs
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Shield className="w-4 h-4 text-sage" />
-                  Pet-Safe Products
-                </span>
-              </div>
             </div>
-
-            <QuoteForm />
+            <LocationPicker heading="Select Your Area" />
           </div>
         </AnimateOnScroll>
       </section>

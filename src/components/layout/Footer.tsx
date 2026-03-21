@@ -25,10 +25,16 @@ const locationsLinks = [
 ];
 
 const contactInfo = [
-  { icon: Phone, text: '(951) 331-3300' },
   { icon: Mail, text: 'info@murphysturf.com' },
   { icon: MapPin, text: 'Murrieta, CA' },
   { icon: Clock, text: 'Mon-Fri: 7AM-6PM | Sat: 8AM-4PM' },
+];
+
+const phoneByLocation = [
+  { name: 'Huntington Beach / LA', phone: '951-331-3300', href: '/locations/huntington-beach' },
+  { name: 'Murrieta / Inland Empire', phone: '951-331-3300', href: '/locations/murrieta' },
+  { name: 'Martinez / Bay Area', phone: '925-338-0048', href: '/locations/martinez' },
+  { name: 'Sacramento', phone: '916-432-5033', href: '/locations/sacramento' },
 ];
 
 const socialLinks = [
@@ -164,6 +170,22 @@ export default function Footer() {
                   </li>
                 );
               })}
+            </ul>
+            <h5 className="mt-5 font-heading text-sm font-semibold text-white flex items-center gap-2">
+              <Phone className="h-4 w-4 text-sage" />
+              Call Your Local Office
+            </h5>
+            <ul className="mt-2 space-y-1.5">
+              {phoneByLocation.map((loc) => (
+                <li key={loc.href}>
+                  <Link
+                    href={loc.href}
+                    className="font-body text-sm text-gray-300 hover:text-sage transition-colors"
+                  >
+                    {loc.name}: <span className="font-semibold">{loc.phone}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

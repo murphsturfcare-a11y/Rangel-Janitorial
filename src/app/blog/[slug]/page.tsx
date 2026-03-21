@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import {
   ChevronRight,
   ArrowRight,
-  Phone,
+  MapPin,
   Calendar,
   Clock,
   User,
@@ -126,7 +126,7 @@ const blogPosts: Record<string, BlogPost> = {
         <li>Multiple pets using the turf regularly, creating more waste than DIY cleaning can handle</li>
         <li>Turf that has not been professionally cleaned in over a year</li>
       </ul>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Murphy's Turf provides professional artificial turf cleaning services across California, including <a href="/services" class="text-sage hover:text-sage-dark underline">Pet Hair & Debris Removal</a>, <a href="/services" class="text-sage hover:text-sage-dark underline">Blooming & De-Compacting</a>, and <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> treatments. Our OxyTurf-powered cleaning process eliminates 99.9% of bacteria and restores your turf to like-new condition. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or call (951) 331-3300 for a free quote.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Murphy's Turf provides professional artificial turf cleaning services across California, including <a href="/services" class="text-sage hover:text-sage-dark underline">Pet Hair & Debris Removal</a>, <a href="/services" class="text-sage hover:text-sage-dark underline">Blooming & De-Compacting</a>, and <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> treatments. Our OxyTurf-powered cleaning process eliminates 99.9% of bacteria and restores your turf to like-new condition. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a>for a free quote.</p>
     `,
     relatedSlugs: [
       'what-is-oxyturf-turf-cleaning',
@@ -187,7 +187,7 @@ const blogPosts: Record<string, BlogPost> = {
       </ul>
 
       <h2 id="professional-odor-elimination-services" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Professional Odor Elimination Services</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">If pet odors have already taken hold of your artificial turf, Murphy's Turf offers a comprehensive odor elimination service that addresses every layer of contamination. Our process includes thorough <a href="/services" class="text-sage hover:text-sage-dark underline">Poop Scooping & Removal</a>, <a href="/services" class="text-sage hover:text-sage-dark underline">Pet Hair & Debris Removal</a>, infill de-compacting, full OxyTurf sanitization, and a final deodorizing treatment. We serve homeowners across Huntington Beach, Murrieta, Martinez, and Sacramento. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or call (951) 331-3300 for a free quote.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">If pet odors have already taken hold of your artificial turf, Murphy's Turf offers a comprehensive odor elimination service that addresses every layer of contamination. Our process includes thorough <a href="/services" class="text-sage hover:text-sage-dark underline">Poop Scooping & Removal</a>, <a href="/services" class="text-sage hover:text-sage-dark underline">Pet Hair & Debris Removal</a>, infill de-compacting, full OxyTurf sanitization, and a final deodorizing treatment. We serve homeowners across Huntington Beach, Murrieta, Martinez, and Sacramento. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a>for a free quote.</p>
     `,
     relatedSlugs: [
       'artificial-turf-pets-clean-safe',
@@ -265,7 +265,7 @@ const blogPosts: Record<string, BlogPost> = {
         <li><strong class="text-charcoal">Bay Area (Martinez):</strong> Fog and moisture can promote mold growth on turf, so watch for green or black spots and clean them promptly with a peroxide-based solution.</li>
         <li><strong class="text-charcoal">Sacramento Valley:</strong> Extreme summer heat similar to the Inland Empire. Fall brings heavy leaf drop from Valley oaks and other deciduous trees, requiring extra debris removal in October and November.</li>
       </ul>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Not sure what schedule is right for your turf? <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact Murphy's Turf</a> for a free assessment. We will evaluate your turf condition and recommend a maintenance plan tailored to your situation. Call us at (951) 331-3300.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Not sure what schedule is right for your turf? <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact Murphy's Turf</a> for a free assessment. We will evaluate your turf condition and recommend a maintenance plan tailored to your situation. <a href="/locations" class="text-sage hover:text-sage-dark underline">Find your local office</a> to call us directly.</p>
     `,
     relatedSlugs: [
       'how-to-clean-artificial-turf',
@@ -341,7 +341,7 @@ const blogPosts: Record<string, BlogPost> = {
         <li>You notice discoloration, mold, or algae on the surface</li>
         <li>You simply want the peace of mind that your turf is thoroughly sanitized</li>
       </ul>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">The ideal approach for most California pet owners is a combination: DIY weekly and monthly maintenance supplemented by quarterly professional cleanings. This gives you the best of both worlds — consistent upkeep between visits and the deep cleaning that only professional equipment and OxyTurf application can deliver. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact Murphy's Turf</a> to learn about our service plans or call (951) 331-3300.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">The ideal approach for most California pet owners is a combination: DIY weekly and monthly maintenance supplemented by quarterly professional cleanings. This gives you the best of both worlds — consistent upkeep between visits and the deep cleaning that only professional equipment and OxyTurf application can deliver. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact Murphy's Turf</a> to learn about our service plans or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a> to call directly.</p>
     `,
     relatedSlugs: [
       'how-to-clean-artificial-turf',
@@ -407,7 +407,7 @@ const blogPosts: Record<string, BlogPost> = {
 
       <h2 id="professional-pet-turf-maintenance" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Professional Pet Turf Maintenance</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">At Murphy's Turf, we understand pet owners because many of us are pet owners ourselves. Our services are designed specifically for the challenges that dogs create on artificial turf. Our <a href="/services" class="text-sage hover:text-sage-dark underline">Pet Hair & Debris Removal</a> service extracts embedded fur and organic matter. Our <a href="/services" class="text-sage hover:text-sage-dark underline">Poop Scooping & Removal</a> service handles the waste so you do not have to. And our OxyTurf-powered <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> treatment eliminates bacteria and odors down to the base layer.</p>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">We serve pet-owning families across Huntington Beach, Murrieta, Martinez, and Sacramento with flexible service plans that fit your needs and budget. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or call (951) 331-3300 to discuss how we can help keep your turf safe and clean for your furry family members.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">We serve pet-owning families across Huntington Beach, Murrieta, Martinez, and Sacramento with flexible service plans that fit your needs and budget. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a>to discuss how we can help keep your turf safe and clean for your furry family members.</p>
     `,
     relatedSlugs: [
       'removing-pet-odors-artificial-turf',
@@ -480,7 +480,7 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">These results are why Murphy's Turf built our entire cleaning service around OxyTurf. It is the most effective product we have found for delivering a genuinely clean, safe, and odor-free artificial turf surface.</p>
 
       <h2 id="experience-oxyturf-with-murphys-turf" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Experience OxyTurf with Murphy's Turf</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Every Murphy's Turf service is <a href="/services" class="text-sage hover:text-sage-dark underline">Powered By OxyTurf</a>. Whether you book our <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> service, a full-service cleaning package, or a recurring maintenance plan, you get the benefit of the most effective artificial turf cleaning product on the market. We serve homeowners in Huntington Beach, Murrieta, Martinez, and Sacramento. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or call (951) 331-3300 to schedule your first OxyTurf treatment.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Every Murphy's Turf service is <a href="/services" class="text-sage hover:text-sage-dark underline">Powered By OxyTurf</a>. Whether you book our <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> service, a full-service cleaning package, or a recurring maintenance plan, you get the benefit of the most effective artificial turf cleaning product on the market. We serve homeowners in Huntington Beach, Murrieta, Martinez, and Sacramento. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a>to schedule your first OxyTurf treatment.</p>
     `,
     relatedSlugs: [
       'how-to-clean-artificial-turf',
@@ -537,7 +537,7 @@ const blogPosts: Record<string, BlogPost> = {
         <li>Deodorizing treatment for lasting freshness</li>
         <li>Drainage and condition assessment with maintenance recommendations</li>
       </ul>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Do not wait until small problems become expensive ones. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact Murphy's Turf</a> today or call (951) 331-3300 to schedule a professional assessment of your artificial turf.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Do not wait until small problems become expensive ones. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact Murphy's Turf</a> today or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a>to schedule a professional assessment of your artificial turf.</p>
     `,
     relatedSlugs: [
       'how-often-clean-artificial-turf',
@@ -600,7 +600,7 @@ const blogPosts: Record<string, BlogPost> = {
       </ul>
 
       <h2 id="murphys-turf-in-huntington-beach" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Murphy's Turf in Huntington Beach</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Murphy's Turf proudly serves Huntington Beach and surrounding Orange County coastal communities with professional artificial turf cleaning services designed for coastal conditions. Our technicians understand the specific challenges of maintaining turf near the ocean and tailor every service accordingly. From <a href="/services" class="text-sage hover:text-sage-dark underline">Pet Hair & Debris Removal</a> to full OxyTurf <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> treatments, we have the tools and expertise to keep your coastal turf performing at its best. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or call (951) 331-3300 to schedule service in Huntington Beach.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Murphy's Turf proudly serves Huntington Beach and surrounding Orange County coastal communities with professional artificial turf cleaning services designed for coastal conditions. Our technicians understand the specific challenges of maintaining turf near the ocean and tailor every service accordingly. From <a href="/services" class="text-sage hover:text-sage-dark underline">Pet Hair & Debris Removal</a> to full OxyTurf <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> treatments, we have the tools and expertise to keep your coastal turf performing at its best. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a>to schedule service in Huntington Beach.</p>
     `,
     relatedSlugs: [
       'turf-cleaning-murrieta-inland-empire',
@@ -666,7 +666,7 @@ const blogPosts: Record<string, BlogPost> = {
 
       <h2 id="murphys-turf-born-in-murrieta" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Murphy's Turf: Born in Murrieta</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Murphy's Turf was founded in Murrieta because this is our home. We know the climate, we know the neighborhoods, and we know exactly what Inland Empire artificial turf needs to stay clean and fresh through our brutal summers. Every service we offer — from <a href="/services" class="text-sage hover:text-sage-dark underline">Poop Scooping & Removal</a> to <a href="/services" class="text-sage hover:text-sage-dark underline">Blooming & De-Compacting</a> to our signature OxyTurf sanitization — is refined for local conditions.</p>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Whether you are in Murrieta, Temecula, Menifee, Wildomar, or anywhere in the Inland Empire, Murphy's Turf is your local artificial turf cleaning expert. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or call (951) 331-3300 for a free quote.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Whether you are in Murrieta, Temecula, Menifee, Wildomar, or anywhere in the Inland Empire, Murphy's Turf is your local artificial turf cleaning expert. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a>for a free quote.</p>
     `,
     relatedSlugs: [
       'turf-cleaning-huntington-beach',
@@ -726,7 +726,7 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Poop scooping is most effective when combined with regular turf cleaning. At Murphy's Turf, many of our clients bundle our Poop Scooping & Removal service with periodic <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> treatments and quarterly <a href="/services" class="text-sage hover:text-sage-dark underline">Blooming & De-Compacting</a> service. This combination keeps waste from accumulating, bacteria from multiplying, odors from developing, and turf fibers from matting — covering every aspect of pet turf maintenance in a coordinated program.</p>
 
       <h2 id="getting-started-with-murphys-turf" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Getting Started with Murphy's Turf</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Murphy's Turf offers Poop Scooping & Removal as both a standalone service and as part of comprehensive turf maintenance packages. We serve pet owners in Huntington Beach, Murrieta, Martinez, and Sacramento with flexible scheduling that fits your household's needs. Whether you have one small dog or a pack of big ones, we have a plan that works. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or call (951) 331-3300 to get started.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Murphy's Turf offers Poop Scooping & Removal as both a standalone service and as part of comprehensive turf maintenance packages. We serve pet owners in Huntington Beach, Murrieta, Martinez, and Sacramento with flexible scheduling that fits your household's needs. Whether you have one small dog or a pack of big ones, we have a plan that works. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a>to get started.</p>
     `,
     relatedSlugs: [
       'artificial-turf-pets-clean-safe',
@@ -794,7 +794,7 @@ const blogPosts: Record<string, BlogPost> = {
 
       <h2 id="prevention-is-the-best-strategy" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Prevention Is the Best Strategy</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">While it is impossible to keep artificial turf completely bacteria-free — it is an outdoor surface, after all — you can keep bacterial populations at safe, manageable levels through consistent maintenance. The combination of daily waste removal, weekly rinsing, and regular professional OxyTurf treatment is the most reliable way to prevent bacterial buildup from reaching levels that pose health risks.</p>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">At Murphy's Turf, we take bacterial contamination seriously because our clients' families and pets depend on us to deliver a genuinely clean, safe surface. Our <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> service, <a href="/services" class="text-sage hover:text-sage-dark underline">Powered By OxyTurf</a>, is specifically designed to eliminate harmful bacteria throughout the full depth of your turf system. We serve families in Huntington Beach, Murrieta, Martinez, and Sacramento. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or call (951) 331-3300 to schedule a cleaning and protect your family's health.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">At Murphy's Turf, we take bacterial contamination seriously because our clients' families and pets depend on us to deliver a genuinely clean, safe surface. Our <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> service, <a href="/services" class="text-sage hover:text-sage-dark underline">Powered By OxyTurf</a>, is specifically designed to eliminate harmful bacteria throughout the full depth of your turf system. We serve families in Huntington Beach, Murrieta, Martinez, and Sacramento. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a>to schedule a cleaning and protect your family's health.</p>
     `,
     relatedSlugs: [
       'what-is-oxyturf-turf-cleaning',
@@ -871,7 +871,7 @@ const blogPosts: Record<string, BlogPost> = {
 
       <h2 id="year-round-professional-maintenance-plans" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Year-Round Professional Maintenance Plans</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">The easiest way to stay on top of seasonal maintenance is to set up a recurring professional service plan with Murphy's Turf. Our maintenance plans include scheduled cleanings timed to each season's needs, with service frequency that accounts for your specific location, turf size, and pet situation. Plans typically include a combination of <a href="/services" class="text-sage hover:text-sage-dark underline">Pet Hair & Debris Removal</a>, <a href="/services" class="text-sage hover:text-sage-dark underline">Blooming & De-Compacting</a>, and <a href="/services" class="text-sage hover:text-sage-dark underline">Disinfect & Deodorize</a> treatments, all <a href="/services" class="text-sage hover:text-sage-dark underline">Powered By OxyTurf</a>.</p>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">We serve homeowners in Huntington Beach, Murrieta, Martinez, and Sacramento. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or call (951) 331-3300 to discuss a maintenance plan customized for your turf and your California climate zone.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">We serve homeowners in Huntington Beach, Murrieta, Martinez, and Sacramento. <a href="/contact" class="text-sage hover:text-sage-dark underline">Contact us</a> or <a href="/locations" class="text-sage hover:text-sage-dark underline">find your local office</a>to discuss a maintenance plan customized for your turf and your California climate zone.</p>
     `,
     relatedSlugs: [
       'how-often-clean-artificial-turf',
@@ -1096,13 +1096,13 @@ export default async function BlogPostPage({
                     Get a Free Quote
                     <ArrowRight className="w-4 h-4" />
                   </Link>
-                  <a
-                    href="tel:+19513313300"
+                  <Link
+                    href="/locations"
                     className="flex items-center justify-center gap-2 text-white/80 hover:text-white font-body text-sm mt-3 transition-colors"
                   >
-                    <Phone className="w-4 h-4" />
-                    (951) 331-3300
-                  </a>
+                    <MapPin className="w-4 h-4" />
+                    Find Your Local Office
+                  </Link>
                 </div>
               </div>
             </aside>
@@ -1246,13 +1246,13 @@ export default async function BlogPostPage({
               Request a Free Quote
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <a
-              href="tel:+19513313300"
+            <Link
+              href="/locations"
               className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors font-body backdrop-blur-sm"
             >
-              <Phone className="w-5 h-5" />
-              (951) 331-3300
-            </a>
+              <MapPin className="w-5 h-5" />
+              Find Your Local Office
+            </Link>
           </div>
         </AnimateOnScroll>
       </section>

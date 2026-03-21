@@ -60,17 +60,10 @@ export default function Header() {
             <Image
               src="/images/logo.png"
               alt="Murphy's Turf"
-              width={48}
-              height={48}
-              className="w-12 h-12 object-contain"
+              width={64}
+              height={64}
+              className="w-16 h-16 object-contain"
             />
-            <span
-              className={`font-heading text-xl font-bold transition-colors duration-300 ${
-                scrolled ? 'text-forest' : 'text-white'
-              }`}
-            >
-              Murphy&apos;s Turf
-            </span>
           </Link>
         </motion.div>
 
@@ -164,13 +157,10 @@ export default function Header() {
                   <Image
                     src="/images/logo.png"
                     alt="Murphy's Turf"
-                    width={48}
-                    height={48}
-                    className="w-10 h-10 object-contain"
+                    width={56}
+                    height={56}
+                    className="w-14 h-14 object-contain"
                   />
-                  <span className="font-heading text-lg font-bold">
-                    Murphy&apos;s Turf
-                  </span>
                 </Link>
 
                 <button

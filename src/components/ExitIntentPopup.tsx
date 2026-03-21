@@ -59,11 +59,11 @@ export default function ExitIntentPopup() {
                 when you request a free quote today!
               </p>
               <a
-                href="/contact"
+                href="/locations"
                 className="block w-full bg-sage hover:bg-sage-dark text-white font-bold py-3 px-6 rounded-lg transition-colors font-body text-center mb-3"
                 onClick={() => setIsVisible(false)}
               >
-                Claim My 10% Discount
+                Find Your Local Office
               </a>
               <button
                 onClick={() => setIsVisible(false)}

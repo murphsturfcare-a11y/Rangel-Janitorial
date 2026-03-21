@@ -14,7 +14,7 @@ export default function CTABanner() {
         </h2>
         <p className="text-white/90 text-lg mt-4 max-w-2xl mx-auto font-body">
           Get a free quote today and see the difference professional turf
-          cleaning makes. Call us at (951) 331-3300 or request a quote online.
+          cleaning makes. Select your area to call your local office or request a quote online.
         </p>
         <Link
           href="/contact"

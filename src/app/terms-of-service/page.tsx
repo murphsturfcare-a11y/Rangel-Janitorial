@@ -521,7 +521,13 @@ export default function TermsOfServicePage() {
                 Step 1: Direct Communication
               </h3>
               <p className="text-charcoal font-body text-base leading-relaxed mb-6">
-                Please contact us directly by phone at (951) 331-3300 or by email at{' '}
+                Please contact us directly by phone (find your{' '}
+                <a
+                  href="/locations"
+                  className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
+                >
+                  local office number
+                </a>) or by email at{' '}
                 <a
                   href="mailto:info@murphysturfcare.com"
                   className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
@@ -612,10 +618,10 @@ export default function TermsOfServicePage() {
                   <p>
                     <strong>Phone:</strong>{' '}
                     <a
-                      href="tel:+19513313300"
+                      href="/locations"
                       className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
                     >
-                      (951) 331-3300
+                      Find your local office number
                     </a>
                   </p>
                   <p>

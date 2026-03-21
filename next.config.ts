@@ -23,7 +23,7 @@ const securityHeaders = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://link.msgsndr.com https://api.leadconnectorhq.com",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://*.supabase.co https://www.google-analytics.com",
+      "img-src 'self' data: blob: https://*.supabase.co https://www.google-analytics.com https://*.netlify.app",
       "font-src 'self'",
       "connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://link.msgsndr.com https://api.leadconnectorhq.com",
       "frame-src 'self' https://link.msgsndr.com https://api.leadconnectorhq.com https://www.google.com https://maps.google.com",
@@ -35,9 +35,11 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  output: "export",
   poweredByHeader: false,
 
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

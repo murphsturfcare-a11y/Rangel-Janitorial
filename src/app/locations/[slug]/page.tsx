@@ -145,7 +145,7 @@ const locationData: Record<string, LocationData> = {
     ],
     metaTitle: "Artificial Turf Cleaning in Huntington Beach & LA Area | Murphy's Turf",
     metaDescription:
-      "Professional artificial turf cleaning in Huntington Beach, Newport Beach, Costa Mesa, Long Beach & Seal Beach. OxyTurf-powered disinfecting. Call (951) 331-3300.",
+      "Professional artificial turf cleaning in Huntington Beach, Newport Beach, Costa Mesa, Long Beach & Seal Beach. OxyTurf-powered disinfecting. Get a free quote today.",
     climateNote:
       'The Huntington Beach and LA coastal corridor features a mild Mediterranean climate moderated by ocean breezes and marine layer. Morning coastal fog and humidity promote mold and mildew in turf systems, while afternoon sun intensifies pet odors and bakes contaminants into infill. Windblown sand from nearby beaches embeds in turf fibers and requires specialized extraction.',
     serviceAreaDescription:
@@ -203,7 +203,7 @@ const locationData: Record<string, LocationData> = {
     ],
     metaTitle: "Artificial Turf Cleaning in Murrieta & Inland Empire | Murphy's Turf HQ",
     metaDescription:
-      "Murphy's Turf headquarters in Murrieta. Professional artificial turf cleaning, pet odor removal & OxyTurf disinfecting for the Inland Empire & Temecula Valley. Call (951) 331-3300.",
+      "Murphy's Turf headquarters in Murrieta. Professional artificial turf cleaning, pet odor removal & OxyTurf disinfecting for the Inland Empire & Temecula Valley. Get a free quote today.",
     climateNote:
       'Murrieta and the Inland Empire feature a hot semi-arid climate with summer temperatures regularly exceeding 100 degrees Fahrenheit, mild winters, and minimal rainfall. Heavy clay soil, Santa Ana winds through the Temecula Gap, and intense UV exposure are primary factors in artificial turf contamination and odor development.',
     serviceAreaDescription:
@@ -216,7 +216,7 @@ const locationData: Record<string, LocationData> = {
     city: 'Martinez',
     slug: 'martinez',
     state: 'CA',
-    phone: '(951) 331-3300',
+    phone: '(925) 338-0048',
     email: 'info@murphysturf.com',
     heroSubtitle:
       "Serving Martinez & the Greater East Bay. Our Contra Costa County team delivers expert artificial turf cleaning calibrated for the fog, marine layer, and unique microclimates of the East Bay — from Concord and Pleasant Hill to Walnut Creek, Antioch, and Brentwood.",
@@ -256,7 +256,7 @@ const locationData: Record<string, LocationData> = {
     ],
     metaTitle: "Artificial Turf Cleaning in Martinez & East Bay | Murphy's Turf",
     metaDescription:
-      "East Bay artificial turf cleaning experts. Murphy's Turf serves Martinez, Walnut Creek, Pleasant Hill, Concord, Antioch & Brentwood with OxyTurf-powered disinfecting. Call (951) 331-3300.",
+      "East Bay artificial turf cleaning experts. Murphy's Turf serves Martinez, Walnut Creek, Pleasant Hill, Concord, Antioch & Brentwood with OxyTurf-powered disinfecting. Get a free quote today.",
     climateNote:
       'Martinez and the East Bay feature a Mediterranean climate strongly influenced by fog, marine layer, and delta breezes from the Carquinez Strait. Temperatures are mild year-round near the water but significantly hotter inland toward Antioch and Brentwood. Coastal moisture promotes mold and mildew in turf systems, while inland heat amplifies pet odor and bacterial concerns.',
     serviceAreaDescription:
@@ -269,7 +269,7 @@ const locationData: Record<string, LocationData> = {
     city: 'Sacramento',
     slug: 'sacramento',
     state: 'CA',
-    phone: '(951) 331-3300',
+    phone: '(916) 432-5033',
     email: 'info@murphysturf.com',
     heroSubtitle:
       "Professional Artificial Turf Cleaning for Sacramento & the Capital Region. Murphy's Turf Sacramento team specializes in heat-resilient turf cleaning for the Central Valley, serving Elk Grove, Roseville, Folsom, and Rancho Cordova.",
@@ -308,7 +308,7 @@ const locationData: Record<string, LocationData> = {
     ],
     metaTitle: "Artificial Turf Cleaning in Sacramento, CA | Murphy's Turf",
     metaDescription:
-      "Sacramento's professional artificial turf cleaning. Murphy's Turf serves Elk Grove, Roseville, Folsom & Rancho Cordova with OxyTurf-powered disinfecting. Call (951) 331-3300.",
+      "Sacramento's professional artificial turf cleaning. Murphy's Turf serves Elk Grove, Roseville, Folsom & Rancho Cordova with OxyTurf-powered disinfecting. Get a free quote today.",
     climateNote:
       'Sacramento features a hot-summer Mediterranean climate with extreme heat often exceeding 105 degrees Fahrenheit in summer and mild winters. The Central Valley receives minimal summer rainfall, and intense heat accelerates pet odor development, bacterial growth, and infill compaction in artificial turf systems. Sacramento\'s famous tree canopy contributes significant leaf and pollen debris to turf surfaces.',
     serviceAreaDescription:
@@ -685,7 +685,7 @@ export default async function LocationPage({
             Get Free Quote
           </a>
           <a
-            href="tel:9513313300"
+            href={`tel:${location.phone.replace(/[^\d+]/g, '')}`}
             className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm py-2.5 px-4 rounded-lg font-body transition-colors whitespace-nowrap"
           >
             <Phone className="w-4 h-4" />

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  Phone,
+  MapPin,
   ShieldCheck,
   Clock,
   Leaf,
@@ -374,13 +374,13 @@ export default function AboutPage() {
             >
               Get Free Quote
             </Link>
-            <a
-              href="tel:+19513313300"
+            <Link
+              href="/locations"
               className="btn-hover inline-flex items-center justify-center gap-2 bg-forest hover:bg-forest-light text-white font-semibold px-8 py-4 rounded-lg transition-colors font-body shadow-md hover:shadow-lg text-lg"
             >
-              <Phone className="w-5 h-5" />
-              (951) 331-3300
-            </a>
+              <MapPin className="w-5 h-5" />
+              Find Your Local Office
+            </Link>
           </div>
           <p className="mt-6 text-charcoal-light font-body text-sm flex items-center justify-center gap-2">
             <Clock className="w-4 h-4" />

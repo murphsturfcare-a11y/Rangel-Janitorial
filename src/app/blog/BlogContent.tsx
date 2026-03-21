@@ -6,7 +6,7 @@ import {
   Search,
   ArrowRight,
   ArrowLeft,
-  Phone,
+  MapPin,
   Calendar,
   User,
   ChevronRight,
@@ -410,14 +410,14 @@ export default function BlogContent({
                     Contact Us
                     <ArrowRight className="w-4 h-4" />
                   </Link>
-                  <div className="mt-4 flex items-center gap-2 text-white/75 text-xs font-body">
-                    <Phone className="w-3.5 h-3.5" />
-                    <a
-                      href="tel:+19513313300"
-                      className="hover:text-white transition-colors"
+                  <div className="mt-4">
+                    <Link
+                      href="/locations"
+                      className="inline-flex items-center gap-2 text-white/75 hover:text-white text-xs font-body transition-colors"
                     >
-                      (951) 331-3300
-                    </a>
+                      <MapPin className="w-3.5 h-3.5" />
+                      Find Your Local Office
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -462,13 +462,13 @@ export default function BlogContent({
                     Contact Us
                     <ArrowRight className="w-4 h-4" />
                   </Link>
-                  <a
-                    href="tel:+19513313300"
+                  <Link
+                    href="/locations"
                     className="inline-flex items-center gap-2 text-white/85 hover:text-white font-body text-sm transition-colors"
                   >
-                    <Phone className="w-3.5 h-3.5" />
-                    (951) 331-3300
-                  </a>
+                    <MapPin className="w-3.5 h-3.5" />
+                    Find Your Local Office
+                  </Link>
                 </div>
               </div>
             </div>

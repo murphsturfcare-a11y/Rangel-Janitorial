@@ -31,7 +31,7 @@ const initialLocations: Location[] = [
   {
     id: '3',
     name: 'Martinez / Bay Area',
-    phone: '(951) 331-3300',
+    phone: '(925) 338-0048',
     description:
       'Professional turf cleaning for Martinez, Concord, Walnut Creek, and the greater Bay Area',
     active: true,
@@ -39,7 +39,7 @@ const initialLocations: Location[] = [
   {
     id: '4',
     name: 'Sacramento',
-    phone: '(951) 331-3300',
+    phone: '(916) 432-5033',
     description:
       'Turf cleaning and maintenance serving Sacramento, Elk Grove, Roseville, and Folsom',
     active: true,

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { MapPin, ArrowRight, Map, Phone, Sparkles } from 'lucide-react';
+import { MapPin, ArrowRight, Map, Mail, Sparkles } from 'lucide-react';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
 
 export const metadata: Metadata = {
@@ -204,13 +204,13 @@ export default function LocationsPage() {
                 Contact Us Today
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <a
-                href="tel:+19513313300"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 bg-forest hover:bg-forest-light text-white font-semibold px-8 py-3.5 rounded-lg transition-colors font-body shadow-sm hover:shadow-md"
               >
-                <Phone className="w-4 h-4" />
-                (951) 331-3300
-              </a>
+                <Mail className="w-4 h-4" />
+                Contact Us
+              </Link>
             </div>
           </div>
         </AnimateOnScroll>

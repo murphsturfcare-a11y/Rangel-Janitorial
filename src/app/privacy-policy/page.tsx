@@ -447,10 +447,10 @@ export default function PrivacyPolicyPage() {
                   <p>
                     <strong>Phone:</strong>{' '}
                     <a
-                      href="tel:+19513313300"
+                      href="/locations"
                       className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
                     >
-                      (951) 331-3300
+                      Find your local office number
                     </a>
                   </p>
                 </div>

@@ -1,66 +1,31 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { Loader2 } from 'lucide-react';
-
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
-
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<FormStatus>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [submitted, setSubmitted] = useState(false);
   const [validationError, setValidationError] = useState('');
 
-  function validate(): boolean {
-    if (!email.trim()) {
-      setValidationError('Email is required.');
-      return false;
-    }
-    if (!EMAIL_REGEX.test(email.trim())) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
       setValidationError('Please enter a valid email address.');
-      return false;
+      return;
     }
     setValidationError('');
-    return true;
+    setSubmitted(true);
   }
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (status === 'submitting') return;
-    if (!validate()) return;
-
-    setStatus('submitting');
-    setErrorMessage('');
-
-    try {
-      const res = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim() }),
-      });
-
-      if (!res.ok) {
-        throw new Error('Failed to subscribe. Please try again.');
-      }
-
-      setStatus('success');
-      setEmail('');
-      setValidationError('');
-    } catch (err) {
-      setStatus('error');
-      setErrorMessage(
-        err instanceof Error ? err.message : 'Something went wrong. Please try again.'
-      );
-    }
-  }
-
-  if (status === 'success') {
+  if (submitted) {
     return (
-      <div className="text-sage font-body text-sm">
-        Thanks for subscribing!
-      </div>
+      <p className="text-sage font-body text-sm">
+        Thanks! Visit your{' '}
+        <a href="/locations" className="underline hover:text-white transition-colors">
+          local office page
+        </a>{' '}
+        to get started with a free quote.
+      </p>
     );
   }
 
@@ -77,23 +42,13 @@ export default function NewsletterForm() {
         />
         <button
           type="submit"
-          disabled={status === 'submitting'}
-          className="bg-forest text-white font-heading font-semibold px-5 py-3 rounded-lg hover:bg-forest-dark transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2 shrink-0"
+          className="bg-forest text-white font-heading font-semibold px-5 py-3 rounded-lg hover:bg-forest-dark transition-colors shrink-0"
         >
-          {status === 'submitting' ? (
-            <Loader2 className="h-5 w-5 animate-spin" />
-          ) : (
-            'Subscribe'
-          )}
+          Subscribe
         </button>
       </div>
-
       {validationError && (
         <p className="mt-2 text-sm text-red-400 font-body">{validationError}</p>
-      )}
-
-      {status === 'error' && errorMessage && (
-        <p className="mt-2 text-sm text-red-400 font-body">{errorMessage}</p>
       )}
     </form>
   );

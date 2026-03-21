@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import {
   Check,
   ArrowRight,
-  Phone,
+  MapPin,
   ChevronRight,
   ShieldCheck,
   Clock,
@@ -767,13 +767,13 @@ export default async function ServiceDetailPage({
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <a
-                href="tel:+19513313300"
+              <Link
+                href="/locations"
                 className="inline-flex items-center gap-2 text-forest font-semibold font-body hover:text-forest-light transition-colors"
               >
-                <Phone className="w-5 h-5" />
-                (951) 331-3300
-              </a>
+                <MapPin className="w-5 h-5" />
+                Find Your Local Office
+              </Link>
             </div>
           </div>
         </AnimateOnScroll>
@@ -858,13 +858,13 @@ export default async function ServiceDetailPage({
               Contact Us for Pricing
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <a
-              href="tel:+19513313300"
+            <Link
+              href="/locations"
               className="btn-hover inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors font-body backdrop-blur-sm"
             >
-              <Phone className="w-5 h-5" />
-              (951) 331-3300
-            </a>
+              <MapPin className="w-5 h-5" />
+              Find Your Local Office
+            </Link>
           </div>
         </AnimateOnScroll>
       </section>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   ArrowRight,
-  Phone,
+  MapPin,
   HelpCircle,
 } from 'lucide-react';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
@@ -146,13 +146,13 @@ export default function ServicesPage() {
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <a
-                href="tel:+19513313300"
+              <Link
+                href="/locations"
                 className="btn-hover inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors font-body backdrop-blur-sm"
               >
-                <Phone className="w-5 h-5" />
-                (951) 331-3300
-              </a>
+                <MapPin className="w-5 h-5" />
+                Find Your Local Office
+              </Link>
             </div>
           </div>
         </AnimateOnScroll>
