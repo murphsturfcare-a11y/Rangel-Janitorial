@@ -467,7 +467,7 @@ export default function PrivacyPolicyPage() {
               View Terms of Service
             </Link>
             <Link
-              href="/contact"
+              href="/locations"
               className="bg-sage hover:bg-sage-dark text-white font-semibold px-6 py-2.5 rounded-lg transition-colors font-body shadow-sm hover:shadow-md"
             >
               Contact Us

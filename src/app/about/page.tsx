@@ -369,7 +369,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/contact"
+              href="/locations"
               className="btn-hover inline-flex items-center justify-center bg-sage hover:bg-sage-dark text-white font-semibold px-8 py-4 rounded-lg transition-colors font-body shadow-md hover:shadow-lg text-lg"
             >
               Get Free Quote

@@ -257,7 +257,7 @@ export default function Home() {
                 <MapPin className="w-5 h-5" />
               </Link>
               <Link
-                href="/contact"
+                href="/locations"
                 className="btn-hover inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 hover:bg-white/25 text-white font-heading font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200"
               >
                 Contact Us
@@ -608,7 +608,7 @@ export default function Home() {
               Everything you need to know about our artificial turf cleaning services.
               Can&apos;t find your answer?{' '}
               <Link
-                href="/contact"
+                href="/locations"
                 className="text-sage hover:text-sage-dark font-semibold underline underline-offset-2"
               >
                 Contact us directly
@@ -643,7 +643,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/contact"
+                href="/locations"
                 className="btn-hover inline-flex items-center justify-center gap-2 bg-sage hover:bg-sage-dark text-white font-heading font-bold text-lg px-10 py-4 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 Get Free Quote

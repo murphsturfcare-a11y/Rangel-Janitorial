@@ -81,7 +81,7 @@ export default function NotFound() {
             Back to Home
           </Link>
           <Link
-            href="/contact"
+            href="/locations"
             className="inline-flex items-center gap-2 px-8 py-3 border-2 border-forest text-forest hover:bg-forest hover:text-white font-heading font-semibold rounded-full transition-colors"
           >
             <Mail className="w-5 h-5" />
