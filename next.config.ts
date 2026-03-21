@@ -35,9 +35,12 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  output: "export",
+  basePath: "/murphys-turf",
   poweredByHeader: false,
 
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
