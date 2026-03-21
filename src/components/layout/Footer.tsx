@@ -24,7 +24,6 @@ const locationsLinks = [
   { label: 'Greater Sacramento', href: '/locations/sacramento' },
 ];
 
-
 const socialLinks = [
   { name: 'Instagram', href: 'https://www.instagram.com/murphysturfcare/', icon: Instagram },
   { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100090088264095', icon: Facebook },
