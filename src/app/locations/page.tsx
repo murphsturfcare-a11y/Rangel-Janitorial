@@ -162,8 +162,8 @@ export default function LocationsPage() {
             {[
               { stat: '4', label: 'Regions Served' },
               { stat: '40+', label: 'Neighborhoods' },
-              { stat: '2,500+', label: 'Happy Customers' },
-              { stat: '7+', label: 'Years Experience' },
+              { stat: '5,000+', label: 'Happy Customers' },
+              { stat: '30+', label: 'Years Experience' },
             ].map((item) => (
               <div key={item.label}>
                 <div className="text-4xl sm:text-5xl font-bold text-sage font-heading mb-2">

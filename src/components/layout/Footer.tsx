@@ -28,7 +28,7 @@ const contactInfo = [
   { icon: Phone, text: '(951) 331-3300' },
   { icon: Mail, text: 'info@murphysturfcare.com' },
   { icon: MapPin, text: 'Murrieta, CA' },
-  { icon: Clock, text: 'Mon-Sat: 7am - 7pm' },
+  { icon: Clock, text: 'Mon-Fri: 7AM-6PM | Sat: 8AM-4PM' },
 ];
 
 /* ------------------------------------------------------------------ */

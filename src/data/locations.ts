@@ -70,12 +70,12 @@ Murphy's Turf brings over 30 years of professional cleaning expertise to the Eas
       'Antioch',
       'Brentwood',
     ],
-    phone: '951-331-3300',
+    phone: '925-338-0048',
     address: 'Martinez, CA',
     metaTitle:
       "Artificial Turf Cleaning in Martinez & Bay Area | Murphy's Turf",
     metaDescription:
-      "Professional artificial turf cleaning in Martinez, Walnut Creek, Concord & East Bay. OxyTurf-powered, pet-safe. Call Murphy's Turf: 951-331-3300.",
+      "Professional artificial turf cleaning in Martinez, Walnut Creek, Concord & East Bay. OxyTurf-powered, pet-safe. Call Murphy's Turf: 925-338-0048.",
   },
   {
     slug: 'sacramento',
@@ -93,11 +93,11 @@ Murphy's Turf serves the entire Greater Sacramento metropolitan area with profes
       'Folsom',
       'Rancho Cordova',
     ],
-    phone: '951-331-3300',
+    phone: '916-432-5033',
     address: 'Sacramento, CA',
     metaTitle:
       "Artificial Turf Cleaning in Sacramento, CA | Murphy's Turf",
     metaDescription:
-      "Professional artificial turf cleaning in Sacramento, Elk Grove, Roseville & Folsom. OxyTurf-powered, pet-safe. Call Murphy's Turf: 951-331-3300.",
+      "Professional artificial turf cleaning in Sacramento, Elk Grove, Roseville & Folsom. OxyTurf-powered, pet-safe. Call Murphy's Turf: 916-432-5033.",
   },
 ];

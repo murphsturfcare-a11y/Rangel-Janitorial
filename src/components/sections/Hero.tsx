@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
 const stats = [
-  { value: '8+', label: 'Years Experience' },
-  { value: '2,500+', label: 'Happy Customers' },
-  { value: '98%', label: 'Satisfaction Rate' },
-  { value: '10,000+', label: 'Projects Completed' },
+  { value: '30+', label: 'Years Experience' },
+  { value: '5,000+', label: 'Happy Customers' },
+  { value: '99%', label: 'Satisfaction Rate' },
+  { value: '15,000+', label: 'Projects Completed' },
 ];
 
 export default function Hero() {
