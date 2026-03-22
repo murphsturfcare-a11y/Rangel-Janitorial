@@ -50,7 +50,7 @@ DIY maintenance is important, but it has its limits. Here are the signs that it 
 - Allergic reactions or skin irritation after contact with the turf
 - It has been more than three to six months since your last professional cleaning
 
-If you notice any of these warning signs, it is time for a professional deep cleaning. Give us a call at **951-331-3300** to schedule your service.
+If you notice any of these warning signs, it is time for a professional deep cleaning. Contact your local Murphy's Turf office to schedule your service — visit [murphysturf.com/locations](/locations) to find the team nearest you.
 
 ## The Murphy's Turf Professional Cleaning Process
 
@@ -85,7 +85,7 @@ Murphy's Turf serves homeowners and businesses across Huntington Beach, greater 
 
 ## Ready to Get Started?
 
-Your artificial turf is an investment worth protecting. Whether you need a one-time deep cleaning or want to set up a regular maintenance schedule, Murphy's Turf is here to help. Call us today at **951-331-3300** or visit our website to book your first appointment. Your turf will thank you.
+Your artificial turf is an investment worth protecting. Whether you need a one-time deep cleaning or want to set up a regular maintenance schedule, Murphy's Turf is here to help. Visit [murphysturf.com/locations](/locations) to find your local Murphy's Turf office and book your first appointment. Your turf will thank you.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-12-15",
@@ -101,7 +101,7 @@ Your artificial turf is an investment worth protecting. Whether you need a one-t
     metaTitle:
       "How to Clean Artificial Turf: The Complete Guide | Murphy's Turf",
     metaDescription:
-      "Complete guide to cleaning artificial turf. Learn DIY maintenance tips and when to call Murphy's Turf for professional OxyTurf disinfection. Call 951-331-3300.",
+      "Complete guide to cleaning artificial turf. Learn DIY maintenance tips and when to call Murphy's Turf for professional OxyTurf disinfection. Visit murphysturf.com/locations.",
     featuredImage:
       "/images/blog/how-to-clean-artificial-turf-complete-guide.jpg",
   },
@@ -383,7 +383,7 @@ Our full service process includes pet hair and debris removal, thorough blooming
 
 ## Schedule Your Bay Area Turf Cleaning
 
-Whether you are in Martinez, Concord, Walnut Creek, or anywhere in the East Bay and greater Bay Area, Murphy's Turf is ready to help you maintain a clean, safe, and beautiful artificial lawn. Call us at **951-331-3300** to schedule your seasonal cleaning or set up a year-round maintenance plan tailored to your specific Bay Area microclimate.
+Whether you are in Martinez, Concord, Walnut Creek, or anywhere in the East Bay and greater Bay Area, Murphy's Turf is ready to help you maintain a clean, safe, and beautiful artificial lawn. Call us at **925-338-0048** to schedule your seasonal cleaning or set up a year-round maintenance plan tailored to your specific Bay Area microclimate.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-10-10",
@@ -401,7 +401,7 @@ Whether you are in Martinez, Concord, Walnut Creek, or anywhere in the East Bay 
     metaTitle:
       "Artificial Turf Maintenance for Bay Area Homeowners | Murphy's Turf",
     metaDescription:
-      "Bay Area turf faces moisture, mold, and microclimate challenges. Murphy's Turf provides professional OxyTurf cleaning in Martinez and the East Bay. Call 951-331-3300.",
+      "Bay Area turf faces moisture, mold, and microclimate challenges. Murphy's Turf provides professional OxyTurf cleaning in Martinez and the East Bay. Call 925-338-0048.",
     featuredImage:
       "/images/blog/artificial-turf-maintenance-bay-area-martinez.jpg",
     location: "martinez",
@@ -505,7 +505,7 @@ Our professional process addresses all of these issues. We start with thorough p
 
 ## Your Sacramento Turf Partner
 
-Sacramento is a fantastic place to live, and artificial turf is the perfect landscaping solution for this region's climate and water-conservation needs. With the right maintenance approach and periodic professional cleaning from Murphy's Turf, your synthetic lawn will look beautiful and perform flawlessly for years to come. Call us at **951-331-3300** to schedule your next cleaning or set up a seasonal maintenance plan designed specifically for Sacramento conditions.
+Sacramento is a fantastic place to live, and artificial turf is the perfect landscaping solution for this region's climate and water-conservation needs. With the right maintenance approach and periodic professional cleaning from Murphy's Turf, your synthetic lawn will look beautiful and perform flawlessly for years to come. Call us at **916-432-5033** to schedule your next cleaning or set up a seasonal maintenance plan designed specifically for Sacramento conditions.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-09-15",
@@ -523,7 +523,7 @@ Sacramento is a fantastic place to live, and artificial turf is the perfect land
     metaTitle:
       "Sacramento Artificial Turf Cleaning Tips | Murphy's Turf",
     metaDescription:
-      "Sacramento's heat and dust demand special turf care. Get practical cleaning tips from Murphy's Turf and learn about professional OxyTurf service. Call 951-331-3300.",
+      "Sacramento's heat and dust demand special turf care. Get practical cleaning tips from Murphy's Turf and learn about professional OxyTurf service. Call 916-432-5033.",
     featuredImage:
       "/images/blog/sacramento-artificial-turf-cleaning-tips.jpg",
     location: "sacramento",
@@ -644,7 +644,7 @@ Our comprehensive sanitization service goes beyond just applying a disinfectant.
 
 ## Protect the Health of Everyone Who Uses Your Turf
 
-Your artificial turf should be a place where your family, pets, and guests can play, relax, and enjoy the outdoors without health concerns. Regular professional sanitization with OxyTurf makes that possible. Do not wait for a health scare to take action. Call Murphy's Turf at **951-331-3300** to schedule your sanitization service and start protecting the people and pets you care about most.
+Your artificial turf should be a place where your family, pets, and guests can play, relax, and enjoy the outdoors without health concerns. Regular professional sanitization with OxyTurf makes that possible. Do not wait for a health scare to take action. Contact your local Murphy's Turf office to schedule your sanitization service and start protecting the people and pets you care about most. Visit [murphysturf.com/locations](/locations) to find the team nearest you.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-08-22",
@@ -663,7 +663,7 @@ Your artificial turf should be a place where your family, pets, and guests can p
     metaTitle:
       "Health Benefits of Artificial Turf Sanitization | Murphy's Turf",
     metaDescription:
-      "Artificial turf harbors E. coli, Staph, and Salmonella. Learn why regular OxyTurf sanitization from Murphy's Turf protects your family's health. Call 951-331-3300.",
+      "Artificial turf harbors E. coli, Staph, and Salmonella. Learn why regular OxyTurf sanitization from Murphy's Turf protects your family's health. Visit murphysturf.com/locations.",
     featuredImage:
       "/images/blog/health-benefits-artificial-turf-sanitization.jpg",
   },
@@ -734,7 +734,7 @@ Not sure if it's time? Watch for these indicators:
 
 After more than 30 years in the cleaning industry, we've seen what works and what doesn't. Our standard recommendation is straightforward: if you have pets, start with monthly service and adjust from there. If you don't have pets, twice a year keeps your investment protected. And if you're a commercial property, talk to us about a custom schedule.
 
-Every Murphy's Turf service includes our complete treatment — pet hair and debris removal, blooming and de-compacting, disinfecting and deodorizing with OxyTurf, and poop scooping when needed. Call us at **951-331-3300** to set up the schedule that's right for your turf.
+Every Murphy's Turf service includes our complete treatment — pet hair and debris removal, blooming and de-compacting, disinfecting and deodorizing with OxyTurf, and poop scooping when needed. Contact your local Murphy's Turf office to set up the schedule that's right for your turf. Visit [murphysturf.com/locations](/locations) to get started.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-08-05",
@@ -827,7 +827,7 @@ In a state like California, where drought conditions make every drop of water pr
 
 Every service Murphy's Turf performs — from pet hair and debris removal to blooming and de-compacting to our full disinfect and deodorize treatment — features OxyTurf as the cornerstone product. It's the reason we can guarantee a clean, safe, fresh-smelling turf surface every single time.
 
-Want to see the difference for yourself? Call Murphy's Turf at **951-331-3300** and schedule your first OxyTurf treatment. Once you experience the results, you'll understand why we built our entire service around this remarkable product.
+Want to see the difference for yourself? Contact your local Murphy's Turf office and schedule your first OxyTurf treatment. Once you experience the results, you'll understand why we built our entire service around this remarkable product.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-07-18",
@@ -935,7 +935,7 @@ Beyond your regular maintenance schedule, call us when you notice:
 
 These are signals that something below the surface needs professional attention. The sooner you address them, the simpler and more affordable the solution.
 
-Ready to find the right balance for your turf? Call Murphy's Turf at **951-331-3300** and we'll set up a maintenance plan that keeps your investment protected without breaking the bank.
+Ready to find the right balance for your turf? Contact your local Murphy's Turf office and we'll set up a maintenance plan that keeps your investment protected without breaking the bank. Visit [murphysturf.com/locations](/locations) to find the team nearest you.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-07-01",
@@ -1045,7 +1045,7 @@ This routine keeps bacterial levels low, prevents odor from developing, maintain
 
 ### Give Your Pets the Yard They Deserve
 
-Artificial turf is the best surface for pet owners who want a beautiful, durable, mud-free yard. With the right maintenance approach, it stays clean, safe, and odor-free year-round. Call Murphy's Turf at **951-331-3300** to set up a pet-focused maintenance plan and experience the difference OxyTurf makes for pet owners.
+Artificial turf is the best surface for pet owners who want a beautiful, durable, mud-free yard. With the right maintenance approach, it stays clean, safe, and odor-free year-round. Contact your local Murphy's Turf office to set up a pet-focused maintenance plan and experience the difference OxyTurf makes for pet owners. Visit [murphysturf.com/locations](/locations) to get started.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-06-12",
@@ -1146,7 +1146,7 @@ Every Murphy's Turf service includes our complete package: pet hair and debris r
 
 Artificial turf odor is not something you have to accept, and it's not a sign that your turf needs replacement. In the vast majority of cases, professional cleaning with OxyTurf completely resolves the problem and regular maintenance prevents it from returning.
 
-Call Murphy's Turf at **951-331-3300** to schedule your turf assessment. We'll identify exactly what's causing your odor and give your turf the treatment it needs to smell the way it should — like a clean, fresh yard your whole family can enjoy.
+Contact your local Murphy's Turf office to schedule your turf assessment. We'll identify exactly what's causing your odor and give your turf the treatment it needs to smell the way it should — like a clean, fresh yard your whole family can enjoy. Visit [murphysturf.com/locations](/locations) to find the team nearest you.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-05-25",
@@ -1256,7 +1256,7 @@ Between professional visits, walk through this quick inspection monthly:
 - [ ] Look at shaded areas for any signs of mold or mildew
 - [ ] Note any allergy symptoms among family members
 
-If you check even one box, it's time to schedule a professional visit. Call Murphy's Turf at **951-331-3300** — we'll assess your turf and provide exactly the service it needs. Every visit includes pet hair and debris removal, blooming and de-compacting, disinfect and deodorize with OxyTurf, and poop scooping as needed. Catch the signs early, and your turf will reward you with years of clean, safe, beautiful performance.
+If you check even one box, it's time to schedule a professional visit. Contact your local Murphy's Turf office — we'll assess your turf and provide exactly the service it needs. Every visit includes pet hair and debris removal, blooming and de-compacting, disinfect and deodorize with OxyTurf, and poop scooping as needed. Catch the signs early, and your turf will reward you with years of clean, safe, beautiful performance.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-05-08",
