@@ -210,10 +210,11 @@ function QuoteForm() {
         </h3>
         <p className="font-body text-charcoal-light max-w-md mx-auto">
           We&apos;ve received your request and will get back to you within 24 hours
-          with a personalized quote. In the meantime, feel free to call us at{' '}
-          <a href="tel:+19513313300" className="text-forest font-semibold hover:underline">
-            (951) 331-3300
-          </a>.
+          with a personalized quote. In the meantime, visit our{' '}
+          <a href="/locations" className="text-forest font-semibold hover:underline">
+            locations page
+          </a>{' '}
+          to find your local office number.
         </p>
       </div>
     );
@@ -265,7 +266,7 @@ function QuoteForm() {
             name="phone"
             type="tel"
             required
-            placeholder="(951) 331-3300"
+            placeholder="(555) 123-4567"
             className="w-full rounded-lg border border-gray-300 px-4 py-3 font-body text-charcoal placeholder:text-gray-400 focus:border-sage focus:ring-2 focus:ring-sage/30 outline-none transition"
           />
         </div>
@@ -373,13 +374,13 @@ export default function Home() {
               >
                 Contact Us
               </Link>
-              <a
-                href="tel:+19513313300"
+              <Link
+                href="/locations"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white font-heading font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200"
               >
                 <Phone className="w-5 h-5" />
-                Call Us
-              </a>
+                Call Your Local Office
+              </Link>
             </div>
             <div className="mt-6">
               <Link
@@ -735,13 +736,13 @@ export default function Home() {
               Get Free Quote
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <a
-              href="tel:+19513313300"
+            <Link
+              href="/locations"
               className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white font-heading font-semibold text-lg px-10 py-4 rounded-xl transition-all duration-200"
             >
-              <Phone className="w-5 h-5" />
-              Call 951-331-3300
-            </a>
+              <MapPin className="w-5 h-5" />
+              Find Your Local Office
+            </Link>
           </div>
         </div>
       </section>
