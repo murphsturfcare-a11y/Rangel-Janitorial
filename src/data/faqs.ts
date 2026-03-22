@@ -24,7 +24,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "Do you offer free estimates?",
-    answer: "Yes, we offer free estimates with no obligation. Contact us by phone at 951-331-3300, email, or through our website to schedule a consultation and receive a customized quote for your turf cleaning needs.",
+    answer: "Yes, we offer free estimates with no obligation. Visit our locations page to contact your local Murphy's Turf office, email us, or fill out the form on our website to schedule a consultation and receive a customized quote for your turf cleaning needs.",
     category: "general",
   },
   {
@@ -47,7 +47,7 @@ export const faqs: FAQItem[] = [
   // Pricing (4)
   {
     question: "How much does artificial turf cleaning cost?",
-    answer: "Pricing varies based on the size of your turf area, condition, and services needed. We provide free, customized quotes for every job. Contact us at 951-331-3300 or through our website to get your estimate.",
+    answer: "Pricing varies based on the size of your turf area, condition, and services needed. We provide free, customized quotes for every job. Contact your local Murphy's Turf office or fill out our website form to get your estimate.",
     category: "pricing",
   },
   {

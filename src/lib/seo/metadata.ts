@@ -52,7 +52,7 @@ export function generateServiceMetadata(service: {
   shortDescription: string;
 }): Metadata {
   const title = `${service.name} | Artificial Turf Cleaning California`;
-  const description = `${service.shortDescription} Professional ${service.name.toLowerCase()} by ${COMPANY_NAME} — 30+ years experience. Call 951-331-3300 for a free quote!`;
+  const description = `${service.shortDescription} Professional ${service.name.toLowerCase()} by ${COMPANY_NAME} — 30+ years experience. Get a free quote today!`;
 
   return generatePageMetadata(title, description, `/services/${service.slug}`);
 }
@@ -63,7 +63,7 @@ export function generateLocationMetadata(location: {
   description: string;
 }): Metadata {
   const title = `Artificial Turf Cleaning in ${location.name}, CA`;
-  const description = `${location.description} ${COMPANY_NAME} provides professional artificial turf cleaning and sanitization in ${location.name}, CA. Call 951-331-3300 for a free estimate!`;
+  const description = `${location.description} ${COMPANY_NAME} provides professional artificial turf cleaning and sanitization in ${location.name}, CA. Get a free estimate today!`;
 
   return generatePageMetadata(
     title,

@@ -8,7 +8,7 @@ import {
 
 export const homeMetadata = generatePageMetadata(
   "Professional Artificial Turf Cleaning in California",
-  "Murphy's Turf — 30+ years of professional artificial turf cleaning, sanitization, and deodorizing across California. Our OxyTurf solution keeps your synthetic turf fresh and clean. Serving Huntington Beach, Murrieta, Martinez & Sacramento. Call 951-331-3300!",
+  "Murphy's Turf — 30+ years of professional artificial turf cleaning, sanitization, and deodorizing across California. Our OxyTurf solution keeps your synthetic turf fresh and clean. Serving Huntington Beach, Murrieta, Martinez & Sacramento. Get a free quote today!",
   "/"
 );
 
@@ -20,7 +20,7 @@ export const aboutMetadata = generatePageMetadata(
 
 export const contactMetadata = generatePageMetadata(
   "Contact Us",
-  "Get a free artificial turf cleaning quote from Murphy's Turf. Serving Huntington Beach, Murrieta, Martinez, and Sacramento. Call 951-331-3300 or fill out our form.",
+  "Get a free artificial turf cleaning quote from Murphy's Turf. Serving Huntington Beach, Murrieta, Martinez, and Sacramento. Fill out our form or call your local office.",
   "/contact"
 );
 

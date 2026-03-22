@@ -3,7 +3,7 @@ import type { Company } from '../types';
 export const company: Company = {
   name: "Murphy's Turf",
   tagline: "When you care about clean turf, call Murphy's Turf",
-  phone: "951-331-3300",
+  phone: "",
   email: "info@murphysturf.com",
   address: {
     street: "",

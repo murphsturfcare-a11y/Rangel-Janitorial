@@ -2,7 +2,6 @@ import {
   SITE_URL,
   COMPANY_NAME,
   COMPANY_DESCRIPTION,
-  COMPANY_PHONE,
   COMPANY_EMAIL,
   COMPANY_ADDRESS,
   SOCIAL_LINKS,
@@ -17,7 +16,6 @@ export function generateOrganizationSchema() {
     logo: `${SITE_URL}/images/logo.png`,
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: COMPANY_PHONE,
       contactType: "customer service",
       areaServed: "US",
       availableLanguage: "English",
@@ -48,7 +46,6 @@ export function generateLocalBusinessSchema() {
     name: COMPANY_NAME,
     description: COMPANY_DESCRIPTION,
     url: SITE_URL,
-    telephone: COMPANY_PHONE,
     email: COMPANY_EMAIL,
     additionalType: "https://schema.org/ProfessionalService",
     knowsAbout: [
@@ -136,7 +133,7 @@ export function generateLocationSchema(location: {
     name: `${COMPANY_NAME} - ${location.name}`,
     description: location.description,
     url: `${SITE_URL}/locations/${location.slug}`,
-    telephone: location.phone || COMPANY_PHONE,
+    ...(location.phone ? { telephone: location.phone } : {}),
     additionalType: "https://schema.org/ProfessionalService",
     address: {
       "@type": "PostalAddress",
