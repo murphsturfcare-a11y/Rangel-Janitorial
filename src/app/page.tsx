@@ -396,7 +396,7 @@ export default function Home() {
       </section>
 
       {/* ────────────────── 2. WELCOME SECTION ────────────────── */}
-      <section className="bg-white py-12 sm:py-20">
+      <section className="bg-white py-10 sm:py-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block font-body font-semibold text-sage text-sm uppercase tracking-widest mb-3">
             About Us
@@ -405,7 +405,7 @@ export default function Home() {
             Welcome to Murphy&apos;s
           </h2>
           <p className="mt-6 font-body text-charcoal-light text-lg leading-relaxed max-w-3xl mx-auto">
-            30+ years in cleaning &amp; disinfecting, now applied to your lawn. Our trained technicians deliver consistent, satisfaction-guaranteed turf care across California.
+            30+ years cleaning &amp; disinfecting, now applied to your lawn.
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
             <div className="w-12 h-1 rounded-full bg-sage" />
@@ -439,20 +439,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ────────────────── QUOTE FORM SECTION ────────────────── */}
+      <section className="bg-cream py-10 sm:py-14">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="inline-block font-body font-semibold text-sage text-sm uppercase tracking-widest mb-3">
+              Free Estimate
+            </span>
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal">
+              Request Your Free Quote
+            </h2>
+            <p className="mt-4 font-body text-charcoal-light text-lg leading-relaxed max-w-2xl mx-auto">
+              We&apos;ll respond within 24 hours.
+            </p>
+            <div className="flex items-center justify-center gap-6 mt-5 text-sm font-body text-charcoal-light flex-wrap">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-sage" />
+                No Obligation
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-sage" />
+                Response in 24hrs
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Shield className="w-4 h-4 text-sage" />
+                Pet-Safe Products
+              </span>
+            </div>
+          </div>
+
+          <QuoteForm />
+        </div>
+      </section>
+
       {/* ────────────────── 4. SERVICES SECTION ────────────────── */}
-      <section className="bg-cream py-12 sm:py-20">
+      <section className="bg-cream py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
             <span className="inline-block font-body font-semibold text-sage text-sm uppercase tracking-widest mb-3">
               What We Offer
             </span>
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal">
               Our Services
             </h2>
-            <p className="mt-4 font-body text-charcoal-light text-lg leading-relaxed">
-              Comprehensive artificial turf care solutions to keep your lawn looking,
-              feeling, and smelling like new.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -490,19 +519,15 @@ export default function Home() {
       </section>
 
       {/* ────────────────── 5. BEFORE / AFTER SECTION ────────────────── */}
-      <section className="bg-white py-12 sm:py-20">
+      <section className="bg-white py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
             <span className="inline-block font-body font-semibold text-sage text-sm uppercase tracking-widest mb-3">
               Real Results
             </span>
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal">
               See the Difference
             </h2>
-            <p className="mt-4 font-body text-charcoal-light text-lg leading-relaxed">
-              Real transformations from Murphy&apos;s Turf cleaning projects.
-              The results speak for themselves.
-            </p>
           </div>
 
           <div className="max-w-5xl mx-auto">
@@ -524,7 +549,7 @@ export default function Home() {
       </section>
 
       {/* ────────────────── 6. OXYTURF FEATURE SECTION ────────────────── */}
-      <section className="bg-cream py-12 sm:py-20">
+      <section className="bg-cream py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Content */}
@@ -583,19 +608,15 @@ export default function Home() {
       </section>
 
       {/* ────────────────── 7. TESTIMONIALS ────────────────── */}
-      <section className="bg-white py-12 sm:py-20">
+      <section className="bg-white py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
             <span className="inline-block font-body font-semibold text-sage text-sm uppercase tracking-widest mb-3">
               Customer Reviews
             </span>
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal">
               What Our Customers Say
             </h2>
-            <p className="mt-4 font-body text-charcoal-light text-lg leading-relaxed">
-              Don&apos;t just take our word for it. Hear from pet owners across
-              California who trust Murphy&apos;s Turf.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -638,19 +659,15 @@ export default function Home() {
       </section>
 
       {/* ────────────────── 8. SERVICE AREAS ────────────────── */}
-      <section className="bg-cream py-12 sm:py-20">
+      <section className="bg-cream py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
             <span className="inline-block font-body font-semibold text-sage text-sm uppercase tracking-widest mb-3">
               Where We Work
             </span>
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal">
               Serving California Communities
             </h2>
-            <p className="mt-4 font-body text-charcoal-light text-lg leading-relaxed">
-              From the coast to the capital, our team brings professional turf
-              cleaning right to your doorstep.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -685,9 +702,9 @@ export default function Home() {
       </section>
 
       {/* ────────────────── 9. FAQ ACCORDION ────────────────── */}
-      <section className="bg-white py-12 sm:py-20">
+      <section className="bg-white py-10 sm:py-14">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-14">
+          <div className="text-center mb-6 sm:mb-10">
             <span className="inline-block font-body font-semibold text-sage text-sm uppercase tracking-widest mb-3">
               Got Questions?
             </span>
@@ -695,7 +712,6 @@ export default function Home() {
               Frequently Asked Questions
             </h2>
             <p className="mt-4 font-body text-charcoal-light text-lg leading-relaxed">
-              Everything you need to know about our artificial turf cleaning services.
               Can&apos;t find your answer?{' '}
               <Link
                 href="/contact"
@@ -719,14 +735,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-forest-dark via-forest to-forest-light" />
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_75%_50%,white_1px,transparent_1px)] bg-[length:32px_32px]" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 text-center">
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white">
             Ready for Fresh, Clean Turf?
           </h2>
           <p className="mt-4 font-body text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Get a free, no-obligation quote and discover why pet owners across
-            California trust Murphy&apos;s Turf to keep their artificial grass
-            looking and smelling like new.
+            Free, no-obligation quotes for California pet owners.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
@@ -747,39 +761,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ────────────────── 11. QUOTE FORM SECTION ────────────────── */}
-      <section className="bg-cream py-12 sm:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <span className="inline-block font-body font-semibold text-sage text-sm uppercase tracking-widest mb-3">
-              Free Estimate
-            </span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal">
-              Request Your Free Quote
-            </h2>
-            <p className="mt-4 font-body text-charcoal-light text-lg leading-relaxed max-w-2xl mx-auto">
-              Fill out the form below and one of our turf care specialists will get
-              back to you within 24 hours with a personalized quote.
-            </p>
-            <div className="flex items-center justify-center gap-6 mt-5 text-sm font-body text-charcoal-light flex-wrap">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-sage" />
-                No Obligation
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-sage" />
-                Response in 24hrs
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Shield className="w-4 h-4 text-sage" />
-                Pet-Safe Products
-              </span>
-            </div>
-          </div>
-
-          <QuoteForm />
-        </div>
-      </section>
     </>
   );
 }
