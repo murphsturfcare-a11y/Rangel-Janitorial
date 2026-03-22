@@ -64,35 +64,35 @@ const services: ServiceItem[] = [
     slug: 'pet-hair-debris',
     icon: 'sparkles',
     shortDescription:
-      'Thorough removal of pet hair, leaves, dirt, and embedded debris from artificial turf fibers and infill using commercial-grade extraction equipment.',
+      'Commercial-grade extraction of pet hair, leaves, dirt, and embedded debris from turf fibers and infill.',
   },
   {
     name: 'Blooming & De-Compacting',
     slug: 'blooming-decompacting',
     icon: 'sprout',
     shortDescription:
-      'Restore flattened turf fibers to their original upright position and break up compacted infill for improved drainage and appearance.',
+      'Restore flattened fibers and break up compacted infill for better drainage and appearance.',
   },
   {
     name: 'Disinfect & Deodorize',
     slug: 'disinfect-deodorize',
     icon: 'shieldcheck',
     shortDescription:
-      'Professional-grade disinfecting and deodorizing powered by OxyTurf. Eliminate bacteria, pet odors, mold, and mildew at their source.',
+      'OxyTurf-powered disinfecting that eliminates bacteria, pet odors, mold, and mildew at their source.',
   },
   {
     name: 'Poop Scooping & Removal',
     slug: 'poop-scooping',
     icon: 'droplets',
     shortDescription:
-      'Regular, reliable pet waste removal from artificial turf. Scheduled weekly or bi-weekly service to keep your yard clean and hygienic.',
+      'Scheduled weekly or bi-weekly pet waste removal to keep your turf clean and hygienic.',
   },
   {
     name: 'Powered By OxyTurf',
     slug: 'oxyturf',
     icon: 'leaf',
     shortDescription:
-      'Our proprietary OxyTurf cleaning and disinfecting formula delivers deep sanitization, odor elimination, and fiber rejuvenation in every treatment.',
+      'Our proprietary formula delivers deep sanitization, odor elimination, and fiber rejuvenation.',
   },
 ];
 
@@ -108,13 +108,11 @@ const locationData: Record<string, LocationData> = {
     phone: '(951) 331-3300',
     email: 'info@murphysturf.com',
     heroSubtitle:
-      "Professional artificial turf cleaning for Huntington Beach and the LA coastal corridor. From Newport Beach and Costa Mesa to Long Beach and Seal Beach, Murphy's Turf delivers OxyTurf-powered cleaning tailored to Southern California's beachside communities.",
+      "Expert artificial turf cleaning for Huntington Beach and the LA coastal corridor — from Newport Beach to Long Beach.",
     description: [
-      "Huntington Beach and the surrounding LA coastal communities present a unique environment for artificial turf owners. The combination of ocean salt air, coastal humidity, marine layer moisture, and intense Southern California sunshine creates conditions that accelerate contamination in synthetic turf systems. Sand blown inland from the beaches works its way deep into turf fibers and infill, mixing with pet waste residue, pollen, and organic debris to form a compacted layer that blocks drainage and harbors bacteria. The marine layer that rolls through Huntington Beach, Newport Beach, and Seal Beach most mornings creates damp conditions in the turf that promote mold and mildew growth — problems that intensify in shaded areas under patios, pergolas, and near fences. Meanwhile, afternoon sun bakes everything that has accumulated in the turf, crystallizing pet urine into persistent uric acid deposits and amplifying odors that make outdoor spaces unpleasant. Homeowners in Costa Mesa, Long Beach, and throughout the coastal corridor invest heavily in their outdoor living areas, and dirty, smelly artificial turf undermines that investment entirely.",
+      "Salt air, coastal humidity, and marine layer moisture make the LA coast uniquely tough on artificial turf. Sand blows inland and embeds deep in fibers, morning fog promotes mold and mildew, and afternoon sun bakes pet waste into stubborn uric acid deposits. From Huntington Beach to Costa Mesa and Seal Beach, these conditions demand more than a garden hose.",
 
-      "Murphy's Turf brings over 30 years of cleaning and disinfecting experience to the Huntington Beach and LA coastal area. Our proprietary OxyTurf product is specifically formulated to address the dual challenges of coastal moisture and Southern California heat — dissolving uric acid crystals from pet urine, eliminating mold and mildew colonies that thrive in marine layer conditions, and neutralizing the embedded organic compounds that produce persistent odors. Our technicians understand that a turf installation two blocks from the Huntington Beach pier faces different conditions than one in a Costa Mesa backyard shielded from ocean breezes, and we calibrate our treatment approach accordingly. From the prestigious neighborhoods along Pacific Coast Highway in Newport Beach to the family communities of Seal Beach and the bustling commercial districts of Long Beach, Murphy's Turf delivers consistent, professional results that restore artificial turf to like-new condition. Our full range of services — pet hair and debris removal, blooming and de-compacting, disinfecting and deodorizing, poop scooping, and comprehensive OxyTurf treatments — ensures that every aspect of your turf's condition is addressed.",
-
-      "The coastal lifestyle in Huntington Beach means outdoor spaces are used year-round — backyard entertaining, pet play areas, rooftop patios, and poolside lounging are everyday activities, not seasonal luxuries. That year-round use means year-round accumulation of contaminants in your artificial turf. Murphy's Turf offers flexible maintenance plans that keep your turf consistently clean, hygienic, and visually impressive regardless of the season. Whether you need weekly poop scooping for your Newport Beach pet area, monthly OxyTurf disinfecting for your Seal Beach backyard, or quarterly full-service cleaning for your Costa Mesa commercial property, we build a program around your specific needs and budget. When you care about clean turf, call Murphy's Turf — the trusted choice for artificial turf cleaning across the Huntington Beach and LA coastal area.",
+      "Murphy's Turf uses our proprietary OxyTurf formula to dissolve uric acid, kill mold and bacteria, and neutralize odors at the source — calibrated for each property's specific coastal exposure. Year-round outdoor living means year-round turf contamination, so we offer flexible maintenance plans to keep your turf clean and hygienic every season. When you care about clean turf, call Murphy's Turf.",
     ],
     neighborhoods: [
       'Huntington Beach',
@@ -147,9 +145,9 @@ const locationData: Record<string, LocationData> = {
     metaDescription:
       "Professional artificial turf cleaning in Huntington Beach, Newport Beach, Costa Mesa, Long Beach & Seal Beach. OxyTurf-powered disinfecting. Get a free quote today.",
     climateNote:
-      'The Huntington Beach and LA coastal corridor features a mild Mediterranean climate moderated by ocean breezes and marine layer. Morning coastal fog and humidity promote mold and mildew in turf systems, while afternoon sun intensifies pet odors and bakes contaminants into infill. Windblown sand from nearby beaches embeds in turf fibers and requires specialized extraction.',
+      'Mild Mediterranean climate with coastal fog and marine layer that promote mold, plus afternoon sun that bakes pet contaminants into infill.',
     serviceAreaDescription:
-      'Our Huntington Beach service area covers the LA coastal corridor from Long Beach in the north through Seal Beach and Huntington Beach, south to Newport Beach and Costa Mesa. We serve residential, commercial, and HOA properties throughout Orange County and southern LA County coastal communities.',
+      'Serving the LA coastal corridor from Long Beach through Huntington Beach, Seal Beach, Newport Beach, and Costa Mesa.',
     formId: 'HYkmRFcmdQ1GD7aEpXzq',
     mapQuery: "Murphy's+Turf+Huntington+Beach+CA",
   },
@@ -161,13 +159,11 @@ const locationData: Record<string, LocationData> = {
     phone: '(951) 331-3300',
     email: 'info@murphysturf.com',
     heroSubtitle:
-      "Our Headquarters — Serving the Inland Empire & Temecula Valley. Murphy's Turf was founded right here in Murrieta, and our deepest roots are in the communities of Southwest Riverside County and the greater Inland Empire.",
+      "Our Headquarters — serving the Inland Empire and Temecula Valley from right here in Murrieta.",
     description: [
-      "Murrieta is home to Murphy's Turf, and no other artificial turf cleaning company knows this region as intimately as we do. Located in the heart of Southwest Riverside County, Murrieta and the surrounding Inland Empire present a distinctive set of challenges for homeowners who want clean, hygienic artificial turf. Summer temperatures regularly exceed 100 degrees Fahrenheit, the Santa Ana winds sweep through the Temecula Gap with punishing force, and the region's heavy clay soil creates drainage problems that affect turf performance. Our team lives and works in these neighborhoods — from the master-planned communities of Temecula to the growing developments of French Valley and Menifee — and we have spent decades perfecting treatment protocols that deliver clean, odor-free turf despite these demanding conditions. With 30+ years of cleaning and disinfecting experience, Murphy's Turf understands Inland Empire artificial turf at a level no competitor can match.",
+      "Murrieta and the Inland Empire hit 100+ degrees regularly, and that heat is brutal on artificial turf. Pet urine crystallizes into stubborn uric acid deposits within hours, bacteria multiply fast in warm infill, and Santa Ana winds pack debris deep into fibers. Heavy clay soil compounds drainage issues across the region from Temecula to Menifee and Lake Elsinore.",
 
-      "The extreme heat of the Inland Empire is the defining challenge for artificial turf cleanliness in this region. When surface temperatures on synthetic turf exceed 150 degrees on a typical July afternoon, pet urine crystallizes rapidly into uric acid deposits that bind to infill material and resist every DIY cleaning attempt. Dog waste decomposes and bakes into the turf system within hours, creating bacterial hotspots that produce the overwhelming ammonia smell Inland Empire turf owners know all too well. Murphy's Turf OxyTurf product was developed in this exact environment — our proprietary formula is specifically engineered to dissolve heat-hardened uric acid crystals, eliminate the bacteria that thrive in Murrieta's extreme temperatures, and neutralize the odor compounds that make summer evenings on the patio unbearable. Our blooming and de-compacting service addresses the fiber matting and infill compaction that intense heat accelerates, restoring turf that looks years older than it is back to its original lush condition.",
-
-      "Beyond Murrieta proper, our Inland Empire service area extends throughout the communities that make up this rapidly growing region. In Temecula, wine country homeowners maintain premium outdoor spaces that demand immaculate turf. In Lake Elsinore and Canyon Lake, lakeside properties deal with unique humidity and insect challenges. Hemet and Perris face some of the highest summer temperatures in the region. Wildomar and Temescal Valley homeowners contend with the same clay soil and Santa Ana wind conditions as Murrieta. Winchester's newer developments often have builder-grade turf installations that need professional attention within the first year. Across all of these communities, Murphy's Turf delivers the same OxyTurf-powered cleaning excellence that has made us the Inland Empire's most trusted artificial turf cleaning company. As our headquarters city, Murrieta and Inland Empire customers benefit from the fastest response times and most flexible scheduling in our entire service network. When you care about clean turf, call Murphy's Turf.",
+      "OxyTurf was developed in this exact environment — our formula dissolves heat-hardened uric acid, eliminates bacteria, and neutralizes the ammonia smell Inland Empire turf owners know too well. Our blooming service restores fibers flattened by years of triple-digit heat. As our headquarters city, Murrieta customers get the fastest response times in our network. When you care about clean turf, call Murphy's Turf.",
     ],
     neighborhoods: [
       'Temecula',
@@ -205,9 +201,9 @@ const locationData: Record<string, LocationData> = {
     metaDescription:
       "Murphy's Turf headquarters in Murrieta. Professional artificial turf cleaning, pet odor removal & OxyTurf disinfecting for the Inland Empire & Temecula Valley. Get a free quote today.",
     climateNote:
-      'Murrieta and the Inland Empire feature a hot semi-arid climate with summer temperatures regularly exceeding 100 degrees Fahrenheit, mild winters, and minimal rainfall. Heavy clay soil, Santa Ana winds through the Temecula Gap, and intense UV exposure are primary factors in artificial turf contamination and odor development.',
+      'Hot semi-arid climate with summers regularly exceeding 100°F, Santa Ana winds, and heavy clay soil — all of which accelerate turf contamination and odor.',
     serviceAreaDescription:
-      'Our Murrieta service area covers the entire Inland Empire from Temecula and French Valley through Menifee and Lake Elsinore, out to Hemet and Perris, and including Wildomar, Canyon Lake, Temescal Valley, and Winchester. As our headquarters city, Murrieta customers enjoy the fastest response times in our network.',
+      'Serving the entire Inland Empire from Temecula and French Valley through Menifee, Lake Elsinore, Hemet, Perris, Wildomar, Canyon Lake, and Winchester.',
     formId: 'xBvd9OY1s3jhTIKq93sM',
     mapQuery: '26323+Jefferson+Avenue+Murrieta+CA+92562',
   },
@@ -219,13 +215,11 @@ const locationData: Record<string, LocationData> = {
     phone: '(925) 338-0048',
     email: 'info@murphysturf.com',
     heroSubtitle:
-      "Serving Martinez & the Greater East Bay. Our Contra Costa County team delivers expert artificial turf cleaning calibrated for the fog, marine layer, and unique microclimates of the East Bay — from Concord and Pleasant Hill to Walnut Creek, Antioch, and Brentwood.",
+      "Expert turf cleaning for Martinez and the East Bay — calibrated for fog, delta breezes, and Bay Area microclimates.",
     description: [
-      "Martinez sits at the edge of the Carquinez Strait where the Sacramento River Delta meets San Francisco Bay, and this geography creates one of the most fascinating microclimate environments in all of California for artificial turf maintenance. Morning fog and marine layer regularly roll through the strait, keeping Martinez and nearby communities cooler and more humid than areas just a few ridgelines inland. The delta breezes that flow through Martinez and into the East Bay valleys moderate afternoon temperatures but also create uneven drying patterns across turf surfaces. Murphy's Turf has built our Bay Area operation around these nuances. Our team understands that a turf installation in the Alhambra Valley corridor faces different moisture conditions than a property in downtown Martinez, and that a yard in Walnut Creek has different needs than one in Brentwood where temperatures run significantly hotter. With 30+ years of cleaning and disinfecting experience, we assess every property's specific exposure to fog, wind, sun, and drainage before designing a treatment protocol.",
+      "The East Bay's unique geography — where the Sacramento Delta meets the San Francisco Bay — creates moisture conditions that are tough on turf. Morning fog and marine layer settle into infill, promoting mold and mildew growth, especially in shaded areas. Further east in Antioch and Brentwood, higher summer temps shift the problem to pet odor and bacterial buildup.",
 
-      "The East Bay's moisture-driven challenges make mold, mildew, and algae growth a primary concern for artificial turf owners — problems that are far less common in drier inland regions like the Inland Empire or Sacramento. In Martinez, Concord, Pleasant Hill, and Walnut Creek, coastal moisture settles into turf infill and creates the damp conditions that fungal organisms need to colonize. Shaded areas under trees, along fences, and beneath patio covers are especially vulnerable. Left untreated, mold and mildew produce musty odors, cause discoloration, and create an unhealthy surface for families and pets. Murphy's Turf OxyTurf treatment is specifically effective against these moisture-driven contaminants — our proprietary formula eliminates mold and mildew colonies at their source within the infill layer, not just on the visible surface. For communities further east like Antioch and Brentwood, where summer temperatures climb significantly higher than the coast, pet odor and bacterial contamination become the dominant concerns, and our OxyTurf disinfecting protocol addresses those heat-amplified problems with equal effectiveness.",
-
-      "Water conservation awareness throughout the East Bay has driven tremendous growth in artificial turf installations across Contra Costa County, and that growth has created an urgent need for professional turf hygiene services. Murphy's Turf serves the entire East Bay with our full range of services — pet hair and debris removal, blooming and de-compacting, disinfecting and deodorizing, poop scooping, and comprehensive OxyTurf treatments. Whether you are maintaining a family backyard in Pleasant Hill, a commercial property in Concord, an HOA common area in Walnut Creek, or a pet-friendly yard in Antioch, our technicians deliver the same professional results that have made us California's trusted artificial turf cleaning company. We build maintenance plans around your specific location's microclimate and usage patterns, ensuring your turf stays clean, hygienic, and visually impressive year-round. When you care about clean turf, call Murphy's Turf.",
+      "OxyTurf eliminates mold and mildew at the source within the infill layer, not just on the surface. For hotter inland properties, the same formula tackles heat-amplified pet odors and bacteria. We tailor every treatment to your property's specific microclimate and build maintenance plans that keep your turf clean year-round. When you care about clean turf, call Murphy's Turf.",
     ],
     neighborhoods: [
       'Concord',
@@ -258,9 +252,9 @@ const locationData: Record<string, LocationData> = {
     metaDescription:
       "East Bay artificial turf cleaning experts. Murphy's Turf serves Martinez, Walnut Creek, Pleasant Hill, Concord, Antioch & Brentwood with OxyTurf-powered disinfecting. Get a free quote today.",
     climateNote:
-      'Martinez and the East Bay feature a Mediterranean climate strongly influenced by fog, marine layer, and delta breezes from the Carquinez Strait. Temperatures are mild year-round near the water but significantly hotter inland toward Antioch and Brentwood. Coastal moisture promotes mold and mildew in turf systems, while inland heat amplifies pet odor and bacterial concerns.',
+      'Mediterranean climate shaped by fog, marine layer, and delta breezes — mild and damp near the strait, significantly hotter inland toward Antioch and Brentwood.',
     serviceAreaDescription:
-      'Our Martinez service area covers the East Bay from Martinez through Concord, Pleasant Hill, and Walnut Creek in the central corridor, east to Antioch and Brentwood. We serve residential, commercial, and HOA properties throughout Contra Costa County.',
+      'Serving Contra Costa County from Martinez through Concord, Pleasant Hill, Walnut Creek, Antioch, and Brentwood.',
     formId: 'mSr8BxMIMWFW5iSStd5F',
     mapQuery: "Murphy's+Turf+Martinez+CA",
   },
@@ -272,13 +266,11 @@ const locationData: Record<string, LocationData> = {
     phone: '(916) 432-5033',
     email: 'info@murphysturf.com',
     heroSubtitle:
-      "Professional Artificial Turf Cleaning for Sacramento & the Capital Region. Murphy's Turf Sacramento team specializes in heat-resilient turf cleaning for the Central Valley, serving Elk Grove, Roseville, Folsom, and Rancho Cordova.",
+      "Heat-resilient turf cleaning for Sacramento and the Capital Region — serving Elk Grove, Roseville, Folsom, and Rancho Cordova.",
     description: [
-      "Sacramento's Central Valley location creates a climate that is as rewarding as it is demanding for artificial turf maintenance. The capital region enjoys abundant sunshine and warm temperatures that make outdoor living a year-round reality, but the flip side is summer heat that routinely pushes past 105 degrees Fahrenheit, sometimes for weeks at a stretch. These extreme temperatures stress artificial turf systems in ways that many homeowners do not realize until the problems become severe. Pet urine crystallizes into uric acid deposits within hours on a 110-degree summer day, embedding deep in the infill where no amount of hosing can reach them. Bacteria reproduce at accelerated rates in the warmth, colonizing the protected environment within infill material. Organic debris — leaves from Sacramento's famous tree canopy, pollen, grass clippings from neighboring natural lawns — decomposes rapidly in the heat, producing foul odors and providing food for bacterial colonies. By the time many Sacramento homeowners realize their turf needs professional attention, months or years of contamination have accumulated beneath the surface.",
+      "Sacramento summers regularly push past 105°F, and that extreme heat is the number one enemy of artificial turf. Pet urine crystallizes into deep uric acid deposits within hours, bacteria multiply fast in warm infill, and debris from Sacramento's famous tree canopy decomposes rapidly — producing odors and feeding bacterial colonies beneath the surface.",
 
-      "Murphy's Turf brings 30+ years of cleaning and disinfecting experience to the Sacramento metropolitan area, with a team that understands the specific demands of Central Valley heat. Our proprietary OxyTurf product was developed to perform in exactly these conditions — dissolving heat-hardened uric acid crystals that bind to infill material, eliminating the bacterial biofilms that colonize warm turf systems, and neutralizing the odor compounds that make Sacramento backyards unusable during summer evenings. Our blooming and de-compacting service addresses the severe fiber matting and infill compaction that Sacramento's extreme heat accelerates, restoring turf that has been baked flat by years of triple-digit temperatures back to its original lush, upright appearance. The transformation is dramatic — clients regularly describe their post-treatment turf as looking like a brand new installation.",
-
-      "Our Sacramento service area covers the communities where artificial turf has become most popular across the capital region. In Elk Grove, the combination of suburban family living and extreme summer heat has made synthetic turf the default choice for backyards, and our pet hair removal and OxyTurf disinfecting services keep those family spaces safe and clean. Roseville's master-planned communities feature beautiful outdoor spaces where maintaining pristine turf appearance is a priority — our blooming service and comprehensive cleaning programs deliver the visual results Roseville homeowners expect. Folsom's active families and pet owners rely on our poop scooping and regular maintenance plans to keep their turf hygienic between full cleaning appointments. Rancho Cordova's newer developments benefit from our preventive maintenance programs that protect turf investments from the start. Across all four communities and the greater Sacramento metro, Murphy's Turf delivers the same OxyTurf-powered excellence that has made us California's trusted artificial turf cleaning company. When you care about clean turf, call Murphy's Turf.",
+      "OxyTurf dissolves heat-hardened uric acid, eliminates bacterial biofilms, and neutralizes odors that make backyards unusable on summer evenings. Our blooming service restores fibers baked flat by years of triple-digit heat — clients say their turf looks like a new installation. When you care about clean turf, call Murphy's Turf.",
     ],
     neighborhoods: [
       'Elk Grove',
@@ -310,9 +302,9 @@ const locationData: Record<string, LocationData> = {
     metaDescription:
       "Sacramento's professional artificial turf cleaning. Murphy's Turf serves Elk Grove, Roseville, Folsom & Rancho Cordova with OxyTurf-powered disinfecting. Get a free quote today.",
     climateNote:
-      'Sacramento features a hot-summer Mediterranean climate with extreme heat often exceeding 105 degrees Fahrenheit in summer and mild winters. The Central Valley receives minimal summer rainfall, and intense heat accelerates pet odor development, bacterial growth, and infill compaction in artificial turf systems. Sacramento\'s famous tree canopy contributes significant leaf and pollen debris to turf surfaces.',
+      'Hot-summer Mediterranean climate with temps often exceeding 105°F. Intense heat accelerates pet odor, bacterial growth, and infill compaction.',
     serviceAreaDescription:
-      'Our Sacramento service area covers the greater capital region including Elk Grove to the south, Roseville to the north, Folsom to the east along the American River corridor, and Rancho Cordova in the central metro. We serve residential, commercial, and HOA properties throughout the Sacramento metropolitan area.',
+      'Serving the greater Sacramento metro including Elk Grove, Roseville, Folsom, and Rancho Cordova.',
     formId: 'E4GmpR4mgHj6kL4dFr2w',
     mapQuery: "Murphy's+Turf+Sacramento+CA",
   },
