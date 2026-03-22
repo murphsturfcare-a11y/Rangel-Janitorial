@@ -108,11 +108,9 @@ const locationData: Record<string, LocationData> = {
     phone: '(951) 331-3300',
     email: 'info@murphysturf.com',
     heroSubtitle:
-      "Expert artificial turf cleaning for Huntington Beach and the LA coastal corridor — from Newport Beach to Long Beach.",
+      "OxyTurf-powered turf cleaning for Huntington Beach and the LA coast.",
     description: [
-      "Salt air, coastal humidity, and marine layer moisture make the LA coast uniquely tough on artificial turf. Sand blows inland and embeds deep in fibers, morning fog promotes mold and mildew, and afternoon sun bakes pet waste into stubborn uric acid deposits. From Huntington Beach to Costa Mesa and Seal Beach, these conditions demand more than a garden hose.",
-
-      "Murphy's Turf uses our proprietary OxyTurf formula to dissolve uric acid, kill mold and bacteria, and neutralize odors at the source — calibrated for each property's specific coastal exposure. Year-round outdoor living means year-round turf contamination, so we offer flexible maintenance plans to keep your turf clean and hygienic every season. When you care about clean turf, call Murphy's Turf.",
+      "Salt air, sand, and marine layer moisture make the LA coast uniquely tough on artificial turf — promoting mold, embedding debris, and baking pet waste into stubborn deposits. Murphy's Turf uses our OxyTurf formula to dissolve uric acid, kill bacteria, and neutralize odors at the source, with flexible maintenance plans for year-round coastal living.",
     ],
     neighborhoods: [
       'Huntington Beach',
@@ -159,11 +157,9 @@ const locationData: Record<string, LocationData> = {
     phone: '(951) 331-3300',
     email: 'info@murphysturf.com',
     heroSubtitle:
-      "Our Headquarters — serving the Inland Empire and Temecula Valley from right here in Murrieta.",
+      "Our home base. Turf cleaning headquarters for the Inland Empire.",
     description: [
-      "Murrieta and the Inland Empire hit 100+ degrees regularly, and that heat is brutal on artificial turf. Pet urine crystallizes into stubborn uric acid deposits within hours, bacteria multiply fast in warm infill, and Santa Ana winds pack debris deep into fibers. Heavy clay soil compounds drainage issues across the region from Temecula to Menifee and Lake Elsinore.",
-
-      "OxyTurf was developed in this exact environment — our formula dissolves heat-hardened uric acid, eliminates bacteria, and neutralizes the ammonia smell Inland Empire turf owners know too well. Our blooming service restores fibers flattened by years of triple-digit heat. As our headquarters city, Murrieta customers get the fastest response times in our network. When you care about clean turf, call Murphy's Turf.",
+      "The Inland Empire's 100°F+ heat crystallizes pet urine into deep uric acid deposits, multiplies bacteria in warm infill, and Santa Ana winds pack debris into fibers. OxyTurf was developed in this exact environment — dissolving heat-hardened contamination and restoring fibers flattened by triple-digit summers. As our headquarters, Murrieta gets the fastest response times in our network.",
     ],
     neighborhoods: [
       'Temecula',
@@ -215,11 +211,9 @@ const locationData: Record<string, LocationData> = {
     phone: '(925) 338-0048',
     email: 'info@murphysturf.com',
     heroSubtitle:
-      "Expert turf cleaning for Martinez and the East Bay — calibrated for fog, delta breezes, and Bay Area microclimates.",
+      "Expert turf cleaning for Martinez and the East Bay.",
     description: [
-      "The East Bay's unique geography — where the Sacramento Delta meets the San Francisco Bay — creates moisture conditions that are tough on turf. Morning fog and marine layer settle into infill, promoting mold and mildew growth, especially in shaded areas. Further east in Antioch and Brentwood, higher summer temps shift the problem to pet odor and bacterial buildup.",
-
-      "OxyTurf eliminates mold and mildew at the source within the infill layer, not just on the surface. For hotter inland properties, the same formula tackles heat-amplified pet odors and bacteria. We tailor every treatment to your property's specific microclimate and build maintenance plans that keep your turf clean year-round. When you care about clean turf, call Murphy's Turf.",
+      "The East Bay's geography — where the Delta meets the Bay — creates coastal moisture that promotes mold near the strait and heat-driven pet odor issues further inland. OxyTurf eliminates mold and bacteria at the infill layer, not just the surface, with every treatment tailored to your property's specific microclimate.",
     ],
     neighborhoods: [
       'Concord',
@@ -266,11 +260,9 @@ const locationData: Record<string, LocationData> = {
     phone: '(916) 432-5033',
     email: 'info@murphysturf.com',
     heroSubtitle:
-      "Heat-resilient turf cleaning for Sacramento and the Capital Region — serving Elk Grove, Roseville, Folsom, and Rancho Cordova.",
+      "Professional turf cleaning for Sacramento and the Central Valley.",
     description: [
-      "Sacramento summers regularly push past 105°F, and that extreme heat is the number one enemy of artificial turf. Pet urine crystallizes into deep uric acid deposits within hours, bacteria multiply fast in warm infill, and debris from Sacramento's famous tree canopy decomposes rapidly — producing odors and feeding bacterial colonies beneath the surface.",
-
-      "OxyTurf dissolves heat-hardened uric acid, eliminates bacterial biofilms, and neutralizes odors that make backyards unusable on summer evenings. Our blooming service restores fibers baked flat by years of triple-digit heat — clients say their turf looks like a new installation. When you care about clean turf, call Murphy's Turf.",
+      "Sacramento summers push past 105°F, crystallizing pet urine into deep deposits, multiplying bacteria in warm infill, and rapidly decomposing tree debris beneath the surface. OxyTurf dissolves heat-hardened uric acid, eliminates bacterial biofilms, and neutralizes odors — while our blooming service restores fibers baked flat by years of triple-digit heat.",
     ],
     neighborhoods: [
       'Elk Grove',
@@ -438,8 +430,30 @@ export default async function LocationPage({
         </div>
       </section>
 
+      {/* Lead Form Embed */}
+      <section id="quote-form" className="py-10 sm:py-14 bg-cream scroll-mt-20">
+        <AnimateOnScroll direction="up" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-charcoal font-heading mb-4">
+              Get Your Free Quote in {location.city}
+            </h2>
+            <p className="text-lg text-charcoal-light font-body">
+              Fill out the form below and we&apos;ll get back to you within 24 hours
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg p-2 sm:p-4 border border-gray-100">
+            <iframe
+              src={`https://api.leadconnectorhq.com/widget/form/${location.formId}`}
+              style={{ width: '100%', height: '848px', border: 'none', borderRadius: '3px' }}
+              title={`Get a Free Quote - ${location.city}`}
+              loading="lazy"
+            />
+          </div>
+        </AnimateOnScroll>
+      </section>
+
       {/* City Description */}
-      <section className="py-16 sm:py-24 bg-cream">
+      <section className="py-10 sm:py-14 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12">
             <AnimateOnScroll direction="up" className="lg:col-span-2">
@@ -458,16 +472,6 @@ export default async function LocationPage({
               </div>
             </AnimateOnScroll>
             <div className="space-y-6">
-              {/* Climate Card */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <h3 className="text-lg font-bold text-charcoal font-heading mb-3 flex items-center gap-2">
-                  <Droplets className="w-5 h-5 text-sage" />
-                  Local Climate Notes
-                </h3>
-                <p className="text-charcoal-light font-body text-sm leading-relaxed">
-                  {location.climateNote}
-                </p>
-              </div>
               {/* Quick Contact Card */}
               <div className="bg-forest rounded-2xl p-6 text-white">
                 <h3 className="text-lg font-bold font-heading mb-4">
@@ -500,7 +504,7 @@ export default async function LocationPage({
       </section>
 
       {/* Services Available */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-10 sm:py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-charcoal font-heading mb-4">
@@ -539,7 +543,7 @@ export default async function LocationPage({
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 sm:py-24 bg-cream">
+      <section className="py-10 sm:py-14 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-charcoal font-heading mb-4">
@@ -579,30 +583,8 @@ export default async function LocationPage({
         </div>
       </section>
 
-      {/* Lead Form Embed */}
-      <section id="quote-form" className="py-16 sm:py-24 bg-cream scroll-mt-20">
-        <AnimateOnScroll direction="up" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-charcoal font-heading mb-4">
-              Get Your Free Quote in {location.city}
-            </h2>
-            <p className="text-lg text-charcoal-light font-body">
-              Fill out the form below and we&apos;ll get back to you within 24 hours
-            </p>
-          </div>
-          <div className="bg-white rounded-2xl shadow-lg p-2 sm:p-4 border border-gray-100">
-            <iframe
-              src={`https://api.leadconnectorhq.com/widget/form/${location.formId}`}
-              style={{ width: '100%', height: '848px', border: 'none', borderRadius: '3px' }}
-              title={`Get a Free Quote - ${location.city}`}
-              loading="lazy"
-            />
-          </div>
-        </AnimateOnScroll>
-      </section>
-
       {/* Service Area Details & Neighborhoods */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-10 sm:py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
