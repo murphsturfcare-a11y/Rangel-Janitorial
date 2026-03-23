@@ -7,7 +7,6 @@ const serviceNames = [
   'Blooming & De-Compacting',
   'Disinfect & Deodorize',
   'Poop Scooping & Removal',
-  'Powered By OxyTurf',
 ];
 
 const serviceSlugs = [
@@ -15,7 +14,6 @@ const serviceSlugs = [
   'blooming-decompacting',
   'disinfect-deodorize',
   'poop-scooping',
-  'oxyturf',
 ];
 
 const serviceDescriptions = [
@@ -23,7 +21,6 @@ const serviceDescriptions = [
   "Restore your turf's natural look and feel with our professional blooming and de-compacting service that revives flattened fibers.",
   'Eliminate bacteria, odors, and harmful pathogens with our eco-friendly disinfecting and deodorizing treatment.',
   'Regular pet waste cleanup and removal to maintain a hygienic outdoor space for your family.',
-  'Our premium OxyTurf-powered deep cleaning system delivers the most thorough turf cleaning available.',
 ];
 
 describe('ServiceOverview', () => {
@@ -34,14 +31,14 @@ describe('ServiceOverview', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders all 5 service names', () => {
+  it('renders all 4 service names', () => {
     render(<ServiceOverview />);
     for (const name of serviceNames) {
       expect(screen.getByText(name)).toBeInTheDocument();
     }
   });
 
-  it('renders all 5 service descriptions', () => {
+  it('renders all 4 service descriptions', () => {
     render(<ServiceOverview />);
     for (const desc of serviceDescriptions) {
       expect(screen.getByText(desc)).toBeInTheDocument();
@@ -51,7 +48,7 @@ describe('ServiceOverview', () => {
   it('renders links to each service page', () => {
     render(<ServiceOverview />);
     const learnMoreLinks = screen.getAllByText(/Learn More/);
-    expect(learnMoreLinks).toHaveLength(5);
+    expect(learnMoreLinks).toHaveLength(4);
 
     for (const slug of serviceSlugs) {
       const link = learnMoreLinks.find(

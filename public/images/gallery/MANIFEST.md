@@ -13,7 +13,6 @@ Date: 2026-03-22
 
 | File | Original URL | Description |
 |------|-------------|-------------|
-| `brand-logo.png` | `assets.cdn.filesafe.space/.../6605d51156c9d731392addc7.png` | Murphy's Turf brand logo used in navigation bar. 400x300 PNG. |
 | `navbar-banner.png` | `storage.googleapis.com/.../6941dd741a32642dfde31b9f.png` | Full-width navbar banner/divider image (desktop only). 500x400 PNG. |
 
 ## Service Images

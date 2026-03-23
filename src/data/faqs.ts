@@ -31,7 +31,7 @@ export const faqs: FAQItem[] = [
     question: "What cleaning products do you use?",
     answer: "We use a professional-grade stabilized accelerated hydrogen peroxide cleaner-deodorizer specifically formulated for synthetic turf. Unlike bleach or ammonia-based cleaners, our deep cleaning process kills 99.9% of germs and bacteria without leaving harmful residues, and it leaves your turf smelling like fresh real grass.",
     category: "general",
-    serviceSlug: "oxyturf",
+    serviceSlug: "disinfect-deodorize",
   },
   {
     question: "How often should I have my artificial turf professionally cleaned?",
@@ -95,7 +95,7 @@ export const faqs: FAQItem[] = [
     question: "Why are your cleaning products better than bleach for cleaning turf?",
     answer: "Bleach and ammonia-based cleaners can leave residues that irritate skin, weaken turf fibers, and create mystery odors. Our professional-grade cleaning products use stabilized accelerated hydrogen peroxide that kills 99.9% of bacteria, then breaks down into water and oxygen — no residues, no damage, no harsh chemical smells.",
     category: "services",
-    serviceSlug: "oxyturf",
+    serviceSlug: "disinfect-deodorize",
   },
   {
     question: "How does the poop scooping service work?",

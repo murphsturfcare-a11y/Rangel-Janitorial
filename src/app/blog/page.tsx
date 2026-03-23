@@ -77,13 +77,13 @@ const blogPosts: BlogPost[] = [
     gradient: 'from-teal-500 via-emerald-400 to-green-400',
   },
   {
-    slug: 'what-is-oxyturf-turf-cleaning',
-    title: 'What Is OxyTurf? The Science Behind Our Cleaning Process',
+    slug: 'hydrogen-peroxide-turf-cleaning',
+    title: 'The Science Behind Our Hydrogen Peroxide-Based Cleaning Process',
     category: 'Turf Cleaning',
     author: "Murphy's Turf Team",
     date: '2026-02-01',
     excerpt:
-      'OxyTurf is our hydrogen peroxide-based cleaning solution that eliminates bacteria and odors without harsh chemicals. Learn how it works, why we chose it over bleach and ammonia, and what makes it safe for pets and kids.',
+      'Our hydrogen peroxide-based cleaning solution eliminates bacteria and odors without harsh chemicals. Learn how it works, why we chose it over bleach and ammonia, and what makes it safe for pets and kids.',
     gradient: 'from-lime-500 via-green-400 to-emerald-400',
   },
   {

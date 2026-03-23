@@ -154,7 +154,7 @@ describe('seed.sql', () => {
   // -------------------------------------------------------------------------
   it('DISCREPANCY: seed services differ from frontend services', () => {
     // The frontend uses artificial turf cleaning services
-    // (pet-hair-debris, blooming-decompacting, oxyturf, etc.) while
+    // (pet-hair-debris, blooming-decompacting, disinfect-deodorize, etc.) while
     // the database seed uses traditional lawn care services
     // (lawn-cleaning, aeration, fertilization, etc.).
 

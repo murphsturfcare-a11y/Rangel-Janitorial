@@ -7,7 +7,7 @@ const defaultQuestions = [
   'How much does artificial turf cleaning cost?',
   'How often should I have my turf cleaned?',
   'Do you offer free estimates?',
-  'Is OxyTurf safe for pets and children?',
+  'Is your cleaning solution safe for pets and children?',
   'What areas do you serve?',
   "What if I'm not satisfied with the service?",
 ];

@@ -91,11 +91,10 @@ describe("generateMetadataForAllPages", () => {
       "blooming-decompacting",
       "disinfect-deodorize",
       "poop-scooping",
-      "oxyturf",
     ] as const;
 
-    it("has exactly 5 entries keyed by slug", () => {
-      expect(Object.keys(serviceMetadata)).toHaveLength(5);
+    it("has exactly 4 entries keyed by slug", () => {
+      expect(Object.keys(serviceMetadata)).toHaveLength(4);
       for (const slug of expectedSlugs) {
         expect(serviceMetadata).toHaveProperty(slug);
       }
@@ -172,7 +171,7 @@ describe("generateMetadataForAllPages", () => {
       "sacramento-turf-cleaning-tips",
       "health-benefits-turf-sanitization",
       "how-often-clean-artificial-turf",
-      "what-is-oxyturf-safe-turf-cleaning",
+      "hydrogen-peroxide-safe-turf-cleaning",
       "diy-vs-professional-turf-cleaning",
       "artificial-turf-pets-clean-safe",
       "why-artificial-turf-smells-fix",

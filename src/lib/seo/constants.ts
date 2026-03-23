@@ -25,7 +25,6 @@ export const SERVICE_SLUGS = [
   "blooming-decompacting",
   "disinfect-deodorize",
   "poop-scooping",
-  "oxyturf",
 ] as const;
 
 export const LOCATION_SLUGS = [
@@ -43,7 +42,7 @@ export const BLOG_SLUGS = [
   "sacramento-turf-cleaning-tips",
   "health-benefits-turf-sanitization",
   "how-often-clean-artificial-turf",
-  "what-is-oxyturf-safe-turf-cleaning",
+  "hydrogen-peroxide-safe-turf-cleaning",
   "diy-vs-professional-turf-cleaning",
   "artificial-turf-pets-clean-safe",
   "why-artificial-turf-smells-fix",

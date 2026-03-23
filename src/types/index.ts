@@ -23,7 +23,6 @@ export type ServiceType =
   | 'blooming-decompacting'
   | 'disinfect-deodorize'
   | 'poop-scooping'
-  | 'oxyturf'
   | 'other';
 
 export type LeadStatus = 'new' | 'contacted' | 'quoted' | 'won' | 'lost';

@@ -257,7 +257,7 @@ describe("DEFAULT_METADATA", () => {
   it("includes key SEO keywords", () => {
     const keywords = DEFAULT_METADATA.keywords as string[];
     expect(keywords).toContain("artificial turf cleaning");
-    expect(keywords).toContain("OxyTurf");
+    expect(keywords).toContain("turf odor removal");
     expect(keywords).toContain("Murphy's Turf");
     expect(keywords).toContain("turf sanitization");
   });

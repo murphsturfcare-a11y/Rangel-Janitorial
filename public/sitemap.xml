@@ -47,12 +47,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://murphys-turf.netlify.app/services/oxyturf</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
   <!-- Locations -->
   <url>
@@ -124,7 +118,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://murphys-turf.netlify.app/blog/oxyturf-hydrogen-peroxide-cleaning-technology</loc>
+    <loc>https://murphys-turf.netlify.app/blog/hydrogen-peroxide-cleaning-technology</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

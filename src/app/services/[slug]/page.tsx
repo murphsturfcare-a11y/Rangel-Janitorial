@@ -15,13 +15,10 @@ import {
   Leaf,
   Recycle,
   Heart,
-  Award,
   Sparkles,
   Bug,
   Droplets,
   PawPrint,
-  Baby,
-  Timer,
   TreePine,
   type LucideIcon,
 } from 'lucide-react';
@@ -254,25 +251,25 @@ const servicesData: Record<string, ServiceData> = {
     relatedServices: [
       { name: 'Pet Hair & Debris Removal', slug: 'pet-hair-debris' },
       { name: 'Disinfect & Deodorize', slug: 'disinfect-deodorize' },
-      { name: 'Powered By OxyTurf', slug: 'oxyturf' },
+      { name: 'Poop Scooping & Removal', slug: 'poop-scooping' },
     ],
   },
 
   'disinfect-deodorize': {
     name: 'Disinfect & Deodorize',
     slug: 'disinfect-deodorize',
-    image: '/images/services/oxyturf-spray.jpg',
+    image: '/images/gallery/service-turf-disinfecting.png',
     tagline: 'Kill 99.9% of bacteria and eliminate odors at the source',
     metaDescription:
-      "Professional artificial turf disinfecting and deodorizing in Murrieta, CA. Murphy's Turf uses OxyTurf to kill 99.9% of bacteria and eliminate pet odors without harsh chemicals. Get a free quote.",
+      "Professional artificial turf disinfecting and deodorizing in Murrieta, CA. Murphy's Turf uses a professional-grade hydrogen peroxide-based cleaner to kill 99.9% of bacteria and eliminate pet odors without harsh chemicals. Get a free quote.",
     descriptionParagraphs: [
-      "Our disinfecting and deodorizing turf services consist of power-spraying OxyTurf. OxyTurf is designed to perform as a cleaner, disinfectant, & deodorizer. It cuts past the top synthetic turf layer, into the infill where bacteria & viruses live, and attacks the contaminants at their source. OxyTurf will penetrate the synthetic turf, clean & kill 99.9% of germs & bacteria in just minutes, all without any hazardous chemicals.",
-      "If you have pets — or even if you do not — your artificial turf is harboring more bacteria than you might realize. Every time a dog urinates on synthetic turf, the liquid passes through the blades and settles into the infill layer below. In Murrieta's warm Southern California climate, heat accelerates bacterial growth and amplifies odors, turning a minor issue into a persistent problem that surface-level rinsing cannot solve. Bacteria, viruses, and the ammonia compounds from pet urine thrive in the warm, moist environment beneath your turf's surface, and no amount of hosing down the top layer will reach them. That is exactly why Murphy's Turf relies on OxyTurf — a professional-grade solution specifically formulated to penetrate past the surface and attack contaminants where they actually live.",
-      "The OxyTurf power-spray process is thorough and systematic. Our technicians apply OxyTurf across the entire turf surface using commercial spraying equipment that ensures complete, even coverage. The solution is designed to cut through the synthetic turf layer and soak into the infill, where it goes to work immediately — killing 99.9% of germs and bacteria in just minutes. Unlike household cleaners or DIY solutions, OxyTurf does not simply mask odors. It neutralizes the bacterial source of the smell, replacing it with a clean, fresh grass scent. The result is turf that does not just smell better for a day or two — it stays fresh because the underlying cause of the odor has been eliminated.",
-      "What makes OxyTurf stand out from other turf cleaners is what it does not contain. OxyTurf uses stabilized accelerated hydrogen peroxide as its active ingredient, which means no bleach, no ammonia, and no harsh chemical residues. Many competing turf cleaners rely on bleach or ammonia-based formulas that can irritate skin, weaken turf fibers over time, and leave behind chemical odors that are unpleasant for both people and pets. With OxyTurf, your turf is safe for pets and children to use as soon as it dries — typically within 30 to 60 minutes depending on weather conditions. For families in Murrieta, Temecula, and throughout the Inland Empire who want a genuinely clean and safe outdoor surface, our disinfect and deodorize service delivers peace of mind along with a dramatically fresher yard.",
+      "Our disinfecting and deodorizing turf services consist of power-spraying our professional-grade cleaning solution. This solution is designed to perform as a cleaner, disinfectant, & deodorizer. It cuts past the top synthetic turf layer, into the infill where bacteria & viruses live, and attacks the contaminants at their source. Our cleaning solution will penetrate the synthetic turf, clean & kill 99.9% of germs & bacteria in just minutes, all without any hazardous chemicals.",
+      "If you have pets — or even if you do not — your artificial turf is harboring more bacteria than you might realize. Every time a dog urinates on synthetic turf, the liquid passes through the blades and settles into the infill layer below. In Murrieta's warm Southern California climate, heat accelerates bacterial growth and amplifies odors, turning a minor issue into a persistent problem that surface-level rinsing cannot solve. Bacteria, viruses, and the ammonia compounds from pet urine thrive in the warm, moist environment beneath your turf's surface, and no amount of hosing down the top layer will reach them. That is exactly why Murphy's Turf relies on a professional-grade cleaning solution specifically formulated to penetrate past the surface and attack contaminants where they actually live.",
+      "Our power-spray process is thorough and systematic. Our technicians apply our professional-grade cleaning solution across the entire turf surface using commercial spraying equipment that ensures complete, even coverage. The solution is designed to cut through the synthetic turf layer and soak into the infill, where it goes to work immediately — killing 99.9% of germs and bacteria in just minutes. Unlike household cleaners or DIY solutions, our cleaning solution does not simply mask odors. It neutralizes the bacterial source of the smell, replacing it with a clean, fresh grass scent. The result is turf that does not just smell better for a day or two — it stays fresh because the underlying cause of the odor has been eliminated.",
+      "What makes our cleaning solution stand out from other turf cleaners is what it does not contain. Our professional-grade solution uses stabilized accelerated hydrogen peroxide as its active ingredient, which means no bleach, no ammonia, and no harsh chemical residues. Many competing turf cleaners rely on bleach or ammonia-based formulas that can irritate skin, weaken turf fibers over time, and leave behind chemical odors that are unpleasant for both people and pets. With our cleaning solution, your turf is safe for pets and children to use as soon as it dries — typically within 30 to 60 minutes depending on weather conditions. For families in Murrieta, Temecula, and throughout the Inland Empire who want a genuinely clean and safe outdoor surface, our disinfect and deodorize service delivers peace of mind along with a dramatically fresher yard.",
     ],
     included: [
-      'Full-surface OxyTurf power spray',
+      'Full-surface professional-grade power spray',
       'Infill-level sanitization',
       'Odor neutralization',
       'Bacteria elimination (99.9%)',
@@ -283,7 +280,7 @@ const servicesData: Record<string, ServiceData> = {
         icon: Bug,
         title: 'Eliminates Pet Urine Smell',
         description:
-          'OxyTurf neutralizes the bacterial source of odor deep in the infill, not just the surface symptoms.',
+          'Our cleaning solution neutralizes the bacterial source of odor deep in the infill, not just the surface symptoms.',
       },
       {
         icon: ShieldCheck,
@@ -310,7 +307,7 @@ const servicesData: Record<string, ServiceData> = {
         beforeColor: 'bg-brown/40',
         afterColor: 'bg-sage/50',
         beforeCaption: 'Turf with persistent pet urine odor',
-        afterCaption: 'Fresh, odor-free surface after OxyTurf treatment',
+        afterCaption: 'Fresh, odor-free surface after professional treatment',
       },
       {
         label: 'Full-Surface Sanitization',
@@ -324,7 +321,7 @@ const servicesData: Record<string, ServiceData> = {
       {
         question: 'How soon can my pets and kids use the turf after treatment?',
         answer:
-          'Your turf is safe for pets and children as soon as it dries, which typically takes 30 to 60 minutes depending on temperature, humidity, and sun exposure. OxyTurf contains no bleach or ammonia, so there are no harmful residues to worry about once the surface is dry.',
+          'Your turf is safe for pets and children as soon as it dries, which typically takes 30 to 60 minutes depending on temperature, humidity, and sun exposure. Our cleaning solution contains no bleach or ammonia, so there are no harmful residues to worry about once the surface is dry.',
       },
       {
         question: 'How often should I have my turf disinfected and deodorized?',
@@ -332,20 +329,20 @@ const servicesData: Record<string, ServiceData> = {
           'For homes with pets, we recommend treatment every four to six weeks to stay ahead of bacterial buildup and odor. Properties without pets that use their turf primarily for entertaining or play areas can typically go eight to twelve weeks between treatments. Our team will recommend a schedule based on your specific usage patterns.',
       },
       {
-        question: 'Will OxyTurf damage or discolor my artificial turf?',
+        question: 'Will your cleaning solution damage or discolor my artificial turf?',
         answer:
-          'No. OxyTurf is specifically formulated for synthetic turf and will not damage, discolor, or weaken your turf fibers. Unlike bleach-based cleaners that can fade turf color and break down fibers over time, OxyTurf uses stabilized accelerated hydrogen peroxide that is tough on bacteria but gentle on your turf investment.',
+          'No. Our cleaning solution is specifically formulated for synthetic turf and will not damage, discolor, or weaken your turf fibers. Unlike bleach-based cleaners that can fade turf color and break down fibers over time, our professional-grade solution uses stabilized accelerated hydrogen peroxide that is tough on bacteria but gentle on your turf investment.',
       },
       {
         question: 'Can I just hose down my turf to remove pet odors?',
         answer:
-          'Water alone cannot eliminate pet urine odor because the bacteria that cause the smell live deep in the infill layer, not on the surface. Hosing may temporarily dilute surface-level odor, but it does not kill the bacteria at the source. OxyTurf penetrates into the infill to eliminate contaminants where they actually live, providing lasting results rather than a temporary rinse.',
+          'Water alone cannot eliminate pet urine odor because the bacteria that cause the smell live deep in the infill layer, not on the surface. Hosing may temporarily dilute surface-level odor, but it does not kill the bacteria at the source. Our cleaning solution penetrates into the infill to eliminate contaminants where they actually live, providing lasting results rather than a temporary rinse.',
       },
     ],
     relatedServices: [
       { name: 'Poop Scooping & Removal', slug: 'poop-scooping' },
       { name: 'Pet Hair & Debris Removal', slug: 'pet-hair-debris' },
-      { name: 'Powered By OxyTurf', slug: 'oxyturf' },
+      { name: 'Blooming & De-Compacting', slug: 'blooming-decompacting' },
     ],
   },
 
@@ -435,98 +432,7 @@ const servicesData: Record<string, ServiceData> = {
     relatedServices: [
       { name: 'Disinfect & Deodorize', slug: 'disinfect-deodorize' },
       { name: 'Pet Hair & Debris Removal', slug: 'pet-hair-debris' },
-      { name: 'Powered By OxyTurf', slug: 'oxyturf' },
-    ],
-  },
-
-  oxyturf: {
-    name: 'Powered By OxyTurf',
-    slug: 'oxyturf',
-    image: '/images/services/oxyturf-palms.jpg',
-    tagline: 'The safe, effective cleaning solution behind every Murphy\'s Turf service',
-    metaDescription:
-      "Murphy's Turf cleaning services are powered by OxyTurf — a proven synthetic turf cleaner, disinfectant, and deodorizer. No bleach, no ammonia, safe for pets and kids. Serving Murrieta, CA.",
-    descriptionParagraphs: [
-      "Murphy's Turf's cleaning products are powered by OxyTurf. Specifically formulated for use on turf in mind, OxyTurf is a proven synthetic turf cleaner-deodorizer that eliminates germs and bacteria while replacing them with the smell of fresh real grass. Formulated containing stabilized accelerated hydrogen peroxide as compared to other turf cleaners, OxyTurf doesn't use any bleach or ammonia in their products as those chemicals can leave residues on turf that can irritate skin, weaken turf, and leave a mystery odor on your artificial grass, turning it from a safe-zone to a hazard-zone for your pets and kids.",
-      "When we founded Murphy's Turf, we knew that the cleaning products we chose would define the quality and safety of every service we deliver. After extensive research and testing, we selected OxyTurf as the backbone of our cleaning process because it meets every standard we demand: proven effectiveness against bacteria and viruses, complete safety for families and pets, compatibility with all synthetic turf types, and zero harmful residues. OxyTurf is not a general-purpose cleaner repurposed for turf — it was engineered from the ground up specifically for synthetic turf applications, and that purpose-built design makes all the difference in real-world performance.",
-      "The science behind OxyTurf centers on stabilized accelerated hydrogen peroxide, or SAHP. This active ingredient delivers powerful antimicrobial action — killing 99.9% of germs and bacteria on contact — while breaking down into water and oxygen after it has done its job. There are no chemical residues left behind, no lingering fumes, and no compounds that could irritate sensitive skin or harm pets who roll on the turf. Compare this to bleach-based turf cleaners, which can fade the color of your synthetic grass, degrade the fiber structure with repeated use, and leave behind chlorine residues that are irritating to both people and animals. Or ammonia-based products, which produce harsh fumes and can actually worsen urine odors by chemically reacting with the ammonia compounds already present in pet waste. OxyTurf avoids all of these problems entirely.",
-      "Beyond its cleaning and disinfecting power, OxyTurf leaves behind a fresh, natural grass scent that homeowners consistently love. Instead of a chemical smell that announces 'this turf was just cleaned,' your yard simply smells like fresh-cut grass — the way an outdoor space should smell. This deodorizing effect lasts well beyond the initial treatment because OxyTurf eliminates the bacteria that cause odor at the source rather than masking the smell with fragrances. For Murphy's Turf clients across Murrieta, Temecula, and the greater Inland Empire, OxyTurf is not just a product — it is our commitment to delivering artificial turf cleaning that is effective, safe, and genuinely enjoyable. Every service we perform, from routine maintenance to deep sanitization, is powered by this trusted formula.",
-    ],
-    included: [
-      'OxyTurf cleaning treatment',
-      'Full-surface application',
-      'Infill penetration',
-      'Deodorizing',
-      'Bacterial elimination',
-    ],
-    benefits: [
-      {
-        icon: ShieldCheck,
-        title: 'No Bleach or Ammonia',
-        description:
-          'Stabilized accelerated hydrogen peroxide delivers powerful cleaning without the harsh chemicals found in competing products.',
-      },
-      {
-        icon: Baby,
-        title: 'Pet & Kid Safe',
-        description:
-          'No harmful residues left behind. Your turf is safe for the whole family as soon as the surface dries.',
-      },
-      {
-        icon: TreePine,
-        title: 'Fresh Grass Scent',
-        description:
-          'OxyTurf replaces bacterial odors with the smell of fresh-cut natural grass, not chemicals.',
-      },
-      {
-        icon: Award,
-        title: 'Won\'t Weaken Turf Fibers',
-        description:
-          'Unlike bleach-based cleaners, OxyTurf is safe for repeated use without degrading your turf\'s color or structural integrity.',
-      },
-    ],
-    beforeAfter: [
-      {
-        label: 'OxyTurf Deep Clean',
-        beforeColor: 'bg-brown/40',
-        afterColor: 'bg-sage/50',
-        beforeCaption: 'Turf with odor and bacterial buildup in infill',
-        afterCaption: 'Fresh, sanitized turf after OxyTurf treatment',
-      },
-      {
-        label: 'Odor Elimination',
-        beforeColor: 'bg-brown/30',
-        afterColor: 'bg-sage/60',
-        beforeCaption: 'Persistent pet urine smell despite hosing',
-        afterCaption: 'Fresh grass scent, bacteria eliminated at the source',
-      },
-    ],
-    faqs: [
-      {
-        question: 'What makes OxyTurf different from store-bought turf cleaners?',
-        answer:
-          'Most store-bought turf cleaners use bleach or ammonia as their active ingredient. These chemicals can fade turf color, weaken fibers with repeated use, and leave irritating residues. OxyTurf uses stabilized accelerated hydrogen peroxide, which is equally effective at killing bacteria but breaks down into water and oxygen — leaving no harmful residue behind.',
-      },
-      {
-        question: 'Is OxyTurf safe for all types of artificial turf?',
-        answer:
-          'Yes. OxyTurf was specifically formulated for synthetic turf and is safe for all turf types, including nylon, polyethylene, and polypropylene fibers. It will not damage, discolor, or degrade any component of your artificial turf system, including the infill and backing materials.',
-      },
-      {
-        question: 'How long does the fresh grass scent last?',
-        answer:
-          'The fresh grass scent typically lasts one to three weeks depending on weather conditions, pet activity, and overall turf usage. Because OxyTurf eliminates the bacteria that cause odor rather than just masking the smell, the deodorizing effect lasts significantly longer than spray-on fragrance products.',
-      },
-      {
-        question: 'Can I buy OxyTurf and apply it myself?',
-        answer:
-          'OxyTurf is a professional-grade product that delivers the best results when applied with commercial spraying equipment at the correct concentration and coverage rate. Our trained technicians ensure complete, even application that reaches deep into the infill layer. Contact us for a free quote and let our team handle the application for optimal results.',
-      },
-    ],
-    relatedServices: [
-      { name: 'Disinfect & Deodorize', slug: 'disinfect-deodorize' },
       { name: 'Blooming & De-Compacting', slug: 'blooming-decompacting' },
-      { name: 'Pet Hair & Debris Removal', slug: 'pet-hair-debris' },
     ],
   },
 };
@@ -540,7 +446,6 @@ const validSlugs = [
   'blooming-decompacting',
   'disinfect-deodorize',
   'poop-scooping',
-  'oxyturf',
 ];
 
 export function generateStaticParams() {

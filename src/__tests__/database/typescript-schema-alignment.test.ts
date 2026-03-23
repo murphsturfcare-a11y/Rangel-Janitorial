@@ -431,13 +431,12 @@ describe("ServiceType enum values don't match seed services", () => {
     'seasonal-maintenance',
   ];
 
-  it('should have TS ServiceType values: pet-hair-debris, blooming-decompacting, disinfect-deodorize, poop-scooping, oxyturf, other', () => {
+  it('should have TS ServiceType values: pet-hair-debris, blooming-decompacting, disinfect-deodorize, poop-scooping, other', () => {
     expect(tsServiceTypes).toEqual([
       'pet-hair-debris',
       'blooming-decompacting',
       'disinfect-deodorize',
       'poop-scooping',
-      'oxyturf',
       'other',
     ]);
   });

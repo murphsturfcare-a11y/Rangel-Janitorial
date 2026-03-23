@@ -135,7 +135,7 @@ California's warm climate makes professional disinfection and deodorizing essent
     ],
     startingPrice: null,
     iconName: 'SprayCanIcon',
-    image: '/images/services/oxyturf-spray.jpg',
+    image: '/images/gallery/service-turf-disinfecting.png',
     metaTitle: "Artificial Turf Disinfecting & Deodorizing | Murphy's Turf",
     metaDescription: "Power-spray our professional-grade cleaning solution to kill 99.9% of germs and bacteria in your artificial turf. No bleach, no ammonia, pet-safe. Murphy's Turf serves California.",
     faqs: [
@@ -208,60 +208,6 @@ We offer multiple service plan options to fit every household's needs, including
       {
         question: 'Is pet waste really that harmful?',
         answer: 'Yes. The EPA classifies pet waste in the same pollutant category as oil and toxic chemicals. Dog waste can contain E. coli, Giardia, Roundworm, Hookworm, and other parasites that can make both people and other pets sick. Proper and timely removal protects your family and neighborhood.',
-      },
-    ],
-  },
-  {
-    slug: 'oxyturf',
-    name: 'Powered By OxyTurf',
-    shortDescription: 'Murphy\'s Turf exclusively uses OxyTurf — a stabilized accelerated hydrogen peroxide cleaner-deodorizer formulated specifically for synthetic turf, with no bleach or ammonia.',
-    fullDescription: `Murphy's Turf cleaning products are powered by OxyTurf, the professional-grade synthetic turf cleaner-deodorizer that we trust exclusively for every cleaning service we perform. We evaluated dozens of turf cleaning products before selecting OxyTurf as our sole cleaning solution, and the decision came down to one fundamental principle: effective cleaning should never come at the cost of safety. OxyTurf is specifically formulated with synthetic turf in mind — it is not a repurposed general-purpose cleaner or a diluted industrial chemical adapted for residential use. It is a proven turf cleaner-deodorizer engineered from the ground up to eliminate germs and bacteria from artificial turf while replacing them with the fresh, pleasant smell of real grass.
-
-What makes OxyTurf fundamentally different from other turf cleaners is its active ingredient: stabilized accelerated hydrogen peroxide. This advanced formulation delivers powerful disinfection and deodorizing performance through a chemistry that is inherently safe. When stabilized accelerated hydrogen peroxide completes its cleaning action, it breaks down into just two byproducts — water and oxygen. There are no chemical residues left behind on your turf fibers, no toxic compounds settling into your infill, and no lingering chemical fumes in your outdoor space. This is in stark contrast to the bleach and ammonia-based products that dominate the turf cleaning market, and understanding why those alternatives are problematic is essential for every artificial turf owner.
-
-Bleach-based turf cleaners may kill bacteria effectively, but they leave chlorine residues on turf fibers that can irritate the skin of children and pets who play on the surface. Over time, these residues weaken the synthetic fibers themselves, causing premature fading, brittleness, and deterioration that shortens the lifespan of your turf. Ammonia-based products are equally problematic and particularly counterproductive for pet owners. Ammonia is a chemical component of urine, which means cleaning your turf with ammonia-based products can actually attract your pets to urinate on the treated areas — the exact opposite of what you want. Both bleach and ammonia leave what many homeowners describe as a mystery odor on their artificial grass — a chemical smell they cannot quite identify that turns their turf from a comfortable family safe zone into a potential hazard zone for pets and kids.
-
-In choosing OxyTurf, Murphy's Turf made a deliberate commitment to clean with an environmentally safe and family-friendly product so our customers can rest assured that their turf is not only clean and deodorized but also completely safe and ready to roll on. The environmental credentials of OxyTurf are another reason we stand behind it: the formula is fully biodegradable, produces no harmful runoff, and is safe for use around gardens, pools, and natural landscaping. For California families who care about both the health of their outdoor spaces and the broader environmental impact of the products used on their property, OxyTurf represents the gold standard.
-
-The fresh grass scent that OxyTurf leaves behind is one of our customers' favorite features. Rather than the harsh chemical smell that bleach and ammonia products leave, or the overpowering artificial fragrance that some deodorizing products use to mask odors, OxyTurf neutralizes odor-causing compounds and replaces them with a subtle, natural grass scent. Many of our customers tell us that their artificial turf smells better after a Murphy's Turf cleaning than it ever did — including the day it was first installed. This is the product difference that you experience with every Murphy's Turf service, and it is why we proudly say that every cleaning we perform is powered by OxyTurf.`,
-    benefits: [
-      'Specifically formulated for synthetic turf — not a repurposed cleaner',
-      'Stabilized accelerated hydrogen peroxide kills germs without harsh chemicals',
-      'No bleach or ammonia means no harmful residues on your turf',
-      'Replaces odors with the smell of fresh, real grass',
-      'Won\'t irritate skin, weaken turf fibers, or create mystery odors',
-      'Environmentally safe and biodegradable formula',
-      'Breaks down into water and oxygen — safe for pets, kids, and the planet',
-    ],
-    whatIncludes: [
-      'Professional-grade OxyTurf cleaning solution',
-      'Power-spray application for deep penetration',
-      '99.9% germ and bacteria elimination',
-      'Odor neutralization with fresh grass scent',
-      'Safe for immediate family and pet use after drying',
-      'Environmentally responsible application methods',
-    ],
-    startingPrice: null,
-    iconName: 'Leaf',
-    image: '/images/services/oxyturf-palms.jpg',
-    metaTitle: "OxyTurf Artificial Turf Cleaner | Murphy's Turf",
-    metaDescription: "Murphy's Turf is powered by OxyTurf — stabilized hydrogen peroxide turf cleaner with no bleach or ammonia. Safe for pets, kids, and the environment.",
-    faqs: [
-      {
-        question: 'What makes OxyTurf different from other turf cleaners?',
-        answer: 'Most turf cleaners use bleach or ammonia, which can leave residues that irritate skin, damage turf fibers, and create mystery odors. OxyTurf uses stabilized accelerated hydrogen peroxide — a formula that kills 99.9% of germs and bacteria, then breaks down into water and oxygen. No harmful residues, no damage, no mystery smells.',
-      },
-      {
-        question: 'Why did Murphy\'s Turf choose OxyTurf?',
-        answer: 'We tested many products before selecting OxyTurf. With 30+ years in the cleaning and disinfecting industry, we know that effective cleaning shouldn\'t come at the cost of safety. OxyTurf is the only product we found that delivers hospital-grade disinfection while being truly safe for families, pets, and the environment.',
-      },
-      {
-        question: 'Does OxyTurf really smell like fresh grass?',
-        answer: 'Yes — one of the unique benefits of OxyTurf is that it doesn\'t just eliminate odors, it replaces them with a pleasant fresh grass scent. Many of our customers say their artificial turf smells better after a Murphy\'s Turf cleaning than it did when it was first installed.',
-      },
-      {
-        question: 'Can OxyTurf damage my turf or void my warranty?',
-        answer: 'No. OxyTurf is specifically formulated for use on synthetic turf and will not damage fibers, backing, or infill. Unlike bleach-based products that can weaken and discolor turf over time, OxyTurf is gentle on materials while being tough on bacteria and odors.',
       },
     ],
   },

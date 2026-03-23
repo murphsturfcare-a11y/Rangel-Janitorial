@@ -29,7 +29,7 @@ describe("SEO constants", () => {
   });
 
   it("COMPANY_DESCRIPTION contains key terms", () => {
-    expect(COMPANY_DESCRIPTION).toContain("OxyTurf");
+    expect(COMPANY_DESCRIPTION).toContain("professional-grade");
     expect(COMPANY_DESCRIPTION).toContain("California");
     expect(COMPANY_DESCRIPTION).toContain("artificial turf");
   });
@@ -59,13 +59,12 @@ describe("SEO constants", () => {
     }
   });
 
-  it("SERVICE_SLUGS has exactly 5 entries with expected slugs", () => {
-    expect(SERVICE_SLUGS).toHaveLength(5);
+  it("SERVICE_SLUGS has exactly 4 entries with expected slugs", () => {
+    expect(SERVICE_SLUGS).toHaveLength(4);
     expect(SERVICE_SLUGS).toContain("pet-hair-debris");
     expect(SERVICE_SLUGS).toContain("blooming-decompacting");
     expect(SERVICE_SLUGS).toContain("disinfect-deodorize");
     expect(SERVICE_SLUGS).toContain("poop-scooping");
-    expect(SERVICE_SLUGS).toContain("oxyturf");
   });
 
   it("LOCATION_SLUGS has exactly 4 entries with expected slugs", () => {

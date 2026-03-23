@@ -49,12 +49,6 @@ const services = [
     shortDescription:
       "Regular poop scooping service for artificial turf — we remove pet waste and sanitize the affected area to prevent odor buildup and bacteria growth.",
   },
-  {
-    name: "OxyTurf Treatment",
-    slug: "oxyturf" as const,
-    shortDescription:
-      "Our signature deep cleaning solution — a proprietary, eco-friendly formula that deep cleans, deodorizes, and revitalizes artificial turf without harsh chemicals.",
-  },
 ];
 
 export const serviceMetadata: Record<string, ReturnType<typeof generateServiceMetadata>> = {};
@@ -140,10 +134,10 @@ const blogPosts = [
       "The recommended cleaning frequency for residential and commercial artificial turf. Factors that affect your schedule: pets, foot traffic, trees, and California climate.",
   },
   {
-    title: "What Is OxyTurf? The Safe Way to Clean Synthetic Turf",
-    slug: "what-is-oxyturf-safe-turf-cleaning",
+    title: "Hydrogen Peroxide Turf Cleaning: The Safe Way to Clean Synthetic Turf",
+    slug: "hydrogen-peroxide-safe-turf-cleaning",
     description:
-      "Learn about OxyTurf — Murphy's Turf proprietary cleaning solution. How it works, why it's safe for pets and children, and what makes it different from generic turf cleaners.",
+      "Learn about our professional-grade hydrogen peroxide-based cleaning solution. How it works, why it's safe for pets and children, and what makes it different from generic turf cleaners.",
   },
   {
     title: "DIY vs. Professional Turf Cleaning: Is It Worth It?",

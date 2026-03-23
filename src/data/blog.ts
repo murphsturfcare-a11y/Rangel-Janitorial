@@ -5,7 +5,7 @@ export const blogPosts: BlogPost[] = [
     slug: "how-to-clean-artificial-turf-complete-guide",
     title: "How to Clean Artificial Turf: The Complete Guide",
     excerpt:
-      "Learn everything you need to know about cleaning artificial turf, from basic DIY maintenance to professional deep cleaning with OxyTurf disinfection.",
+      "Learn everything you need to know about cleaning artificial turf, from basic DIY maintenance to professional deep cleaning with hydrogen peroxide-based disinfection.",
     content: `
 # How to Clean Artificial Turf: The Complete Guide
 
@@ -64,9 +64,9 @@ We begin by removing all surface debris, pet hair, leaves, and organic matter fr
 
 Next, we use specialized power brushes to lift matted turf fibers and de-compact the infill layer. This step is critical because compacted infill traps bacteria and prevents proper drainage. After blooming, your turf will look visibly fuller and feel softer underfoot.
 
-### Step 3: OxyTurf Disinfection and Deodorization
+### Step 3: Professional Disinfection and Deodorization
 
-This is where the real magic happens. We apply OxyTurf, our professional-grade stabilized accelerated hydrogen peroxide solution. Unlike harsh chemicals that contain bleach or ammonia, OxyTurf is completely pet-safe and family-friendly while killing 99.9% of bacteria on contact. It penetrates deep into the infill layer to neutralize odor-causing compounds at their source rather than just masking them with fragrance.
+This is where the real magic happens. We apply our professional-grade stabilized accelerated hydrogen peroxide solution. Unlike harsh chemicals that contain bleach or ammonia, our cleaning solution is completely pet-safe and family-friendly while killing 99.9% of bacteria on contact. It penetrates deep into the infill layer to neutralize odor-causing compounds at their source rather than just masking them with fragrance.
 
 ### Step 4: Poop Scooping (Add-On Service)
 
@@ -93,7 +93,7 @@ Your artificial turf is an investment worth protecting. Whether you need a one-t
     tags: [
       "artificial turf cleaning",
       "turf maintenance",
-      "OxyTurf",
+      "professional turf cleaning solution",
       "pet turf cleaning",
       "how to clean turf",
       "synthetic lawn care",
@@ -101,7 +101,7 @@ Your artificial turf is an investment worth protecting. Whether you need a one-t
     metaTitle:
       "How to Clean Artificial Turf: The Complete Guide | Murphy's Turf",
     metaDescription:
-      "Complete guide to cleaning artificial turf. Learn DIY maintenance tips and when to call Murphy's Turf for professional OxyTurf disinfection. Visit murphysturf.com/locations.",
+      "Complete guide to cleaning artificial turf. Learn DIY maintenance tips and when to call Murphy's Turf for professional hydrogen peroxide-based disinfection. Visit murphysturf.com/locations.",
     featuredImage:
       "/images/blog/how-to-clean-artificial-turf-complete-guide.jpg",
   },
@@ -110,7 +110,7 @@ Your artificial turf is an investment worth protecting. Whether you need a one-t
     title:
       "Why Professional Turf Cleaning is Essential in Huntington Beach",
     excerpt:
-      "Huntington Beach turf faces unique challenges from salt air, sand, and coastal moisture. Learn why professional cleaning with OxyTurf is essential for coastal homeowners.",
+      "Huntington Beach turf faces unique challenges from salt air, sand, and coastal moisture. Learn why professional cleaning with our hydrogen peroxide-based solution is essential for coastal homeowners.",
     content: `
 # Why Professional Turf Cleaning is Essential in Huntington Beach
 
@@ -148,7 +148,7 @@ Huntington Beach is one of the most dog-friendly communities in California. With
 
 Dogs returning from the beach track in sand, salt water, and organic matter from the shoreline. Combined with regular pet waste on the turf, this creates a potent mix of contaminants that standard rinsing cannot adequately address. The bacteria count in turf used by beach-going dogs can be significantly higher than in turf used by dogs that stay close to home.
 
-Our poop scooping service combined with OxyTurf disinfection is specifically designed to address these compounded contamination issues. OxyTurf is a stabilized accelerated hydrogen peroxide formula that contains no bleach or ammonia, making it completely safe for your pets while killing 99.9% of bacteria lurking in your turf and infill.
+Our poop scooping service combined with professional hydrogen peroxide-based disinfection is specifically designed to address these compounded contamination issues. Our professional-grade cleaning solution is a stabilized accelerated hydrogen peroxide formula that contains no bleach or ammonia, making it completely safe for your pets while killing 99.9% of bacteria lurking in your turf and infill.
 
 ## Why DIY Is Not Enough in Huntington Beach
 
@@ -157,7 +157,7 @@ Many Huntington Beach homeowners try to maintain their turf with regular rinsing
 - **Surface-level only**: Garden hoses and spray-on products only reach the top layer of your turf. The real contamination lives in the infill and backing layers below.
 - **Sand compaction**: Without professional blooming and de-compaction equipment, you cannot address the sand infiltration that is unique to coastal properties.
 - **Salt buildup**: Consumer products are not formulated to break down the mineral deposits that salt air leaves in your turf system.
-- **Insufficient disinfection**: Over-the-counter enzyme cleaners do not achieve the 99.9% bacteria kill rate that OxyTurf delivers.
+- **Insufficient disinfection**: Over-the-counter enzyme cleaners do not achieve the 99.9% bacteria kill rate that our professional-grade cleaning solution delivers.
 
 ## The Murphy's Turf Coastal Cleaning Process
 
@@ -165,7 +165,7 @@ When we service Huntington Beach properties, we follow our comprehensive process
 
 1. **Thorough debris and sand removal** using commercial-grade equipment that extracts compacted sand from the infill layer
 2. **Blooming and de-compacting** to restore proper drainage and fiber appearance
-3. **OxyTurf disinfection and deodorization** that penetrates deep into the infill to eliminate bacteria, mold, and odor-causing compounds
+3. **Professional disinfection and deodorization** that penetrates deep into the infill to eliminate bacteria, mold, and odor-causing compounds
 4. **Pet hair and waste removal** for homes with four-legged family members
 
 We recommend Huntington Beach homeowners schedule professional cleaning every 6 to 8 weeks, or monthly for homes with multiple pets. The coastal environment accelerates contamination buildup compared to inland areas, so more frequent service keeps your turf in optimal condition.
@@ -181,7 +181,7 @@ Your artificial turf was a significant investment in your Huntington Beach home.
       "Huntington Beach",
       "coastal turf cleaning",
       "salt air turf damage",
-      "OxyTurf",
+      "professional turf cleaning solution",
       "pet turf cleaning",
       "Southern California",
       "LA turf cleaning",
@@ -189,7 +189,7 @@ Your artificial turf was a significant investment in your Huntington Beach home.
     metaTitle:
       "Professional Turf Cleaning in Huntington Beach | Murphy's Turf",
     metaDescription:
-      "Huntington Beach artificial turf faces salt air, sand, and coastal moisture challenges. Murphy's Turf provides professional OxyTurf cleaning. Call 951-331-3300.",
+      "Huntington Beach artificial turf faces salt air, sand, and coastal moisture challenges. Murphy's Turf provides professional hydrogen peroxide-based cleaning. Call 951-331-3300.",
     featuredImage:
       "/images/blog/why-professional-turf-cleaning-essential-huntington-beach.jpg",
     location: "huntington-beach",
@@ -199,13 +199,13 @@ Your artificial turf was a significant investment in your Huntington Beach home.
     title:
       "Removing Pet Odors from Artificial Turf in Murrieta's Heat",
     excerpt:
-      "Murrieta's Inland Empire heat amplifies pet odors in artificial turf. Discover why DIY methods fail and how OxyTurf enzyme treatment eliminates odors at their source.",
+      "Murrieta's Inland Empire heat amplifies pet odors in artificial turf. Discover why DIY methods fail and how our professional cleaning treatment eliminates odors at their source.",
     content: `
 # Removing Pet Odors from Artificial Turf in Murrieta's Heat
 
 If you live in Murrieta, Temecula, Menifee, Lake Elsinore, or anywhere in the Inland Empire, you already know that summer temperatures regularly soar past 100 degrees. What you may not realize is how dramatically that extreme heat affects your artificial turf, especially if you have pets. The combination of pet waste and Inland Empire heat creates one of the most challenging odor problems a homeowner can face, and it is far more serious than most people think.
 
-At Murphy's Turf, we have helped hundreds of Inland Empire families reclaim their backyards from the grip of stubborn pet odors. In this article, we will explain exactly why the Murrieta heat makes pet odors worse, why common DIY solutions fail, and how our OxyTurf treatment eliminates the problem at its source.
+At Murphy's Turf, we have helped hundreds of Inland Empire families reclaim their backyards from the grip of stubborn pet odors. In this article, we will explain exactly why the Murrieta heat makes pet odors worse, why common DIY solutions fail, and how our professional cleaning treatment eliminates the problem at its source.
 
 ## Why Murrieta's Heat Makes Pet Odors So Much Worse
 
@@ -245,25 +245,25 @@ Consumer enzyme cleaners are better than vinegar or baking soda, but they are fo
 
 Regular rinsing is an important part of turf maintenance, but water alone cannot dissolve uric acid crystals or kill the bacterial colonies living in your infill layer. In Murrieta's heat, hose water evaporates quickly from turf surfaces, often before it can flush contaminants through the drainage layer.
 
-## How OxyTurf Solves the Problem
+## How Our Professional-Grade Cleaning Solution Solves the Problem
 
-OxyTurf is a stabilized accelerated hydrogen peroxide formula specifically designed for artificial turf applications. Unlike consumer products, OxyTurf is engineered to work in the exact conditions that make Inland Empire turf so challenging:
+Our professional-grade cleaning solution is a stabilized accelerated hydrogen peroxide formula specifically designed for artificial turf applications. Unlike consumer products, it is engineered to work in the exact conditions that make Inland Empire turf so challenging:
 
 ### Deep Infill Penetration
 
-Our professional application method delivers OxyTurf solution deep into the infill layer where uric acid crystals and bacterial colonies live. The stabilized formula resists rapid evaporation, giving it time to break down the organic compounds that cause persistent odors even in extreme heat.
+Our professional application method delivers the cleaning solution deep into the infill layer where uric acid crystals and bacterial colonies live. The stabilized formula resists rapid evaporation, giving it time to break down the organic compounds that cause persistent odors even in extreme heat.
 
 ### 99.9% Bacteria Kill Rate
 
-OxyTurf kills 99.9% of bacteria on contact, including E. coli, Staphylococcus, and Salmonella. This is not just about odor; it is about making your turf safe for your family and pets to use. Best of all, OxyTurf contains no bleach or ammonia. It is completely pet-safe, so your dogs can return to the turf as soon as the treatment dries.
+Our professional-grade cleaning solution kills 99.9% of bacteria on contact, including E. coli, Staphylococcus, and Salmonella. This is not just about odor; it is about making your turf safe for your family and pets to use. Best of all, it contains no bleach or ammonia. It is completely pet-safe, so your dogs can return to the turf as soon as the treatment dries.
 
 ### Uric Acid Crystal Breakdown
 
-The accelerated hydrogen peroxide in OxyTurf oxidizes and breaks down the uric acid crystals that other products leave behind. This addresses the root cause of persistent odors rather than simply masking them with fragrance.
+The accelerated hydrogen peroxide in our cleaning solution oxidizes and breaks down the uric acid crystals that other products leave behind. This addresses the root cause of persistent odors rather than simply masking them with fragrance.
 
 ## Prevention Tips Between Professional Cleanings
 
-While professional OxyTurf treatment is the cornerstone of odor control, there are steps you can take between visits to minimize odor buildup:
+While professional cleaning treatment is the cornerstone of odor control, there are steps you can take between visits to minimize odor buildup:
 
 1. **Rinse pet areas daily during summer**: A quick hose-down in the early morning before the heat peaks helps dilute fresh urine before it bakes into the infill.
 2. **Pick up solid waste immediately**: Do not let poop sit on hot turf. The heat accelerates breakdown and drives contaminants deeper into the infill.
@@ -272,7 +272,7 @@ While professional OxyTurf treatment is the cornerstone of odor control, there a
 
 ## Take Back Your Backyard
 
-You invested in artificial turf to enjoy a beautiful, low-maintenance backyard. Do not let pet odors driven by Inland Empire heat take that enjoyment away. Murphy's Turf specializes in restoring turf that other methods have failed to fix. Call us at **951-331-3300** to schedule your OxyTurf treatment and experience the difference that professional-grade cleaning makes.
+You invested in artificial turf to enjoy a beautiful, low-maintenance backyard. Do not let pet odors driven by Inland Empire heat take that enjoyment away. Murphy's Turf specializes in restoring turf that other methods have failed to fix. Call us at **951-331-3300** to schedule your professional cleaning treatment and experience the difference that professional-grade cleaning makes.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-10-28",
@@ -281,7 +281,7 @@ You invested in artificial turf to enjoy a beautiful, low-maintenance backyard. 
       "pet odor removal",
       "Murrieta",
       "Inland Empire",
-      "OxyTurf",
+      "professional turf cleaning solution",
       "artificial turf odor",
       "pet urine turf",
       "Temecula",
@@ -290,7 +290,7 @@ You invested in artificial turf to enjoy a beautiful, low-maintenance backyard. 
     metaTitle:
       "Remove Pet Odors from Artificial Turf in Murrieta Heat | Murphy's Turf",
     metaDescription:
-      "Murrieta's extreme heat bakes pet odors into artificial turf. Murphy's Turf uses OxyTurf to eliminate odors at the source. Pet-safe, no bleach. Call 951-331-3300.",
+      "Murrieta's extreme heat bakes pet odors into artificial turf. Murphy's Turf uses a professional-grade cleaning solution to eliminate odors at the source. Pet-safe, no bleach. Call 951-331-3300.",
     featuredImage:
       "/images/blog/removing-pet-odors-artificial-turf-murrieta-heat.jpg",
     location: "murrieta",
@@ -348,7 +348,7 @@ Based on our experience servicing Bay Area properties, we recommend the followin
 The rainy season brings the heaviest moisture exposure. Focus on:
 
 - **Weekly debris removal**: Clear fallen leaves and organic matter before they break down and create mold-friendly conditions.
-- **Professional cleaning in early winter**: Schedule a thorough cleaning including blooming and OxyTurf disinfection before the wettest months. This reduces the biological load going into the rainy season.
+- **Professional cleaning in early winter**: Schedule a thorough cleaning including blooming and professional disinfection before the wettest months. This reduces the biological load going into the rainy season.
 - **Monitor drainage**: After heavy rains, check for standing water. If water pools for more than an hour after rain stops, your infill likely needs professional de-compaction.
 
 ### Spring (March through May)
@@ -357,14 +357,14 @@ As temperatures warm and rains taper, the combination of residual moisture and r
 
 - **Schedule a spring deep cleaning**: This is arguably the most important professional cleaning of the year for Bay Area turf. Winter has deposited months of moisture and organic matter, and warming temperatures are activating bacterial and mold growth.
 - **Begin regular rinsing**: As rain becomes less frequent, start rinsing your turf weekly to prevent contaminant concentration.
-- **Address any mold patches**: If you see mold or mildew, do not wait. Professional OxyTurf treatment eliminates existing growth and helps prevent recurrence.
+- **Address any mold patches**: If you see mold or mildew, do not wait. Professional hydrogen peroxide-based treatment eliminates existing growth and helps prevent recurrence.
 
 ### Summer (June through August)
 
 Drier conditions reduce moisture issues, but other challenges emerge:
 
 - **Pet odor management**: Warmer temperatures amplify pet waste odors. Increase rinsing frequency if you have pets.
-- **Professional mid-summer cleaning**: A mid-summer OxyTurf treatment addresses pet waste buildup and any lingering biological growth from spring.
+- **Professional mid-summer cleaning**: A mid-summer professional cleaning treatment addresses pet waste buildup and any lingering biological growth from spring.
 - **Dust accumulation**: Drier conditions mean more airborne dust settling into your turf, particularly in inland East Bay communities.
 
 ### Fall (September through November)
@@ -372,14 +372,14 @@ Drier conditions reduce moisture issues, but other challenges emerge:
 The transition back to wetter weather requires preparation:
 
 - **Heavy debris removal**: Fall brings the heaviest leaf drop in many Bay Area communities. Stay on top of debris removal to prevent organic buildup before the rains arrive.
-- **Pre-winter professional cleaning**: Schedule a comprehensive cleaning including blooming, de-compaction, and OxyTurf disinfection before the winter rains begin.
+- **Pre-winter professional cleaning**: Schedule a comprehensive cleaning including blooming, de-compaction, and professional disinfection before the winter rains begin.
 - **Check turf edges and seams**: Moisture intrusion often starts at turf edges. Inspect for any lifting, gaps, or areas where organic matter is accumulating along borders.
 
-## Why OxyTurf Is Perfect for Bay Area Conditions
+## Why Our Professional-Grade Cleaning Solution Is Perfect for Bay Area Conditions
 
-OxyTurf, our stabilized accelerated hydrogen peroxide treatment, is particularly well-suited to Bay Area turf challenges. Its oxidizing action is highly effective against mold and mildew, which are the primary biological concerns in this moisture-rich climate. OxyTurf kills 99.9% of bacteria, mold, and mildew on contact while remaining completely safe for pets and families. It contains no bleach or ammonia, so it will not damage your turf fibers or harm the surrounding landscape.
+Our professional-grade cleaning solution, a stabilized accelerated hydrogen peroxide treatment, is particularly well-suited to Bay Area turf challenges. Its oxidizing action is highly effective against mold and mildew, which are the primary biological concerns in this moisture-rich climate. It kills 99.9% of bacteria, mold, and mildew on contact while remaining completely safe for pets and families. It contains no bleach or ammonia, so it will not damage your turf fibers or harm the surrounding landscape.
 
-Our full service process includes pet hair and debris removal, thorough blooming and de-compacting of the infill layer, and deep OxyTurf disinfection and deodorization. For pet owners, we also offer poop scooping to ensure your turf is completely clean before treatment.
+Our full service process includes pet hair and debris removal, thorough blooming and de-compacting of the infill layer, and deep professional disinfection and deodorization. For pet owners, we also offer poop scooping to ensure your turf is completely clean before treatment.
 
 ## Schedule Your Bay Area Turf Cleaning
 
@@ -394,14 +394,14 @@ Whether you are in Martinez, Concord, Walnut Creek, or anywhere in the East Bay 
       "Contra Costa County",
       "turf maintenance",
       "mold removal turf",
-      "OxyTurf",
+      "professional turf cleaning solution",
       "East Bay",
       "seasonal turf care",
     ],
     metaTitle:
       "Artificial Turf Maintenance for Bay Area Homeowners | Murphy's Turf",
     metaDescription:
-      "Bay Area turf faces moisture, mold, and microclimate challenges. Murphy's Turf provides professional OxyTurf cleaning in Martinez and the East Bay. Call 925-338-0048.",
+      "Bay Area turf faces moisture, mold, and microclimate challenges. Murphy's Turf provides professional hydrogen peroxide-based cleaning in Martinez and the East Bay. Call 925-338-0048.",
     featuredImage:
       "/images/blog/artificial-turf-maintenance-bay-area-martinez.jpg",
     location: "martinez",
@@ -410,7 +410,7 @@ Whether you are in Martinez, Concord, Walnut Creek, or anywhere in the East Bay 
     slug: "sacramento-artificial-turf-cleaning-tips",
     title: "Sacramento's Best Artificial Turf Cleaning Tips",
     excerpt:
-      "Sacramento's Central Valley heat and dust create unique turf challenges. Get practical cleaning tips and learn when to call Murphy's Turf for professional OxyTurf service.",
+      "Sacramento's Central Valley heat and dust create unique turf challenges. Get practical cleaning tips and learn when to call Murphy's Turf for professional turf cleaning service.",
     content: `
 # Sacramento's Best Artificial Turf Cleaning Tips
 
@@ -501,7 +501,7 @@ There are clear signs that it is time to call Murphy's Turf for a professional c
 - Any signs of mold during the damp winter months
 - Turf that looks matted and lifeless despite regular brushing
 
-Our professional process addresses all of these issues. We start with thorough pet hair and debris removal, then bloom and de-compact the infill layer to restore proper drainage and fiber appearance. The cornerstone of our service is OxyTurf, our stabilized accelerated hydrogen peroxide treatment that kills 99.9% of bacteria while being completely pet-safe with no bleach or ammonia. OxyTurf penetrates deep into the infill to eliminate odors and contaminants at their source.
+Our professional process addresses all of these issues. We start with thorough pet hair and debris removal, then bloom and de-compact the infill layer to restore proper drainage and fiber appearance. The cornerstone of our service is our professional-grade stabilized accelerated hydrogen peroxide treatment that kills 99.9% of bacteria while being completely pet-safe with no bleach or ammonia. It penetrates deep into the infill to eliminate odors and contaminants at their source.
 
 ## Your Sacramento Turf Partner
 
@@ -514,7 +514,7 @@ Sacramento is a fantastic place to live, and artificial turf is the perfect land
       "Sacramento",
       "Central Valley",
       "turf cleaning tips",
-      "OxyTurf",
+      "professional turf cleaning solution",
       "artificial turf maintenance",
       "Elk Grove",
       "Roseville",
@@ -523,7 +523,7 @@ Sacramento is a fantastic place to live, and artificial turf is the perfect land
     metaTitle:
       "Sacramento Artificial Turf Cleaning Tips | Murphy's Turf",
     metaDescription:
-      "Sacramento's heat and dust demand special turf care. Get practical cleaning tips from Murphy's Turf and learn about professional OxyTurf service. Call 916-432-5033.",
+      "Sacramento's heat and dust demand special turf care. Get practical cleaning tips from Murphy's Turf and learn about professional turf cleaning service. Call 916-432-5033.",
     featuredImage:
       "/images/blog/sacramento-artificial-turf-cleaning-tips.jpg",
     location: "sacramento",
@@ -533,13 +533,13 @@ Sacramento is a fantastic place to live, and artificial turf is the perfect land
     title:
       "The Health Benefits of Regular Artificial Turf Sanitization",
     excerpt:
-      "Unsanitized artificial turf can harbor E. coli, Staph, and Salmonella. Learn why regular OxyTurf sanitization protects your family's health and when commercial properties must comply.",
+      "Unsanitized artificial turf can harbor E. coli, Staph, and Salmonella. Learn why regular professional sanitization protects your family's health and when commercial properties must comply.",
     content: `
 # The Health Benefits of Regular Artificial Turf Sanitization
 
 Artificial turf has become a staple in homes, schools, daycares, dog parks, and commercial properties across California. It is beautiful, durable, and water-efficient. But beneath that pristine green surface, an unsanitized artificial lawn can harbor a startling array of bacteria, viruses, and other pathogens that pose real health risks to anyone who uses it. Regular sanitization is not just about keeping your turf looking and smelling good; it is a genuine health necessity.
 
-At Murphy's Turf, we have made turf sanitization our specialty. Serving communities across Huntington Beach, Los Angeles, Murrieta, the Inland Empire, Martinez, the Bay Area, and Sacramento, we have seen firsthand what lurks in neglected turf and what a difference professional sanitization makes. In this article, we will look at the science behind turf contamination, the specific health risks involved, and why our OxyTurf treatment is the gold standard for turf sanitization.
+At Murphy's Turf, we have made turf sanitization our specialty. Serving communities across Huntington Beach, Los Angeles, Murrieta, the Inland Empire, Martinez, the Bay Area, and Sacramento, we have seen firsthand what lurks in neglected turf and what a difference professional sanitization makes. In this article, we will look at the science behind turf contamination, the specific health risks involved, and why our professional-grade hydrogen peroxide-based treatment is the gold standard for turf sanitization.
 
 ## What Bacteria Live in Your Artificial Turf?
 
@@ -592,25 +592,25 @@ People with compromised immune systems due to illness, medication, or age are at
 
 Anyone who exercises on artificial turf, whether it is backyard yoga, playing catch with the kids, or organized sports, has increased skin contact with the surface. Sweat, minor abrasions, and turf burns create pathways for bacteria to enter the body.
 
-## Why OxyTurf Sanitization Matters
+## Why Professional Hydrogen Peroxide-Based Sanitization Matters
 
-Knowing what lives in your turf makes the case for professional sanitization clear. But not all sanitization methods are created equal. Here is why OxyTurf stands apart:
+Knowing what lives in your turf makes the case for professional sanitization clear. But not all sanitization methods are created equal. Here is why our professional-grade cleaning solution stands apart:
 
 ### 99.9% Bacteria Kill Rate
 
-OxyTurf is a stabilized accelerated hydrogen peroxide formula that kills 99.9% of bacteria, including E. coli, Staphylococcus, and Salmonella, on contact. This is not a marketing claim; it is verified performance data. Consumer products rarely approach this level of effectiveness.
+Our professional-grade cleaning solution is a stabilized accelerated hydrogen peroxide formula that kills 99.9% of bacteria, including E. coli, Staphylococcus, and Salmonella, on contact. This is not a marketing claim; it is verified performance data. Consumer products rarely approach this level of effectiveness.
 
 ### No Bleach, No Ammonia
 
-Many people assume that effective disinfection requires harsh chemicals. OxyTurf proves otherwise. It contains no bleach, no ammonia, and no toxic residues. After application and drying, the surface is completely safe for children and pets. There is no chemical burn risk, no respiratory irritation from fumes, and no harmful residue left behind.
+Many people assume that effective disinfection requires harsh chemicals. Our professional-grade cleaning solution proves otherwise. It contains no bleach, no ammonia, and no toxic residues. After application and drying, the surface is completely safe for children and pets. There is no chemical burn risk, no respiratory irritation from fumes, and no harmful residue left behind.
 
 ### Deep Penetration
 
-Surface sprays only address the top layer of your turf. The real contamination lives in the infill layer, where bacteria are protected from UV light, rain, and surface rinsing. Our professional application method delivers OxyTurf deep into the infill where it can reach and eliminate these hidden bacterial colonies.
+Surface sprays only address the top layer of your turf. The real contamination lives in the infill layer, where bacteria are protected from UV light, rain, and surface rinsing. Our professional application method delivers the cleaning solution deep into the infill where it can reach and eliminate these hidden bacterial colonies.
 
 ### Pet-Safe Formula
 
-This point deserves emphasis because it is so important to our customers. OxyTurf is genuinely pet-safe. Pets can return to the turf as soon as the application dries. There are no toxic fumes during application and no harmful residues afterward. Your pets are protected by the treatment, not put at risk by it.
+This point deserves emphasis because it is so important to our customers. Our professional-grade cleaning solution is genuinely pet-safe. Pets can return to the turf as soon as the application dries. There are no toxic fumes during application and no harmful residues afterward. Your pets are protected by the treatment, not put at risk by it.
 
 ## How Often Should You Sanitize?
 
@@ -637,14 +637,14 @@ For commercial properties, especially those serving children or pets, turf sanit
 
 Our comprehensive sanitization service goes beyond just applying a disinfectant. We follow a complete protocol:
 
-1. **Pet hair and debris removal**: We clear all surface contaminants to ensure maximum OxyTurf contact with the turf and infill.
-2. **Blooming and de-compacting**: We restore proper infill structure so the OxyTurf treatment can penetrate effectively.
-3. **OxyTurf disinfection and deodorization**: We apply our professional-grade treatment throughout the turf, ensuring complete coverage and deep infill penetration.
+1. **Pet hair and debris removal**: We clear all surface contaminants to ensure maximum cleaning solution contact with the turf and infill.
+2. **Blooming and de-compacting**: We restore proper infill structure so the treatment can penetrate effectively.
+3. **Professional disinfection and deodorization**: We apply our professional-grade hydrogen peroxide-based treatment throughout the turf, ensuring complete coverage and deep infill penetration.
 4. **Poop scooping**: For properties with pets, we include thorough waste removal as part of the service.
 
 ## Protect the Health of Everyone Who Uses Your Turf
 
-Your artificial turf should be a place where your family, pets, and guests can play, relax, and enjoy the outdoors without health concerns. Regular professional sanitization with OxyTurf makes that possible. Do not wait for a health scare to take action. Contact your local Murphy's Turf office to schedule your sanitization service and start protecting the people and pets you care about most. Visit [murphysturf.com/locations](/locations) to find the team nearest you.
+Your artificial turf should be a place where your family, pets, and guests can play, relax, and enjoy the outdoors without health concerns. Regular professional sanitization with our hydrogen peroxide-based cleaning solution makes that possible. Do not wait for a health scare to take action. Contact your local Murphy's Turf office to schedule your sanitization service and start protecting the people and pets you care about most. Visit [murphysturf.com/locations](/locations) to find the team nearest you.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-08-22",
@@ -655,7 +655,7 @@ Your artificial turf should be a place where your family, pets, and guests can p
       "E. coli",
       "Staph",
       "Salmonella",
-      "OxyTurf",
+      "professional turf cleaning solution",
       "pet-safe disinfection",
       "health benefits",
       "daycare turf cleaning",
@@ -663,7 +663,7 @@ Your artificial turf should be a place where your family, pets, and guests can p
     metaTitle:
       "Health Benefits of Artificial Turf Sanitization | Murphy's Turf",
     metaDescription:
-      "Artificial turf harbors E. coli, Staph, and Salmonella. Learn why regular OxyTurf sanitization from Murphy's Turf protects your family's health. Visit murphysturf.com/locations.",
+      "Artificial turf harbors E. coli, Staph, and Salmonella. Learn why regular professional sanitization from Murphy's Turf protects your family's health. Visit murphysturf.com/locations.",
     featuredImage:
       "/images/blog/health-benefits-artificial-turf-sanitization.jpg",
   },
@@ -683,13 +683,13 @@ Let's break it down by scenario so you can find the schedule that fits your life
 
 If your artificial turf is primarily decorative or sees light foot traffic with no pets, you're in the easiest maintenance category. A professional cleaning every **three to six months** is typically sufficient to keep things in top shape. During these visits, Murphy's Turf will remove accumulated dust, pollen, and organic debris that settles into the fibers over time. We'll also perform blooming — the process of brushing fibers back upright — so your lawn maintains that lush, freshly installed look.
 
-Even without pets, leaves, bird droppings, airborne pollutants, and pollen accumulate in the turf. In the Inland Empire and Riverside County, dust and dry organic matter build up faster than you might expect, particularly during Santa Ana wind season. A bi-annual deep clean with OxyTurf ensures bacteria from these sources never gain a foothold.
+Even without pets, leaves, bird droppings, airborne pollutants, and pollen accumulate in the turf. In the Inland Empire and Riverside County, dust and dry organic matter build up faster than you might expect, particularly during Santa Ana wind season. A bi-annual deep clean with our professional-grade cleaning solution ensures bacteria from these sources never gain a foothold.
 
 ### Scenario 2: Pet Owners (1-2 Pets)
 
 If you have one or two dogs using the turf regularly, **monthly professional cleaning** is the gold standard. Pet urine doesn't just sit on the surface — it seeps into the infill layer where it crystallizes and becomes a persistent odor source. Fecal bacteria, even after you pick up solid waste, leaves behind microscopic residue that multiplies rapidly in warm conditions.
 
-Monthly service from Murphy's Turf includes pet hair and debris removal, a full disinfect and deodorize treatment using OxyTurf, and blooming to keep fibers from matting down in high-traffic pet paths. OxyTurf — our stabilized accelerated hydrogen peroxide solution — kills 99.9% of bacteria on contact and breaks down urine crystals at the molecular level, then decomposes into nothing but water and oxygen. No harsh chemicals lingering where your pets play.
+Monthly service from Murphy's Turf includes pet hair and debris removal, a full disinfect and deodorize treatment using our professional-grade cleaning solution, and blooming to keep fibers from matting down in high-traffic pet paths. Our stabilized accelerated hydrogen peroxide solution kills 99.9% of bacteria on contact and breaks down urine crystals at the molecular level, then decomposes into nothing but water and oxygen. No harsh chemicals lingering where your pets play.
 
 Between professional visits, we recommend rinsing pet areas with a garden hose two to three times per week and picking up solid waste daily.
 
@@ -734,7 +734,7 @@ Not sure if it's time? Watch for these indicators:
 
 After more than 30 years in the cleaning industry, we've seen what works and what doesn't. Our standard recommendation is straightforward: if you have pets, start with monthly service and adjust from there. If you don't have pets, twice a year keeps your investment protected. And if you're a commercial property, talk to us about a custom schedule.
 
-Every Murphy's Turf service includes our complete treatment — pet hair and debris removal, blooming and de-compacting, disinfecting and deodorizing with OxyTurf, and poop scooping when needed. Contact your local Murphy's Turf office to set up the schedule that's right for your turf. Visit [murphysturf.com/locations](/locations) to get started.
+Every Murphy's Turf service includes our complete treatment — pet hair and debris removal, blooming and de-compacting, disinfecting and deodorizing with our professional-grade cleaning solution, and poop scooping when needed. Contact your local Murphy's Turf office to set up the schedule that's right for your turf. Visit [murphysturf.com/locations](/locations) to get started.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-08-05",
@@ -754,30 +754,30 @@ Every Murphy's Turf service includes our complete treatment — pet hair and deb
     featuredImage: "/images/blog/how-often-clean-artificial-turf.jpg",
   },
   {
-    slug: "what-is-oxyturf-science-behind-safe-cleaning",
-    title: "What is OxyTurf? The Science Behind Safe Turf Cleaning",
+    slug: "hydrogen-peroxide-turf-cleaning-science",
+    title: "What Is Hydrogen Peroxide-Based Turf Cleaning? The Science Behind Safe Turf Cleaning",
     excerpt:
-      "Discover the science behind OxyTurf — the stabilized accelerated hydrogen peroxide solution that kills 99.9% of bacteria without bleach, ammonia, or toxic residue.",
+      "Discover the science behind our professional-grade cleaning solution — a stabilized accelerated hydrogen peroxide formula that kills 99.9% of bacteria without bleach, ammonia, or toxic residue.",
     content: `
-## What is OxyTurf? The Science Behind Safe Turf Cleaning
+## What Is Hydrogen Peroxide-Based Turf Cleaning? The Science Behind Safe Turf Cleaning
 
-At Murphy's Turf, every cleaning service we perform centers around one product: OxyTurf. It's not a brand name we slap on a generic cleaner — it's a carefully formulated stabilized accelerated hydrogen peroxide solution that represents the safest, most effective approach to artificial turf sanitation available today. After more than 30 years in the cleaning industry, we chose OxyTurf because the science behind it is simply superior to everything else on the market.
+At Murphy's Turf, every cleaning service we perform centers around one product: our professional-grade hydrogen peroxide-based cleaning solution. It's a carefully formulated stabilized accelerated hydrogen peroxide solution that represents the safest, most effective approach to artificial turf sanitation available today. After more than 30 years in the cleaning industry, we chose this solution because the science behind it is simply superior to everything else on the market.
 
-This article is our definitive guide to what OxyTurf is, how it works at a molecular level, and why it matters for your family, your pets, and the environment.
+This article is our definitive guide to what our professional-grade cleaning solution is, how it works at a molecular level, and why it matters for your family, your pets, and the environment.
 
 ### The Active Ingredient: Stabilized Accelerated Hydrogen Peroxide
 
 You're probably familiar with hydrogen peroxide — that brown bottle in your medicine cabinet. Standard hydrogen peroxide (H2O2) is a powerful oxidizer, but it's unstable. It breaks down quickly when exposed to light, heat, or organic matter, which means it often loses potency before finishing the job.
 
-OxyTurf uses **stabilized accelerated hydrogen peroxide (SAHP)**, which solves both problems. The "stabilized" component means the hydrogen peroxide maintains its potency over time and resists premature decomposition. The "accelerated" component means it works faster and more effectively at lower concentrations than standard hydrogen peroxide, thanks to proprietary surfactants and stabilizers that enhance its interaction with target organisms.
+Our professional-grade cleaning solution uses **stabilized accelerated hydrogen peroxide (SAHP)**, which solves both problems. The "stabilized" component means the hydrogen peroxide maintains its potency over time and resists premature decomposition. The "accelerated" component means it works faster and more effectively at lower concentrations than standard hydrogen peroxide, thanks to proprietary surfactants and stabilizers that enhance its interaction with target organisms.
 
 The result is a cleaning agent that delivers hospital-grade disinfection without the toxicity profile of conventional disinfectants.
 
-### How OxyTurf Kills Bacteria
+### How Our Cleaning Solution Kills Bacteria
 
-When OxyTurf contacts bacteria, the mechanism is elegant and thorough. The accelerated hydrogen peroxide releases reactive oxygen species — highly energetic oxygen molecules that attack bacterial cell walls and membranes. This oxidative burst ruptures the cell structure, destroys the organism's DNA, and neutralizes the proteins that bacteria need to function and reproduce.
+When our cleaning solution contacts bacteria, the mechanism is elegant and thorough. The accelerated hydrogen peroxide releases reactive oxygen species — highly energetic oxygen molecules that attack bacterial cell walls and membranes. This oxidative burst ruptures the cell structure, destroys the organism's DNA, and neutralizes the proteins that bacteria need to function and reproduce.
 
-This is not a slow process. OxyTurf achieves a **99.9% kill rate** against common turf bacteria including E. coli, Salmonella, Staphylococcus, and the pathogens commonly found in pet waste. The reactive oxygen species work on contact, meaning bacteria don't have time to develop resistance — a growing concern with traditional chemical disinfectants.
+This is not a slow process. Our cleaning solution achieves a **99.9% kill rate** against common turf bacteria including E. coli, Salmonella, Staphylococcus, and the pathogens commonly found in pet waste. The reactive oxygen species work on contact, meaning bacteria don't have time to develop resistance — a growing concern with traditional chemical disinfectants.
 
 ### What Makes It Different from Bleach
 
@@ -789,31 +789,31 @@ Bleach (sodium hypochlorite) is the go-to disinfectant for many cleaning compani
 
 **Environmental runoff:** When it rains or when you rinse your turf, bleach-contaminated water flows into storm drains and eventually into local waterways. In California, where water quality regulations are among the strictest in the nation, this is both an environmental and legal concern.
 
-**OxyTurf's advantage:** After OxyTurf completes its disinfection work, it breaks down into just two things — **water (H2O) and oxygen (O2)**. That's it. No toxic residue on your turf. No harmful runoff into the environment. No damage to synthetic fibers. No risk to the pets and children who use the surface minutes after treatment.
+**Our solution's advantage:** After our cleaning solution completes its disinfection work, it breaks down into just two things — **water (H2O) and oxygen (O2)**. That's it. No toxic residue on your turf. No harmful runoff into the environment. No damage to synthetic fibers. No risk to the pets and children who use the surface minutes after treatment.
 
 ### What Makes It Different from Ammonia
 
 Ammonia-based cleaners present a different set of problems, particularly on artificial turf with pet use. Pet urine already contains urea, which bacteria convert into ammonia. Adding an ammonia-based cleaner to a turf surface contaminated with urine doesn't eliminate the problem — it compounds it. The combined ammonia concentration can reach levels that irritate respiratory systems, burn nasal passages, and create an even more pungent odor than the one you were trying to eliminate.
 
-OxyTurf takes the opposite approach. Its oxidative action breaks down the urea and ammonia compounds already present in the turf, converting them into harmless byproducts. You're not adding chemicals to mask the problem — you're eliminating the problem at its molecular source.
+Our professional-grade cleaning solution takes the opposite approach. Its oxidative action breaks down the urea and ammonia compounds already present in the turf, converting them into harmless byproducts. You're not adding chemicals to mask the problem — you're eliminating the problem at its molecular source.
 
 ### The Fresh Grass Scent
 
-One of the things our customers love most about OxyTurf is what happens after the science does its work. Once bacteria and organic contaminants are eliminated and the hydrogen peroxide has broken down, what remains is a **clean, fresh grass scent** — not an artificial perfume layered over contamination, but a genuinely clean surface that smells the way a healthy lawn should.
+One of the things our customers love most about our professional-grade cleaning solution is what happens after the science does its work. Once bacteria and organic contaminants are eliminated and the hydrogen peroxide has broken down, what remains is a **clean, fresh grass scent** — not an artificial perfume layered over contamination, but a genuinely clean surface that smells the way a healthy lawn should.
 
-This scent is a carefully selected component of the OxyTurf formulation, designed to complement the cleaning process rather than mask shortcomings. When you smell that fresh grass scent after a Murphy's Turf treatment, it means the turf is actually clean — not just covered up.
+This scent is a carefully selected component of the formulation, designed to complement the cleaning process rather than mask shortcomings. When you smell that fresh grass scent after a Murphy's Turf treatment, it means the turf is actually clean — not just covered up.
 
-### Why Murphy's Turf Chose OxyTurf
+### Why Murphy's Turf Chose This Solution
 
 With more than three decades in the professional cleaning industry, we've tested, evaluated, and used just about every cleaning product category that exists. When we expanded into artificial turf maintenance, we spent significant time researching the best approach for a surface that people and pets have direct, prolonged contact with.
 
-The decision came down to a simple framework: **maximum efficacy, minimum risk**. OxyTurf delivers hospital-grade disinfection — the same caliber of sanitation used in healthcare facilities and food processing — without introducing any of the toxic byproducts associated with bleach, ammonia, quaternary ammonium compounds, or phenolic disinfectants.
+The decision came down to a simple framework: **maximum efficacy, minimum risk**. Our professional-grade cleaning solution delivers hospital-grade disinfection — the same caliber of sanitation used in healthcare facilities and food processing — without introducing any of the toxic byproducts associated with bleach, ammonia, quaternary ammonium compounds, or phenolic disinfectants.
 
 For a surface where dogs roll around, toddlers crawl, and families spend their evenings, that combination of power and safety isn't just preferable — it's essential.
 
 ### Environmental Benefits
 
-Beyond your backyard, OxyTurf aligns with broader environmental responsibility. Every treatment that uses OxyTurf instead of bleach or ammonia means:
+Beyond your backyard, our professional-grade cleaning solution aligns with broader environmental responsibility. Every treatment that uses hydrogen peroxide instead of bleach or ammonia means:
 
 - **Zero toxic runoff** entering storm drains and waterways
 - **No contribution** to chlorinated byproduct contamination in soil
@@ -821,19 +821,19 @@ Beyond your backyard, OxyTurf aligns with broader environmental responsibility. 
 - **Complete biodegradability** — the end products are literally water and oxygen
 - **Reduced chemical manufacturing footprint** compared to petroleum-derived cleaning agents
 
-In a state like California, where drought conditions make every drop of water precious and environmental regulations reflect a genuine commitment to ecological health, choosing OxyTurf isn't just good for your yard — it's good citizenship.
+In a state like California, where drought conditions make every drop of water precious and environmental regulations reflect a genuine commitment to ecological health, choosing our professional-grade cleaning solution isn't just good for your yard — it's good citizenship.
 
-### Experience the OxyTurf Difference
+### Experience the Difference
 
-Every service Murphy's Turf performs — from pet hair and debris removal to blooming and de-compacting to our full disinfect and deodorize treatment — features OxyTurf as the cornerstone product. It's the reason we can guarantee a clean, safe, fresh-smelling turf surface every single time.
+Every service Murphy's Turf performs — from pet hair and debris removal to blooming and de-compacting to our full disinfect and deodorize treatment — features our professional-grade hydrogen peroxide-based cleaning solution as the cornerstone product. It's the reason we can guarantee a clean, safe, fresh-smelling turf surface every single time.
 
-Want to see the difference for yourself? Contact your local Murphy's Turf office and schedule your first OxyTurf treatment. Once you experience the results, you'll understand why we built our entire service around this remarkable product.
+Want to see the difference for yourself? Contact your local Murphy's Turf office and schedule your first professional cleaning treatment. Once you experience the results, you'll understand why we built our entire service around this remarkable product.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-07-18",
     category: "products",
     tags: [
-      "OxyTurf",
+      "hydrogen peroxide cleaner",
       "hydrogen peroxide turf cleaner",
       "safe turf cleaning",
       "pet-safe disinfectant",
@@ -842,11 +842,11 @@ Want to see the difference for yourself? Contact your local Murphy's Turf office
       "bleach-free turf cleaner",
     ],
     metaTitle:
-      "What is OxyTurf? Science Behind Safe Artificial Turf Cleaning",
+      "What Is Hydrogen Peroxide-Based Turf Cleaning? Science Behind Safe Artificial Turf Cleaning",
     metaDescription:
-      "Learn how OxyTurf's stabilized accelerated hydrogen peroxide kills 99.9% of bacteria without bleach or ammonia, then breaks down into water and oxygen. Pet-safe and eco-friendly.",
+      "Learn how our stabilized accelerated hydrogen peroxide cleaning solution kills 99.9% of bacteria without bleach or ammonia, then breaks down into water and oxygen. Pet-safe and eco-friendly.",
     featuredImage:
-      "/images/blog/what-is-oxyturf-science-behind-safe-cleaning.jpg",
+      "/images/gallery/service-turf-disinfecting.png",
   },
   {
     slug: "diy-vs-professional-artificial-turf-cleaning",
@@ -885,7 +885,7 @@ These DIY tasks are genuinely effective at maintaining day-to-day cleanliness an
 
 Here's where the DIY approach hits its limits — and it's important to understand why, not just take our word for it.
 
-**Deep sanitization with OxyTurf:** You can't replicate a professional disinfection treatment at home. OxyTurf — our stabilized accelerated hydrogen peroxide solution — requires specific application equipment to ensure even distribution across the entire turf surface and proper penetration into the infill layer. The product itself kills 99.9% of bacteria and breaks down into water and oxygen, but it needs to be applied at the correct concentration and contact time to achieve full efficacy. Pouring hydrogen peroxide from the drugstore on your turf is not the same thing.
+**Deep sanitization with our professional-grade cleaning solution:** You can't replicate a professional disinfection treatment at home. Our stabilized accelerated hydrogen peroxide solution requires specific application equipment to ensure even distribution across the entire turf surface and proper penetration into the infill layer. The product itself kills 99.9% of bacteria and breaks down into water and oxygen, but it needs to be applied at the correct concentration and contact time to achieve full efficacy. Pouring hydrogen peroxide from the drugstore on your turf is not the same thing.
 
 **Blooming and de-compacting:** Over time, artificial turf fibers get pressed flat by foot traffic, pet activity, and furniture. Professional blooming uses specialized power brushes calibrated to lift fibers without damaging them while simultaneously de-compacting the infill layer below. A push broom provides surface-level help, but it can't reach the infill compaction that restricts drainage and traps contaminants. Our equipment restores the turf to its original upright, plush condition and ensures the infill layer drains properly.
 
@@ -908,7 +908,7 @@ Let's talk numbers, because that's ultimately what drives the DIY-vs-professiona
 
 **Professional service costs:**
 - Monthly maintenance from Murphy's Turf: varies by yard size and service level
-- Includes pet hair and debris removal, blooming and de-compacting, full disinfect and deodorize with OxyTurf, and poop scooping
+- Includes pet hair and debris removal, blooming and de-compacting, full disinfect and deodorize with our professional-grade cleaning solution, and poop scooping
 
 **The cost of skipping professional service:**
 - Premature turf replacement: $8-15 per square foot installed
@@ -945,7 +945,7 @@ Ready to find the right balance for your turf? Contact your local Murphy's Turf 
       "professional turf cleaning",
       "artificial turf maintenance",
       "turf cleaning cost",
-      "OxyTurf treatment",
+      "professional turf cleaning solution",
       "turf care tips",
     ],
     metaTitle:
@@ -1006,11 +1006,11 @@ We understand that life gets busy. Between work, kids, and everything else, dail
 
 It's a simple service, but it addresses the single biggest source of bacterial contamination on pet turf. Many of our customers combine poop scooping with their regular maintenance visits for seamless yard care.
 
-### OxyTurf: The Pet Owner's Secret Weapon
+### Professional-Grade Cleaning: The Pet Owner's Secret Weapon
 
-Here's where proper professional maintenance transforms the pet turf experience. During every Murphy's Turf service visit, we apply OxyTurf — our stabilized accelerated hydrogen peroxide solution — across the entire turf surface.
+Here's where proper professional maintenance transforms the pet turf experience. During every Murphy's Turf service visit, we apply our professional-grade stabilized accelerated hydrogen peroxide solution across the entire turf surface.
 
-What OxyTurf does for pet owners:
+What our professional-grade cleaning solution does for pet owners:
 
 - **Kills 99.9% of bacteria** including E. coli, Salmonella, and other pathogens from pet waste
 - **Breaks down uric acid crystals** that cause persistent ammonia odor
@@ -1019,7 +1019,7 @@ What OxyTurf does for pet owners:
 - **Contains no bleach, no ammonia** — zero toxic residue in the turf where your pets play, roll, and lie down
 - **Leaves a fresh grass scent** that replaces contamination odor with genuine cleanliness
 
-The pet safety factor cannot be overstated. Dogs spend significant time with their faces close to the turf surface. They lick their paws. They roll on the grass. Any cleaning product that leaves toxic residue poses a direct ingestion and contact risk. OxyTurf eliminates this concern entirely — once it finishes working, all that remains is water, oxygen, and a clean surface.
+The pet safety factor cannot be overstated. Dogs spend significant time with their faces close to the turf surface. They lick their paws. They roll on the grass. Any cleaning product that leaves toxic residue poses a direct ingestion and contact risk. Our professional-grade cleaning solution eliminates this concern entirely — once it finishes working, all that remains is water, oxygen, and a clean surface.
 
 ### EPA Statistics on Pet Waste
 
@@ -1038,14 +1038,14 @@ The best approach combines your daily efforts with professional support:
 
 - **Daily:** Pick up waste, rinse high-use areas
 - **Weekly:** Light brushing of matted areas, thorough debris removal
-- **Monthly:** Professional Murphy's Turf service including OxyTurf treatment, blooming, de-compacting, and comprehensive disinfection
+- **Monthly:** Professional Murphy's Turf service including hydrogen peroxide-based treatment, blooming, de-compacting, and comprehensive disinfection
 - **As needed:** Poop scooping service for busy schedules
 
 This routine keeps bacterial levels low, prevents odor from developing, maintains drainage, and ensures your turf stays safe for every member of your family — two-legged and four-legged alike.
 
 ### Give Your Pets the Yard They Deserve
 
-Artificial turf is the best surface for pet owners who want a beautiful, durable, mud-free yard. With the right maintenance approach, it stays clean, safe, and odor-free year-round. Contact your local Murphy's Turf office to set up a pet-focused maintenance plan and experience the difference OxyTurf makes for pet owners. Visit [murphysturf.com/locations](/locations) to get started.
+Artificial turf is the best surface for pet owners who want a beautiful, durable, mud-free yard. With the right maintenance approach, it stays clean, safe, and odor-free year-round. Contact your local Murphy's Turf office to set up a pet-focused maintenance plan and experience the difference professional-grade cleaning makes for pet owners. Visit [murphysturf.com/locations](/locations) to get started.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-06-12",
@@ -1055,14 +1055,14 @@ Artificial turf is the best surface for pet owners who want a beautiful, durable
       "dog turf cleaning",
       "pet urine turf odor",
       "pet-safe turf cleaner",
-      "OxyTurf pets",
+      "hydrogen peroxide cleaner pets",
       "poop scooping service",
       "pet waste bacteria",
     ],
     metaTitle:
       "Artificial Turf and Pets: Complete Guide to a Clean, Safe Yard",
     metaDescription:
-      "Pet owner's guide to artificial turf maintenance. Learn how to manage urine odor, bacteria, and waste with daily habits and professional OxyTurf treatment from Murphy's Turf.",
+      "Pet owner's guide to artificial turf maintenance. Learn how to manage urine odor, bacteria, and waste with daily habits and professional cleaning treatment from Murphy's Turf.",
     featuredImage:
       "/images/blog/artificial-turf-and-pets-keeping-yard-clean.jpg",
   },
@@ -1116,19 +1116,19 @@ In fact, aggressive hosing without proper drainage can make things worse by addi
 
 Home remedies face similar limitations. Vinegar provides temporary pH disruption but evaporates quickly and does not penetrate the infill. Baking soda absorbs some surface odor but doesn't kill anything. Enzyme cleaners from the pet store are designed for indoor hard surfaces, not the multi-layered turf system with its dense infill. None of these approaches reach the depth where the real contamination lives.
 
-### How OxyTurf Eliminates Odor at the Source
+### How Our Professional-Grade Cleaning Solution Eliminates Odor at the Source
 
-This is where OxyTurf — the stabilized accelerated hydrogen peroxide solution used exclusively by Murphy's Turf — changes everything. Instead of masking odor or providing temporary surface relief, OxyTurf attacks the actual sources of smell.
+This is where our professional-grade cleaning solution — a stabilized accelerated hydrogen peroxide formula used exclusively by Murphy's Turf — changes everything. Instead of masking odor or providing temporary surface relief, it attacks the actual sources of smell.
 
-**Against uric acid crystals:** OxyTurf's oxidative action breaks down the molecular structure of uric acid crystals in the infill. Rather than trying to dissolve them with water (which is chemically impossible), OxyTurf's reactive oxygen species oxidize the crystal bonds, converting them into water-soluble compounds that can be flushed from the system.
+**Against uric acid crystals:** The solution's oxidative action breaks down the molecular structure of uric acid crystals in the infill. Rather than trying to dissolve them with water (which is chemically impossible), the reactive oxygen species oxidize the crystal bonds, converting them into water-soluble compounds that can be flushed from the system.
 
-**Against bacteria:** OxyTurf kills 99.9% of bacteria on contact. The accelerated hydrogen peroxide ruptures bacterial cell walls through oxidative stress, destroying the organisms and their ability to reproduce. This isn't a temporary suppression — it's elimination.
+**Against bacteria:** Our cleaning solution kills 99.9% of bacteria on contact. The accelerated hydrogen peroxide ruptures bacterial cell walls through oxidative stress, destroying the organisms and their ability to reproduce. This isn't a temporary suppression — it's elimination.
 
-**Against mold and mildew:** The same oxidative mechanism that kills bacteria is equally effective against fungal organisms. OxyTurf destroys mold and mildew colonies and removes the organic residue they feed on.
+**Against mold and mildew:** The same oxidative mechanism that kills bacteria is equally effective against fungal organisms. Our cleaning solution destroys mold and mildew colonies and removes the organic residue they feed on.
 
-**Against organic debris:** OxyTurf's surfactants help break down and lift decomposed organic matter from the turf fibers and infill, allowing it to be removed during the cleaning process.
+**Against organic debris:** The solution's surfactants help break down and lift decomposed organic matter from the turf fibers and infill, allowing it to be removed during the cleaning process.
 
-And here's the critical difference: after OxyTurf completes its work, it breaks down into **water and oxygen**. No toxic residue. No chemical smell replacing a biological one. No harsh compounds lingering where your family and pets spend time. Just clean turf and a fresh grass scent that signals genuine cleanliness.
+And here's the critical difference: after our cleaning solution completes its work, it breaks down into **water and oxygen**. No toxic residue. No chemical smell replacing a biological one. No harsh compounds lingering where your family and pets spend time. Just clean turf and a fresh grass scent that signals genuine cleanliness.
 
 ### When to Call Murphy's Turf
 
@@ -1136,15 +1136,15 @@ If your artificial turf smells, the time to call is now — not next month. Odor
 
 Here's our general guidance:
 
-- **Mild odor on hot days only?** A single professional OxyTurf treatment combined with a regular monthly maintenance schedule will likely resolve the issue.
+- **Mild odor on hot days only?** A single professional cleaning treatment combined with a regular monthly maintenance schedule will likely resolve the issue.
 - **Consistent odor regardless of temperature?** You're dealing with significant contamination that may require an intensive initial treatment before transitioning to regular maintenance.
 - **Odor plus visible issues (discoloration, matting, slow drainage)?** Multiple systems within the turf need professional attention. Call for an assessment.
 
-Every Murphy's Turf service includes our complete package: pet hair and debris removal, blooming and de-compacting, disinfect and deodorize with OxyTurf, and poop scooping. We address every layer of the turf system, not just the surface.
+Every Murphy's Turf service includes our complete package: pet hair and debris removal, blooming and de-compacting, disinfect and deodorize with our professional-grade cleaning solution, and poop scooping. We address every layer of the turf system, not just the surface.
 
 ### Don't Live With the Smell
 
-Artificial turf odor is not something you have to accept, and it's not a sign that your turf needs replacement. In the vast majority of cases, professional cleaning with OxyTurf completely resolves the problem and regular maintenance prevents it from returning.
+Artificial turf odor is not something you have to accept, and it's not a sign that your turf needs replacement. In the vast majority of cases, professional cleaning with our hydrogen peroxide-based solution completely resolves the problem and regular maintenance prevents it from returning.
 
 Contact your local Murphy's Turf office to schedule your turf assessment. We'll identify exactly what's causing your odor and give your turf the treatment it needs to smell the way it should — like a clean, fresh yard your whole family can enjoy. Visit [murphysturf.com/locations](/locations) to find the team nearest you.
     `,
@@ -1156,14 +1156,14 @@ Contact your local Murphy's Turf office to schedule your turf assessment. We'll 
       "turf smells bad",
       "pet urine turf smell",
       "how to fix turf odor",
-      "OxyTurf odor elimination",
+      "professional turf odor elimination",
       "turf bacteria smell",
       "turf mold mildew",
     ],
     metaTitle:
       "Why Your Artificial Turf Smells and How to Fix It | Murphy's Turf",
     metaDescription:
-      "Discover why your artificial turf stinks — pet urine crystals, bacteria, mold, and heat. Learn why hosing fails and how OxyTurf eliminates odor at the source.",
+      "Discover why your artificial turf stinks — pet urine crystals, bacteria, mold, and heat. Learn why hosing fails and how professional-grade cleaning eliminates odor at the source.",
     featuredImage:
       "/images/blog/why-artificial-turf-smells-how-to-fix.jpg",
   },
@@ -1185,7 +1185,7 @@ Here are the warning signs that your artificial turf needs professional cleaning
 
 **What it means:** Bacterial contamination has established itself in the infill layer. In most cases, pet urine crystals (uric acid) have accumulated to a concentration that produces consistent ammonia off-gassing. If the smell is musty rather than sharp, mold or mildew may be developing in areas with trapped moisture.
 
-**Which service fixes it:** Our full **disinfect and deodorize treatment with OxyTurf** directly targets this issue. OxyTurf's stabilized accelerated hydrogen peroxide kills 99.9% of bacteria, breaks down uric acid crystals through oxidation, and eliminates the molecular source of the odor. It then decomposes into water and oxygen, leaving behind a fresh grass scent and a genuinely clean surface — no masking, no toxic residue.
+**Which service fixes it:** Our full **disinfect and deodorize treatment with our professional-grade cleaning solution** directly targets this issue. The stabilized accelerated hydrogen peroxide kills 99.9% of bacteria, breaks down uric acid crystals through oxidation, and eliminates the molecular source of the odor. It then decomposes into water and oxygen, leaving behind a fresh grass scent and a genuinely clean surface — no masking, no toxic residue.
 
 ### Sign #2: Discoloration or Staining
 
@@ -1193,7 +1193,7 @@ Here are the warning signs that your artificial turf needs professional cleaning
 
 **What it means:** Organic material has broken down on the surface or in the upper infill layer, leaving behind residue that adheres to the turf fibers. Dark patches often indicate concentrated bacterial activity. Yellowing can result from accumulated urine residue, decomposed organic matter, or chemical reactions from improper cleaning products. Staining near trees or plants may come from tannins in leaves, berries, or sap.
 
-**Which service fixes it:** Our **pet hair and debris removal** service eliminates surface-level organic material, while the OxyTurf disinfect and deodorize treatment addresses biological staining at a deeper level. The oxidative action of OxyTurf breaks down the compounds causing discoloration, restoring a more uniform appearance.
+**Which service fixes it:** Our **pet hair and debris removal** service eliminates surface-level organic material, while our professional disinfect and deodorize treatment addresses biological staining at a deeper level. The oxidative action of the hydrogen peroxide-based solution breaks down the compounds causing discoloration, restoring a more uniform appearance.
 
 ### Sign #3: Matted or Flattened Fibers
 
@@ -1217,7 +1217,7 @@ Here are the warning signs that your artificial turf needs professional cleaning
 
 **What it means:** Conditions have allowed mold or mildew to colonize the turf system. This typically occurs in shaded areas, spots with poor drainage, or sections where organic debris has accumulated and trapped moisture. Mold on artificial turf is both an aesthetic and health concern — mold spores can trigger allergic reactions and respiratory issues in sensitive individuals.
 
-**Which service fixes it:** The **OxyTurf disinfect and deodorize treatment** eliminates mold and mildew through the same oxidative mechanism that kills bacteria. OxyTurf's reactive oxygen species destroy fungal cells and break down the organic material they feed on. Our de-compacting service then addresses the drainage issues that allowed mold to develop in the first place.
+**Which service fixes it:** The **professional disinfect and deodorize treatment** eliminates mold and mildew through the same oxidative mechanism that kills bacteria. The reactive oxygen species in our hydrogen peroxide-based solution destroy fungal cells and break down the organic material they feed on. Our de-compacting service then addresses the drainage issues that allowed mold to develop in the first place.
 
 ### Sign #6: Compacted or Uneven Infill
 
@@ -1233,7 +1233,7 @@ Here are the warning signs that your artificial turf needs professional cleaning
 
 **What it means:** Allergen levels on the turf have accumulated to a point that triggers reactions. Common turf allergens include mold spores, dust mite waste (which thrives in organic debris accumulation), pollen trapped in fibers, and bacterial endotoxins. While artificial turf actually produces fewer allergens than natural grass when properly maintained, a neglected turf surface can become an allergen reservoir.
 
-**Which service fixes it:** Our complete service package addresses every allergen source. **Debris removal** eliminates pollen and organic material. **De-compacting** removes trapped dust and particulates. **OxyTurf treatment** kills mold, bacteria, and the organisms that produce allergenic waste products.
+**Which service fixes it:** Our complete service package addresses every allergen source. **Debris removal** eliminates pollen and organic material. **De-compacting** removes trapped dust and particulates. **Professional hydrogen peroxide-based treatment** kills mold, bacteria, and the organisms that produce allergenic waste products.
 
 ### Sign #8: Pets Avoiding the Turf
 
@@ -1241,7 +1241,7 @@ Here are the warning signs that your artificial turf needs professional cleaning
 
 **What it means:** Animals have far more sensitive noses than humans. Long before you notice an odor problem, your pets are detecting bacterial contamination, ammonia concentration, and chemical changes in the turf. When a dog avoids a section of turf, that section is almost certainly heavily contaminated. This is one of the earliest and most reliable indicators that professional cleaning is overdue.
 
-**Which service fixes it:** A full Murphy's Turf service — debris removal, blooming, OxyTurf disinfection, and deodorizing — resets the turf to a state that's welcoming to pets again. Many customers report that their dogs immediately return to normal turf use after the first professional treatment.
+**Which service fixes it:** A full Murphy's Turf service — debris removal, blooming, professional disinfection, and deodorizing — resets the turf to a state that's welcoming to pets again. Many customers report that their dogs immediately return to normal turf use after the first professional treatment.
 
 ### Your Monthly Self-Check Checklist
 
@@ -1256,7 +1256,7 @@ Between professional visits, walk through this quick inspection monthly:
 - [ ] Look at shaded areas for any signs of mold or mildew
 - [ ] Note any allergy symptoms among family members
 
-If you check even one box, it's time to schedule a professional visit. Contact your local Murphy's Turf office — we'll assess your turf and provide exactly the service it needs. Every visit includes pet hair and debris removal, blooming and de-compacting, disinfect and deodorize with OxyTurf, and poop scooping as needed. Catch the signs early, and your turf will reward you with years of clean, safe, beautiful performance.
+If you check even one box, it's time to schedule a professional visit. Contact your local Murphy's Turf office — we'll assess your turf and provide exactly the service it needs. Every visit includes pet hair and debris removal, blooming and de-compacting, disinfect and deodorize with our professional-grade cleaning solution, and poop scooping as needed. Catch the signs early, and your turf will reward you with years of clean, safe, beautiful performance.
     `,
     author: "Murphy's Turf Team",
     publishedDate: "2025-05-08",
@@ -1269,7 +1269,7 @@ If you check even one box, it's time to schedule a professional visit. Contact y
       "turf drainage issues",
       "turf mold",
       "professional turf cleaning",
-      "OxyTurf",
+      "professional turf cleaning solution",
     ],
     metaTitle:
       "8 Signs Your Artificial Turf Needs Professional Cleaning",

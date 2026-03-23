@@ -5,14 +5,14 @@ export const testimonials: Testimonial[] = [
     customerName: 'Mike Thompson',
     customerLocation: 'Huntington Beach',
     rating: 5,
-    reviewText: "Our backyard turf was getting really nasty — two dogs and the coastal humidity were not a good combo. Murphy's Turf came out, cleaned everything, and power-sprayed the OxyTurf solution. The smell of fresh grass after they were done was incredible. Can't believe the difference.",
+    reviewText: "Our backyard turf was getting really nasty — two dogs and the coastal humidity were not a good combo. Murphy's Turf came out, cleaned everything, and power-sprayed their cleaning solution. The smell of fresh grass after they were done was incredible. Can't believe the difference.",
     serviceType: 'disinfect-deodorize',
   },
   {
     customerName: 'Sarah Chen',
     customerLocation: 'Murrieta',
     rating: 5,
-    reviewText: "With three dogs in the Inland Empire heat, our turf smelled terrible. We'd tried vinegar, baking soda, everything. Murphy's enzyme treatment with OxyTurf completely eliminated the odor. It's been six weeks and still smells fresh. Should have called them months ago.",
+    reviewText: "With three dogs in the Inland Empire heat, our turf smelled terrible. We'd tried vinegar, baking soda, everything. Murphy's professional cleaning treatment completely eliminated the odor. It's been six weeks and still smells fresh. Should have called them months ago.",
     serviceType: 'disinfect-deodorize',
   },
   {
@@ -26,7 +26,7 @@ export const testimonials: Testimonial[] = [
     customerName: 'Jennifer Walsh',
     customerLocation: 'Martinez',
     rating: 5,
-    reviewText: "We had mold starting to grow in our turf infill from all the Bay Area moisture. Murphy's Turf cleaned it out completely with their OxyTurf product. No bleach smell, no harsh chemicals — and it was safe for our cats to go out on the same day. Really professional crew.",
+    reviewText: "We had mold starting to grow in our turf infill from all the Bay Area moisture. Murphy's Turf cleaned it out completely with their professional-grade cleaning solution. No bleach smell, no harsh chemicals — and it was safe for our cats to go out on the same day. Really professional crew.",
     serviceType: 'disinfect-deodorize',
   },
   {
@@ -40,8 +40,8 @@ export const testimonials: Testimonial[] = [
     customerName: 'Lisa Martinez',
     customerLocation: 'Huntington Beach',
     rating: 5,
-    reviewText: "I love that they use OxyTurf instead of bleach. Our neighbors used a different company that used bleach-based cleaner and it left a weird chemical smell and lightened their turf. Murphy's product smells like fresh grass and my dogs were back on the turf within an hour. Night and day difference.",
-    serviceType: 'oxyturf',
+    reviewText: "I love that they use a hydrogen peroxide-based cleaner instead of bleach. Our neighbors used a different company that used bleach-based cleaner and it left a weird chemical smell and lightened their turf. Their cleaning solution smells like fresh grass and my dogs were back on the turf within an hour. Night and day difference.",
+    serviceType: 'disinfect-deodorize',
   },
   {
     customerName: 'Robert Kim',
@@ -54,7 +54,7 @@ export const testimonials: Testimonial[] = [
     customerName: 'Patricia Nguyen',
     customerLocation: 'Murrieta',
     rating: 5,
-    reviewText: "We've been using Murphy's Turf quarterly for over a year now. Every time they leave, our backyard looks and smells brand new. The blooming makes the turf stand up, the OxyTurf kills all the bacteria from our dogs, and no harsh chemicals. Our neighbors all use them now too.",
+    reviewText: "We've been using Murphy's Turf quarterly for over a year now. Every time they leave, our backyard looks and smells brand new. The blooming makes the turf stand up, the cleaning solution kills all the bacteria from our dogs, and no harsh chemicals. Our neighbors all use them now too.",
     serviceType: 'blooming-decompacting',
   },
   {
@@ -68,7 +68,7 @@ export const testimonials: Testimonial[] = [
     customerName: 'Amanda Foster',
     customerLocation: 'Sacramento',
     rating: 4,
-    reviewText: "Great service overall — the turf looked and smelled amazing after their cleaning. Only reason for 4 stars is the initial scheduling took a bit to coordinate. But once they showed up, the work was fast, professional, and thorough. Already booked my next appointment. The OxyTurf product is legit.",
+    reviewText: "Great service overall — the turf looked and smelled amazing after their cleaning. Only reason for 4 stars is the initial scheduling took a bit to coordinate. But once they showed up, the work was fast, professional, and thorough. Already booked my next appointment. Their cleaning solution is legit.",
     serviceType: 'disinfect-deodorize',
   },
 ];

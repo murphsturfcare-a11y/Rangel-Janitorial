@@ -36,11 +36,6 @@ export const seoMetadata: Record<string, SEOMetadata> = {
     description: "Regular poop scooping service for artificial turf. We remove pet waste and sanitize the affected area to prevent odor and bacteria buildup. Serving California.",
     keywords: ["poop scooping artificial turf", "pet waste removal turf", "dog poop cleanup synthetic grass", "turf poop scooping service", "pet waste turf sanitization"],
   },
-  "services/oxyturf": {
-    title: "OxyTurf Treatment | Proprietary Turf Cleaning Solution | Murphy's Turf",
-    description: "OxyTurf — our proprietary, eco-friendly cleaning solution that deep cleans, deodorizes, and revitalizes artificial turf without harsh chemicals. Safe for pets and children. Get a free quote today.",
-    keywords: ["OxyTurf", "OxyTurf treatment", "proprietary turf cleaner", "eco-friendly turf cleaning", "safe turf cleaning solution", "Murphy's Turf OxyTurf"],
-  },
   locations: {
     title: "Service Areas | Artificial Turf Cleaning Across California | Murphy's Turf",
     description: "Murphy's Turf serves Huntington Beach, Murrieta, Martinez/Bay Area, and Sacramento. Professional artificial turf cleaning with 30+ years experience. Get a free quote today.",

@@ -11,7 +11,7 @@ import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/
 export const metadata: Metadata = {
   title: 'Artificial Turf Cleaning Services | Murphy\'s Turf',
   description:
-    "Professional artificial turf cleaning and maintenance services in Murrieta, CA. Pet hair removal, blooming, disinfecting, poop scooping, and OxyTurf treatments. Get a free quote today.",
+    "Professional artificial turf cleaning and maintenance services in Murrieta, CA. Pet hair removal, blooming, disinfecting, deodorizing, and poop scooping. Get a free quote today.",
 };
 
 const services = [
@@ -32,9 +32,9 @@ const services = [
   {
     name: 'Disinfect & Deodorize',
     slug: 'disinfect-deodorize',
-    image: '/images/services/oxyturf-spray.jpg',
+    image: '/images/gallery/service-turf-disinfecting.png',
     description:
-      'Our disinfecting and deodorizing service uses OxyTurf to power-spray your turf, cutting past the top layer into the infill where bacteria and viruses live. OxyTurf kills 99.9% of germs and bacteria in minutes without hazardous chemicals.',
+      'Our professional-grade disinfecting and deodorizing service power-sprays your turf, cutting past the top layer into the infill where bacteria and viruses live. Kills 99.9% of germs and bacteria in minutes without hazardous chemicals.',
   },
   {
     name: 'Poop Scooping & Removal',
@@ -42,13 +42,6 @@ const services = [
     image: '/images/services/poop-scooping.jpg',
     description:
       'Pet waste is not only an unruly sight but also harmful to the environment and people around you. According to the EPA, pet waste is very toxic. We provide flexible service plans dedicated to waste removal so you can enjoy your yard worry-free.',
-  },
-  {
-    name: 'Powered By OxyTurf',
-    slug: 'oxyturf',
-    image: '/images/services/oxyturf-palms.jpg',
-    description:
-      'Murphy\'s Turf cleaning products are powered by OxyTurf, a proven synthetic turf cleaner-deodorizer that eliminates germs and bacteria while replacing them with the smell of fresh real grass. No bleach or ammonia — safe for pets and kids.',
   },
 ];
 
@@ -65,7 +58,7 @@ export default function ServicesPage() {
           <p className="text-lg sm:text-xl text-white/90 font-body max-w-3xl mx-auto leading-relaxed">
             Professional artificial turf cleaning and maintenance backed by 30+
             years of experience. Serving Murrieta, CA and surrounding areas with
-            pet-safe, eco-friendly solutions powered by OxyTurf.
+            pet-safe, eco-friendly solutions.
           </p>
         </AnimateOnScroll>
       </section>
