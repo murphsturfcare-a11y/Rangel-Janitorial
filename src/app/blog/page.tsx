@@ -30,7 +30,7 @@ const blogPosts: BlogPost[] = [
     slug: 'how-to-clean-artificial-turf',
     title: 'How to Clean Artificial Turf: The Complete Guide',
     category: 'Turf Cleaning',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2026-03-15',
     excerpt:
       'Everything you need to know about cleaning artificial turf, from basic rinsing to deep sanitization. We cover tools, techniques, and the professional methods that keep synthetic grass looking and smelling fresh year-round.',
@@ -40,7 +40,7 @@ const blogPosts: BlogPost[] = [
     slug: 'removing-pet-odors-artificial-turf',
     title: 'Removing Pet Odors from Artificial Turf: What Actually Works',
     category: 'Pet Care',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2026-03-08',
     excerpt:
       'Pet urine odor on artificial turf is one of the most common complaints from homeowners. Learn which products actually eliminate odors versus just masking them, and why enzyme-based and hydrogen peroxide solutions outperform everything else.',
@@ -50,7 +50,7 @@ const blogPosts: BlogPost[] = [
     slug: 'how-often-clean-artificial-turf',
     title: 'How Often Should You Clean Your Artificial Turf?',
     category: 'Maintenance Tips',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2026-02-25',
     excerpt:
       'The answer depends on foot traffic, pets, trees, and your local climate. We break down a practical cleaning schedule for California homeowners, from weekly rinses to quarterly deep cleans.',
@@ -60,7 +60,7 @@ const blogPosts: BlogPost[] = [
     slug: 'diy-vs-professional-turf-cleaning',
     title: 'DIY vs Professional Turf Cleaning: Is It Worth Hiring a Pro?',
     category: 'Turf Cleaning',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2026-02-18',
     excerpt:
       'You can handle basic turf maintenance yourself, but there are times when professional cleaning makes a real difference. We compare costs, results, and effort so you can decide what makes sense for your yard.',
@@ -70,7 +70,7 @@ const blogPosts: BlogPost[] = [
     slug: 'artificial-turf-pets-clean-safe',
     title: 'Keeping Artificial Turf Clean and Safe for Pets',
     category: 'Pet Care',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2026-02-10',
     excerpt:
       'Artificial turf and pets are a great combination when you keep up with cleaning. Learn how to manage waste, prevent bacterial buildup, and create a safe play area your dogs will love.',
@@ -80,7 +80,7 @@ const blogPosts: BlogPost[] = [
     slug: 'what-is-oxyturf-turf-cleaning',
     title: 'What Is OxyTurf? The Science Behind Our Cleaning Process',
     category: 'Turf Cleaning',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2026-02-01',
     excerpt:
       'OxyTurf is our hydrogen peroxide-based cleaning solution that eliminates bacteria and odors without harsh chemicals. Learn how it works, why we chose it over bleach and ammonia, and what makes it safe for pets and kids.',
@@ -90,7 +90,7 @@ const blogPosts: BlogPost[] = [
     slug: 'signs-turf-needs-professional-cleaning',
     title: '5 Signs Your Artificial Turf Needs Professional Cleaning',
     category: 'Maintenance Tips',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2026-01-22',
     excerpt:
       'Not sure if your synthetic turf needs professional attention? From lingering odors to matted fibers, these five warning signs mean it is time to call in the experts for a deep clean.',
@@ -100,7 +100,7 @@ const blogPosts: BlogPost[] = [
     slug: 'turf-cleaning-huntington-beach',
     title: 'Artificial Turf Cleaning in Huntington Beach: What Local Homeowners Need to Know',
     category: 'Local Guides',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2026-01-14',
     excerpt:
       'Huntington Beach homeowners face unique turf cleaning challenges from salt air, sand, and coastal moisture. Here is what you need to know to keep your synthetic turf in top shape by the coast.',
@@ -110,7 +110,7 @@ const blogPosts: BlogPost[] = [
     slug: 'turf-cleaning-murrieta-inland-empire',
     title: 'Turf Cleaning in Murrieta & the Inland Empire: Beating the Heat',
     category: 'Local Guides',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2026-01-06',
     excerpt:
       'Inland Empire heat accelerates bacterial growth and intensifies odors on artificial turf. Learn the specific cleaning strategies Murrieta homeowners need to keep their synthetic lawns fresh through triple-digit summers.',
@@ -120,7 +120,7 @@ const blogPosts: BlogPost[] = [
     slug: 'poop-scooping-service-worth-it',
     title: 'Is a Poop Scooping Service Worth It? What Pet Owners Should Know',
     category: 'Pet Care',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2025-12-28',
     excerpt:
       'If you have dogs and artificial turf, pet waste removal is not optional. We break down what professional poop scooping services include, what they cost, and why they matter for turf longevity and hygiene.',
@@ -130,7 +130,7 @@ const blogPosts: BlogPost[] = [
     slug: 'artificial-turf-bacteria-health-risks',
     title: 'Bacteria on Artificial Turf: Health Risks and How to Eliminate Them',
     category: 'Turf Cleaning',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2025-12-18',
     excerpt:
       'Artificial turf can harbor harmful bacteria if not properly maintained. Learn about the health risks of E. coli, Staph, and other pathogens on synthetic grass and the proven methods to eliminate them.',
@@ -140,7 +140,7 @@ const blogPosts: BlogPost[] = [
     slug: 'seasonal-turf-maintenance-california',
     title: 'Seasonal Artificial Turf Maintenance for California Homeowners',
     category: 'Maintenance Tips',
-    author: 'Patrick Murphy',
+    author: "Murphy's Turf Team",
     date: '2025-12-08',
     excerpt:
       'California weather varies wildly by region and season. This month-by-month maintenance guide helps you stay ahead of seasonal challenges, from summer heat to winter rains, to keep your artificial turf performing its best.',

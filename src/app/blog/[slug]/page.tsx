@@ -45,10 +45,10 @@ interface BlogPost {
 // ---------------------------------------------------------------------------
 
 const authors: Record<string, Author> = {
-  'Patrick Murphy': {
-    name: 'Patrick Murphy',
-    role: 'Founder & Lead Turf Cleaning Specialist',
-    bio: 'Patrick founded Murphy\'s Turf in Murrieta, CA with one mission: to give California homeowners the cleanest, safest artificial turf possible. With years of hands-on experience across Southern and Northern California, Patrick brings deep expertise in synthetic turf sanitation, odor elimination, and pet waste management. He developed the OxyTurf cleaning process to deliver professional results without harsh chemicals.',
+  "Murphy's Turf Team": {
+    name: "Murphy's Turf Team",
+    role: 'Professional Turf Care Specialists',
+    bio: "The Murphy's Turf team brings 30+ years of cleaning and disinfecting expertise to artificial turf care across California.",
   },
 };
 
@@ -63,7 +63,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Learn how to clean artificial turf step by step. From basic rinsing to deep sanitization with OxyTurf, this complete guide covers everything California homeowners need to keep synthetic grass clean and fresh.',
     category: 'Turf Cleaning',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'March 15, 2026',
     readingTime: '10 min read',
     featuredGradient: 'from-sage via-forest to-forest-dark',
@@ -141,7 +141,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Struggling with pet urine odors on your artificial turf? Learn which cleaning methods actually work, why vinegar and baking soda fall short, and how OxyTurf eliminates odors at the source.',
     category: 'Pet Care',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'March 8, 2026',
     readingTime: '9 min read',
     featuredGradient: 'from-brown via-brown-light to-sage',
@@ -202,7 +202,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Find out the ideal cleaning schedule for artificial turf based on your usage, pets, and California climate. Weekly, monthly, and quarterly maintenance recommendations from turf cleaning professionals.',
     category: 'Maintenance Tips',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'February 25, 2026',
     readingTime: '8 min read',
     featuredGradient: 'from-sky-500 via-blue-400 to-cyan-400',
@@ -280,7 +280,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Compare the costs, effort, and results of DIY artificial turf cleaning versus hiring a professional. Learn when to save money cleaning yourself and when professional service makes the difference.',
     category: 'Turf Cleaning',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'February 18, 2026',
     readingTime: '9 min read',
     featuredGradient: 'from-rose-500 via-pink-400 to-fuchsia-400',
@@ -356,7 +356,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Learn how to maintain artificial turf for a clean, safe environment for your dogs. Covers waste management, bacteria prevention, pet-safe cleaning products, and creating a healthy outdoor space.',
     category: 'Pet Care',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'February 10, 2026',
     readingTime: '9 min read',
     featuredGradient: 'from-teal-500 via-emerald-400 to-green-400',
@@ -422,7 +422,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Discover how OxyTurf uses hydrogen peroxide oxidation to eliminate bacteria, odors, and contaminants from artificial turf without harsh chemicals. Safe for pets, kids, and the environment.',
     category: 'Turf Cleaning',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'February 1, 2026',
     readingTime: '8 min read',
     featuredGradient: 'from-lime-500 via-green-400 to-emerald-400',
@@ -495,7 +495,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Not sure if your synthetic grass needs professional cleaning? These 5 warning signs — from persistent odors to matted fibers — mean it is time to call in the experts.',
     category: 'Maintenance Tips',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'January 22, 2026',
     readingTime: '7 min read',
     featuredGradient: 'from-violet-500 via-purple-400 to-indigo-400',
@@ -552,7 +552,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Huntington Beach homeowners face unique turf cleaning challenges from salt air, sand, and coastal moisture. Learn how to maintain artificial turf near the coast and when to call Murphy\'s Turf for professional help.',
     category: 'Local Guides',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'January 14, 2026',
     readingTime: '8 min read',
     featuredGradient: 'from-green-500 via-lime-400 to-yellow-400',
@@ -615,7 +615,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Murrieta and Inland Empire homeowners face extreme heat that accelerates bacterial growth on artificial turf. Learn heat-specific cleaning strategies and how Murphy\'s Turf keeps synthetic grass fresh through triple-digit summers.',
     category: 'Local Guides',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'January 6, 2026',
     readingTime: '9 min read',
     featuredGradient: 'from-forest via-sage to-sage-light',
@@ -681,7 +681,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Wondering if professional poop scooping for your artificial turf is worth the cost? Learn what the service includes, how it protects your turf investment, and why pet owners across California are signing up.',
     category: 'Pet Care',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'December 28, 2025',
     readingTime: '7 min read',
     featuredGradient: 'from-emerald-500 via-teal-400 to-cyan-400',
@@ -741,7 +741,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'Learn about the bacteria that can grow on artificial turf, the health risks they pose, and proven methods like OxyTurf to eliminate them. Essential reading for families and pet owners.',
     category: 'Turf Cleaning',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'December 18, 2025',
     readingTime: '10 min read',
     featuredGradient: 'from-red-500 via-orange-400 to-amber-400',
@@ -809,7 +809,7 @@ const blogPosts: Record<string, BlogPost> = {
     metaDescription:
       'A month-by-month guide to artificial turf maintenance across California\'s diverse climate zones. From summer heat to winter rains, learn how to keep your synthetic turf clean and performing year-round.',
     category: 'Maintenance Tips',
-    author: authors['Patrick Murphy'],
+    author: authors["Murphy's Turf Team"],
     publishDate: 'December 8, 2025',
     readingTime: '9 min read',
     featuredGradient: 'from-orange-500 via-amber-400 to-yellow-400',
