@@ -42,7 +42,7 @@ const services = [
     name: 'Disinfect & Deodorize',
     slug: 'disinfect-deodorize',
     description:
-      'Power-spraying OxyTurf kills 99.9% of germs and bacteria on your turf without hazardous chemicals, leaving your yard fresh and safe.',
+      'Our professional-grade cleaning kills 99.9% of germs and bacteria on your turf without hazardous chemicals, leaving your yard fresh and safe.',
     gradient: 'from-forest-dark/50 via-forest/40 to-sage/30',
     // Future image: /images/services/disinfect-deodorize.jpg
   },
@@ -54,20 +54,12 @@ const services = [
     gradient: 'from-brown/40 via-sage/30 to-forest/30',
     // Future image: /images/services/poop-scooping.jpg
   },
-  {
-    name: 'Powered By OxyTurf',
-    slug: 'oxyturf',
-    description:
-      'Our hydrogen peroxide-based cleaner-deodorizer contains no bleach or ammonia and is completely safe for pets and kids.',
-    gradient: 'from-sage-light/50 via-sage/40 to-forest/30',
-    // Future image: /images/services/oxyturf.jpg
-  },
 ];
 
 const testimonials = [
   {
     quote:
-      "Our dogs destroyed our artificial turf smell-wise. Murphy's came out, did the OxyTurf treatment, and it smells like the day it was installed. The kids can play on it again worry-free.",
+      "Our dogs destroyed our artificial turf smell-wise. Murphy's came out, did the deep cleaning treatment, and it smells like the day it was installed. The kids can play on it again worry-free.",
     name: 'Jessica M.',
     location: 'Murrieta',
   },
@@ -116,14 +108,14 @@ const faqs = [
       'We recommend professional cleaning every 4-6 weeks for homes with pets. For turf without pets, a quarterly deep clean is usually sufficient. Regular maintenance keeps odors away and extends the life of your turf investment.',
   },
   {
-    question: 'Is OxyTurf safe for my pets and kids?',
+    question: 'Are your cleaning products safe for my pets and kids?',
     answer:
-      'Absolutely. OxyTurf is a hydrogen peroxide-based cleaner that contains no bleach, ammonia, or hazardous chemicals. It is specifically formulated to be safe for pets, children, and the environment while still killing 99.9% of germs and bacteria.',
+      'Absolutely. Our professional-grade cleaning solution is hydrogen peroxide-based and contains no bleach, ammonia, or hazardous chemicals. It is specifically formulated to be safe for pets, children, and the environment while still killing 99.9% of germs and bacteria.',
   },
   {
     question: 'What does your turf cleaning process include?',
     answer:
-      'Our comprehensive process includes pet hair and debris removal, de-weeding edges and seams, running a magnet for metal objects, blooming and de-compacting matted fibers, and a full disinfect and deodorize treatment with OxyTurf. Every visit leaves your turf looking and smelling like new.',
+      'Our comprehensive process includes pet hair and debris removal, de-weeding edges and seams, running a magnet for metal objects, blooming and de-compacting matted fibers, and a full disinfect and deodorize treatment with our professional-grade cleaning solution. Every visit leaves your turf looking and smelling like new.',
   },
   {
     question: 'Do you offer poop scooping services separately?',
@@ -542,67 +534,8 @@ export default function Home() {
               Complete Turf Restoration
             </p>
             <p className="mt-1 text-center font-body text-charcoal-light text-sm">
-              Pet hair removal, blooming, disinfect &amp; deodorize with OxyTurf
+              Pet hair removal, blooming, disinfect &amp; deodorize
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ────────────────── 6. OXYTURF FEATURE SECTION ────────────────── */}
-      <section className="bg-cream py-10 sm:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Content */}
-            <div>
-              <span className="inline-block font-body font-semibold text-sage text-sm uppercase tracking-widest mb-3">
-                Our Secret Weapon
-              </span>
-              <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal">
-                Powered by OxyTurf
-              </h2>
-              <p className="mt-6 font-body text-charcoal-light text-lg leading-relaxed">
-                OxyTurf is specifically formulated for synthetic turf. Using
-                stabilized accelerated hydrogen peroxide, it eliminates 99.9% of
-                germs and bacteria lurking in your artificial grass and replaces them
-                with a fresh grass smell.
-              </p>
-              <ul className="mt-6 space-y-3">
-                {[
-                  'No bleach or ammonia — ever',
-                  'Safe for pets, kids, and the environment',
-                  'Eliminates odors at the source',
-                  'Kills 99.9% of germs and bacteria',
-                  'Leaves a fresh, clean grass scent',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-sage flex-shrink-0 mt-0.5" />
-                    <span className="font-body text-charcoal-light">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8">
-                <Link
-                  href="/services/oxyturf"
-                  className="inline-flex items-center justify-center gap-2 bg-forest hover:bg-forest-dark text-white font-heading font-bold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-                >
-                  Learn About OxyTurf
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl shadow-xl overflow-hidden relative">
-                <Image
-                  src="/images/services/oxyturf.jpg"
-                  alt="OxyTurf cleaning treatment on artificial turf"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              {/* Decorative accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-sage/20 rounded-full blur-2xl" />
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-forest/10 rounded-full blur-3xl" />
-            </div>
           </div>
         </div>
       </section>

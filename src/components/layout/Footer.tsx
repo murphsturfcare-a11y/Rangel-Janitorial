@@ -14,7 +14,6 @@ const servicesLinks = [
   { label: 'Blooming & De-Compacting', href: '/services/blooming-decompacting' },
   { label: 'Disinfect & Deodorize', href: '/services/disinfect-deodorize' },
   { label: 'Poop Scooping & Removal', href: '/services/poop-scooping' },
-  { label: 'Powered By OxyTurf', href: '/services/oxyturf' },
 ];
 
 const locationsLinks = [

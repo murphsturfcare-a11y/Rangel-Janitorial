@@ -3,13 +3,13 @@ import type { SEOMetadata } from '../types';
 export const seoMetadata: Record<string, SEOMetadata> = {
   home: {
     title: "Murphy's Turf | Professional Artificial Turf Cleaning California",
-    description: "Murphy's Turf — 30+ years of professional artificial turf cleaning, sanitization, and deodorizing across California. OxyTurf proprietary cleaning. Serving Huntington Beach, Murrieta, Bay Area & Sacramento. Get a free quote today.",
-    keywords: ["artificial turf cleaning", "synthetic turf cleaning California", "turf sanitization", "pet turf cleaning", "OxyTurf", "Murphy's Turf", "turf odor removal", "California turf cleaning"],
+    description: "Murphy's Turf — 30+ years of professional artificial turf cleaning, sanitization, and deodorizing across California. Professional-grade deep cleaning. Serving Huntington Beach, Murrieta, Bay Area & Sacramento. Get a free quote today.",
+    keywords: ["artificial turf cleaning", "synthetic turf cleaning California", "turf sanitization", "pet turf cleaning", "professional turf cleaning", "Murphy's Turf", "turf odor removal", "California turf cleaning"],
   },
   about: {
     title: "About Murphy's Turf | 30+ Years Artificial Turf Cleaning Experience",
-    description: "Murphy's Turf brings 30+ years of experience to artificial turf cleaning in California. Based in Murrieta, CA, we use our proprietary OxyTurf solution. When you care about clean turf, call Murphy's Turf.",
-    keywords: ["about Murphy's Turf", "artificial turf cleaning company", "California turf cleaning experts", "30 years experience turf cleaning", "OxyTurf"],
+    description: "Murphy's Turf brings 30+ years of experience to artificial turf cleaning in California. Based in Murrieta, CA, we use professional-grade cleaning solutions. When you care about clean turf, call Murphy's Turf.",
+    keywords: ["about Murphy's Turf", "artificial turf cleaning company", "California turf cleaning experts", "30 years experience turf cleaning", "professional turf cleaning"],
   },
   contact: {
     title: "Contact Murphy's Turf | Free Artificial Turf Cleaning Quote",
@@ -18,8 +18,8 @@ export const seoMetadata: Record<string, SEOMetadata> = {
   },
   services: {
     title: "Artificial Turf Cleaning Services | Murphy's Turf",
-    description: "Professional artificial turf cleaning services: pet hair & debris removal, blooming & decompacting, disinfect & deodorize, poop scooping, and our signature OxyTurf treatment. 30+ years experience.",
-    keywords: ["artificial turf cleaning services", "OxyTurf treatment", "turf sanitization", "pet odor removal turf", "turf blooming decompacting", "poop scooping turf"],
+    description: "Professional artificial turf cleaning services: pet hair & debris removal, blooming & decompacting, disinfect & deodorize, poop scooping, and our signature deep cleaning treatment. 30+ years experience.",
+    keywords: ["artificial turf cleaning services", "professional turf cleaning", "turf sanitization", "pet odor removal turf", "turf blooming decompacting", "poop scooping turf"],
   },
   "services/pet-hair-debris": {
     title: "Pet Hair & Debris Removal from Artificial Turf | Murphy's Turf",
@@ -53,28 +53,28 @@ export const seoMetadata: Record<string, SEOMetadata> = {
   },
   "locations/huntington-beach": {
     title: "Artificial Turf Cleaning in Huntington Beach, CA | Murphy's Turf",
-    description: "Professional artificial turf cleaning in Huntington Beach and Orange County. Pet odor removal, OxyTurf sanitization, and turf deodorizing. Call 951-331-3300 for a free quote.",
-    keywords: ["artificial turf cleaning Huntington Beach", "turf cleaning Orange County", "synthetic turf cleaning Huntington Beach", "pet turf cleaning Orange County", "OxyTurf Huntington Beach"],
+    description: "Professional artificial turf cleaning in Huntington Beach and Orange County. Pet odor removal, professional-grade sanitization, and turf deodorizing. Call 951-331-3300 for a free quote.",
+    keywords: ["artificial turf cleaning Huntington Beach", "turf cleaning Orange County", "synthetic turf cleaning Huntington Beach", "pet turf cleaning Orange County", "professional turf cleaning Huntington Beach"],
   },
   "locations/murrieta": {
     title: "Artificial Turf Cleaning in Murrieta, CA | Murphy's Turf",
-    description: "Murphy's Turf headquarters in Murrieta. Professional artificial turf cleaning, pet odor removal & OxyTurf sanitization for the Inland Empire, Temecula, and surrounding areas. Call 951-331-3300.",
-    keywords: ["artificial turf cleaning Murrieta", "turf cleaning Inland Empire", "turf cleaning Temecula", "synthetic turf cleaning Murrieta", "pet turf cleaning Inland Empire", "OxyTurf Murrieta"],
+    description: "Murphy's Turf headquarters in Murrieta. Professional artificial turf cleaning, pet odor removal & professional-grade sanitization for the Inland Empire, Temecula, and surrounding areas. Call 951-331-3300.",
+    keywords: ["artificial turf cleaning Murrieta", "turf cleaning Inland Empire", "turf cleaning Temecula", "synthetic turf cleaning Murrieta", "pet turf cleaning Inland Empire", "professional turf cleaning Murrieta"],
   },
   "locations/martinez": {
     title: "Artificial Turf Cleaning in Martinez & Bay Area, CA | Murphy's Turf",
     description: "Professional artificial turf cleaning in Martinez, Walnut Creek, Concord & the East Bay. Murphy's Turf serves Contra Costa County with 30+ years experience. Call 925-338-0048.",
-    keywords: ["artificial turf cleaning Martinez", "turf cleaning East Bay", "turf cleaning Contra Costa", "Bay Area turf cleaning", "Walnut Creek turf cleaning", "OxyTurf Martinez"],
+    keywords: ["artificial turf cleaning Martinez", "turf cleaning East Bay", "turf cleaning Contra Costa", "Bay Area turf cleaning", "Walnut Creek turf cleaning", "professional turf cleaning Martinez"],
   },
   "locations/sacramento": {
     title: "Artificial Turf Cleaning in Sacramento, CA | Murphy's Turf",
-    description: "Professional artificial turf cleaning in Sacramento. Serving Elk Grove, Roseville, Folsom & more. Beat the Central Valley heat with OxyTurf. Call 916-432-5033.",
-    keywords: ["artificial turf cleaning Sacramento", "turf cleaning Sacramento", "turf cleaning Elk Grove", "turf cleaning Roseville", "Central Valley turf cleaning", "OxyTurf Sacramento"],
+    description: "Professional artificial turf cleaning in Sacramento. Serving Elk Grove, Roseville, Folsom & more. Beat the Central Valley heat with professional-grade deep cleaning. Call 916-432-5033.",
+    keywords: ["artificial turf cleaning Sacramento", "turf cleaning Sacramento", "turf cleaning Elk Grove", "turf cleaning Roseville", "Central Valley turf cleaning", "professional turf cleaning Sacramento"],
   },
   blog: {
     title: "Artificial Turf Cleaning Blog | Tips & Guides | Murphy's Turf",
-    description: "Expert artificial turf cleaning tips, OxyTurf guides, and maintenance advice from Murphy's Turf — 30+ years experience. Learn about turf sanitization, pet odor removal, and keeping synthetic grass clean.",
-    keywords: ["artificial turf cleaning blog", "synthetic turf maintenance tips", "OxyTurf guide", "turf cleaning advice", "pet turf care", "Murphy's Turf blog"],
+    description: "Expert artificial turf cleaning tips, guides, and maintenance advice from Murphy's Turf — 30+ years experience. Learn about turf sanitization, pet odor removal, and keeping synthetic grass clean.",
+    keywords: ["artificial turf cleaning blog", "synthetic turf maintenance tips", "turf cleaning guide", "turf cleaning advice", "pet turf care", "Murphy's Turf blog"],
   },
   privacy: {
     title: "Privacy Policy | Murphy's Turf",

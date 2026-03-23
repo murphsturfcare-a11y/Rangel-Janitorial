@@ -1,4 +1,4 @@
-import { Dog, Flower2, SprayCan, Trash2, Sparkles } from 'lucide-react';
+import { Dog, Flower2, SprayCan, Trash2 } from 'lucide-react';
 import ServiceCard from '@/components/cards/ServiceCard';
 import type { LucideIcon } from 'lucide-react';
 
@@ -37,13 +37,6 @@ const services: ServiceData[] = [
     slug: 'poop-scooping',
     description:
       'Regular pet waste cleanup and removal to maintain a hygienic outdoor space for your family.',
-  },
-  {
-    icon: Sparkles,
-    name: 'Powered By OxyTurf',
-    slug: 'oxyturf',
-    description:
-      'Our premium OxyTurf-powered deep cleaning system delivers the most thorough turf cleaning available.',
   },
 ];
 

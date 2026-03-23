@@ -78,7 +78,7 @@ const services: ServiceItem[] = [
     slug: 'disinfect-deodorize',
     icon: 'shieldcheck',
     shortDescription:
-      'OxyTurf-powered disinfecting that eliminates bacteria, pet odors, mold, and mildew at their source.',
+      'Professional-grade disinfecting that eliminates bacteria, pet odors, mold, and mildew at their source.',
   },
   {
     name: 'Poop Scooping & Removal',
@@ -86,13 +86,6 @@ const services: ServiceItem[] = [
     icon: 'droplets',
     shortDescription:
       'Scheduled weekly or bi-weekly pet waste removal to keep your turf clean and hygienic.',
-  },
-  {
-    name: 'Powered By OxyTurf',
-    slug: 'oxyturf',
-    icon: 'leaf',
-    shortDescription:
-      'Our proprietary formula delivers deep sanitization, odor elimination, and fiber rejuvenation.',
   },
 ];
 
@@ -108,9 +101,9 @@ const locationData: Record<string, LocationData> = {
     phone: '(951) 331-3300',
     email: 'info@murphysturf.com',
     heroSubtitle:
-      "OxyTurf-powered turf cleaning for Huntington Beach and the LA coast.",
+      "Professional-grade turf cleaning for Huntington Beach and the LA coast.",
     description: [
-      "Salt air, sand, and marine layer moisture make the LA coast uniquely tough on artificial turf — promoting mold, embedding debris, and baking pet waste into stubborn deposits. Murphy's Turf uses our OxyTurf formula to dissolve uric acid, kill bacteria, and neutralize odors at the source, with flexible maintenance plans for year-round coastal living.",
+      "Salt air, sand, and marine layer moisture make the LA coast uniquely tough on artificial turf — promoting mold, embedding debris, and baking pet waste into stubborn deposits. Murphy's Turf uses our professional-grade cleaning formula to dissolve uric acid, kill bacteria, and neutralize odors at the source, with flexible maintenance plans for year-round coastal living.",
     ],
     neighborhoods: [
       'Huntington Beach',
@@ -124,24 +117,24 @@ const locationData: Record<string, LocationData> = {
         name: 'Jessica Moreno',
         neighborhood: 'Newport Beach',
         rating: 5,
-        text: "Our Newport Beach backyard turf was developing a musty smell from the marine layer moisture and our two labs weren't helping. Murphy's Turf came out with OxyTurf and the difference was unbelievable. No more mold smell, no pet odor, and the fibers look like new. They understand coastal turf challenges better than anyone we've worked with.",
+        text: "Our Newport Beach backyard turf was developing a musty smell from the marine layer moisture and our two labs weren't helping. Murphy's Turf came out with their deep cleaning treatment and the difference was unbelievable. No more mold smell, no pet odor, and the fibers look like new. They understand coastal turf challenges better than anyone we've worked with.",
       },
       {
         name: 'Derek Lawson',
         neighborhood: 'Huntington Beach',
         rating: 5,
-        text: "Living near the beach, our turf collects sand constantly and the salt air creates issues other companies don't know how to handle. Murphy's Turf deep extraction removed sand we didn't even know was in there, and the OxyTurf treatment left everything disinfected and fresh. Highly recommend for any coastal homeowner.",
+        text: "Living near the beach, our turf collects sand constantly and the salt air creates issues other companies don't know how to handle. Murphy's Turf deep extraction removed sand we didn't even know was in there, and the deep cleaning treatment left everything disinfected and fresh. Highly recommend for any coastal homeowner.",
       },
       {
         name: 'Nina Patel',
         neighborhood: 'Costa Mesa',
         rating: 5,
-        text: "We have a large pet area in our Costa Mesa backyard that three dogs use daily. The smell was terrible by summer. Murphy's Turf poop scooping service combined with their monthly OxyTurf treatment completely solved the problem. Our yard is actually pleasant to be in again. Outstanding service from start to finish.",
+        text: "We have a large pet area in our Costa Mesa backyard that three dogs use daily. The smell was terrible by summer. Murphy's Turf poop scooping service combined with their monthly deep cleaning treatment completely solved the problem. Our yard is actually pleasant to be in again. Outstanding service from start to finish.",
       },
     ],
     metaTitle: "Artificial Turf Cleaning in Huntington Beach & LA Area | Murphy's Turf",
     metaDescription:
-      "Professional artificial turf cleaning in Huntington Beach, Newport Beach, Costa Mesa, Long Beach & Seal Beach. OxyTurf-powered disinfecting. Get a free quote today.",
+      "Professional artificial turf cleaning in Huntington Beach, Newport Beach, Costa Mesa, Long Beach & Seal Beach. Professional-grade disinfecting. Get a free quote today.",
     climateNote:
       'Mild Mediterranean climate with coastal fog and marine layer that promote mold, plus afternoon sun that bakes pet contaminants into infill.',
     serviceAreaDescription:
@@ -159,7 +152,7 @@ const locationData: Record<string, LocationData> = {
     heroSubtitle:
       "Our home base. Turf cleaning headquarters for the Inland Empire.",
     description: [
-      "The Inland Empire's 100°F+ heat crystallizes pet urine into deep uric acid deposits, multiplies bacteria in warm infill, and Santa Ana winds pack debris into fibers. OxyTurf was developed in this exact environment — dissolving heat-hardened contamination and restoring fibers flattened by triple-digit summers. As our headquarters, Murrieta gets the fastest response times in our network.",
+      "The Inland Empire's 100°F+ heat crystallizes pet urine into deep uric acid deposits, multiplies bacteria in warm infill, and Santa Ana winds pack debris into fibers. Our professional-grade cleaning system was developed in this exact environment — dissolving heat-hardened contamination and restoring fibers flattened by triple-digit summers. As our headquarters, Murrieta gets the fastest response times in our network.",
     ],
     neighborhoods: [
       'Temecula',
@@ -178,24 +171,24 @@ const locationData: Record<string, LocationData> = {
         name: 'Brian Callahan',
         neighborhood: 'Temecula',
         rating: 5,
-        text: "We moved to Temecula from the coast and had no idea how different turf maintenance would be in the Inland Empire heat. The pet smell was unbearable by mid-July. Murphy's Turf OxyTurf treatment completely eliminated the odor and their blooming service made our matted turf look brand new. These guys are the real deal — 30 years of experience shows.",
+        text: "We moved to Temecula from the coast and had no idea how different turf maintenance would be in the Inland Empire heat. The pet smell was unbearable by mid-July. Murphy's Turf deep cleaning treatment completely eliminated the odor and their blooming service made our matted turf look brand new. These guys are the real deal — 30 years of experience shows.",
       },
       {
         name: 'Maria Sandoval',
         neighborhood: 'Menifee',
         rating: 5,
-        text: "After trying two other companies that gave us generic treatments, we switched to Murphy's Turf. The difference was immediate — OxyTurf actually works where other products failed. Our Menifee backyard turf is the best it's ever looked and smelled. When you care about clean turf, these are the people to call.",
+        text: "After trying two other companies that gave us generic treatments, we switched to Murphy's Turf. The difference was immediate — their professional-grade cleaning actually works where other products failed. Our Menifee backyard turf is the best it's ever looked and smelled. When you care about clean turf, these are the people to call.",
       },
       {
         name: 'Tyler Richardson',
         neighborhood: 'French Valley',
         rating: 5,
-        text: "Our new turf in French Valley was already starting to smell after just one summer with our dogs. Murphy's Turf came out, did the full OxyTurf treatment plus de-compacting, and within a few hours our backyard went from embarrassing to the best on the block. Being headquartered locally really makes a difference in response time too.",
+        text: "Our new turf in French Valley was already starting to smell after just one summer with our dogs. Murphy's Turf came out, did the full deep cleaning treatment plus de-compacting, and within a few hours our backyard went from embarrassing to the best on the block. Being headquartered locally really makes a difference in response time too.",
       },
     ],
     metaTitle: "Artificial Turf Cleaning in Murrieta & Inland Empire | Murphy's Turf HQ",
     metaDescription:
-      "Murphy's Turf headquarters in Murrieta. Professional artificial turf cleaning, pet odor removal & OxyTurf disinfecting for the Inland Empire & Temecula Valley. Get a free quote today.",
+      "Murphy's Turf headquarters in Murrieta. Professional artificial turf cleaning, pet odor removal & professional-grade disinfecting for the Inland Empire & Temecula Valley. Get a free quote today.",
     climateNote:
       'Hot semi-arid climate with summers regularly exceeding 100°F, Santa Ana winds, and heavy clay soil — all of which accelerate turf contamination and odor.',
     serviceAreaDescription:
@@ -213,7 +206,7 @@ const locationData: Record<string, LocationData> = {
     heroSubtitle:
       "Expert turf cleaning for Martinez and the East Bay.",
     description: [
-      "The East Bay's geography — where the Delta meets the Bay — creates coastal moisture that promotes mold near the strait and heat-driven pet odor issues further inland. OxyTurf eliminates mold and bacteria at the infill layer, not just the surface, with every treatment tailored to your property's specific microclimate.",
+      "The East Bay's geography — where the Delta meets the Bay — creates coastal moisture that promotes mold near the strait and heat-driven pet odor issues further inland. Our professional-grade cleaning eliminates mold and bacteria at the infill layer, not just the surface, with every treatment tailored to your property's specific microclimate.",
     ],
     neighborhoods: [
       'Concord',
@@ -227,24 +220,24 @@ const locationData: Record<string, LocationData> = {
         name: 'Richard Yamamoto',
         neighborhood: 'Walnut Creek',
         rating: 5,
-        text: "Our Walnut Creek property had mold growing in the shaded areas of our turf from the Bay Area moisture. Murphy's Turf OxyTurf treatment eliminated every trace of it and their disinfecting protocol killed the bacteria our dogs had been tracking around. They understand East Bay microclimates better than any company we've worked with.",
+        text: "Our Walnut Creek property had mold growing in the shaded areas of our turf from the Bay Area moisture. Murphy's Turf deep cleaning treatment eliminated every trace of it and their disinfecting protocol killed the bacteria our dogs had been tracking around. They understand East Bay microclimates better than any company we've worked with.",
       },
       {
         name: "Colleen O'Malley",
         neighborhood: 'Concord',
         rating: 5,
-        text: "We had tried cleaning our Concord turf ourselves for years with store-bought products that never worked. Murphy's Turf came out, explained exactly what was living in our infill, and did their full OxyTurf treatment. The difference was dramatic — genuinely clean and fresh smelling turf for the first time since installation. Their 30 years of experience really shows.",
+        text: "We had tried cleaning our Concord turf ourselves for years with store-bought products that never worked. Murphy's Turf came out, explained exactly what was living in our infill, and did their full deep cleaning treatment. The difference was dramatic — genuinely clean and fresh smelling turf for the first time since installation. Their 30 years of experience really shows.",
       },
       {
         name: 'Arjun Mehta',
         neighborhood: 'Pleasant Hill',
         rating: 5,
-        text: "After years of trying to manage our Pleasant Hill lawn ourselves, we finally called Murphy's Turf. Best decision we made. They identified that our turf had compacted infill and embedded debris causing drainage issues, then did their blooming and OxyTurf treatment. The turnaround has been remarkable — our turf looks and drains like new. Worth every penny.",
+        text: "After years of trying to manage our Pleasant Hill lawn ourselves, we finally called Murphy's Turf. Best decision we made. They identified that our turf had compacted infill and embedded debris causing drainage issues, then did their blooming and deep cleaning treatment. The turnaround has been remarkable — our turf looks and drains like new. Worth every penny.",
       },
     ],
     metaTitle: "Artificial Turf Cleaning in Martinez & East Bay | Murphy's Turf",
     metaDescription:
-      "East Bay artificial turf cleaning experts. Murphy's Turf serves Martinez, Walnut Creek, Pleasant Hill, Concord, Antioch & Brentwood with OxyTurf-powered disinfecting. Get a free quote today.",
+      "East Bay artificial turf cleaning experts. Murphy's Turf serves Martinez, Walnut Creek, Pleasant Hill, Concord, Antioch & Brentwood with professional-grade disinfecting. Get a free quote today.",
     climateNote:
       'Mediterranean climate shaped by fog, marine layer, and delta breezes — mild and damp near the strait, significantly hotter inland toward Antioch and Brentwood.',
     serviceAreaDescription:
@@ -262,7 +255,7 @@ const locationData: Record<string, LocationData> = {
     heroSubtitle:
       "Professional turf cleaning for Sacramento and the Central Valley.",
     description: [
-      "Sacramento summers push past 105°F, crystallizing pet urine into deep deposits, multiplying bacteria in warm infill, and rapidly decomposing tree debris beneath the surface. OxyTurf dissolves heat-hardened uric acid, eliminates bacterial biofilms, and neutralizes odors — while our blooming service restores fibers baked flat by years of triple-digit heat.",
+      "Sacramento summers push past 105°F, crystallizing pet urine into deep deposits, multiplying bacteria in warm infill, and rapidly decomposing tree debris beneath the surface. Our professional-grade cleaning dissolves heat-hardened uric acid, eliminates bacterial biofilms, and neutralizes odors — while our blooming service restores fibers baked flat by years of triple-digit heat.",
     ],
     neighborhoods: [
       'Elk Grove',
@@ -275,24 +268,24 @@ const locationData: Record<string, LocationData> = {
         name: 'Greg Thomsen',
         neighborhood: 'Elk Grove',
         rating: 5,
-        text: "The pet smell on our Elk Grove turf was so bad we stopped using the backyard entirely. Two dogs and Sacramento summers are a brutal combination. Murphy's Turf OxyTurf treatment completely eliminated the odor — not masked it, eliminated it. We can actually enjoy our outdoor space again. They genuinely know Sacramento turf challenges.",
+        text: "The pet smell on our Elk Grove turf was so bad we stopped using the backyard entirely. Two dogs and Sacramento summers are a brutal combination. Murphy's Turf deep cleaning treatment completely eliminated the odor — not masked it, eliminated it. We can actually enjoy our outdoor space again. They genuinely know Sacramento turf challenges.",
       },
       {
         name: 'Priya Venkatesh',
         neighborhood: 'Roseville',
         rating: 5,
-        text: "Our Roseville turf looked terrible after three years of Central Valley heat — fibers matted flat, infill compacted hard. Murphy's Turf blooming and de-compacting service was transformative. The turf looks like it was installed last week. Combined with OxyTurf disinfecting, our backyard is clean, fresh, and beautiful again. Phenomenal service.",
+        text: "Our Roseville turf looked terrible after three years of Central Valley heat — fibers matted flat, infill compacted hard. Murphy's Turf blooming and de-compacting service was transformative. The turf looks like it was installed last week. Combined with professional-grade disinfecting, our backyard is clean, fresh, and beautiful again. Phenomenal service.",
       },
       {
         name: 'Danielle Foster',
         neighborhood: 'Folsom',
         rating: 5,
-        text: "We signed up for Murphy's Turf monthly maintenance plan for our Folsom property — poop scooping plus quarterly OxyTurf treatment. The consistency has been outstanding. Our turf always looks and smells clean, our kids play on it without concern, and we never have to think about it. Their 30+ years of experience means they know exactly what they're doing.",
+        text: "We signed up for Murphy's Turf monthly maintenance plan for our Folsom property — poop scooping plus quarterly deep cleaning treatment. The consistency has been outstanding. Our turf always looks and smells clean, our kids play on it without concern, and we never have to think about it. Their 30+ years of experience means they know exactly what they're doing.",
       },
     ],
     metaTitle: "Artificial Turf Cleaning in Sacramento, CA | Murphy's Turf",
     metaDescription:
-      "Sacramento's professional artificial turf cleaning. Murphy's Turf serves Elk Grove, Roseville, Folsom & Rancho Cordova with OxyTurf-powered disinfecting. Get a free quote today.",
+      "Sacramento's professional artificial turf cleaning. Murphy's Turf serves Elk Grove, Roseville, Folsom & Rancho Cordova with professional-grade disinfecting. Get a free quote today.",
     climateNote:
       'Hot-summer Mediterranean climate with temps often exceeding 105°F. Intense heat accelerates pet odor, bacterial growth, and infill compaction.',
     serviceAreaDescription:
@@ -511,7 +504,7 @@ export default async function LocationPage({
               Services Available in {location.city}
             </h2>
             <p className="text-lg text-charcoal-light font-body max-w-2xl mx-auto">
-              Every service is powered by OxyTurf and tailored to {location.city}&apos;s specific
+              Every service uses professional-grade products and is tailored to {location.city}&apos;s specific
               climate and conditions.
             </p>
           </div>

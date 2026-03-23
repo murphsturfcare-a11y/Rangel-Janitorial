@@ -2,7 +2,7 @@ export const SITE_URL = "https://murphysturf.com";
 export const COMPANY_NAME = "Murphy's Turf";
 export const COMPANY_TAGLINE = "When you care about clean turf, call Murphy's Turf";
 export const COMPANY_DESCRIPTION =
-  "Professional artificial turf cleaning and sanitization services across California. With 30+ years of experience, Murphy's Turf uses OxyTurf — our proprietary cleaning solution — to deep clean, deodorize, and sanitize your synthetic turf. Serving Huntington Beach, Murrieta, Martinez, and Sacramento.";
+  "Professional artificial turf cleaning and sanitization services across California. With 30+ years of experience, Murphy's Turf uses professional-grade cleaning solutions to deep clean, deodorize, and sanitize your synthetic turf. Serving Huntington Beach, Murrieta, Martinez, and Sacramento.";
 export const COMPANY_PHONE = "";
 export const COMPANY_EMAIL = "info@murphysturf.com";
 

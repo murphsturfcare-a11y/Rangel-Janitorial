@@ -298,7 +298,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* OxyTurf Section */}
+      {/* Cleaning Products Section */}
       <section className="py-12 sm:py-20 bg-gradient-to-br from-forest-dark via-forest to-forest-light overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll direction="up" className="max-w-4xl mx-auto text-center relative">
@@ -314,15 +314,15 @@ export default function AboutPage() {
               <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-5 py-2 mb-8">
                 <Droplets className="w-5 h-5 text-sage-light" />
                 <span className="text-white/90 font-body text-sm font-medium">
-                  Our Cleaning Product
+                  Our Cleaning Products
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold font-heading text-white mb-6">
-                Powered by OxyTurf
+                Professional-Grade Cleaning
               </h2>
               <p className="text-lg sm:text-xl text-white/90 font-body leading-relaxed mb-8">
-                We trust OxyTurf to keep your artificial turf spotless and safe. This hydrogen
-                peroxide-based cleaning solution eliminates bacteria, odors, and stains without harsh
+                We use advanced cleaning solutions to keep your artificial turf spotless and safe. Our hydrogen
+                peroxide-based products eliminate bacteria, odors, and stains without harsh
                 chemicals.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">

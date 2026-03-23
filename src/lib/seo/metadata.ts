@@ -114,7 +114,7 @@ export function generateBlogMetadata(post: {
 export function generateBlogIndexMetadata(): Metadata {
   return generatePageMetadata(
     "Artificial Turf Cleaning Blog — Tips & Guides",
-    "Expert artificial turf cleaning tips, OxyTurf guides, and synthetic turf maintenance advice from Murphy's Turf. 30+ years of experience keeping California turf clean and fresh.",
+    "Expert artificial turf cleaning tips, deep cleaning guides, and synthetic turf maintenance advice from Murphy's Turf. 30+ years of experience keeping California turf clean and fresh.",
     "/blog"
   );
 }
@@ -133,7 +133,7 @@ export const DEFAULT_METADATA: Metadata = {
     "pet turf cleaning",
     "turf odor removal",
     "turf deodorizing",
-    "OxyTurf",
+    "professional turf deep cleaning",
     "artificial grass cleaning California",
     "turf cleaning Huntington Beach",
     "turf cleaning Murrieta",

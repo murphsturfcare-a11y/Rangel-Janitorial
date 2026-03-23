@@ -25,9 +25,9 @@ const defaultItems: FAQItem[] = [
       "Yes! We provide free, no-obligation estimates for all our services. Simply fill out our quote form or give us a call, and we'll schedule a convenient time to assess your turf.",
   },
   {
-    question: 'Is OxyTurf safe for pets and children?',
+    question: 'Are your cleaning products safe for pets and children?',
     answer:
-      "Absolutely. OxyTurf is an eco-friendly, pet-safe, and child-safe cleaning solution. Your family and pets can safely use the turf immediately after our cleaning service.",
+      "Absolutely. Our professional-grade cleaning products are eco-friendly, pet-safe, and child-safe. Your family and pets can safely use the turf immediately after our cleaning service.",
   },
   {
     question: 'What areas do you serve?',

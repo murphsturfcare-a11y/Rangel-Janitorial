@@ -14,7 +14,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "Are your cleaning products safe for pets and children?",
-    answer: "Absolutely. We exclusively use OxyTurf, a stabilized accelerated hydrogen peroxide cleaner that contains no bleach or ammonia. It breaks down into water and oxygen after use, making it completely safe for pets, children, and the environment.",
+    answer: "Absolutely. We exclusively use professional-grade cleaning products featuring a stabilized accelerated hydrogen peroxide formula that contains no bleach or ammonia. It breaks down into water and oxygen after use, making it completely safe for pets, children, and the environment.",
     category: "general",
   },
   {
@@ -28,8 +28,8 @@ export const faqs: FAQItem[] = [
     category: "general",
   },
   {
-    question: "What is OxyTurf?",
-    answer: "OxyTurf is a stabilized accelerated hydrogen peroxide cleaner-deodorizer specifically formulated for synthetic turf. Unlike bleach or ammonia-based cleaners, OxyTurf kills 99.9% of germs and bacteria without leaving harmful residues, and it leaves your turf smelling like fresh real grass.",
+    question: "What cleaning products do you use?",
+    answer: "We use a professional-grade stabilized accelerated hydrogen peroxide cleaner-deodorizer specifically formulated for synthetic turf. Unlike bleach or ammonia-based cleaners, our deep cleaning process kills 99.9% of germs and bacteria without leaving harmful residues, and it leaves your turf smelling like fresh real grass.",
     category: "general",
     serviceSlug: "oxyturf",
   },
@@ -40,7 +40,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "Why can't I just hose down my artificial turf myself?",
-    answer: "Water alone only rinses the surface. Bacteria, urine crystals, and contaminants live deep in the infill layer where a garden hose can't reach. Our OxyTurf power-spray treatment penetrates into the infill to kill 99.9% of germs at their source — something water simply cannot do.",
+    answer: "Water alone only rinses the surface. Bacteria, urine crystals, and contaminants live deep in the infill layer where a garden hose can't reach. Our professional-grade power-spray treatment penetrates into the infill to kill 99.9% of germs at their source — something water simply cannot do.",
     category: "general",
   },
 
@@ -69,7 +69,7 @@ export const faqs: FAQItem[] = [
   // Services (7)
   {
     question: "What does a full turf cleaning service include?",
-    answer: "Our complete service includes pet hair and debris removal, a magnet sweep for hidden metal objects, de-weeding along edges and seams, power brushing and blooming to restore fiber pile, and a full OxyTurf disinfecting and deodorizing treatment. We clean your turf from top to bottom.",
+    answer: "Our complete service includes pet hair and debris removal, a magnet sweep for hidden metal objects, de-weeding along edges and seams, power brushing and blooming to restore fiber pile, and a full professional disinfecting and deodorizing treatment. We clean your turf from top to bottom.",
     category: "services",
     serviceSlug: "disinfect-deodorize",
   },
@@ -81,7 +81,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "How do you remove pet odors from artificial turf?",
-    answer: "We use OxyTurf, which penetrates past the surface layer into the infill where urine crystals and bacteria actually live. Unlike bleach or ammonia products that just mask odors, OxyTurf breaks down the organic compounds causing the smell and replaces them with a fresh grass scent.",
+    answer: "We use our professional-grade cleaning products, which penetrate past the surface layer into the infill where urine crystals and bacteria actually live. Unlike bleach or ammonia products that just mask odors, our deep cleaning process breaks down the organic compounds causing the smell and replaces them with a fresh grass scent.",
     category: "services",
     serviceSlug: "disinfect-deodorize",
   },
@@ -92,8 +92,8 @@ export const faqs: FAQItem[] = [
     serviceSlug: "pet-hair-debris",
   },
   {
-    question: "Why is OxyTurf better than bleach for cleaning turf?",
-    answer: "Bleach and ammonia-based cleaners can leave residues that irritate skin, weaken turf fibers, and create mystery odors. OxyTurf uses stabilized accelerated hydrogen peroxide that kills 99.9% of bacteria, then breaks down into water and oxygen — no residues, no damage, no harsh chemical smells.",
+    question: "Why are your cleaning products better than bleach for cleaning turf?",
+    answer: "Bleach and ammonia-based cleaners can leave residues that irritate skin, weaken turf fibers, and create mystery odors. Our professional-grade cleaning products use stabilized accelerated hydrogen peroxide that kills 99.9% of bacteria, then breaks down into water and oxygen — no residues, no damage, no harsh chemical smells.",
     category: "services",
     serviceSlug: "oxyturf",
   },
@@ -127,7 +127,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "How soon can we use the turf after cleaning?",
-    answer: "Your turf is safe to use as soon as it dries — typically 1 to 2 hours in California's warm climate. OxyTurf breaks down into water and oxygen, so there are no harmful residues to worry about.",
+    answer: "Your turf is safe to use as soon as it dries — typically 1 to 2 hours in California's warm climate. Our cleaning solution breaks down into water and oxygen, so there are no harmful residues to worry about.",
     category: "scheduling",
   },
 

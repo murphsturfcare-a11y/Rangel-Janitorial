@@ -54,7 +54,7 @@ export function generateLocalBusinessSchema() {
       "Pet Turf Odor Removal",
       "Turf Deodorizing",
       "Turf Blooming & Decompacting",
-      "OxyTurf Cleaning Solution",
+      "Professional-Grade Deep Cleaning",
       "Poop Scooping",
     ],
     address: {
@@ -268,7 +268,7 @@ export function generateBlogListSchema(posts: { title: string; slug: string }[])
     "@context": "https://schema.org",
     "@type": "Blog",
     name: `${COMPANY_NAME} Blog`,
-    description: "Artificial turf cleaning tips, OxyTurf guides, pet turf maintenance advice, and synthetic turf care for California homeowners and businesses.",
+    description: "Artificial turf cleaning tips, deep cleaning guides, pet turf maintenance advice, and synthetic turf care for California homeowners and businesses.",
     url: `${SITE_URL}/blog`,
     publisher: {
       "@type": "Organization",

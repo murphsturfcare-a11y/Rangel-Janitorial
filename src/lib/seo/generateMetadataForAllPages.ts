@@ -8,13 +8,13 @@ import {
 
 export const homeMetadata = generatePageMetadata(
   "Professional Artificial Turf Cleaning in California",
-  "Murphy's Turf — 30+ years of professional artificial turf cleaning, sanitization, and deodorizing across California. Our OxyTurf solution keeps your synthetic turf fresh and clean. Serving Huntington Beach, Murrieta, Martinez & Sacramento. Get a free quote today!",
+  "Murphy's Turf — 30+ years of professional artificial turf cleaning, sanitization, and deodorizing across California. Our professional-grade cleaning solution keeps your synthetic turf fresh and clean. Serving Huntington Beach, Murrieta, Martinez & Sacramento. Get a free quote today!",
   "/"
 );
 
 export const aboutMetadata = generatePageMetadata(
   "About Us — 30+ Years of Turf Cleaning Experience",
-  "Murphy's Turf brings 30+ years of experience to artificial turf cleaning. Based in Murrieta, CA, we serve communities across California with our proprietary OxyTurf cleaning solution. When you care about clean turf, call Murphy's Turf.",
+  "Murphy's Turf brings 30+ years of experience to artificial turf cleaning. Based in Murrieta, CA, we serve communities across California with our proprietary deep cleaning solution. When you care about clean turf, call Murphy's Turf.",
   "/about"
 );
 
@@ -26,7 +26,7 @@ export const contactMetadata = generatePageMetadata(
 
 export const servicesMetadata = generatePageMetadata(
   "Our Artificial Turf Cleaning Services",
-  "Murphy's Turf offers complete artificial turf cleaning: pet hair & debris removal, blooming & decompacting, disinfecting & deodorizing, poop scooping, and our signature OxyTurf treatment. 30+ years experience.",
+  "Murphy's Turf offers complete artificial turf cleaning: pet hair & debris removal, blooming & decompacting, disinfecting & deodorizing, poop scooping, and our signature deep cleaning treatment. 30+ years experience.",
   "/services"
 );
 
@@ -65,7 +65,7 @@ const services = [
     name: "OxyTurf Treatment",
     slug: "oxyturf" as const,
     shortDescription:
-      "Our signature OxyTurf cleaning solution — a proprietary, eco-friendly formula that deep cleans, deodorizes, and revitalizes artificial turf without harsh chemicals.",
+      "Our signature deep cleaning solution — a proprietary, eco-friendly formula that deep cleans, deodorizes, and revitalizes artificial turf without harsh chemicals.",
   },
 ];
 
@@ -79,7 +79,7 @@ const locations = [
     name: "Huntington Beach",
     slug: "huntington-beach" as const,
     description:
-      "Serving Huntington Beach and Orange County with expert artificial turf cleaning, pet odor removal, and OxyTurf sanitization.",
+      "Serving Huntington Beach and Orange County with expert artificial turf cleaning, pet odor removal, and professional-grade sanitization.",
   },
   {
     name: "Murrieta",

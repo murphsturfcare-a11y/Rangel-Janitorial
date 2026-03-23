@@ -38,12 +38,12 @@ export const metadata: Metadata = {
     template: "%s | Murphy's Turf",
   },
   description:
-    "California's premier artificial turf cleaning company. Powered by OxyTurf, we provide pet-safe turf cleaning, disinfecting, deodorizing, and maintenance services. Serving Murrieta, Huntington Beach, Martinez, and Sacramento. Get a free quote today!",
+    "California's premier artificial turf cleaning company. We provide pet-safe turf cleaning, disinfecting, deodorizing, and maintenance services. Serving Murrieta, Huntington Beach, Martinez, and Sacramento. Get a free quote today!",
   keywords: [
     'artificial turf cleaning California',
     'turf cleaning Murrieta',
-    'OxyTurf turf cleaning',
-    'pet turf cleaning Huntington Beach',
+    'professional turf cleaning',
+'pet turf cleaning Huntington Beach',
     'turf disinfect deodorize Martinez',
     'turf maintenance Sacramento',
     'pet-safe turf cleaning Southern California',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Murphy's Turf | Professional Artificial Turf Cleaning in California",
     description:
-      "California's premier artificial turf cleaning company. Powered by OxyTurf, serving communities statewide.",
+      "California's premier artificial turf cleaning company, serving communities statewide.",
     type: 'website',
     locale: 'en_US',
     siteName: "Murphy's Turf",
@@ -102,7 +102,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Murphy's Turf",
-              "description": "Professional artificial turf cleaning company serving California. Powered by OxyTurf pet-safe cleaning technology.",
+              "description": "Professional artificial turf cleaning company serving California with pet-safe cleaning technology.",
               "url": "https://murphys-turf.netlify.app",
               "contactPoint": [
                 { "@type": "ContactPoint", "telephone": "+19513313300", "areaServed": ["Huntington Beach", "Murrieta"], "contactType": "customer service" },

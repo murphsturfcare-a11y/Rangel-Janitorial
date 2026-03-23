@@ -14,7 +14,7 @@ const locations = [
     city: 'Huntington Beach / LA Area',
     slug: 'huntington-beach',
     description:
-      'OxyTurf-powered turf cleaning for coastal LA — from Huntington Beach to Seal Beach.',
+      'Professional-grade turf cleaning for coastal LA — from Huntington Beach to Seal Beach.',
     highlight: 'LA Area',
   },
   {
@@ -61,7 +61,7 @@ export default function LocationsPage() {
           <p className="text-lg sm:text-xl text-white/80 font-body max-w-3xl mx-auto leading-relaxed">
             From Huntington Beach to Sacramento, Murphy&apos;s Turf delivers professional
             artificial turf cleaning and disinfecting services to communities across California.
-            With 30+ years of experience and our proprietary OxyTurf product, we keep your
+            With 30+ years of experience and our professional-grade cleaning products, we keep your
             synthetic turf clean, safe, and looking like new.
           </p>
         </AnimateOnScroll>
