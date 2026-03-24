@@ -67,7 +67,7 @@ const services = [
   {
     name: 'Disinfect & Deodorize',
     slug: 'disinfect-deodorize',
-    image: '/images/gallery/service-turf-disinfecting.png',
+    image: '/images/gallery/service-turf-disinfecting-v2.jpeg',
     shortDescription:
       'Professional-grade disinfecting that eliminates bacteria, pet odors, mold, and mildew at their source.',
   },

@@ -846,7 +846,7 @@ Want to see the difference for yourself? Contact your local Murphy's Turf office
     metaDescription:
       "Learn how our stabilized accelerated hydrogen peroxide cleaning solution kills 99.9% of bacteria without bleach or ammonia, then breaks down into water and oxygen. Pet-safe and eco-friendly.",
     featuredImage:
-      "/images/gallery/service-turf-disinfecting.png",
+      "/images/gallery/service-turf-disinfecting-v2.jpeg",
   },
   {
     slug: "diy-vs-professional-artificial-turf-cleaning",

@@ -135,7 +135,7 @@ California's warm climate makes professional disinfection and deodorizing essent
     ],
     startingPrice: null,
     iconName: 'SprayCanIcon',
-    image: '/images/gallery/service-turf-disinfecting.png',
+    image: '/images/gallery/service-turf-disinfecting-v2.jpeg',
     metaTitle: "Artificial Turf Disinfecting & Deodorizing | Murphy's Turf",
     metaDescription: "Power-spray our professional-grade cleaning solution to kill 99.9% of germs and bacteria in your artificial turf. No bleach, no ammonia, pet-safe. Murphy's Turf serves California.",
     faqs: [

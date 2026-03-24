@@ -36,7 +36,7 @@ const services = [
     slug: 'disinfect-deodorize',
     description:
       'Our professional-grade cleaning kills 99.9% of germs and bacteria on your turf without hazardous chemicals, leaving your yard fresh and safe.',
-    image: '/images/gallery/service-turf-disinfecting.png',
+    image: '/images/gallery/service-turf-disinfecting-v2.jpeg',
   },
   {
     name: 'Poop Scooping & Removal',

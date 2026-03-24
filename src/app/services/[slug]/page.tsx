@@ -258,7 +258,7 @@ const servicesData: Record<string, ServiceData> = {
   'disinfect-deodorize': {
     name: 'Disinfect & Deodorize',
     slug: 'disinfect-deodorize',
-    image: '/images/gallery/service-turf-disinfecting.png',
+    image: '/images/gallery/service-turf-disinfecting-v2.jpeg',
     tagline: 'Kill 99.9% of bacteria and eliminate odors at the source',
     metaDescription:
       "Professional artificial turf disinfecting and deodorizing in Murrieta, CA. Murphy's Turf uses a professional-grade hydrogen peroxide-based cleaner to kill 99.9% of bacteria and eliminate pet odors without harsh chemicals. Get a free quote.",
