@@ -12,7 +12,7 @@ export const COMPANY_ADDRESS = {
   full: "Murrieta, CA",
 };
 
-export const DEFAULT_OG_IMAGE = "/images/og-default.jpg";
+export const DEFAULT_OG_IMAGE = "/images/og-image.png";
 
 export const SOCIAL_LINKS = {
   facebook: "https://www.facebook.com/profile.php?id=100090088264095",

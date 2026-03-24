@@ -83,7 +83,7 @@ export function generateLocalBusinessSchema() {
       },
     ],
     priceRange: "$$",
-    image: `${SITE_URL}/images/og-default.jpg`,
+    image: `${SITE_URL}/images/og-image.png`,
     sameAs: [
       SOCIAL_LINKS.facebook,
       SOCIAL_LINKS.instagram,
@@ -255,7 +255,7 @@ export function generateBlogPostSchema(post: {
       ? post.image.startsWith("http")
         ? post.image
         : `${SITE_URL}${post.image}`
-      : `${SITE_URL}/images/og-default.jpg`,
+      : `${SITE_URL}/images/og-image.png`,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${SITE_URL}/blog/${post.slug}`,
