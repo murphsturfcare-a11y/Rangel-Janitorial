@@ -60,7 +60,7 @@ const services = [
   {
     name: 'Blooming & De-Compacting',
     slug: 'blooming-decompacting',
-    image: '/images/gallery/service-turf-blooming.png',
+    image: '/images/gallery/service-turf-blooming-v2.png',
     shortDescription:
       'Restore flattened fibers and break up compacted infill for better drainage and appearance.',
   },

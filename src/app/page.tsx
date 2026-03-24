@@ -29,7 +29,7 @@ const services = [
     slug: 'blooming-decompacting',
     description:
       'We bring matted, flattened turf back to life by fluffing blades upright so your artificial grass looks and feels like natural grass again.',
-    image: '/images/gallery/service-turf-blooming.png',
+    image: '/images/gallery/service-turf-blooming-v2.png',
   },
   {
     name: 'Disinfect & Deodorize',
