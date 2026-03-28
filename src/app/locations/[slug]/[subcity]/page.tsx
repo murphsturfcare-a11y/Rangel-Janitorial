@@ -201,6 +201,9 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: {
+      canonical: `https://rangeljanitorial.com/locations/${slug}/${city.subcitySlug}`,
+    },
     openGraph: {
       title,
       description,
@@ -233,8 +236,49 @@ export default async function SubcityPage({
 
   const phoneDigits = region.phone.replace(/[^\d+]/g, '');
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rangeljanitorial.com' },
+      { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://rangeljanitorial.com/locations' },
+      { '@type': 'ListItem', position: 3, name: region.regionName, item: `https://rangeljanitorial.com/locations/${region.slug}` },
+      { '@type': 'ListItem', position: 4, name: `${city.name}, CA` },
+    ],
+  };
+
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: `Rangel Janitorial - ${city.name}`,
+    description: `Professional janitorial and commercial cleaning services in ${city.name}, CA`,
+    telephone: `+1${phoneDigits}`,
+    areaServed: {
+      '@type': 'City',
+      name: city.name,
+      containedInPlace: {
+        '@type': 'State',
+        name: 'California',
+      },
+    },
+    parentOrganization: {
+      '@type': 'Organization',
+      name: 'Rangel Janitorial',
+      url: 'https://rangeljanitorial.com',
+    },
+  };
+
   return (
     <div className="scroll-smooth">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+
       {/* ================================================================
           HERO
           ================================================================ */}

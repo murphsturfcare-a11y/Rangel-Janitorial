@@ -19,6 +19,7 @@ const services = [
     name: 'Janitorial Cleaning',
     slug: 'janitorial-cleaning',
     image: '/images/stock/janitorial-cleaning.jpg',
+    alt: 'Professional janitorial crew cleaning a corporate office building',
     description:
       'Comprehensive nightly and recurring cleaning for corporate buildings, warehouses, residential buildings, and offices — customized to your facility and schedule.',
   },
@@ -26,6 +27,7 @@ const services = [
     name: 'Day Porter',
     slug: 'day-porter',
     image: '/images/stock/day-porter.jpg',
+    alt: 'Day porter maintaining a commercial building lobby during business hours',
     description:
       'Customer-facing team members who provide cleaning and maintenance tasks during normal working hours, keeping your facility looking its best all day long.',
   },
@@ -33,6 +35,7 @@ const services = [
     name: 'Electrostatic Disinfection',
     slug: 'electrostatic-disinfection',
     image: '/images/stock/electrostatic-disinfection.jpg',
+    alt: 'Technician performing electrostatic disinfection in an office',
     description:
       'Advanced electrostatic spraying technology to apply EPA List N approved disinfectants on all high-touch surfaces for comprehensive germ elimination.',
   },
@@ -40,6 +43,7 @@ const services = [
     name: 'Floor Care',
     slug: 'floor-care',
     image: '/images/stock/floor-care.jpg',
+    alt: 'Commercial floor care specialist stripping and waxing VCT floors',
     description:
       'Specialized floor maintenance including VCT strip and wax, tile and grout cleaning, LVT care, concrete polishing, and stone floor restoration.',
   },
@@ -47,6 +51,7 @@ const services = [
     name: 'Carpet Cleaning',
     slug: 'carpet-cleaning',
     image: '/images/stock/carpet-cleaning.jpg',
+    alt: 'Professional carpet cleaning with hot water extraction in a commercial building',
     description:
       'Professional commercial carpet cleaning using hot water extraction, encapsulation, and spot treatment to extend carpet life and maintain a clean appearance.',
   },
@@ -83,7 +88,7 @@ export default function ServicesPage() {
                   <div className="img-zoom aspect-[16/10] relative overflow-hidden">
                     <Image
                       src={service.image}
-                      alt={service.name}
+                      alt={service.alt}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />

@@ -90,10 +90,10 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Shared kitchen and break room areas accumulate bacteria quickly from food preparation, spills, and frequent use. Daily cleaning of counters, sinks, appliance handles, and tables is essential to prevent bacterial buildup and maintain a pleasant environment for employees.</p>
 
       <h2 id="creating-a-cleaning-schedule" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Creating a Cleaning Schedule</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">The most effective cleaning programs combine daily maintenance with periodic deep cleaning. Daily tasks should include trash removal, restroom sanitation, and surface wiping. Weekly tasks might include floor care and detailed dusting. Monthly or quarterly tasks should include carpet cleaning, floor stripping and waxing, and window cleaning.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">The most effective cleaning programs combine daily maintenance with periodic deep cleaning. Daily tasks should include trash removal, restroom sanitation, and surface wiping. Weekly tasks might include <a href="/services/floor-care" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">floor care</a> and detailed dusting. Monthly or quarterly tasks should include <a href="/services/carpet-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">carpet cleaning</a>, floor stripping and waxing, and window cleaning.</p>
 
       <h2 id="when-to-call-a-professional" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">When to Call a Professional</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">While basic tidying can be handled in-house, professional janitorial services deliver a level of thoroughness and consistency that most internal teams cannot match. Professional crews have the training, equipment, and products to maintain your facility at the highest standard.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">While basic tidying can be handled in-house, professional <a href="/services/janitorial-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">janitorial cleaning services</a> deliver a level of thoroughness and consistency that most internal teams cannot match. Professional crews have the training, equipment, and products to maintain your facility at the highest standard.</p>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Contact your local Rangel Janitorial office to schedule a free consultation — visit <a href="/locations" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">rangeljanitorial.com/locations</a> to find the team nearest you.</p>
     `,
     relatedSlugs: ['janitorial-services-sacramento', 'day-porter-benefits', 'choosing-commercial-cleaning-company'],
@@ -118,7 +118,7 @@ const blogPosts: Record<string, BlogPost> = {
     ],
     content: `
       <h2 id="finding-the-right-janitorial-service" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Finding the Right Janitorial Service</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Finding the right janitorial service for your Sacramento business can be challenging. With many options available, knowing what to look for helps you make the right choice for your facility and budget.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Finding the right <a href="/services/janitorial-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">janitorial service</a> for your <a href="/locations/sacramento" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">Sacramento</a> business can be challenging. With many options available, knowing what to look for helps you make the right choice for your facility and budget.</p>
 
       <h2 id="experience-and-references" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Experience and References</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Look for a company with a proven track record. Ask for references from facilities similar to yours and follow up with them. A company with decades of experience has seen every cleaning challenge and knows how to handle them efficiently.</p>
@@ -127,7 +127,7 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Ensure your janitorial provider carries comprehensive general liability insurance and workers compensation coverage. This protects you in case of accidents or damage during cleaning.</p>
 
       <h2 id="customized-cleaning-plans" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Customized Cleaning Plans</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Every facility is different. A good janitorial company will assess your specific needs and create a customized cleaning plan rather than offering a one-size-fits-all approach.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Every facility is different. A good janitorial company will assess your specific needs and create a customized cleaning plan rather than offering a one-size-fits-all approach. Services like <a href="/services/day-porter" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">day porter</a> and <a href="/services/floor-care" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">floor care</a> can be tailored to your facility's unique requirements.</p>
 
       <h2 id="sacramento-specific-considerations" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Sacramento-Specific Considerations</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Sacramento's Central Valley climate means dust is a constant challenge, especially during dry summer months. Your janitorial provider should understand these regional factors and adjust their approach accordingly.</p>
@@ -154,13 +154,13 @@ const blogPosts: Record<string, BlogPost> = {
     ],
     content: `
       <h2 id="our-inland-empire-services" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Our Inland Empire Services</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">We provide comprehensive commercial cleaning for offices, medical facilities, fitness centers, and multi-unit complexes throughout Murrieta, Temecula, Menifee, Lake Elsinore, and surrounding communities.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">We provide comprehensive commercial cleaning for offices, medical facilities, fitness centers, and multi-unit complexes throughout <a href="/locations/murrieta" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">Murrieta</a>, Temecula, Menifee, Lake Elsinore, and surrounding communities.</p>
 
       <h2 id="why-local-businesses-choose-rangel-janitorial" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Why Local Businesses Choose Rangel Janitorial</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">With our headquarters in Murrieta, we understand the local market and the unique needs of Inland Empire businesses. Our 30+ years of experience, combined with our commitment to quality and reliability, make us the trusted choice for commercial cleaning in the region.</p>
 
       <h2 id="facility-types-we-serve" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Facility Types We Serve</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">We serve Class A office buildings, corporate campuses, light industrial parks, medical and dental facilities, municipalities, fitness centers, and multi-unit complexes. Each facility type has unique cleaning requirements, and our team has the expertise to meet them all.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">We serve Class A office buildings, corporate campuses, light industrial parks, medical and dental facilities, municipalities, fitness centers, and multi-unit complexes. Our services include <a href="/services/janitorial-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">janitorial cleaning</a>, <a href="/services/day-porter" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">day porter</a>, and <a href="/services/electrostatic-disinfection" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">electrostatic disinfection</a>.</p>
 
       <h2 id="getting-started" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Getting Started</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Contact Rangel Janitorial Murrieta at (951) 331-3300 for a free, no-obligation quote tailored to your facility.</p>
@@ -186,13 +186,13 @@ const blogPosts: Record<string, BlogPost> = {
     ],
     content: `
       <h2 id="what-day-porters-do" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">What Day Porters Do</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Day porters handle real-time cleaning needs during business hours including lobby maintenance, restroom monitoring and restocking, break room cleaning, conference room turnover, spill cleanup, and trash management.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4"><a href="/services/day-porter" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">Day porters</a> handle real-time cleaning needs during business hours including lobby maintenance, restroom monitoring and restocking, break room cleaning, conference room turnover, spill cleanup, and trash management.</p>
 
       <h2 id="who-benefits-most" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Who Benefits Most</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Facilities with heavy foot traffic benefit the most from day porter services. This includes corporate lobbies, medical offices, fitness centers, retail spaces, and multi-tenant buildings where a single nightly cleaning is not enough.</p>
 
       <h2 id="day-porter-vs-nightly-cleaning" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Day Porter vs Nightly Cleaning</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Nightly janitorial cleaning provides a thorough deep clean after business hours. Day porter service supplements this by maintaining cleanliness during operating hours. The most effective facility maintenance programs use both services together.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Nightly <a href="/services/janitorial-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">janitorial cleaning</a> provides a thorough deep clean after business hours. Day porter service supplements this by maintaining cleanliness during operating hours. The most effective facility maintenance programs use both services together.</p>
 
       <h2 id="the-roi-of-day-porter-services" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">The ROI of Day Porter Services</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">A consistently clean facility improves tenant retention, reduces complaints, and creates a professional environment that supports your business goals. Contact Rangel Janitorial to learn more about our day porter services.</p>
@@ -221,13 +221,13 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Electrostatic sprayers apply a positive electrical charge to disinfectant droplets as they leave the nozzle. These charged particles are attracted to surfaces, wrapping around objects and coating them evenly on all sides — including hard-to-reach areas that manual wiping often misses.</p>
 
       <h2 id="when-your-facility-needs-it" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">When Your Facility Needs It</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Electrostatic disinfection is particularly valuable for medical facilities, fitness centers, schools, and any building where infection control is a priority. The technology provides a level of coverage that traditional cleaning methods simply cannot match.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4"><a href="/services/electrostatic-disinfection" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">Electrostatic disinfection</a> is particularly valuable for medical facilities, fitness centers, schools, and any building where infection control is a priority. The technology provides a level of coverage that traditional cleaning methods simply cannot match.</p>
 
       <h2 id="how-we-use-this-technology" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">How We Use This Technology</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Rangel Janitorial uses hospital-grade disinfectants applied through professional electrostatic spraying equipment. A single technician can treat an entire office floor in minutes, making it practical for regular application as part of your ongoing maintenance program.</p>
 
       <h2 id="combining-with-regular-janitorial-services" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Combining with Regular Janitorial Services</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">We recommend electrostatic disinfection as a complement to regular janitorial cleaning, not a replacement. While daily cleaning removes visible dirt and debris, electrostatic disinfection targets invisible pathogens that standard cleaning may not eliminate. Contact us to learn more about adding this service to your cleaning program.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">We recommend electrostatic disinfection as a complement to regular <a href="/services/janitorial-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">janitorial cleaning</a>, not a replacement. While daily cleaning removes visible dirt and debris, electrostatic disinfection targets invisible pathogens that standard cleaning may not eliminate. Contact us to learn more about adding this service to your cleaning program.</p>
     `,
     relatedSlugs: ['office-cleaning-best-practices', 'medical-facility-cleaning-standards', 'day-porter-benefits'],
   },
@@ -253,13 +253,13 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">VCT (vinyl composition tile) is one of the most common commercial flooring materials, found in offices, schools, medical facilities, and retail spaces. It is durable and cost-effective but requires regular maintenance to look its best.</p>
 
       <h2 id="why-strip-and-wax-matters" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Why Strip and Wax Matters</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Over time, foot traffic wears down the protective finish on VCT floors, leaving them looking dull, scratched, and unprofessional. Regular strip and wax service removes old finish and applies fresh coats that restore shine and protect the underlying tile.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Over time, foot traffic wears down the protective finish on VCT floors, leaving them looking dull, scratched, and unprofessional. Regular <a href="/services/floor-care" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">strip and wax service</a> removes old finish and applies fresh coats that restore shine and protect the underlying tile.</p>
 
       <h2 id="the-professional-process" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">The Professional Process</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Professional strip and wax involves removing all old finish down to the bare tile, thoroughly cleaning the surface, and then applying multiple coats of high-quality floor finish. Each coat is allowed to dry before the next is applied, building up a durable, high-gloss protective barrier.</p>
 
       <h2 id="maintenance-between-services" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Maintenance Between Services</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Between full strip and wax services, regular buffing and spot maintenance keeps floors looking great and extends the life of the finish. Rangel Janitorial offers ongoing floor maintenance programs tailored to your facility's needs.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Between full strip and wax services, regular buffing and spot maintenance keeps floors looking great and extends the life of the finish. Rangel Janitorial also offers <a href="/services/carpet-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">carpet cleaning</a> and ongoing floor maintenance programs tailored to your facility's needs.</p>
     `,
     relatedSlugs: ['office-cleaning-best-practices', 'carpet-cleaning-commercial-buildings', 'choosing-commercial-cleaning-company'],
   },
@@ -288,10 +288,10 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Healthcare facilities must comply with cleaning standards set by OSHA, the CDC, and state health departments. Your janitorial provider should be familiar with these requirements and have documented procedures for meeting them.</p>
 
       <h2 id="infection-control-protocols" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Infection Control Protocols</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Proper infection control in a medical setting requires specific disinfectants, contact times, and cleaning sequences. Exam rooms, waiting areas, and restrooms each have their own protocols that must be followed consistently.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Proper infection control in a medical setting requires specific disinfectants, contact times, and cleaning sequences. <a href="/services/electrostatic-disinfection" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">Electrostatic disinfection</a> provides superior coverage for exam rooms, waiting areas, and restrooms, each of which has its own protocols that must be followed consistently.</p>
 
       <h2 id="choosing-the-right-janitorial-partner" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Choosing the Right Janitorial Partner</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">When selecting a janitorial company for your medical facility, look for experience in healthcare cleaning, proper training programs, and the ability to document compliance. Rangel Janitorial has extensive experience cleaning medical and dental facilities across California.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">When selecting a <a href="/services/janitorial-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">janitorial company</a> for your medical facility, look for experience in healthcare cleaning, proper training programs, and the ability to document compliance. Rangel Janitorial has extensive experience cleaning medical and dental facilities across California.</p>
     `,
     relatedSlugs: ['electrostatic-disinfection-explained', 'office-cleaning-best-practices', 'choosing-commercial-cleaning-company'],
   },
@@ -323,7 +323,7 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Locker rooms are high-moisture environments where bacteria and fungi thrive. Daily deep cleaning with appropriate disinfectants, regular grout maintenance, and consistent restocking of supplies are essential.</p>
 
       <h2 id="creating-a-cleaning-schedule" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Creating a Cleaning Schedule</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Fitness centers benefit from a combination of day porter services for real-time maintenance and nightly deep cleaning. Rangel Janitorial creates customized cleaning programs for fitness facilities across California.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Fitness centers benefit from a combination of <a href="/services/day-porter" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">day porter services</a> for real-time maintenance and nightly deep cleaning. <a href="/services/electrostatic-disinfection" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">Electrostatic disinfection</a> is also highly effective for gym environments. Rangel Janitorial creates customized cleaning programs for fitness facilities across California.</p>
     `,
     relatedSlugs: ['day-porter-benefits', 'electrostatic-disinfection-explained', 'office-cleaning-best-practices'],
   },
@@ -352,7 +352,7 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Always verify that your cleaning company carries comprehensive general liability insurance, workers compensation, and bonding. Request certificates of insurance and verify them with the insurance provider.</p>
 
       <h2 id="scope-of-services" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Scope of Services</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Look for a company that offers a full range of services including janitorial cleaning, day porter, floor care, carpet cleaning, and disinfection. A single provider for all your cleaning needs simplifies management and ensures consistent quality.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Look for a company that offers a full range of services including <a href="/services/janitorial-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">janitorial cleaning</a>, <a href="/services/day-porter" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">day porter</a>, <a href="/services/floor-care" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">floor care</a>, and <a href="/services/carpet-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">carpet cleaning</a>. A single provider for all your cleaning needs simplifies management and ensures consistent quality.</p>
 
       <h2 id="red-flags-to-watch-for" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Red Flags to Watch For</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Be cautious of companies that offer significantly below-market pricing, cannot provide references, or are vague about their insurance coverage. These can be signs of corners being cut that will ultimately affect the quality of service you receive.</p>
@@ -378,7 +378,7 @@ const blogPosts: Record<string, BlogPost> = {
     ],
     content: `
       <h2 id="why-commercial-carpet-cleaning-matters" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Why Commercial Carpet Cleaning Matters</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Commercial carpets trap dirt, allergens, bacteria, and other contaminants that daily vacuuming cannot remove. Professional deep cleaning is essential for maintaining appearance, extending carpet life, and improving indoor air quality.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Commercial carpets trap dirt, allergens, bacteria, and other contaminants that daily vacuuming cannot remove. Professional <a href="/services/carpet-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">deep carpet cleaning</a> is essential for maintaining appearance, extending carpet life, and improving indoor air quality.</p>
 
       <h2 id="hot-water-extraction-method" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Hot Water Extraction Method</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Hot water extraction — the method recommended by major carpet manufacturers — uses hot water and cleaning solution injected deep into carpet fibers, then extracted along with embedded dirt and contaminants. This provides the most thorough clean possible.</p>
@@ -387,7 +387,7 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">High-traffic areas should be professionally cleaned quarterly, while general office areas can typically go six to twelve months between deep cleanings. Regular professional cleaning can double or triple the useful life of commercial carpet.</p>
 
       <h2 id="choosing-a-carpet-cleaning-provider" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Choosing a Carpet Cleaning Provider</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Look for a provider with commercial-grade equipment, experience with your type of carpet, and the ability to work after hours to minimize disruption. Rangel Janitorial provides professional carpet cleaning for commercial buildings across California.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Look for a provider with commercial-grade equipment, experience with your type of carpet, and the ability to work after hours to minimize disruption. Rangel Janitorial provides professional carpet cleaning combined with <a href="/services/floor-care" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">floor care</a> for commercial buildings across California.</p>
     `,
     relatedSlugs: ['floor-care-vct-strip-wax', 'office-cleaning-best-practices', 'choosing-commercial-cleaning-company'],
   },
@@ -413,13 +413,13 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Green cleaning uses environmentally responsible products and methods that reduce the impact on human health and the environment while still delivering effective cleaning results. It encompasses everything from the products used to the equipment and procedures employed.</p>
 
       <h2 id="benefits-for-your-facility" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Benefits for Your Facility</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Green cleaning improves indoor air quality, reduces chemical exposure for employees and cleaning staff, and demonstrates your commitment to environmental responsibility. Many tenants and employees increasingly prefer facilities that prioritize sustainability.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Green cleaning improves indoor air quality, reduces chemical exposure for employees and cleaning staff, and demonstrates your commitment to environmental responsibility. Services like <a href="/services/electrostatic-disinfection" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">electrostatic disinfection</a> can also use eco-friendly solutions. Many tenants and employees increasingly prefer facilities that prioritize sustainability.</p>
 
       <h2 id="green-products-and-methods" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Green Products and Methods</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Green cleaning products are formulated to minimize environmental impact while maintaining cleaning effectiveness. This includes biodegradable formulas, reduced VOC emissions, and concentrated products that minimize packaging waste.</p>
 
       <h2 id="certifications-to-look-for" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Certifications to Look For</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Look for products certified by Green Seal, EPA Safer Choice, or LEED-compliant programs. Ask your janitorial provider about their green cleaning options and how they can be incorporated into your facility's cleaning program.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Look for products certified by Green Seal, EPA Safer Choice, or LEED-compliant programs. Ask your <a href="/services/janitorial-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">janitorial provider</a> about their green cleaning options and how they can be incorporated into your facility's cleaning program.</p>
     `,
     relatedSlugs: ['office-cleaning-best-practices', 'medical-facility-cleaning-standards', 'choosing-commercial-cleaning-company'],
   },
@@ -442,13 +442,13 @@ const blogPosts: Record<string, BlogPost> = {
     ],
     content: `
       <h2 id="east-bay-commercial-cleaning" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">East Bay Commercial Cleaning</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">The East Bay is home to a diverse mix of businesses, from corporate offices in Walnut Creek to industrial facilities in Concord and Pleasant Hill. Each facility type has unique cleaning requirements, and finding a janitorial provider who understands the local market is essential.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">The East Bay is home to a diverse mix of businesses, from corporate offices in <a href="/locations/walnut-creek" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">Walnut Creek</a> to industrial facilities in Concord and Pleasant Hill. Each facility type has unique cleaning requirements, and finding a janitorial provider who understands the local market is essential.</p>
 
       <h2 id="why-choose-a-local-provider" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Why Choose a Local Provider</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">A local janitorial provider offers faster response times, better understanding of regional conditions, and stronger accountability to the community they serve. Rangel Janitorial's Walnut Creek office serves the entire East Bay with dedicated local crews.</p>
 
       <h2 id="our-walnut-creek-services" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Our Walnut Creek Services</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">We offer the full range of commercial cleaning services in the East Bay including janitorial cleaning, day porter services, electrostatic disinfection, floor care, and carpet cleaning for all facility types.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">We offer the full range of commercial cleaning services in the East Bay including <a href="/services/janitorial-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">janitorial cleaning</a>, <a href="/services/day-porter" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">day porter services</a>, <a href="/services/electrostatic-disinfection" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">electrostatic disinfection</a>, and <a href="/services/carpet-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">carpet cleaning</a> for all facility types.</p>
 
       <h2 id="getting-started" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Getting Started</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Contact Rangel Janitorial Walnut Creek at (925) 338-0048 for a free consultation and quote tailored to your facility's needs.</p>
@@ -536,8 +536,52 @@ export default async function BlogPostPage({
   const categoryColor =
     categoryColors[post.category] || 'bg-sage/15 text-sage-dark';
 
+  // Build JSON-LD structured data
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.metaDescription,
+    author: {
+      '@type': 'Organization',
+      name: 'Rangel Janitorial',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Rangel Janitorial',
+      url: 'https://rangeljanitorial.com',
+    },
+    datePublished: post.publishDate,
+    dateModified: post.publishDate,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://rangeljanitorial.com/blog/${post.slug}`,
+    },
+    articleSection: post.category,
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rangeljanitorial.com' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://rangeljanitorial.com/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title },
+    ],
+  };
+
   return (
     <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       {/* ----------------------------------------------------------------- */}
       {/* Breadcrumb */}
       {/* ----------------------------------------------------------------- */}

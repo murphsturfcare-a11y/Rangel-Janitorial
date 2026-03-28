@@ -12,6 +12,7 @@ import {
   Leaf,
   ThumbsUp,
   Droplets,
+  MapPin,
 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
@@ -43,6 +44,7 @@ interface LocationData {
   formId: string;
   mapQuery: string;
   mapEmbedUrl?: string;
+  gmb?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -106,12 +108,12 @@ const processSteps = [
 ];
 
 const galleryImages = [
-  { src: '/images/stock/gallery-office-lobby.jpg', alt: "Rangel Janitorial — clean office lobby" },
-  { src: '/images/stock/gallery-office-hallway.jpg', alt: "Rangel Janitorial — office hallway maintenance" },
-  { src: '/images/stock/gallery-conference-room.jpg', alt: "Rangel Janitorial — conference room cleaning" },
-  { src: '/images/stock/gallery-medical-office.jpg', alt: "Rangel Janitorial — medical office cleaning" },
-  { src: '/images/stock/gallery-gym-fitness.jpg', alt: "Rangel Janitorial — fitness center cleaning" },
-  { src: '/images/stock/gallery-floor-shine.jpg', alt: "Rangel Janitorial — polished commercial floor" },
+  { src: '/images/stock/gallery-office-lobby.jpg', alt: "Clean office lobby maintained by Rangel Janitorial commercial cleaning" },
+  { src: '/images/stock/gallery-office-hallway.jpg', alt: "Spotless office hallway after professional janitorial service" },
+  { src: '/images/stock/gallery-conference-room.jpg', alt: "Conference room cleaned and sanitized by professional janitorial crew" },
+  { src: '/images/stock/gallery-medical-office.jpg', alt: "Medical office waiting room cleaned to healthcare standards" },
+  { src: '/images/stock/gallery-gym-fitness.jpg', alt: "Fitness center floor and equipment cleaned by Rangel Janitorial" },
+  { src: '/images/stock/gallery-floor-shine.jpg', alt: "Polished commercial VCT floor after professional strip and wax service" },
 ];
 
 const locationFaqs = [
@@ -247,6 +249,7 @@ const locationData: Record<string, LocationData> = {
       'Inland Empire dust and summer heat require consistent cleaning to keep commercial spaces healthy and presentable.',
     formId: 'xBvd9OY1s3jhTIKq93sM',
     mapQuery: 'Rangel+Janitorial+Murrieta+CA',
+    gmb: 'https://www.google.com/maps/place/Rangel+Commercial+Cleaners+of+Murrieta/data=!4m2!3m1!1s0x0:0x846bff7e768aac1a',
   },
 
   'walnut-creek': {
@@ -346,8 +349,117 @@ export default async function LocationPage({
     notFound();
   }
 
+  // Calculate average rating from testimonials
+  const avgRating =
+    location.testimonials.reduce((sum, t) => sum + t.rating, 0) /
+    location.testimonials.length;
+  const avgRatingStr = avgRating.toFixed(1);
+
+  // JSON-LD: FAQPage
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: locationFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
+  // JSON-LD: LocalBusiness with AggregateRating + Reviews
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Rangel Janitorial',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: location.city,
+      addressRegion: location.state,
+      addressCountry: 'US',
+    },
+    telephone: location.phone,
+    email: location.email,
+    url: `https://rangeljanitorial.com/locations/${location.slug}`,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: avgRatingStr,
+      reviewCount: String(location.testimonials.length),
+      bestRating: '5',
+    },
+    review: location.testimonials.map((t) => ({
+      '@type': 'Review',
+      author: { '@type': 'Person', name: t.name },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: String(t.rating),
+      },
+      reviewBody: t.text,
+    })),
+  };
+
+  // JSON-LD: Service with areaServed
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Commercial Janitorial Services',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'Rangel Janitorial',
+    },
+    areaServed: location.neighborhoods.map((n) => ({
+      '@type': 'City',
+      name: n,
+    })),
+  };
+
+  // JSON-LD: BreadcrumbList
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://rangeljanitorial.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Locations',
+        item: 'https://rangeljanitorial.com/locations',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: `${location.city}, ${location.state}`,
+        item: `https://rangeljanitorial.com/locations/${location.slug}`,
+      },
+    ],
+  };
+
   return (
     <div className="scroll-smooth pb-20 lg:pb-0">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       {/* ================================================================
           1. HERO WITH EMBEDDED LEAD FORM
@@ -357,7 +469,7 @@ export default async function LocationPage({
         <div className="absolute inset-0">
           <Image
             src="/images/stock/commercial-cleaning-hero.jpg"
-            alt=""
+            alt={`Professional commercial cleaning services in ${location.city}, California by Rangel Janitorial`}
             fill
             className="object-cover"
             priority
@@ -392,13 +504,26 @@ export default async function LocationPage({
               <p className="text-lg sm:text-xl text-white/80 font-body mb-8">
                 Reliable Commercial Cleaning You Can Count On
               </p>
-              <a
-                href={`tel:${location.phone.replace(/[^\d+]/g, '')}`}
-                className="inline-flex items-center gap-3 bg-white text-forest font-bold text-lg px-8 py-4 rounded-xl hover:bg-cream transition-colors font-body shadow-lg"
-              >
-                <Phone className="w-5 h-5" />
-                {location.phone}
-              </a>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href={`tel:${location.phone.replace(/[^\d+]/g, '')}`}
+                  className="inline-flex items-center gap-3 bg-white text-forest font-bold text-lg px-8 py-4 rounded-xl hover:bg-cream transition-colors font-body shadow-lg"
+                >
+                  <Phone className="w-5 h-5" />
+                  {location.phone}
+                </a>
+                {location.gmb && (
+                  <a
+                    href={location.gmb}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white/10 text-white font-semibold text-base px-6 py-4 rounded-xl hover:bg-white/20 transition-colors font-body border border-white/20"
+                  >
+                    <MapPin className="w-5 h-5" />
+                    View on Google Maps
+                  </a>
+                )}
+              </div>
             </AnimateOnScroll>
 
             {/* Right: Lead form iframe */}
@@ -728,6 +853,19 @@ export default async function LocationPage({
                   </div>
                   {location.email}
                 </a>
+                {location.gmb && (
+                  <a
+                    href={location.gmb}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-white hover:text-sage-light transition-colors font-body text-lg"
+                  >
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    View on Google Maps
+                  </a>
+                )}
               </div>
             </AnimateOnScroll>
 

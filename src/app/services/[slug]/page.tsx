@@ -55,6 +55,7 @@ interface ServiceData {
   name: string;
   slug: string;
   image: string;
+  imageAlt: string;
   tagline: string;
   metaDescription: string;
   descriptionParagraphs: string[];
@@ -74,6 +75,7 @@ const servicesData: Record<string, ServiceData> = {
     name: 'Janitorial Cleaning',
     slug: 'janitorial-cleaning',
     image: '/images/services/janitorial-cleaning.png',
+    imageAlt: 'Professional janitorial crew cleaning a corporate office building',
     tagline: 'Reliable, thorough cleaning that creates excellent first impressions',
     metaDescription:
       'Professional janitorial cleaning services in California. Rangel Janitorial provides daily and nightly cleaning for offices, medical facilities, and commercial buildings. 30+ years experience. Get a free quote.',
@@ -166,6 +168,7 @@ const servicesData: Record<string, ServiceData> = {
     name: 'Day Porter',
     slug: 'day-porter',
     image: '/images/services/day-porter.png',
+    imageAlt: 'Day porter maintaining a commercial building lobby during business hours',
     tagline: 'On-site daytime cleaning that keeps your facility pristine throughout the day',
     metaDescription:
       'Professional day porter services in California. Rangel Janitorial provides on-site daytime cleaning and maintenance for offices, lobbies, and commercial facilities. Get a free quote.',
@@ -258,6 +261,7 @@ const servicesData: Record<string, ServiceData> = {
     name: 'Electrostatic Disinfection',
     slug: 'electrostatic-disinfection',
     image: '/images/services/electrostatic-disinfection.png',
+    imageAlt: 'Technician performing electrostatic disinfection in a commercial office',
     tagline: 'Advanced disinfection technology for complete surface coverage',
     metaDescription:
       'Professional electrostatic disinfection services in California. Rangel Janitorial uses advanced electrostatic spraying technology for thorough disinfection of commercial facilities. Get a free quote.',
@@ -350,6 +354,7 @@ const servicesData: Record<string, ServiceData> = {
     name: 'Floor Care',
     slug: 'floor-care',
     image: '/images/services/floor-care.png',
+    imageAlt: 'Commercial floor care specialist stripping and waxing VCT floors',
     tagline: 'Professional floor maintenance that protects your investment and looks stunning',
     metaDescription:
       'Professional floor care services in California including VCT strip and wax, polishing, and maintenance. Rangel Janitorial keeps your commercial floors pristine. 30+ years experience. Get a free quote.',
@@ -442,6 +447,7 @@ const servicesData: Record<string, ServiceData> = {
     name: 'Carpet Cleaning',
     slug: 'carpet-cleaning',
     image: '/images/services/carpet-cleaning.png',
+    imageAlt: 'Professional carpet cleaning with hot water extraction in a commercial building',
     tagline: 'Extend carpet life and improve indoor air quality with professional cleaning',
     metaDescription:
       'Professional commercial carpet cleaning services in California. Rangel Janitorial uses professional-grade equipment for deep carpet cleaning in offices and commercial facilities. Get a free quote.',
@@ -586,8 +592,70 @@ export default async function ServiceDetailPage({
     notFound();
   }
 
+  // Build JSON-LD structured data
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    description: service.metaDescription,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'Rangel Janitorial',
+      url: 'https://rangeljanitorial.com',
+      telephone: '+19518944222',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '26323 Jefferson Ave Suite C',
+        addressLocality: 'Murrieta',
+        addressRegion: 'CA',
+        postalCode: '92562',
+      },
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Sacramento' },
+      { '@type': 'City', name: 'Murrieta' },
+      { '@type': 'City', name: 'Walnut Creek' },
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${service.name} Services`,
+      itemListElement: service.included.map((item) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: item },
+      })),
+    },
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: service.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rangeljanitorial.com' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://rangeljanitorial.com/services' },
+      { '@type': 'ListItem', position: 3, name: service.name },
+    ],
+  };
+
   return (
     <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([serviceSchema, faqSchema, breadcrumbSchema]),
+        }}
+      />
+
       {/* ----------------------------------------------------------------- */}
       {/* Hero */}
       {/* ----------------------------------------------------------------- */}
@@ -595,7 +663,7 @@ export default async function ServiceDetailPage({
         {/* Hero background image */}
         <Image
           src={service.image}
-          alt={service.name}
+          alt={service.imageAlt}
           fill
           className="object-cover"
           priority

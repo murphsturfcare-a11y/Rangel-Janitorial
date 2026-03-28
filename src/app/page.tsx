@@ -147,6 +147,24 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 export default function Home() {
   return (
     <>
+      {/* AggregateRating JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Rangel Janitorial",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "3",
+              "bestRating": "5"
+            }
+          })
+        }}
+      />
+
       {/* HERO */}
       <section className="relative overflow-hidden">
         <video

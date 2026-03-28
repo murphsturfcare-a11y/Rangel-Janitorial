@@ -131,7 +131,8 @@ export default function RootLayout({
               "sameAs": [
                 "https://www.instagram.com/rangeljanitorial/",
                 "https://www.facebook.com/profile.php?id=100090088264095",
-                "https://www.youtube.com/@rangeljanitorial/featured"
+                "https://www.youtube.com/@rangeljanitorial/featured",
+                "https://www.google.com/maps/place/Rangel+Commercial+Cleaners+of+Murrieta/data=!4m2!3m1!1s0x0:0x846bff7e768aac1a"
               ]
             })
           }}
