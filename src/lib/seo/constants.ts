@@ -15,9 +15,9 @@ export const COMPANY_ADDRESS = {
 export const DEFAULT_OG_IMAGE = "/images/og-image.png";
 
 export const SOCIAL_LINKS = {
-  facebook: "",
-  instagram: "",
-  youtube: "",
+  facebook: "https://www.facebook.com/profile.php?id=100090088264095",
+  instagram: "https://www.instagram.com/rangeljanitorial/",
+  youtube: "https://www.youtube.com/@rangeljanitorial/featured",
 };
 
 export const SERVICE_SLUGS = [

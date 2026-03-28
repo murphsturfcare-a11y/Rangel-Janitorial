@@ -40,9 +40,9 @@ export const company: Company = {
     projectsCompleted: "5,000+",
   },
   socialMedia: {
-    facebook: "",
-    instagram: "",
-    youtube: "",
+    facebook: "https://www.facebook.com/profile.php?id=100090088264095",
+    instagram: "https://www.instagram.com/rangeljanitorial/",
+    youtube: "https://www.youtube.com/@rangeljanitorial/featured",
   },
   certifications: [
     "Licensed & Insured",

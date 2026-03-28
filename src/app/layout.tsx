@@ -29,7 +29,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rangel-janitorial.netlify.app'),
+  metadataBase: new URL('https://rangeljanitorial.com'),
   alternates: {
     canonical: '/',
   },
@@ -106,7 +106,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               "name": "Rangel Janitorial",
               "description": "Professional janitorial and commercial cleaning services across California. Serving offices, medical facilities, industrial parks, and more.",
-              "url": "https://rangel-janitorial.netlify.app",
+              "url": "https://rangeljanitorial.com",
               "contactPoint": [
                 { "@type": "ContactPoint", "telephone": "+19164325033", "areaServed": ["Sacramento"], "contactType": "customer service" },
                 { "@type": "ContactPoint", "telephone": "+19513313300", "areaServed": ["Murrieta", "Inland Empire"], "contactType": "customer service" },
@@ -127,7 +127,7 @@ export default function RootLayout({
               ],
               "openingHours": ["Mo-Fr 09:00-17:00"],
               "priceRange": "$$",
-              "image": "https://rangel-janitorial.netlify.app/images/logo.png",
+              "image": "https://rangeljanitorial.com/images/logo.png",
               "sameAs": [
                 "https://www.instagram.com/rangeljanitorial/",
                 "https://www.facebook.com/profile.php?id=100090088264095",

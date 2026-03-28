@@ -1,6 +1,6 @@
 -- =============================================================================
 -- Rangel Janitorial - Seed Data
--- Professional Lawn Care Services Across Colorado
+-- Commercial Janitorial Services Across California
 -- =============================================================================
 
 -- Clean slate: delete existing seed data in dependency order
@@ -21,163 +21,139 @@ INSERT INTO services (
   meta_title, meta_description
 ) VALUES
 
--- Lawn Cleaning
+-- Janitorial Cleaning
 (
-  'lawn-cleaning',
-  'Lawn Cleaning',
-  'Complete debris removal and lawn grooming to restore your yard''s curb appeal.',
-  'Our lawn cleaning service tackles the buildup of leaves, branches, thatch, and other debris that suffocate your grass and invite pests. We use commercial-grade equipment to clear every corner of your property, leaving behind a pristine, healthy lawn. Perfect as a standalone service or as prep work before aeration, seeding, or fertilization.',
-  'leaf',
-  75.00,
+  'janitorial-cleaning',
+  'Janitorial Cleaning',
+  'Nightly and recurring cleaning for offices, lobbies, restrooms, and commercial buildings.',
+  'Our core janitorial cleaning service keeps your facility spotless around the clock. We provide nightly, weekly, or custom-frequency cleaning programs tailored to the size and needs of your building. From front lobbies and executive suites to break rooms and restrooms, our trained crews follow detailed checklists to ensure nothing gets missed. Every visit ends with a quality inspection so you walk into a clean building every single morning.',
+  'sparkles',
+  500.00,
   ARRAY[
-    'Removes suffocating debris so grass can breathe and absorb sunlight',
-    'Eliminates hiding spots for grubs, mites, and other lawn pests',
-    'Instantly boosts curb appeal and property value',
-    'Prevents thatch buildup that leads to fungal disease'
+    'Walk into a clean, professional environment every morning',
+    'Reduces sick days by maintaining sanitary common areas and restrooms',
+    'Customized cleaning checklists built around your facility''s specific needs',
+    'Consistent results from trained, supervised cleaning crews'
   ],
   ARRAY[
-    'Full leaf and debris removal from all turf areas',
-    'Thatch raking and removal up to 1/2 inch depth',
-    'Edging along sidewalks, driveways, and garden beds',
-    'Blowing and cleanup of all hard surfaces',
-    'Post-service walkthrough and recommendations'
+    'Lobby, reception, and common area cleaning',
+    'Full restroom sanitation including fixtures, mirrors, and restocking supplies',
+    'Break room and kitchen cleaning and disinfection',
+    'Trash and recycling removal from all areas',
+    'Vacuuming, mopping, and dusting throughout the facility',
+    'Nightly quality inspection and supervisor sign-off'
   ],
   1, true,
-  'Professional Lawn Cleaning Services | Rangel''s Turf Colorado',
-  'Expert lawn cleaning and debris removal across Colorado. We clear leaves, thatch, and buildup so your grass can thrive. Starting at $75. Free estimates.'
+  'Commercial Janitorial Cleaning Services | Rangel Janitorial',
+  'Professional nightly and recurring janitorial cleaning for offices, lobbies, and commercial buildings in California. Creating excellent first impressions. Free estimates.'
 ),
 
--- Aeration
+-- Day Porter
 (
-  'aeration',
-  'Aeration',
-  'Core aeration breaks up compacted Colorado clay soil so water, air, and nutrients reach grassroots.',
-  'Colorado''s heavy clay soil compacts easily under foot traffic, mowing, and our intense freeze-thaw cycles. Our core aeration service pulls thousands of small soil plugs per pass, creating channels that let water, oxygen, and fertilizer penetrate deep into the root zone. Most Colorado lawns benefit from aeration at least once per year, ideally in early fall or late spring.',
-  'wind',
-  125.00,
+  'day-porter',
+  'Day Porter',
+  'On-site daytime cleaning staff for real-time facility upkeep and tenant satisfaction.',
+  'High-traffic commercial buildings need more than nightly cleaning. Our day porter service places a dedicated, uniformed cleaning professional on-site during business hours to handle real-time messes, restock restrooms, maintain lobbies, and respond to tenant requests. Day porters keep your facility looking its best during the hours that matter most — when tenants, visitors, and customers are walking through your doors.',
+  'user-check',
+  1200.00,
   ARRAY[
-    'Breaks through compacted clay soil common across the Front Range',
-    'Improves water infiltration and reduces runoff on slopes',
-    'Strengthens root systems for better drought tolerance',
-    'Enhances fertilizer effectiveness by up to 50%',
-    'Reduces thatch accumulation over time'
+    'Real-time response to spills, messes, and tenant requests throughout the day',
+    'Keeps restrooms stocked and clean during peak business hours',
+    'Professional, uniformed staff represents your building well',
+    'Reduces complaints and improves tenant retention'
   ],
   ARRAY[
-    'Double-pass core aeration with commercial-grade aerator',
-    'Pre-service irrigation check and flagging of sprinkler heads',
-    'Core plugs left on lawn to decompose naturally',
-    'Post-aeration watering recommendations tailored to your soil type',
-    'Optional overseeding coordination at discounted bundle rate'
+    'Dedicated on-site cleaning professional during business hours',
+    'Continuous lobby and common area upkeep',
+    'Restroom monitoring, cleaning, and supply restocking throughout the day',
+    'Spill and mess response within minutes',
+    'Conference room reset and preparation between meetings',
+    'Coordination with property management for special requests'
   ],
   2, true,
-  'Core Aeration Services for Colorado Clay Soil | Rangel''s Turf',
-  'Professional core aeration designed for Colorado''s compacted clay. Improve water penetration, root growth, and lawn health. Starting at $125.'
+  'Day Porter Services for Commercial Buildings | Rangel Janitorial',
+  'On-site daytime cleaning staff for real-time facility upkeep. Keep lobbies, restrooms, and common areas pristine during business hours. Serving California.'
 ),
 
--- Seeding
+-- Electrostatic Disinfection
 (
-  'seeding',
-  'Seeding',
-  'Overseed with Colorado-adapted grass varieties to fill bare spots and thicken your turf.',
-  'Thin, patchy lawns are no match for our professional overseeding service. We use a curated blend of Kentucky Bluegrass, Perennial Ryegrass, and Tall Fescue specifically selected for Colorado''s altitude, UV intensity, and variable moisture. Seed is applied with calibrated slit-seeders that place seed directly into the soil for maximum germination rates.',
-  'sprout',
-  150.00,
+  'electrostatic-disinfection',
+  'Electrostatic Disinfection',
+  '360-degree EPA List N approved disinfection for comprehensive germ and pathogen elimination.',
+  'Our electrostatic disinfection service uses charged particle technology to deliver EPA List N approved disinfectant to every surface in your facility — including hard-to-reach areas that traditional wiping misses. The positively charged mist wraps around surfaces for true 360-degree coverage, killing 99.9% of bacteria, viruses, and fungi on contact. Ideal for offices, medical facilities, schools, and any environment where health and safety are top priorities.',
+  'zap',
+  350.00,
   ARRAY[
-    'Fills in bare and thin spots for a thick, uniform lawn',
-    'Uses high-altitude grass blends rated for 5,000–7,500 ft elevation',
-    'Improves weed resistance by outcompeting unwanted species',
-    'Builds genetic diversity for better disease and drought tolerance'
+    'True 360-degree coverage reaches surfaces that manual wiping cannot',
+    'EPA List N approved chemicals effective against a broad spectrum of pathogens',
+    'Fast application with minimal disruption to your operations',
+    'Provides documented proof of disinfection for compliance and tenant confidence'
   ],
   ARRAY[
-    'Soil assessment and seed variety recommendation',
-    'Slit-seeding with calibrated commercial equipment',
-    'Premium Colorado-adapted grass seed blend (included in price)',
-    'Starter fertilizer application to boost germination',
-    'Post-seeding watering schedule and care instructions'
+    'Full-facility electrostatic spray application',
+    'EPA List N approved hospital-grade disinfectant',
+    'Coverage of all surfaces including undersides, backs, and crevices',
+    'High-touch point focus: door handles, light switches, elevator buttons, handrails',
+    'Post-service disinfection report for your records',
+    'Flexible scheduling — after hours, weekends, or on-demand'
   ],
   3, true,
-  'Professional Lawn Seeding & Overseeding | Rangel''s Turf Colorado',
-  'Thicken your Colorado lawn with altitude-adapted grass seed blends. Slit-seeding for maximum germination. Starting at $150. Free estimates.'
+  'Electrostatic Disinfection Services | Rangel Janitorial',
+  'EPA List N approved electrostatic disinfection with 360-degree surface coverage. Hospital-grade pathogen elimination for commercial facilities. Free estimates.'
 ),
 
--- Fertilization
+-- Floor Care
 (
-  'fertilization',
-  'Fertilization',
-  'Targeted nutrient programs designed for Colorado soil chemistry and growing seasons.',
-  'Colorado soils are typically alkaline and iron-deficient, which means a generic fertilizer program won''t cut it. Our fertilization service starts with a soil test so we know exactly what your lawn needs. We then apply the right blend of nitrogen, phosphorus, potassium, and micronutrients at the right time — synced to Colorado''s short but intense growing season from April through October.',
-  'flask',
-  85.00,
+  'floor-care',
+  'Floor Care',
+  'Professional strip, wax, buff, and polish services for VCT, tile, concrete, and stone floors.',
+  'Floors take the hardest beating of any surface in your building, and nothing ages a facility faster than dull, scuffed, or yellowed floors. Our floor care program restores and protects your investment with professional stripping, waxing, buffing, and polishing services for all hard floor types. We work with VCT, ceramic and porcelain tile, polished concrete, terrazzo, and natural stone. Regular floor maintenance extends the life of your flooring and keeps your facility looking brand new.',
+  'layers',
+  400.00,
   ARRAY[
-    'Custom blends based on actual soil test results, not guesswork',
-    'Corrects iron chlorosis that causes yellow, pale grass at altitude',
-    'Slow-release formulas reduce burn risk in Colorado''s dry climate',
-    'Seasonal timing aligned with Front Range growing patterns',
-    'Promotes deep green color and vigorous growth'
+    'Restores floors to a high-gloss, like-new appearance',
+    'Extends the life of your flooring and delays costly replacement',
+    'Eliminates buildup, scuff marks, and yellowing from old wax layers',
+    'Slip-resistant finishes improve safety for employees and visitors'
   ],
   ARRAY[
-    'Soil pH and nutrient analysis (first visit)',
-    'Customized fertilizer blend mixed for your lawn''s specific needs',
-    'Professional broadcast application with calibrated spreader',
-    'Iron supplement treatment for chlorosis-prone areas',
-    'Written fertilization schedule for the remainder of the season'
+    'Complete chemical stripping of old wax and finish buildup',
+    'Deep cleaning and preparation of bare floor surface',
+    'Application of multiple coats of commercial-grade floor finish',
+    'High-speed buffing and burnishing for maximum shine',
+    'Edge and corner detailing by hand',
+    'Ongoing maintenance programs available for sustained results'
   ],
   4, true,
-  'Lawn Fertilization Programs for Colorado Soil | Rangel''s Turf',
-  'Soil-tested fertilization programs built for alkaline Colorado soil. Correct iron deficiency, feed your lawn right. Starting at $85.'
+  'Commercial Floor Care — Strip, Wax & Polish | Rangel Janitorial',
+  'Professional floor stripping, waxing, buffing, and polishing for VCT, tile, concrete, and stone. Restore your commercial floors to like-new condition.'
 ),
 
--- Pest Control
+-- Carpet Cleaning
 (
-  'pest-control',
-  'Pest Control',
-  'Integrated pest management to protect your lawn from grubs, mites, and other Colorado turf threats.',
-  'From white grubs that destroy root systems to clover mites that invade homes every spring, Colorado lawns face a unique set of pest pressures. Our integrated pest management approach identifies the specific pests in your yard, applies targeted treatments, and establishes preventive barriers — all while minimizing chemical use around kids, pets, and pollinators.',
-  'shield',
-  95.00,
+  'carpet-cleaning',
+  'Carpet Cleaning',
+  'Hot water extraction and encapsulation cleaning to restore and maintain commercial carpets.',
+  'Commercial carpets trap dirt, allergens, and bacteria deep in their fibers — regular vacuuming only addresses the surface. Our carpet cleaning service uses both hot water extraction (steam cleaning) and low-moisture encapsulation methods to deep clean your carpets, remove stains, and eliminate odors. We recommend hot water extraction for periodic deep cleaning and encapsulation for more frequent interim maintenance, giving you the best of both methods for long carpet life and a consistently clean appearance.',
+  'wind',
+  300.00,
   ARRAY[
-    'Targets Colorado-specific pests: grubs, billbugs, clover mites, sod webworms',
-    'Pet-safe and pollinator-conscious treatment options available',
-    'Preventive applications stop infestations before visible damage',
-    'Reduces need for repeated treatments with long-lasting barriers'
+    'Removes deep-embedded dirt, allergens, and bacteria that vacuuming misses',
+    'Eliminates stains and odors for a fresher, more professional environment',
+    'Extends carpet life by preventing fiber degradation from trapped grit',
+    'Low-moisture options allow faster dry times and minimal business disruption'
   ],
   ARRAY[
-    'Full lawn inspection and pest identification',
-    'Targeted granular or liquid treatment based on pest type',
-    'Perimeter barrier application around foundation (spring/fall)',
-    'Grub preventive treatment (applied late spring)',
-    'Follow-up inspection within 14 days at no extra charge'
+    'Pre-treatment of high-traffic areas and visible stains',
+    'Hot water extraction (steam cleaning) for deep periodic cleaning',
+    'Encapsulation cleaning for low-moisture interim maintenance',
+    'Spot treatment for stubborn stains including coffee, ink, and grease',
+    'Fast-dry methods to minimize downtime — most areas walkable in 2-4 hours',
+    'Post-cleaning inspection and stain protection recommendations'
   ],
   5, true,
-  'Lawn Pest Control — Grubs, Mites & More | Rangel''s Turf Colorado',
-  'Integrated pest management for Colorado lawns. We target grubs, clover mites, sod webworms, and more. Pet-safe options. Starting at $95.'
-),
-
--- Seasonal Maintenance
-(
-  'seasonal-maintenance',
-  'Seasonal Maintenance',
-  'Year-round lawn care packages that handle spring startup, summer upkeep, fall prep, and winter protection.',
-  'Colorado''s extreme seasonal swings — from 90-degree summer days to sub-zero winter nights — demand a proactive maintenance strategy. Our seasonal packages bundle the right services at the right time: spring cleanup and pre-emergent, summer mowing and irrigation management, fall aeration and overseeding, and winter dormancy prep. One plan, no guesswork, a great-looking lawn year-round.',
-  'calendar',
-  199.00,
-  ARRAY[
-    'Eliminates the hassle of scheduling individual services throughout the year',
-    'Bundled pricing saves 15–20% compared to booking services separately',
-    'Proactive care prevents problems before they become expensive repairs',
-    'Customized to your lawn''s specific grass type, soil, and sun exposure',
-    'Priority scheduling during peak spring and fall seasons'
-  ],
-  ARRAY[
-    'Spring cleanup, pre-emergent weed control, and first fertilization',
-    'Summer mowing schedule coordination and irrigation audit',
-    'Fall core aeration, overseeding, and winterizer fertilizer',
-    'End-of-season leaf removal and dormancy preparation',
-    'Year-round monitoring with seasonal adjustment recommendations'
-  ],
-  6, true,
-  'Seasonal Lawn Maintenance Plans | Rangel''s Turf Colorado',
-  'All-inclusive seasonal lawn care for Colorado homes. Spring through winter coverage with bundled savings. Starting at $199/visit. Free consultation.'
+  'Commercial Carpet Cleaning Services | Rangel Janitorial',
+  'Professional carpet cleaning using hot water extraction and encapsulation methods. Deep clean commercial carpets, remove stains, eliminate odors. Free estimates.'
 );
 
 
@@ -192,88 +168,46 @@ INSERT INTO locations (
   meta_title, meta_description
 ) VALUES
 
--- Denver
+-- Sacramento
 (
-  'denver',
-  'Denver',
-  'Rangel''s Turf has been serving Denver homeowners since day one. From the historic bungalow lawns of Park Hill to the modern landscapes of Stapleton, we understand the unique challenges of maintaining turf in the Mile High City — intense UV, clay soil, water restrictions, and unpredictable late-spring snow. Our Denver crews live and work in the neighborhoods they serve.',
-  '2901 Blake St, Suite 100, Denver, CO 80205',
-  '(720) 555-0147',
-  ARRAY['Capitol Hill', 'Cherry Creek', 'Highlands', 'Park Hill', 'Washington Park', 'Stapleton'],
-  'We serve all Denver neighborhoods inside the city limits, from Globeville and RiNo in the north to Hampden and Southmoor in the south, and everything between Lakewood border and Aurora border.',
+  'sacramento',
+  'Sacramento',
+  'Rangel Janitorial''s Sacramento office serves commercial properties throughout the greater Sacramento region. From Class A office buildings in downtown Sacramento to medical facilities in Roseville and retail centers in Elk Grove, our crews deliver the same high standard of janitorial service that has made us a trusted name in California commercial cleaning. We understand the expectations of property managers in the capital region and staff our teams accordingly.',
+  '26323 Jefferson Ave Suite C, Murrieta, CA 92562',
+  '(916) 432-5033',
+  ARRAY['Elk Grove', 'Roseville', 'Folsom', 'Rancho Cordova', 'Citrus Heights', 'Natomas', 'West Sacramento'],
+  'Our Sacramento service area covers the entire greater Sacramento region, from West Sacramento and Natomas in the west to Folsom and Rancho Cordova in the east, and from Roseville and Citrus Heights in the north to Elk Grove in the south. We serve office buildings, medical facilities, retail centers, and commercial properties of all sizes.',
   true,
-  'Lawn Care Services in Denver, CO | Rangel''s Turf',
-  'Professional lawn care in Denver. Aeration, seeding, fertilization, and more for Mile High City yards. Serving Capitol Hill, Cherry Creek, Highlands & beyond.'
+  'Commercial Janitorial Services in Sacramento, CA | Rangel Janitorial',
+  'Professional commercial cleaning in Sacramento. Janitorial, day porter, disinfection, and floor care for offices and commercial buildings. Serving Elk Grove, Roseville, Folsom & beyond.'
 ),
 
--- Colorado Springs
+-- Murrieta / Inland Empire
 (
-  'colorado-springs',
-  'Colorado Springs',
-  'Our Colorado Springs operation covers the Pikes Peak region from Monument to Fountain. The Springs sits at 6,035 feet with unique microclimates — from the dry west side near Garden of the Gods to the windswept plains east of Powers Blvd. We tailor every treatment plan to your specific elevation, exposure, and soil conditions.',
-  '102 S Tejon St, Suite 200, Colorado Springs, CO 80903',
-  '(719) 555-0293',
-  ARRAY['Briargate', 'Old Colorado City', 'Broadmoor', 'Manitou Springs', 'Rockrimmon'],
-  'Our Colorado Springs service area spans from Monument and Black Forest in the north to Fountain and Security-Widefield in the south, including Manitou Springs, Woodland Park approaches, and the entire Powers corridor.',
+  'murrieta-inland-empire',
+  'Murrieta / Inland Empire',
+  'Our Murrieta headquarters is the heart of Rangel Janitorial. Since 2021, we have built our reputation in the Inland Empire by delivering reliable, detail-oriented janitorial services to commercial properties throughout Southwest Riverside County. From professional office parks in Temecula to medical buildings in Menifee and industrial facilities in Perris, our local crews know this community and take pride in keeping it clean.',
+  '26323 Jefferson Ave Suite C, Murrieta, CA 92562',
+  '(951) 331-3300',
+  ARRAY['Temecula', 'French Valley', 'Menifee', 'Lake Elsinore', 'Hemet', 'Perris', 'Wildomar'],
+  'Our Inland Empire service area covers all of Southwest Riverside County, from Temecula and French Valley in the south to Lake Elsinore and Perris in the north, including Murrieta, Menifee, Hemet, and Wildomar. We serve commercial offices, retail, medical, industrial, and institutional facilities throughout the region.',
   true,
-  'Lawn Care Services in Colorado Springs, CO | Rangel''s Turf',
-  'Expert lawn care in Colorado Springs. We handle Pikes Peak region soil, altitude, and climate challenges. Serving Briargate, Broadmoor, Old Colorado City & more.'
+  'Commercial Janitorial Services in Murrieta & Inland Empire, CA | Rangel Janitorial',
+  'Murrieta-based commercial cleaning company serving the Inland Empire. Janitorial, day porter, floor care, and disinfection. Serving Temecula, Menifee, Lake Elsinore & more.'
 ),
 
--- Aurora
+-- Walnut Creek / East Bay
 (
-  'aurora',
-  'Aurora',
-  'Aurora stretches across three counties and features some of the most diverse landscapes on the Front Range — from established neighborhoods with mature trees near Colfax to brand-new developments in Southlands and Tallyn''s Reach where builders often leave lawns with compacted subsoil and minimal topsoil. We know how to work with what you''ve got.',
-  '14200 E Alameda Ave, Suite 110, Aurora, CO 80012',
-  '(720) 555-0381',
-  ARRAY['Southlands', 'Saddle Rock', 'Tallyn''s Reach', 'Heather Ridge', 'Mission Viejo'],
-  'We cover all of Aurora from the Colfax corridor south to E-470, and from the Denver border east to Watkins and Bennett. This includes Centennial-adjacent areas, Smoky Hill, and the Quincy reservoir neighborhood.',
+  'walnut-creek-east-bay',
+  'Walnut Creek / East Bay',
+  'Rangel Janitorial''s East Bay operation serves the thriving commercial corridors of Contra Costa County and the Tri-Valley. From high-rise office buildings in downtown Walnut Creek to corporate campuses in San Ramon and Dublin, we bring our proven systems and trained crews to the Bay Area''s East Bay market. Our teams understand the elevated expectations of Bay Area property managers and deliver accordingly — every night, without exception.',
+  '26323 Jefferson Ave Suite C, Murrieta, CA 92562',
+  '(925) 338-0048',
+  ARRAY['Concord', 'Pleasant Hill', 'Lafayette', 'Danville', 'Martinez', 'San Ramon', 'Dublin'],
+  'Our East Bay service area covers Walnut Creek and surrounding Contra Costa County communities including Concord, Pleasant Hill, Lafayette, Danville, and Martinez, as well as the Tri-Valley cities of San Ramon and Dublin. We serve office buildings, medical facilities, retail centers, and commercial properties throughout the region.',
   true,
-  'Lawn Care Services in Aurora, CO | Rangel''s Turf',
-  'Professional lawn care across Aurora, CO. From new-build yards to established neighborhoods, we deliver results. Serving Southlands, Saddle Rock & more.'
-),
-
--- Lakewood
-(
-  'lakewood',
-  'Lakewood',
-  'Lakewood''s proximity to the foothills means more variable terrain, more shade from mature pines, and slightly different soil profiles than Denver proper. Our Lakewood team specializes in the sloped lots, shady yards, and rocky soil that define the Green Mountain and Bear Creek areas. We also serve the flatter, sunnier eastern neighborhoods near Belmar and Applewood.',
-  '355 S Teller St, Suite 150, Lakewood, CO 80226',
-  '(303) 555-0462',
-  ARRAY['Green Mountain', 'Bear Creek', 'Belmar', 'Applewood', 'Lakewood Gulch'],
-  'Our Lakewood coverage includes everything from the Sixth Avenue corridor to Hampden, and from Sheridan Blvd west to the C-470 foothills communities including parts of Morrison and Indian Hills approaches.',
-  true,
-  'Lawn Care Services in Lakewood, CO | Rangel''s Turf',
-  'Lakewood lawn care specialists. We handle foothills terrain, shady yards, and rocky soil. Serving Green Mountain, Bear Creek, Belmar, Applewood & beyond.'
-),
-
--- Boulder
-(
-  'boulder',
-  'Boulder',
-  'Boulder''s environmental ethos runs deep, and so does ours. Our Boulder operation prioritizes organic-forward fertilization, water-wise practices, and pollinator-friendly pest management. We serve everything from the compact yards of University Hill to the sprawling lots of Gunbarrel, adapting to Boulder''s unique microclimate where Chinook winds can swing temperatures 40 degrees in a single afternoon.',
-  '1942 Broadway, Suite 300, Boulder, CO 80302',
-  '(303) 555-0518',
-  ARRAY['University Hill', 'North Boulder', 'South Boulder', 'Table Mesa', 'Gunbarrel'],
-  'We serve the City of Boulder, unincorporated Boulder County including Gunbarrel and Niwot, plus Louisville, Superior, and Lafayette. Our crews are familiar with Boulder''s water-use regulations and xeriscaping ordinances.',
-  true,
-  'Lawn Care Services in Boulder, CO | Rangel''s Turf',
-  'Eco-conscious lawn care in Boulder. Organic-forward fertilization, water-wise practices, pollinator-safe pest control. Serving University Hill to Gunbarrel.'
-),
-
--- Fort Collins
-(
-  'fort-collins',
-  'Fort Collins',
-  'Fort Collins and the northern Front Range get slightly more precipitation than Denver, but the trade-off is colder winters and a shorter growing season. Our Fort Collins crews time every service — from first fertilizer to final winterizer — to the specific climate window of Larimer County. We also serve the fast-growing communities of Timnath and Windsor.',
-  '215 W Oak St, Suite 100, Fort Collins, CO 80521',
-  '(970) 555-0634',
-  ARRAY['Old Town', 'Midtown', 'Fossil Creek', 'Timnath', 'Windsor'],
-  'Our northern Colorado coverage extends from Fort Collins proper through Timnath, Windsor, and Loveland. We also serve Wellington to the north and Berthoud to the south along the I-25 corridor.',
-  true,
-  'Lawn Care Services in Fort Collins, CO | Rangel''s Turf',
-  'Professional lawn care in Fort Collins and northern Colorado. Tuned to Larimer County''s climate. Serving Old Town, Timnath, Windsor, Fossil Creek & more.'
+  'Commercial Janitorial Services in Walnut Creek & East Bay, CA | Rangel Janitorial',
+  'Professional commercial cleaning in Walnut Creek and the East Bay. Janitorial, day porter, disinfection, and floor care. Serving Concord, Lafayette, San Ramon, Dublin & beyond.'
 );
 
 
@@ -288,101 +222,53 @@ INSERT INTO testimonials (
 
 -- Featured testimonials
 (
-  'Karen Lindstrom',
-  'Washington Park, Denver',
+  'Diana Robles',
+  'Roseville, Sacramento',
   5,
-  'We bought our Wash Park bungalow three years ago and the lawn was mostly crabgrass and bare dirt. Rangel''s Turf came out, did a soil test, aerated, overseeded with a bluegrass blend, and put us on a fertilization schedule. By the second summer our neighbors were asking what our secret was. Honestly the best investment we''ve made in this house besides the kitchen remodel.',
-  'seasonal-maintenance',
+  'I manage a 120,000 sq ft Class A office building in Roseville and we switched to Rangel Janitorial about a year ago after our previous vendor kept missing details. The difference was immediate. Restrooms are consistently spotless, lobbies look sharp every morning, and tenant complaints about cleaning have dropped to zero. Their night supervisor actually walks the building after every shift to make sure nothing was missed. That level of accountability is rare in this industry.',
+  'janitorial-cleaning',
   true, true
 ),
 (
-  'David and Maria Espinoza',
-  'Briargate, Colorado Springs',
+  'Mark Ellison',
+  'Walnut Creek, East Bay',
   5,
-  'After our builder left us with six inches of clay and a prayer, Rangel''s Turf transformed our yard from a mud pit into an actual lawn. They aerated twice in the first year, brought in compost topdressing, and seeded with a fescue-bluegrass mix that handles our wind and sun exposure. Two years in and the grass is thick, green, and our kids practically live on it all summer. Worth every penny.',
-  'aeration',
+  'We brought Rangel Janitorial in for day porter service at our multi-tenant office complex in downtown Walnut Creek. Our previous company would disappear for hours at a time — tenants were constantly calling to report dirty restrooms and overflowing trash. Rangel''s porter is on top of everything. Restrooms stay stocked and clean all day, spills get handled within minutes, and our tenants have actually started complimenting the cleanliness. That never happened before.',
+  'day-porter',
   true, true
 ),
 (
-  'Tom Nguyen',
-  'Old Town, Fort Collins',
+  'Sandra Villanueva',
+  'Temecula, Inland Empire',
   5,
-  'I''m a bit of a lawn nerd and I was skeptical about handing things over to a service. But Rangel''s team actually knew more about northern Colorado soil chemistry than I did. They identified an iron deficiency I''d been misdiagnosing as nitrogen shortage for two years. Three treatments later my lawn went from yellow-green to the darkest green on the block. These guys know their stuff.',
-  'fertilization',
+  'After our medical office had a flu outbreak that affected half the staff, we hired Rangel Janitorial for electrostatic disinfection. They came in on a Saturday, treated the entire facility in under three hours, and provided a detailed disinfection report for our records. We were so impressed that we signed up for their recurring janitorial service too. It''s been eight months now and the office has never been cleaner. They understand healthcare facility standards.',
+  'electrostatic-disinfection',
   true, true
 ),
 
 -- Standard testimonials
 (
-  'Rachel Whitfield',
-  'Cherry Creek, Denver',
+  'Kevin Fong',
+  'Elk Grove, Sacramento',
   5,
-  'Rangel''s Turf cleaned up our yard after a massive cottonwood drop in June. They were out within two days of my call, removed everything including the stuff tangled in the flower beds, and the lawn looked better than it had all spring. Very professional crew — they even moved our patio furniture back exactly where it was.',
-  'lawn-cleaning',
+  'Rangel Janitorial stripped and waxed the VCT floors in our 15,000 sq ft retail space and the results were incredible — they look better than when the building was new. The old wax had turned yellow and had layers of buildup from years of poor maintenance by the previous cleaning company. Rangel''s crew took everything down to bare tile and built it back up right. We''re now on their quarterly maintenance program to keep it that way.',
+  'floor-care',
   false, true
 ),
 (
-  'Mike Hannigan',
-  'Saddle Rock, Aurora',
+  'Patricia Harmon',
+  'San Ramon, East Bay',
+  5,
+  'We have a 40,000 sq ft corporate office in San Ramon with wall-to-wall carpet that was starting to look grey and worn, especially in the hallways and conference rooms. Rangel Janitorial did a full hot water extraction cleaning and the carpet looks years younger. They also set us up on a quarterly encapsulation schedule between deep cleans. The combination has kept our carpets looking fresh for six months straight now. Very happy with the results.',
+  'carpet-cleaning',
+  false, true
+),
+(
+  'Richard Contreras',
+  'Menifee, Inland Empire',
   4,
-  'Good service overall. The aeration made a visible difference in how fast water soaks in — we used to get puddles by the back fence and now the water actually goes into the ground. Only reason for four stars instead of five is scheduling took a bit longer than expected during their fall rush, but the work itself was solid.',
-  'aeration',
-  false, true
-),
-(
-  'Jennifer Castillo',
-  'Table Mesa, Boulder',
-  5,
-  'I specifically chose Rangel''s Turf because they offered organic fertilizer options. Living in Boulder, I didn''t want harsh chemicals around my garden or the bees. Their organic program took a little longer to show results compared to synthetic, but by midsummer the lawn was gorgeous and I felt good about what was going into the soil. They also gave me great watering tips that cut my bill down.',
-  'fertilization',
-  false, true
-),
-(
-  'Brian Kowalski',
-  'Green Mountain, Lakewood',
-  4,
-  'Our lot has a steep slope in the backyard that other companies didn''t want to deal with. Rangel''s Turf came out, assessed the grade, and did a combination of aeration and overseeding with a deep-root fescue that''s actually holding the soil better now. Still working on full coverage on the steepest section, but huge improvement from where we started.',
-  'seeding',
-  false, true
-),
-(
-  'Amanda Reyes',
-  'Highlands, Denver',
-  5,
-  'Clover mites were invading our house every spring — hundreds of tiny red dots on the windowsills. Rangel''s Turf did a perimeter treatment and lawn application that knocked them out completely. For the first time in three years we had a mite-free April. They also explained why our south-facing foundation wall was the entry point, which no one else had bothered to do.',
-  'pest-control',
-  false, true
-),
-(
-  'Greg Johannsen',
-  'Fossil Creek, Fort Collins',
-  5,
-  'Signed up for the seasonal maintenance plan last March and it''s been the best lawn care decision I''ve made. I don''t have to think about what needs doing or when — they just show up, do great work, and leave a door tag telling me what was done. My lawn survived last summer''s heat wave better than anyone else''s on the street.',
-  'seasonal-maintenance',
-  false, true
-),
-(
-  'Priya Sharma',
-  'Stapleton, Denver',
-  4,
-  'We''re in a newer Stapleton development where the soil is basically construction fill with an inch of sod on top. Rangel''s Turf was honest about the challenges and set realistic expectations. After a full season of aeration, topdressing, and targeted fertilization, the lawn is finally starting to fill in and actually feel like real grass. Appreciate their honesty and patience.',
-  'seeding',
-  false, true
-),
-(
-  'Steve Caldwell',
-  'Applewood, Lakewood',
-  5,
-  'Had a grub problem that was destroying patches of our front lawn — you could literally peel the sod back like a carpet. Rangel''s Turf identified the species, treated with a targeted grub control, and reseeded the damaged areas. Within six weeks the dead patches were filling in. They came back for a free follow-up inspection too. Stand-up company.',
-  'pest-control',
-  false, true
-),
-(
-  'Lisa Tran',
-  'North Boulder, Boulder',
-  5,
-  'Rangel''s Turf did a full spring cleanup for us after a brutal winter with multiple heavy snows. Broken branches everywhere, leaves that never got picked up in November, matted grass underneath it all. They cleared everything, dethatched the worst areas, and got us set up for the season. Our yard went from depressing to inviting in a single visit. Highly recommend.',
-  'lawn-cleaning',
+  'We hired Rangel Janitorial for nightly cleaning of our two-story office building in Menifee. They''ve been reliable and thorough — the building looks great every morning when our staff arrives. The only reason I''m not giving five stars is because there was a minor miscommunication during the first week about which conference rooms to reset. But once we flagged it, they updated their checklist immediately and it hasn''t happened since. Good people, responsive management.',
+  'janitorial-cleaning',
   false, true
 );
 
@@ -396,132 +282,68 @@ INSERT INTO faqs (
   service_slug, location_slug
 ) VALUES
 
--- GENERAL (5)
+-- FAQ 1
 (
-  'What areas of Colorado does Rangel''s Turf serve?',
-  'We currently serve six major metro areas along the Front Range: Denver, Colorado Springs, Aurora, Lakewood, Boulder, and Fort Collins. Within each city we cover the surrounding suburbs and unincorporated areas as well. Check our Locations page for a full list of neighborhoods, or give us a call — if you''re within about 15 miles of one of our offices, we can probably get to you.',
+  'What''s included in your janitorial cleaning service?',
+  'Our standard janitorial cleaning covers everything your facility needs to look and feel professional every day. This includes vacuuming and mopping all floors, full restroom sanitation and supply restocking, trash and recycling removal, break room and kitchen cleaning, dusting of surfaces and fixtures, and lobby and reception area detailing. We build a customized checklist for each client based on your facility''s layout, traffic patterns, and priorities. Cleaning frequency can be nightly, multiple times per week, or on a custom schedule that fits your operations.',
   'general', 1, true,
-  NULL, NULL
-),
-(
-  'Are your lawn care products safe for kids and pets?',
-  'Yes. All of our standard products are EPA-registered and applied according to label directions, which means they are safe for children and pets once dry — typically within 1-2 hours. For customers who prefer an extra layer of caution, we offer organic and reduced-risk product options in our fertilization and pest control programs. Just let us know your preferences when you schedule.',
-  'general', 2, true,
-  NULL, NULL
-),
-(
-  'Do I need to be home when Rangel''s Turf comes for service?',
-  'No, you don''t need to be home. We just need access to your yard. If your property has a locked gate, you can provide a gate code or leave it unlocked on your service day. We''ll leave a detailed door hanger after each visit summarizing the work completed and any recommendations. You''ll also get an email confirmation with notes from the technician.',
-  'general', 3, true,
-  NULL, NULL
-),
-(
-  'How does Colorado''s altitude and climate affect my lawn?',
-  'Colorado''s combination of high altitude (5,000-7,500 ft along the Front Range), intense UV radiation, low humidity, alkaline clay soils, and extreme temperature swings creates a uniquely challenging environment for turf grass. Cool-season grasses like Kentucky Bluegrass and Tall Fescue do best here, but they need proper soil preparation, appropriate watering, and season-specific nutrient programs. That''s exactly what we specialize in.',
-  'general', 4, true,
-  NULL, NULL
-),
-(
-  'What is your satisfaction guarantee?',
-  'If you''re not happy with any service, contact us within 48 hours and we''ll come back to make it right at no additional charge. We stand behind every treatment and application. For our seasonal maintenance customers, if your lawn doesn''t show measurable improvement within the first full season, we''ll credit your next quarter of service.',
-  'general', 5, true,
-  NULL, NULL
+  'janitorial-cleaning', NULL
 ),
 
--- PRICING (5)
+-- FAQ 2
 (
-  'How much does lawn aeration cost in Colorado?',
-  'Our core aeration service starts at $125 for a standard residential lawn up to 5,000 sq ft. Larger properties are priced based on total turf area — most homes in the Denver metro fall between $125 and $250. We offer a 15% discount when you bundle aeration with overseeding, which is our most popular fall combination. Request a free estimate for exact pricing.',
-  'pricing', 1, true,
-  'aeration', 'denver'
-),
-(
-  'Do you offer free estimates?',
-  'Absolutely. Every new customer gets a free on-site estimate where we assess your lawn''s size, condition, soil type, and specific needs. There''s no obligation and no pressure. We''ll provide a written quote within 24 hours of the visit. You can request an estimate through our website, by phone, or by text.',
+  'How much does commercial cleaning cost?',
+  'Commercial cleaning pricing depends on several factors: your facility''s square footage, the scope of services needed, cleaning frequency, and any specialty services like floor care or disinfection. Most of our recurring janitorial contracts for standard office buildings fall between $500 and $3,000 per month. We provide free, no-obligation walk-throughs and written proposals so you know exactly what you''re getting and what it costs — no hidden fees or surprises. Contact us to schedule a walk-through of your facility.',
   'pricing', 2, true,
   NULL, NULL
 ),
+
+-- FAQ 3
 (
-  'Are seasonal maintenance plans cheaper than individual services?',
-  'Yes, our seasonal maintenance plans save you 15-20% compared to booking each service individually. The exact savings depend on your lawn''s size and the services included, but most homeowners save $200-400 over the course of a full year. Plus, you get priority scheduling during our busiest months (April-May and September-October) when individual bookings can have 2-3 week wait times.',
-  'pricing', 3, true,
-  'seasonal-maintenance', NULL
-),
-(
-  'Do you charge extra for hard-to-access or sloped yards?',
-  'In most cases, no. Standard slopes, fenced yards, and narrow access points are all part of normal service. We may add a small surcharge (typically $25-50) for extreme slopes that require specialized equipment, properties where we cannot fit standard equipment through gates, or yards that require significant manual labor beyond the norm. We''ll always discuss this upfront during your estimate.',
-  'pricing', 4, true,
-  NULL, 'lakewood'
-),
-(
-  'What payment methods do you accept?',
-  'We accept all major credit cards (Visa, Mastercard, Amex, Discover), ACH bank transfers, checks, and digital wallets (Apple Pay, Google Pay) through our online portal. Seasonal maintenance customers can set up autopay for a hassle-free experience. We send invoices via email after each service, with net-15 terms for residential and net-30 for commercial accounts.',
-  'pricing', 5, true,
+  'Are your employees background-checked?',
+  'Yes, every Rangel Janitorial employee undergoes a thorough background check before they ever set foot in your building. This includes criminal history, identity verification, and reference checks. All of our cleaning staff are also fully insured and bonded. We understand that you''re trusting us with access to your facility after hours, and we take that responsibility seriously. Our supervisors conduct regular quality inspections and we maintain detailed access logs.',
+  'general', 3, true,
   NULL, NULL
 ),
 
--- SERVICES (5)
+-- FAQ 4
 (
-  'When is the best time to aerate my lawn in Colorado?',
-  'The ideal window for core aeration along the Front Range is early September through mid-October, when cool-season grasses are entering their strongest growth phase and the soil is still warm enough for root recovery. A secondary window exists in late April through May. Fall aeration pairs perfectly with overseeding because the open cores give seeds direct soil contact. We recommend avoiding summer aeration, as heat stress makes recovery difficult.',
-  'services', 1, true,
-  'aeration', NULL
-),
-(
-  'What grass seed types work best at Colorado''s altitude?',
-  'For most Front Range lawns between 5,000 and 7,500 feet, we recommend a blend of Kentucky Bluegrass (for density and self-repair), Tall Fescue (for drought tolerance and deep roots), and Perennial Ryegrass (for fast germination and fill). The exact ratio depends on your sun exposure, soil, and water availability. Shady areas may benefit from Fine Fescue additions. We never use warm-season grasses like Bermuda, which can''t survive Colorado winters.',
-  'services', 2, true,
-  'seeding', NULL
-),
-(
-  'How often should I fertilize my Colorado lawn?',
-  'Most Colorado lawns do best with 4-5 fertilizer applications per year: a light feeding in late April, a balanced application in late May, a summer maintenance dose in July (if irrigated), a fall growth application in September, and a winterizer in late October or early November. Over-fertilizing is a common mistake — it promotes shallow roots and increases water demand, which is the opposite of what you want in our semi-arid climate.',
-  'services', 3, true,
-  'fertilization', NULL
-),
-(
-  'What pests should I watch for in my Colorado lawn?',
-  'The most common lawn pests along the Front Range are white grubs (Japanese beetle and masked chafer larvae), billbugs, sod webworms, and clover mites. Grubs cause the most damage — they eat grass roots underground, creating dead patches you can pull up like loose carpet. Clover mites are more of a nuisance pest that invades homes in spring and fall. We recommend a preventive grub treatment in late May and targeted treatment for other pests as identified.',
-  'services', 4, true,
-  'pest-control', NULL
-),
-(
-  'What does your seasonal maintenance plan include in winter?',
-  'While your lawn is dormant from November through March, our seasonal plan includes a late-fall winterizer fertilizer application, final leaf cleanup, irrigation system blowout coordination (we''ll schedule with your irrigation company or do it ourselves if you prefer), and a winter dormancy assessment. In early spring, we''re the first ones out with pre-emergent weed control so crabgrass and spurge don''t get a foothold before your grass wakes up.',
-  'services', 5, true,
-  'seasonal-maintenance', NULL
+  'Do you use eco-friendly cleaning products?',
+  'Yes, we prioritize Green Seal and EPA Safer Choice certified cleaning products across all of our services. Our standard cleaning program uses low-VOC, biodegradable products that are safer for your employees, our cleaning staff, and the environment — without sacrificing cleaning effectiveness. For electrostatic disinfection, we use EPA List N approved hospital-grade disinfectants that meet the highest pathogen elimination standards. If your facility has specific green building or LEED requirements, we can tailor our product selection to meet those certifications.',
+  'general', 4, true,
+  NULL, NULL
 ),
 
--- SCHEDULING (5)
+-- FAQ 5
 (
-  'How far in advance should I book aeration in the fall?',
-  'We strongly recommend booking fall aeration by mid-August. September and October are our busiest months, and slots fill up fast — especially on weekends. Seasonal maintenance customers get priority scheduling, so they''re locked in before we open the calendar to individual bookings. If you''re calling in late September, we can usually still fit you in, but you may have less flexibility on specific dates.',
-  'scheduling', 1, true,
-  'aeration', NULL
-),
-(
-  'Can I schedule service for a specific day and time?',
-  'We schedule by day rather than specific time windows. On your service day, our crews typically work between 8:00 AM and 5:00 PM. We can accommodate morning-only or afternoon-only requests when possible, but we can''t guarantee exact arrival times due to the nature of route-based scheduling. You''ll receive a text notification when our crew is en route to your property.',
-  'scheduling', 2, true,
-  NULL, NULL
-),
-(
-  'What happens if it rains on my scheduled service day?',
-  'Light rain generally doesn''t affect our services — in fact, aeration and seeding actually benefit from moist soil. However, we''ll reschedule if there''s heavy rain, lightning, or standing water that would cause equipment to damage your lawn. If we need to reschedule, we''ll notify you by text and get you on the next available day, usually within 2-3 business days.',
-  'scheduling', 3, true,
-  NULL, NULL
-),
-(
-  'How do I reschedule or cancel a service visit?',
-  'You can reschedule or cancel through our online customer portal, by calling our office, or by replying to your appointment confirmation text. We ask for at least 24 hours'' notice for rescheduling. Cancellations within 24 hours of service may incur a $35 trip fee if our crew has already been dispatched. Seasonal maintenance customers can pause service for up to 30 days without affecting their plan.',
-  'scheduling', 4, true,
-  NULL, NULL
-),
-(
-  'Do you offer service on weekends in the Denver area?',
-  'Yes, we offer Saturday service in Denver and most of our metro locations. Saturday slots are limited and tend to book up 2-3 weeks in advance, so plan ahead if weekends are your only option. We do not currently offer Sunday service. For our Fort Collins and Colorado Springs locations, Saturday availability is seasonal — available April through October.',
+  'How often should we schedule commercial cleaning?',
+  'The right cleaning frequency depends on your facility type, foot traffic, and the impression you want to make. Most office buildings with 20 or more employees benefit from nightly cleaning five days per week. Smaller offices may do well with three nights per week. High-traffic environments like medical offices, retail spaces, and multi-tenant buildings often need nightly service plus daytime porter coverage. We''ll assess your facility during a free walk-through and recommend a frequency that keeps your space consistently clean without overspending.',
   'scheduling', 5, true,
-  NULL, 'denver'
+  NULL, NULL
+),
+
+-- FAQ 6
+(
+  'What industries do you serve?',
+  'Rangel Janitorial serves a wide range of commercial and institutional clients. Our core industries include Class A and B office buildings, medical and dental offices, retail and shopping centers, industrial and warehouse facilities, churches and houses of worship, schools and educational institutions, government and municipal buildings, and fitness centers. Each industry has unique cleaning requirements and compliance standards, and we train our crews accordingly. Whether you need OSHA-compliant cleaning for a medical office or after-hours service for a retail store, we have the experience and systems to deliver.',
+  'general', 6, true,
+  NULL, NULL
+),
+
+-- FAQ 7
+(
+  'Do you offer emergency or one-time cleaning?',
+  'Yes, we handle both emergency and one-time cleaning requests. If you have a flood, construction dust, move-in or move-out cleaning, or a special event that requires fast turnaround, we can mobilize a crew — often within 24 to 48 hours. One-time deep cleans are also a great way to try our services before committing to a recurring contract. Many of our long-term clients started with a single project and were impressed enough to sign on for ongoing service.',
+  'services', 7, true,
+  NULL, NULL
+),
+
+-- FAQ 8
+(
+  'What makes Rangel Janitorial different from other janitorial companies?',
+  'Three things set us apart. First, accountability — every facility gets a dedicated supervisor who conducts quality inspections after each cleaning shift, not just spot checks once a month. Second, communication — you get a direct line to our operations team, not a call center. When you call Rangel Janitorial, a real person who knows your building answers. Third, consistency — our crews follow detailed, facility-specific checklists that we build during onboarding and refine over time based on your feedback. We founded this company in 2021 on the belief that commercial cleaning should be reliable, transparent, and done right every single night. That is what creating excellent first impressions means to us.',
+  'general', 8, true,
+  NULL, NULL
 );
 
 
@@ -538,55 +360,55 @@ INSERT INTO leads (
 
 -- New lead
 (
-  'James', 'Moreno',
-  'james.moreno@gmail.com', '(720) 555-8812',
-  '4521 Vine St', 'Denver', 'CO', '80216',
-  'aeration',
-  'Just moved into a Park Hill home with a yard that hasn''t been maintained in at least a year. The soil is rock hard and the grass is mostly dead. Looking for aeration and seeding — wondering if you can come take a look this week and give me a quote. Yard is about 4,000 sq ft front and back combined.',
+  'Angela', 'Torres',
+  'angela.torres@cbrealty.com', '(916) 555-4821',
+  '1500 Eureka Rd', 'Roseville', 'CA', '95661',
+  'janitorial-cleaning',
+  'We manage a 3-story office building in Roseville with about 45,000 sq ft of leasable space. Our current cleaning company has been inconsistent and we are getting complaints from tenants. Looking for a reliable nightly janitorial service — can you come do a walk-through this week?',
   'new',
-  'google', 'cpc', 'denver-aeration-spring'
+  'google', 'cpc', 'sacramento-janitorial'
 ),
 
 -- Contacted lead
 (
-  'Samantha', 'O''Brien',
-  'sobrien.designs@outlook.com', '(719) 555-4467',
-  '1809 N Cascade Ave', 'Colorado Springs', 'CO', '80907',
-  'seasonal-maintenance',
-  'Interested in your seasonal maintenance plan. We have a large corner lot in Old Colorado City with established bluegrass that needs consistent care. I work from home so scheduling is flexible. Would love to understand what a full-year plan would look like and cost for about 7,500 sq ft of turf.',
+  'Brian', 'Nakamura',
+  'bnakamura@walnutcreekmedical.com', '(925) 555-7733',
+  '1855 San Miguel Dr', 'Walnut Creek', 'CA', '94596',
+  'electrostatic-disinfection',
+  'We are a multi-specialty medical office in Walnut Creek and need electrostatic disinfection added to our current cleaning protocol. We need documentation of disinfection for our infection control compliance. Please call me to discuss pricing for weekly disinfection service.',
   'contacted',
-  'facebook', 'social', 'spring-seasonal-promo'
+  'google', 'organic', NULL
 ),
 
 -- Qualified lead
 (
-  'Robert', 'Kim',
-  'rkim.boulder@protonmail.com', '(303) 555-2290',
-  '3200 Moorhead Ave', 'Boulder', 'CO', '80305',
-  'fertilization',
-  'We''re in South Boulder and have been doing our own fertilization but the lawn still looks pale and thin, especially in the front yard which gets full afternoon sun. A neighbor recommended you. I''d like to get a soil test done and switch to a professional program. We also have two dogs and a vegetable garden, so organic options are important to us.',
+  'Maria', 'Gutierrez',
+  'mgutierrez@temeculamall.com', '(951) 555-2209',
+  '40820 Winchester Rd', 'Temecula', 'CA', '92591',
+  'day-porter',
+  'Managing a retail center in Temecula with heavy foot traffic. We need a day porter on-site Monday through Saturday from 8 AM to 5 PM to keep restrooms, food court area, and common areas clean during business hours. Currently spending a fortune on complaint resolution — hoping a dedicated porter solves it.',
   'qualified',
-  NULL, NULL, NULL
+  'facebook', 'social', 'inland-empire-dayporter'
 ),
 
 -- Converted lead
 (
-  'Michelle', 'Trujillo',
-  'mtrujillo77@yahoo.com', '(303) 555-6138',
-  '690 Parfet St', 'Lakewood', 'CO', '80215',
-  'pest-control',
-  'Grubs destroyed about a third of our front lawn last August. We treated ourselves with a big-box store product but they''re back this year. Need professional treatment ASAP before they do more damage. Also need to reseed the dead patches once the grubs are handled. House backs up to Bear Creek greenbelt if that matters for treatment type.',
+  'David', 'Patel',
+  'dpatel@concordofficepark.com', '(925) 555-8814',
+  '2300 Clayton Rd', 'Concord', 'CA', '94520',
+  'floor-care',
+  'We have about 8,000 sq ft of VCT flooring in our office building lobby and hallways that hasn''t been stripped and waxed in over two years. It looks terrible. Need a full strip and wax and then want to set up quarterly maintenance. Also interested in getting a quote for nightly janitorial while you are here.',
   'converted',
-  'google', 'organic', NULL
+  'google', 'cpc', 'east-bay-floorcare'
 ),
 
 -- Lost lead
 (
-  'Tyler', 'Brandt',
-  'tyler.brandt@colostate.edu', '(970) 555-9903',
-  '2112 Stover St', 'Fort Collins', 'CO', '80525',
-  'lawn-cleaning',
-  'Renting a house near CSU campus and the landlord wants us to handle spring cleanup. Looking for a one-time leaf and debris removal — the yard is small, maybe 2,000 sq ft. Honestly just need the cheapest option to satisfy the lease requirement. Can you send a quote?',
+  'Jennifer', 'Walsh',
+  'jwalsh@sacramentofitness.com', '(916) 555-3347',
+  '7700 Sunrise Blvd', 'Citrus Heights', 'CA', '95610',
+  'carpet-cleaning',
+  'Need a one-time carpet cleaning for our gym facility — about 3,000 sq ft of carpet in the lobby and office areas. We had a pipe leak and there is some water staining. Looking for the most affordable option. When is your earliest availability?',
   'lost',
-  'google', 'cpc', 'fort-collins-cleanup'
+  'yelp', 'referral', NULL
 );
