@@ -10,9 +10,9 @@ interface Benefit {
 const benefits: Benefit[] = [
   {
     icon: Users,
-    title: 'Reliable, Background-Checked Crews',
+    title: 'Reliable, Professional Crews',
     description:
-      'Every team member is thoroughly vetted and background-checked. You can trust our crews in your facility after hours or during business operations.',
+      'Every team member is thoroughly trained and vetted. You can trust our crews in your facility after hours or during business operations.',
   },
   {
     icon: ShieldCheck,

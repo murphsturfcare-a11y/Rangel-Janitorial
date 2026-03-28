@@ -83,7 +83,7 @@ const servicesData: Record<string, ServiceData> = {
       'Rangel Janitorial provides comprehensive janitorial cleaning services for commercial facilities throughout California. With over 30 years of experience, our trained crews deliver consistent, thorough cleaning that keeps your building looking its best every single day. We understand that a clean facility creates excellent first impressions for your tenants, visitors, and employees.',
       'Our janitorial services cover every aspect of daily and nightly facility maintenance. From lobbies and common areas to restrooms, break rooms, and individual office suites, we follow detailed cleaning checklists customized to your building\'s specific needs. Our crews are trained in proper cleaning techniques, chemical handling, and safety protocols to ensure the highest quality results with every visit.',
       'We serve a wide range of facility types including Class A office buildings, corporate campuses, light industrial parks, multi-unit complexes, medical and dental facilities, municipalities, and fitness centers. Each facility type has unique cleaning requirements, and our team has the expertise to meet them all. Whether you need nightly cleaning for a corporate office or specialized cleaning for a medical facility, Rangel Janitorial delivers reliable, professional results.',
-      'Our commitment to quality goes beyond just cleaning. We provide dedicated account managers, regular quality inspections, and open communication channels to ensure your complete satisfaction. We carry full insurance and all employees undergo background checks for your peace of mind. When you partner with Rangel Janitorial, you get a cleaning team that treats your facility as if it were their own.',
+      'Our commitment to quality goes beyond just cleaning. We provide dedicated account managers, regular quality inspections, and open communication channels to ensure your complete satisfaction. We carry full insurance and all employees are thoroughly trained for your peace of mind. When you partner with Rangel Janitorial, you get a cleaning team that treats your facility as if it were their own.',
     ],
     included: [
       'Lobby and common area cleaning',
@@ -147,9 +147,9 @@ const servicesData: Record<string, ServiceData> = {
           'Yes, we offer both daily and nightly janitorial services. Most office buildings prefer nightly cleaning so work is completed before employees arrive each morning. We work with you to determine the best schedule for your facility.',
       },
       {
-        question: 'Are your employees background checked and insured?',
+        question: 'Are your employees trained and insured?',
         answer:
-          'Absolutely. All Rangel Janitorial employees undergo thorough background checks, and we carry comprehensive general liability and workers compensation insurance for your protection and peace of mind.',
+          'Absolutely. All Rangel Janitorial employees are professionally trained on cleaning protocols and safety procedures. We carry comprehensive general liability and workers compensation insurance for your protection and peace of mind.',
       },
       {
         question: 'How do you ensure consistent quality?',

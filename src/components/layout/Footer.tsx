@@ -154,7 +154,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Rangel Janitorial. All rights reserved.
           </p>
           <p className="font-body text-sm text-gray-400">
-            Background-Checked Crews | Fully Insured | Satisfaction Guaranteed
+            Professional Crews | Fully Insured | Satisfaction Guaranteed
           </p>
         </div>
       </div>

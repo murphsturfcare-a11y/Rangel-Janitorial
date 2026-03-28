@@ -9,7 +9,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "Is Rangel Janitorial licensed and insured?",
-    answer: "Yes, Rangel Janitorial is fully licensed and insured. With over 30 years of experience in the commercial cleaning and disinfecting industry, we bring professional-grade expertise to every janitorial job. All of our team members are background-checked and trained to meet the highest industry standards.",
+    answer: "Yes, Rangel Janitorial is fully licensed and insured. With over 30 years of experience in the commercial cleaning and disinfecting industry, we bring professional-grade expertise to every janitorial job. All of our team members are trained to meet the highest industry standards.",
     category: "general",
   },
   {
@@ -38,8 +38,8 @@ export const faqs: FAQItem[] = [
     category: "general",
   },
   {
-    question: "Are your employees background-checked?",
-    answer: "Yes, every Rangel Janitorial team member undergoes a thorough background check before being placed in any facility. We also carry full liability insurance and workers' compensation coverage to protect our clients and employees.",
+    question: "How are your crews trained?",
+    answer: "Every Rangel Janitorial team member goes through comprehensive training on cleaning protocols, chemical handling, and facility-specific procedures. We also carry full liability insurance and workers' compensation coverage.",
     category: "general",
   },
 

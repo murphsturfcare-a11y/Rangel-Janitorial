@@ -61,7 +61,7 @@ export const testimonials: Testimonial[] = [
     customerName: 'Susan Chang',
     customerLocation: 'Walnut Creek',
     rating: 5,
-    reviewText: "I manage a medical office building in Concord with six tenant practices. Rangel Janitorial provides nightly janitorial and weekly floor care for the entire building. They understand the compliance requirements for medical facilities and their crew is always background-checked and professional. Couldn't ask for a better partner.",
+    reviewText: "I manage a medical office building in Concord with six tenant practices. Rangel Janitorial provides nightly janitorial and weekly floor care for the entire building. They understand the compliance requirements for medical facilities and their crew is always professional and thorough. Couldn't ask for a better partner.",
     serviceType: 'floor-care',
   },
   {

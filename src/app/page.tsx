@@ -189,7 +189,7 @@ export default function Home() {
               <span className="text-sage-light">You Can Count On</span>
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-gray-200 font-body leading-relaxed max-w-2xl">
-              30+ years of experience. Background-checked crews. Spotless facilities — guaranteed.
+              30+ years of experience. Spotless facilities — guaranteed. Trusted by 500+ California businesses.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
@@ -216,7 +216,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
             {[
-              { icon: Users, label: 'Background-Checked Crews' },
+              { icon: Users, label: 'Trained Professional Crews' },
               { icon: ShieldCheck, label: 'Fully Bonded & Insured' },
               { icon: ThumbsUp, label: 'Satisfaction Guaranteed' },
             ].map((item) => {

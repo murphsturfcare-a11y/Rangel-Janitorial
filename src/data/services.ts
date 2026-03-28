@@ -7,12 +7,12 @@ export const services: Service[] = [
     shortDescription: 'Comprehensive nightly and recurring cleaning for corporate buildings, warehouses, residential buildings, and offices — tailored to your facility.',
     fullDescription: `Rangel Janitorial provides full-service janitorial cleaning for commercial facilities of all sizes. Our trained crews handle everything from nightly office cleaning and restroom sanitization to trash removal, surface disinfecting, and common area maintenance. We customize every cleaning program to match your facility's specific needs, traffic patterns, and schedule.
 
-Whether you manage a Class A office building, a corporate campus, a light industrial park, or a multi-unit residential property, our crews deliver consistent results you can count on. Every team member is background-checked, trained on proper cleaning protocols, and equipped with commercial-grade products and equipment.
+Whether you manage a Class A office building, a corporate campus, a light industrial park, or a multi-unit residential property, our crews deliver consistent results you can count on. Every team member is trained on proper cleaning protocols, and equipped with commercial-grade products and equipment.
 
 We understand that a clean facility isn't just about appearances — it's about creating a healthy environment for your employees, tenants, and visitors. That's why we follow systematic cleaning checklists, conduct regular quality inspections, and maintain open communication with every client. Our goal is simple: when you walk into your building each morning, everything should be spotless.`,
     benefits: [
       'Customized cleaning programs for your specific facility',
-      'Trained, background-checked cleaning crews',
+      'Trained, professional cleaning crews',
       'Nightly, weekly, or custom scheduling options',
       'Complete restroom sanitization and restocking',
       'Break room and kitchen cleaning',
@@ -33,7 +33,7 @@ We understand that a clean facility isn't just about appearances — it's about 
     iconName: 'Building2',
     image: '/images/stock/janitorial-cleaning.jpg',
     metaTitle: "Commercial Janitorial Cleaning Services | Rangel Janitorial",
-    metaDescription: "Professional janitorial cleaning for offices, warehouses, and commercial buildings. Customized cleaning programs with trained, background-checked crews. Serving California.",
+    metaDescription: "Professional janitorial cleaning for offices, warehouses, and commercial buildings. Customized cleaning programs with trained, professional crews. Serving California.",
     faqs: [
       {
         question: 'What types of facilities do you clean?',
@@ -44,8 +44,8 @@ We understand that a clean facility isn't just about appearances — it's about 
         answer: 'We offer nightly, multiple-times-per-week, weekly, and custom scheduling. Most commercial clients choose nightly service 5 days per week, but we tailor the frequency to your needs and budget.',
       },
       {
-        question: 'Are your cleaning crews background-checked?',
-        answer: 'Yes. Every Rangel Janitorial team member undergoes a thorough background check before being assigned to any facility. We take security seriously.',
+        question: 'How do you ensure quality?',
+        answer: 'We use detailed cleaning checklists, conduct regular quality inspections, and assign dedicated account managers to ensure consistent results.',
       },
       {
         question: 'Can you handle multi-building properties?',

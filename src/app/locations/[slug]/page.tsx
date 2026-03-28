@@ -145,9 +145,9 @@ const locationFaqs = [
       'Our services include lobby and common area cleaning, restroom sanitation and restocking, break room cleaning, trash and recycling removal, floor care, and more. We customize each plan to your facility.',
   },
   {
-    question: 'Are your employees background checked and insured?',
+    question: 'Are your employees trained and insured?',
     answer:
-      'Absolutely. All Rangel Janitorial employees undergo thorough background checks, and we carry comprehensive general liability and workers compensation insurance.',
+      'Absolutely. All Rangel Janitorial employees are professionally trained on cleaning protocols and safety procedures. We carry comprehensive general liability and workers compensation insurance for your protection and peace of mind.',
   },
   {
     question: 'How do you ensure consistent quality?',

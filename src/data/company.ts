@@ -26,7 +26,7 @@ export const company: Company = {
     },
     {
       title: "Professional Teams",
-      description: "Every team member is carefully selected, background-checked, and trained to handle commercial environments with care. We invest in our people so they take pride in the service they provide.",
+      description: "Every team member is carefully selected and trained to handle commercial environments with care. We invest in our people so they take pride in the service they provide.",
     },
     {
       title: "Satisfaction Guaranteed",
@@ -47,6 +47,6 @@ export const company: Company = {
   certifications: [
     "Licensed & Insured",
     "EPA List N Approved Disinfectants",
-    "Background-Checked Crews",
+    "Trained Professional Crews",
   ],
 };
