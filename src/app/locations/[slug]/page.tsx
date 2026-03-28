@@ -19,6 +19,18 @@ import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/
 import FAQ from '@/components/sections/FAQ';
 
 // ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+function toSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[\/]/g, '-')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+// ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
@@ -108,12 +120,12 @@ const processSteps = [
 ];
 
 const galleryImages = [
-  { src: '/images/stock/gallery-office-lobby.jpg', alt: "Clean office lobby maintained by Rangel Janitorial commercial cleaning" },
-  { src: '/images/stock/gallery-office-hallway.jpg', alt: "Spotless office hallway after professional janitorial service" },
-  { src: '/images/stock/gallery-conference-room.jpg', alt: "Conference room cleaned and sanitized by professional janitorial crew" },
-  { src: '/images/stock/gallery-medical-office.jpg', alt: "Medical office waiting room cleaned to healthcare standards" },
-  { src: '/images/stock/gallery-gym-fitness.jpg', alt: "Fitness center floor and equipment cleaned by Rangel Janitorial" },
-  { src: '/images/stock/gallery-floor-shine.jpg', alt: "Polished commercial VCT floor after professional strip and wax service" },
+  { src: '/images/rangel/deb1af_6cf9db2e1a39480a854bf4f15e86dd74~mv2.jpg', alt: "Rangel Janitorial crew member sanitizing a commercial restroom" },
+  { src: '/images/rangel/10uvmmedicaloffices-studiosb.jpg', alt: "Medical office waiting room maintained by Rangel Janitorial" },
+  { src: '/images/rangel/iStock_class.jpg', alt: "Polished commercial lobby floor cleaned by Rangel Janitorial" },
+  { src: '/images/rangel/Website_2013_City_Hall_Entrance_HD.jpg', alt: "Municipal building entrance maintained by Rangel Janitorial" },
+  { src: '/images/rangel/fitness-room.jpg', alt: "Fitness center equipment floor cleaned by Rangel Janitorial" },
+  { src: '/images/rangel/OIP_jfif.jpg', alt: "Commercial office building serviced by Rangel Janitorial" },
 ];
 
 const locationFaqs = [
@@ -158,8 +170,8 @@ const locationData: Record<string, LocationData> = {
     city: 'Sacramento',
     slug: 'sacramento',
     state: 'CA',
-    phone: '(916) 432-5033',
-    email: 'info@rangeljanitorial.com',
+    phone: '(916) 426-2311',
+    email: 'ralph@rangeljanitorial.com',
     neighborhoods: [
       'Sacramento',
       'Elk Grove',
@@ -206,7 +218,7 @@ const locationData: Record<string, LocationData> = {
     slug: 'murrieta',
     state: 'CA',
     phone: '(951) 331-3300',
-    email: 'info@rangeljanitorial.com',
+    email: 'ralph@rangeljanitorial.com',
     neighborhoods: [
       'Murrieta',
       'Temecula',
@@ -256,8 +268,8 @@ const locationData: Record<string, LocationData> = {
     city: 'Walnut Creek',
     slug: 'walnut-creek',
     state: 'CA',
-    phone: '(925) 338-0048',
-    email: 'info@rangeljanitorial.com',
+    phone: '(925) 655-9008',
+    email: 'ralph@rangeljanitorial.com',
     neighborhoods: [
       'Walnut Creek',
       'Concord',
@@ -779,12 +791,16 @@ export default async function LocationPage({
               <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {location.neighborhoods.map((neighborhood) => (
                   <StaggerItem key={neighborhood} direction="scale">
-                    <div className="flex items-center gap-2 bg-white rounded-lg px-4 py-3 shadow-sm">
+                    <Link
+                      href={`/locations/${location.slug}/${toSlug(neighborhood)}`}
+                      className="group flex items-center gap-2 bg-white rounded-lg px-4 py-3 shadow-sm hover:shadow-md hover:border-sage/30 border border-transparent transition-all"
+                    >
                       <CheckCircle className="w-4 h-4 text-sage flex-shrink-0" />
-                      <span className="text-charcoal font-body text-sm font-medium">
+                      <span className="text-charcoal font-body text-sm font-medium group-hover:text-forest transition-colors">
                         {neighborhood}
                       </span>
-                    </div>
+                      <ArrowRight className="w-3 h-3 text-sage ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    </Link>
                   </StaggerItem>
                 ))}
               </StaggerContainer>

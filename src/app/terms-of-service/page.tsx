@@ -529,10 +529,10 @@ export default function TermsOfServicePage() {
                   local office number
                 </a>) or by email at{' '}
                 <a
-                  href="mailto:info@rangeljanitorial.com"
+                  href="mailto:ralph@rangeljanitorial.com"
                   className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
                 >
-                  info@rangeljanitorial.com
+                  ralph@rangeljanitorial.com
                 </a>{' '}
                 to discuss your concern. Many issues can be resolved quickly through open and honest
                 communication. We aim to respond to all complaints within two (2) business days.
@@ -609,10 +609,10 @@ export default function TermsOfServicePage() {
                   <p>
                     <strong>Email:</strong>{' '}
                     <a
-                      href="mailto:info@rangeljanitorial.com"
+                      href="mailto:ralph@rangeljanitorial.com"
                       className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
                     >
-                      info@rangeljanitorial.com
+                      ralph@rangeljanitorial.com
                     </a>
                   </p>
                   <p>

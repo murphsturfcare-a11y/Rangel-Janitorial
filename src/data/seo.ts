@@ -48,7 +48,7 @@ export const seoMetadata: Record<string, SEOMetadata> = {
   },
   "locations/sacramento": {
     title: "Janitorial Services in Sacramento, CA | Rangel Janitorial",
-    description: "Professional janitorial and commercial cleaning in Sacramento. Serving Elk Grove, Roseville, Folsom & more. Call 916-432-5033 for a free quote.",
+    description: "Professional janitorial and commercial cleaning in Sacramento. Serving Elk Grove, Roseville, Folsom & more. Call 916-426-2311 for a free quote.",
     keywords: ["janitorial services Sacramento", "commercial cleaning Sacramento", "office cleaning Sacramento", "Sacramento janitorial company", "Elk Grove cleaning", "Roseville janitorial"],
   },
   "locations/murrieta": {
@@ -58,7 +58,7 @@ export const seoMetadata: Record<string, SEOMetadata> = {
   },
   "locations/walnut-creek": {
     title: "Janitorial Services in Walnut Creek & East Bay | Rangel Janitorial",
-    description: "Professional janitorial services in Walnut Creek, Concord, Pleasant Hill & the East Bay. Rangel Janitorial serves Contra Costa County. Call 925-338-0048.",
+    description: "Professional janitorial services in Walnut Creek, Concord, Pleasant Hill & the East Bay. Rangel Janitorial serves Contra Costa County. Call 925-655-9008.",
     keywords: ["janitorial services Walnut Creek", "East Bay commercial cleaning", "Concord janitorial", "Pleasant Hill cleaning", "Contra Costa janitorial"],
   },
   blog: {

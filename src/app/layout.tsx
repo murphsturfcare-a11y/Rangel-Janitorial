@@ -108,9 +108,9 @@ export default function RootLayout({
               "description": "Professional janitorial and commercial cleaning services across California. Serving offices, medical facilities, industrial parks, and more.",
               "url": "https://rangeljanitorial.com",
               "contactPoint": [
-                { "@type": "ContactPoint", "telephone": "+19164325033", "areaServed": ["Sacramento"], "contactType": "customer service" },
+                { "@type": "ContactPoint", "telephone": "+19164262311", "areaServed": ["Sacramento"], "contactType": "customer service" },
                 { "@type": "ContactPoint", "telephone": "+19513313300", "areaServed": ["Murrieta", "Inland Empire"], "contactType": "customer service" },
-                { "@type": "ContactPoint", "telephone": "+19253380048", "areaServed": ["Walnut Creek", "East Bay"], "contactType": "customer service" }
+                { "@type": "ContactPoint", "telephone": "+19256559008", "areaServed": ["Walnut Creek", "East Bay"], "contactType": "customer service" }
               ],
               "address": {
                 "@type": "PostalAddress",

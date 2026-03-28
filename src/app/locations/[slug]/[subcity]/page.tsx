@@ -78,8 +78,8 @@ const regionData: Record<string, RegionData> = {
   sacramento: {
     regionName: 'Sacramento',
     slug: 'sacramento',
-    phone: '(916) 432-5033',
-    email: 'info@rangeljanitorial.com',
+    phone: '(916) 426-2311',
+    email: 'ralph@rangeljanitorial.com',
     subcities: [
       'Sacramento',
       'Elk Grove',
@@ -108,7 +108,7 @@ const regionData: Record<string, RegionData> = {
     regionName: 'Murrieta',
     slug: 'murrieta',
     phone: '(951) 331-3300',
-    email: 'info@rangeljanitorial.com',
+    email: 'ralph@rangeljanitorial.com',
     subcities: [
       'Murrieta',
       'Temecula',
@@ -136,8 +136,8 @@ const regionData: Record<string, RegionData> = {
   'walnut-creek': {
     regionName: 'Walnut Creek',
     slug: 'walnut-creek',
-    phone: '(925) 338-0048',
-    email: 'info@rangeljanitorial.com',
+    phone: '(925) 655-9008',
+    email: 'ralph@rangeljanitorial.com',
     subcities: [
       'Walnut Creek',
       'Concord',

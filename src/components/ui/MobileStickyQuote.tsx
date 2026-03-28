@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { Phone, ArrowRight, MapPin, X } from 'lucide-react';
 
 const locations = [
-  { slug: 'sacramento', name: 'Greater Sacramento', phone: '916-432-5033', tel: '9164325033' },
+  { slug: 'sacramento', name: 'Greater Sacramento', phone: '916-426-2311', tel: '9164262311' },
   { slug: 'murrieta', name: 'Murrieta / Inland Empire', phone: '951-331-3300', tel: '9513313300' },
-  { slug: 'walnut-creek', name: 'Walnut Creek / East Bay', phone: '925-338-0048', tel: '9253380048' },
+  { slug: 'walnut-creek', name: 'Walnut Creek / East Bay', phone: '925-655-9008', tel: '9256559008' },
 ];
 
 export default function MobileStickyQuote() {

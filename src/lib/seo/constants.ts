@@ -4,7 +4,7 @@ export const COMPANY_TAGLINE = "Creating Excellent First Impressions";
 export const COMPANY_DESCRIPTION =
   "Professional janitorial and commercial cleaning services across California. Rangel Janitorial delivers reliable, thorough cleaning for offices, medical facilities, industrial parks, and more. Serving Sacramento, Murrieta, and Walnut Creek.";
 export const COMPANY_PHONE = "951-894-4222";
-export const COMPANY_EMAIL = "info@rangeljanitorial.com";
+export const COMPANY_EMAIL = "ralph@rangeljanitorial.com";
 
 export const COMPANY_ADDRESS = {
   city: "Murrieta",

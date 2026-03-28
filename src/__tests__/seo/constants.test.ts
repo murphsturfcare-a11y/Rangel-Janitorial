@@ -34,8 +34,8 @@ describe("SEO constants", () => {
     expect(COMPANY_DESCRIPTION).toContain("artificial turf");
   });
 
-  it("COMPANY_EMAIL is info@rangeljanitorial.com", () => {
-    expect(COMPANY_EMAIL).toBe("info@rangeljanitorial.com");
+  it("COMPANY_EMAIL is ralph@rangeljanitorial.com", () => {
+    expect(COMPANY_EMAIL).toBe("ralph@rangeljanitorial.com");
   });
 
   it("COMPANY_ADDRESS has correct city, state, and full fields", () => {

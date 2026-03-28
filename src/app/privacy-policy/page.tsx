@@ -391,10 +391,10 @@ export default function PrivacyPolicyPage() {
                 If you are a parent or guardian and believe your child has provided us with personal
                 information without your consent, please contact us at{' '}
                 <a
-                  href="mailto:info@rangeljanitorial.com"
+                  href="mailto:ralph@rangeljanitorial.com"
                   className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
                 >
-                  info@rangeljanitorial.com
+                  ralph@rangeljanitorial.com
                 </a>{' '}
                 so that we can take appropriate action.
               </p>
@@ -438,10 +438,10 @@ export default function PrivacyPolicyPage() {
                   <p>
                     <strong>Email:</strong>{' '}
                     <a
-                      href="mailto:info@rangeljanitorial.com"
+                      href="mailto:ralph@rangeljanitorial.com"
                       className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
                     >
-                      info@rangeljanitorial.com
+                      ralph@rangeljanitorial.com
                     </a>
                   </p>
                   <p>

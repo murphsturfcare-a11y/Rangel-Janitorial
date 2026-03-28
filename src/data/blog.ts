@@ -65,7 +65,7 @@ Every facility is different. A good janitorial company will assess your specific
 
 Sacramento's Central Valley climate means dust is a constant challenge, especially during dry summer months. Your janitorial provider should understand these regional factors and adjust their approach accordingly.
 
-Contact Rangel Janitorial Sacramento at (916) 432-5033 for a free consultation.
+Contact Rangel Janitorial Sacramento at (916) 426-2311 for a free consultation.
 `,
     featuredImage: "/images/stock/office-building.jpg",
     category: "Local Guides",

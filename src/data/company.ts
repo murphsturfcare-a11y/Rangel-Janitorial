@@ -4,7 +4,7 @@ export const company: Company = {
   name: "Rangel Janitorial",
   tagline: "Creating Excellent First Impressions",
   phone: "951-894-4222",
-  email: "info@rangeljanitorial.com",
+  email: "ralph@rangeljanitorial.com",
   address: {
     street: "26323 Jefferson Ave Suite C",
     city: "Murrieta",

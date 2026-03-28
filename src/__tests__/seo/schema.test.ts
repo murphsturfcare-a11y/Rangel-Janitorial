@@ -89,7 +89,7 @@ describe("generateLocalBusinessSchema", () => {
     expect(schema.name).toBe(COMPANY_NAME);
     expect(schema.description).toBeTruthy();
     expect(schema.url).toBe(SITE_URL);
-    expect(schema.email).toBe("info@rangeljanitorial.com");
+    expect(schema.email).toBe("ralph@rangeljanitorial.com");
   });
 
   it("includes additionalType as ProfessionalService", () => {
@@ -220,7 +220,7 @@ describe("generateLocationSchema", () => {
     name: "Sacramento",
     slug: "sacramento",
     description: "Turf cleaning in Sacramento.",
-    phone: "(916) 432-5033",
+    phone: "(916) 426-2311",
   };
 
   const locationWithoutPhone = {
@@ -247,7 +247,7 @@ describe("generateLocationSchema", () => {
 
   it("includes telephone when phone is provided", () => {
     const schema = generateLocationSchema(locationWithPhone);
-    expect(schema.telephone).toBe("(916) 432-5033");
+    expect(schema.telephone).toBe("(916) 426-2311");
   });
 
   it("does not include telephone when phone is not provided", () => {

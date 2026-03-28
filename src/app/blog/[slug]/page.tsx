@@ -131,7 +131,7 @@ const blogPosts: Record<string, BlogPost> = {
 
       <h2 id="sacramento-specific-considerations" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Sacramento-Specific Considerations</h2>
       <p class="text-charcoal-light font-body leading-relaxed mb-4">Sacramento's Central Valley climate means dust is a constant challenge, especially during dry summer months. Your janitorial provider should understand these regional factors and adjust their approach accordingly.</p>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Contact Rangel Janitorial Sacramento at (916) 432-5033 for a free consultation.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Contact Rangel Janitorial Sacramento at (916) 426-2311 for a free consultation.</p>
     `,
     relatedSlugs: ['office-cleaning-best-practices', 'commercial-cleaning-murrieta', 'janitorial-services-walnut-creek'],
   },
@@ -451,7 +451,7 @@ const blogPosts: Record<string, BlogPost> = {
       <p class="text-charcoal-light font-body leading-relaxed mb-4">We offer the full range of commercial cleaning services in the East Bay including <a href="/services/janitorial-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">janitorial cleaning</a>, <a href="/services/day-porter" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">day porter services</a>, <a href="/services/electrostatic-disinfection" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">electrostatic disinfection</a>, and <a href="/services/carpet-cleaning" class="text-forest hover:text-sage underline underline-offset-2 transition-colors">carpet cleaning</a> for all facility types.</p>
 
       <h2 id="getting-started" class="text-2xl font-bold font-heading text-charcoal mt-8 mb-4">Getting Started</h2>
-      <p class="text-charcoal-light font-body leading-relaxed mb-4">Contact Rangel Janitorial Walnut Creek at (925) 338-0048 for a free consultation and quote tailored to your facility's needs.</p>
+      <p class="text-charcoal-light font-body leading-relaxed mb-4">Contact Rangel Janitorial Walnut Creek at (925) 655-9008 for a free consultation and quote tailored to your facility's needs.</p>
     `,
     relatedSlugs: ['janitorial-services-sacramento', 'commercial-cleaning-murrieta', 'office-cleaning-best-practices'],
   },

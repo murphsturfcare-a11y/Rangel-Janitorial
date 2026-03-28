@@ -105,11 +105,11 @@ export default function LocationsPage() {
               help keep your facility clean.
             </p>
             <a
-              href="tel:9253380048"
+              href="tel:9256559008"
               className="inline-flex items-center gap-2 bg-forest hover:bg-forest-light text-white font-bold px-10 py-4 rounded-lg transition-colors font-body shadow-md hover:shadow-lg text-lg"
             >
               <Phone className="w-5 h-5" />
-              Call Us: (925) 338-0048
+              Call Us: (925) 655-9008
             </a>
           </div>
         </AnimateOnScroll>

@@ -6,8 +6,8 @@ describe('company data', () => {
       expect(company.name).toBe("Rangel Janitorial");
     });
 
-    it('company.email is "info@rangeljanitorial.com"', () => {
-      expect(company.email).toBe('info@rangeljanitorial.com');
+    it('company.email is "ralph@rangeljanitorial.com"', () => {
+      expect(company.email).toBe('ralph@rangeljanitorial.com');
     });
 
     it('company.founded is 1994', () => {

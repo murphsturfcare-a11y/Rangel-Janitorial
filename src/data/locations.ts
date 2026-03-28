@@ -18,12 +18,12 @@ export const locations: Location[] = [
       'Natomas',
       'West Sacramento',
     ],
-    phone: '916-432-5033',
+    phone: '916-426-2311',
     address: 'Sacramento, CA',
     metaTitle:
       "Professional Janitorial Services in Sacramento, CA | Rangel Janitorial",
     metaDescription:
-      "Professional janitorial and commercial cleaning services in Sacramento, Elk Grove, Roseville & Folsom. Licensed & insured. Call Rangel Janitorial: 916-432-5033.",
+      "Professional janitorial and commercial cleaning services in Sacramento, Elk Grove, Roseville & Folsom. Licensed & insured. Call Rangel Janitorial: 916-426-2311.",
   },
   {
     slug: 'murrieta',
@@ -69,11 +69,11 @@ export const locations: Location[] = [
       'San Ramon',
       'Dublin',
     ],
-    phone: '925-338-0048',
+    phone: '925-655-9008',
     address: 'Walnut Creek, CA',
     metaTitle:
       "Professional Janitorial Services in Walnut Creek & East Bay | Rangel Janitorial",
     metaDescription:
-      "Professional janitorial and commercial cleaning in Walnut Creek, Concord, Pleasant Hill & East Bay. Licensed & insured. Call Rangel Janitorial: 925-338-0048.",
+      "Professional janitorial and commercial cleaning in Walnut Creek, Concord, Pleasant Hill & East Bay. Licensed & insured. Call Rangel Janitorial: 925-655-9008.",
   },
 ];
