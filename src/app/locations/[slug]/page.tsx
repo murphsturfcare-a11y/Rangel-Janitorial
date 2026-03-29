@@ -209,7 +209,7 @@ const locationData: Record<string, LocationData> = {
       'Serving the greater Sacramento metro including Elk Grove, Roseville, Folsom, Rancho Cordova, Citrus Heights, and West Sacramento.',
     climateNote:
       'Central Valley heat and dust demand frequent deep cleaning to maintain healthy, professional environments.',
-    formId: 'E4GmpR4mgHj6kL4dFr2w',
+    formId: '6L08kToCUbkqyOiTqitu',
     mapQuery: 'Rangel+Janitorial+Sacramento+CA',
   },
 
@@ -259,7 +259,7 @@ const locationData: Record<string, LocationData> = {
       'Serving the entire Inland Empire from Temecula and French Valley through Menifee, Lake Elsinore, Hemet, Perris, Wildomar, Canyon Lake, and Winchester.',
     climateNote:
       'Inland Empire dust and summer heat require consistent cleaning to keep commercial spaces healthy and presentable.',
-    formId: 'xBvd9OY1s3jhTIKq93sM',
+    formId: 'fUggM7F49myI8reYUz05',
     mapQuery: 'Rangel+Janitorial+Murrieta+CA',
     gmb: 'https://www.google.com/maps/place/Rangel+Commercial+Cleaners+of+Murrieta/data=!4m2!3m1!1s0x0:0x846bff7e768aac1a',
   },
@@ -307,7 +307,7 @@ const locationData: Record<string, LocationData> = {
       'Serving Contra Costa County from Walnut Creek through Concord, Pleasant Hill, Lafayette, Danville, Martinez, San Ramon, and Dublin.',
     climateNote:
       'Bay Area microclimates range from damp conditions near the coast to warm, dry conditions inland — requiring adaptable cleaning approaches.',
-    formId: 'mSr8BxMIMWFW5iSStd5F',
+    formId: 'FOFJpViBh8idExeBbAk8',
     mapQuery: 'Rangel+Janitorial+Walnut+Creek+CA',
   },
 };
@@ -543,7 +543,7 @@ export default async function LocationPage({
               <div className="bg-white rounded-2xl shadow-2xl p-2 sm:p-3">
                 <iframe
                   src={`https://api.leadconnectorhq.com/widget/form/${location.formId}`}
-                  style={{ width: '100%', height: '500px', border: 'none', borderRadius: '12px' }}
+                  style={{ width: '100%', height: '989px', border: 'none', borderRadius: '12px' }}
                   title={`Get a Free Quote - ${location.city}`}
                 />
               </div>
@@ -890,7 +890,7 @@ export default async function LocationPage({
               <div className="bg-white rounded-2xl shadow-2xl p-2 sm:p-4">
                 <iframe
                   src={`https://api.leadconnectorhq.com/widget/form/${location.formId}`}
-                  style={{ width: '100%', height: '500px', border: 'none', borderRadius: '12px' }}
+                  style={{ width: '100%', height: '989px', border: 'none', borderRadius: '12px' }}
                   title={`Get a Free Quote - ${location.city}`}
                   loading="lazy"
                 />
