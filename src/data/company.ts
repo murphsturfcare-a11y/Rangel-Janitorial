@@ -16,7 +16,7 @@ export const company: Company = {
     saturday: "Closed",
     sunday: "Closed",
   },
-  founded: 2021,
+  founded: 1989,
   description: `Rangel Janitorial is a professional commercial cleaning company headquartered in Murrieta, California. We provide janitorial cleaning, day porter services, electrostatic disinfection, floor care, and carpet cleaning for businesses across Southern and Northern California — from the Inland Empire to Walnut Creek and Sacramento. Our trained crews deliver consistent, reliable results for Class A office buildings, corporate campuses, medical and dental facilities, light industrial parks, multi-unit properties, municipalities, and fitness centers.`,
   mission: "To create excellent first impressions through professional, reliable commercial cleaning services that keep your facilities spotless and your people healthy.",
   values: [

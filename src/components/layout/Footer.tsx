@@ -69,9 +69,9 @@ export default function Footer() {
               <Image
                 src="/images/logo.png"
                 alt="Rangel Janitorial"
-                width={56}
-                height={56}
-                className="w-14 h-14 object-contain"
+                width={140}
+                height={69}
+                className="h-14 w-auto object-contain"
               />
             </Link>
             <p className="mt-4 font-body text-sm leading-relaxed text-gray-400">

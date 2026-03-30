@@ -58,9 +58,9 @@ export default function Header() {
             <Image
               src="/images/logo.png"
               alt="Rangel Janitorial"
-              width={80}
-              height={80}
-              className="w-20 h-20 object-contain"
+              width={160}
+              height={78}
+              className="h-16 w-auto object-contain"
             />
           </Link>
         </motion.div>
@@ -145,9 +145,9 @@ export default function Header() {
                   <Image
                     src="/images/logo.png"
                     alt="Rangel Janitorial"
-                    width={64}
-                    height={64}
-                    className="w-16 h-16 object-contain"
+                    width={128}
+                    height={63}
+                    className="h-12 w-auto object-contain"
                   />
                 </Link>
 
