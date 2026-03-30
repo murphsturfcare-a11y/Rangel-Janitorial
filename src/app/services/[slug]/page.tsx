@@ -22,6 +22,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
+import OurWorkGallery from '@/components/sections/OurWorkGallery';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -903,6 +904,9 @@ export default async function ServiceDetailPage({
           </StaggerContainer>
         </div>
       </section>
+
+      {/* Our Work Gallery */}
+      <OurWorkGallery />
 
       {/* ----------------------------------------------------------------- */}
       {/* Bottom CTA */}

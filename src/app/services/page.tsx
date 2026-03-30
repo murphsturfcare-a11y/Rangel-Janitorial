@@ -7,6 +7,7 @@ import {
   HelpCircle,
 } from 'lucide-react';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
+import OurWorkGallery from '@/components/sections/OurWorkGallery';
 
 export const metadata: Metadata = {
   title: 'Commercial Cleaning Services | Rangel Janitorial',
@@ -128,6 +129,9 @@ export default function ServicesPage() {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* Our Work Gallery */}
+      <OurWorkGallery />
 
       {/* CTA Section */}
       <section className="py-12 sm:py-16 bg-white">

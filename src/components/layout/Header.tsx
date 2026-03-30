@@ -56,10 +56,10 @@ export default function Header() {
             aria-label="Rangel Janitorial — Home"
           >
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Rangel Janitorial"
-              width={450}
-              height={221}
+              width={480}
+              height={235}
               priority
               className="h-16 w-auto object-contain"
             />
@@ -144,7 +144,7 @@ export default function Header() {
                   aria-label="Rangel Janitorial — Home"
                 >
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo.webp"
                     alt="Rangel Janitorial"
                     width={360}
                     height={177}

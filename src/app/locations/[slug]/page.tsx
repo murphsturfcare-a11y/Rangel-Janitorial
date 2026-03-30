@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
+import OurWorkGallery from '@/components/sections/OurWorkGallery';
 import FAQ from '@/components/sections/FAQ';
 
 // ---------------------------------------------------------------------------
@@ -836,7 +837,12 @@ export default async function LocationPage({
       </section>
 
       {/* ================================================================
-          9. BOTTOM CTA + LEAD FORM
+          9. OUR WORK GALLERY
+          ================================================================ */}
+      <OurWorkGallery />
+
+      {/* ================================================================
+          10. BOTTOM CTA + LEAD FORM
           ================================================================ */}
       <section id="bottom-form" className="py-14 sm:py-20 bg-forest scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

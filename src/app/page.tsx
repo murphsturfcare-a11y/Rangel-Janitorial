@@ -25,6 +25,7 @@ import {
   CheckCircle2,
   MapPin,
 } from 'lucide-react';
+import OurWorkGallery from '@/components/sections/OurWorkGallery';
 
 /* ========================== DATA ========================== */
 
@@ -419,6 +420,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* OUR WORK GALLERY */}
+      <OurWorkGallery />
 
       {/* SERVICE AREAS */}
       <section className="bg-cream py-16 sm:py-20">

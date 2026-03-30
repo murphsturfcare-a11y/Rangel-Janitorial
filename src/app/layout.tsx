@@ -127,7 +127,7 @@ export default function RootLayout({
               ],
               "openingHours": ["Mo-Fr 09:00-17:00"],
               "priceRange": "$$",
-              "image": "https://rangeljanitorial.com/images/logo.png",
+              "image": "https://rangeljanitorial.com/images/logo.webp",
               "sameAs": [
                 "https://www.instagram.com/rangeljanitorial/",
                 "https://www.facebook.com/profile.php?id=100090088264095",

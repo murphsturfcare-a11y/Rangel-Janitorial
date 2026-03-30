@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { MapPin, ArrowRight, Phone } from 'lucide-react';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
+import OurWorkGallery from '@/components/sections/OurWorkGallery';
 
 export const metadata: Metadata = {
   title: 'Service Locations | Professional Janitorial Services Across California',
@@ -88,6 +89,9 @@ export default function LocationsPage() {
           </StaggerContainer>
         </AnimateOnScroll>
       </section>
+
+      {/* Our Work Gallery */}
+      <OurWorkGallery />
 
       {/* CTA Section */}
       <section className="py-16 sm:py-24 bg-cream">

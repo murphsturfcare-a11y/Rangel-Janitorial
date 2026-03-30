@@ -67,7 +67,7 @@ export default function Footer() {
               aria-label="Rangel Janitorial — Home"
             >
               <Image
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 alt="Rangel Janitorial"
                 width={420}
                 height={206}
