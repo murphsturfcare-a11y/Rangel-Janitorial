@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   Users,
   ThumbsUp,
-  Phone,
   Sparkles,
   Building2,
   UserCheck,
@@ -192,20 +191,13 @@ export default function Home() {
             <p className="mt-5 text-lg sm:text-xl text-gray-200 font-body leading-relaxed max-w-2xl">
               30+ years of experience. Spotless facilities — guaranteed. Trusted by 500+ California businesses.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <div className="mt-8">
               <Link
                 href="/locations"
                 className="inline-flex items-center justify-center gap-2 bg-sage hover:bg-sage-dark text-white font-heading font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-md hover:shadow-lg"
               >
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/locations"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-heading font-semibold px-8 py-4 rounded-xl transition-all backdrop-blur-sm"
-              >
-                <Phone className="w-5 h-5" />
-                Find Your Local Office
               </Link>
             </div>
           </div>
@@ -472,20 +464,13 @@ export default function Home() {
           <p className="mt-4 font-body text-lg text-gray-200">
             Join 500+ California businesses that trust Rangel Janitorial. Get a free, no-obligation quote today.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8">
             <Link
               href="/locations"
               className="inline-flex items-center gap-2 bg-sage hover:bg-sage-dark text-white font-heading font-bold px-8 py-4 rounded-xl transition-all shadow-md"
             >
-              Get Free Quote
+              Get a Free Quote
               <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              href="/locations"
-              className="inline-flex items-center gap-2 text-sage-light hover:text-white font-body font-semibold transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              Find Your Local Office
             </Link>
           </div>
         </div>
