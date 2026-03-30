@@ -200,13 +200,13 @@ export default function Home() {
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <a
-                href="tel:9518944222"
+              <Link
+                href="/locations"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-heading font-semibold px-8 py-4 rounded-xl transition-all backdrop-blur-sm"
               >
                 <Phone className="w-5 h-5" />
-                951-894-4222
-              </a>
+                Find Your Local Office
+              </Link>
             </div>
           </div>
         </div>
@@ -480,13 +480,13 @@ export default function Home() {
               Get Free Quote
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <a
-              href="tel:9518944222"
+            <Link
+              href="/locations"
               className="inline-flex items-center gap-2 text-sage-light hover:text-white font-body font-semibold transition-colors"
             >
               <Phone className="w-5 h-5" />
-              951-894-4222
-            </a>
+              Find Your Local Office
+            </Link>
           </div>
         </div>
       </section>
