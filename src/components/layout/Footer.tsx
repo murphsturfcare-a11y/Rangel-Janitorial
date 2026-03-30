@@ -82,10 +82,10 @@ export default function Footer() {
               <MapPin className="w-4 h-4 text-sage flex-shrink-0" />
               <span>26323 Jefferson Ave Suite C, Murrieta, CA 92562</span>
             </div>
-            <div className="mt-2 flex items-center gap-2 text-gray-400 font-body text-sm">
+            <a href="tel:9518944222" className="mt-2 flex items-center gap-2 text-gray-400 font-body text-sm py-1 hover:text-sage transition-colors">
               <Phone className="w-4 h-4 text-sage flex-shrink-0" />
-              <a href="tel:9518944222" className="hover:text-sage transition-colors">951-894-4222</a>
-            </div>
+              <span>951-894-4222</span>
+            </a>
             {/* Social Media Links */}
             <div className="mt-6 flex items-center gap-4">
               {socialLinks.map((social) => {
@@ -97,7 +97,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className="text-gray-400 transition-colors hover:text-sage"
+                    className="flex items-center justify-center w-10 h-10 text-gray-400 transition-colors hover:text-sage"
                   >
                     <Icon className="h-5 w-5" />
                   </a>
@@ -111,12 +111,12 @@ export default function Footer() {
             <h4 className="font-heading text-base font-semibold text-white">
               Our Services
             </h4>
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-4 space-y-1">
               {servicesLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-body text-sm text-gray-300 transition-colors hover:text-sage"
+                    className="inline-block py-2 font-body text-sm text-gray-300 transition-colors hover:text-sage"
                   >
                     {link.label}
                   </Link>
@@ -130,12 +130,12 @@ export default function Footer() {
             <h4 className="font-heading text-base font-semibold text-white">
               Service Areas
             </h4>
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-4 space-y-1">
               {locationsLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-body text-sm text-gray-300 transition-colors hover:text-sage"
+                    className="inline-block py-2 font-body text-sm text-gray-300 transition-colors hover:text-sage"
                   >
                     {link.label}
                   </Link>

@@ -287,23 +287,23 @@ export default async function SubcityPage({
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.05)_0%,_transparent_60%)]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-white/60 text-sm font-body mb-8">
-            <Link href="/" className="hover:text-white transition-colors">
+          <nav className="flex flex-wrap items-center gap-1 text-white/60 text-sm font-body mb-8">
+            <Link href="/" className="hover:text-white transition-colors py-1 px-1">
               Home
             </Link>
-            <ChevronRight className="w-4 h-4" />
-            <Link href="/locations" className="hover:text-white transition-colors">
+            <ChevronRight className="w-4 h-4 flex-shrink-0" />
+            <Link href="/locations" className="hover:text-white transition-colors py-1 px-1">
               Locations
             </Link>
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-4 h-4 flex-shrink-0" />
             <Link
               href={`/locations/${region.slug}`}
-              className="hover:text-white transition-colors"
+              className="hover:text-white transition-colors py-1 px-1"
             >
               {region.regionName}
             </Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-white">{city.name}, CA</span>
+            <ChevronRight className="w-4 h-4 flex-shrink-0" />
+            <span className="text-white py-1 px-1">{city.name}, CA</span>
           </nav>
 
           <AnimateOnScroll direction="up">

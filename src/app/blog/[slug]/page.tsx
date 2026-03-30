@@ -587,22 +587,22 @@ export default async function BlogPostPage({
       {/* ----------------------------------------------------------------- */}
       <section className="bg-cream border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <nav className="flex items-center gap-2 text-sm text-charcoal-light font-body">
+          <nav className="flex items-center gap-1 text-sm text-charcoal-light font-body">
             <Link
               href="/"
-              className="hover:text-forest transition-colors"
+              className="hover:text-forest transition-colors py-1 px-1"
             >
               Home
             </Link>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
             <Link
               href="/blog"
-              className="hover:text-forest transition-colors"
+              className="hover:text-forest transition-colors py-1 px-1"
             >
               Blog
             </Link>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
-            <span className="text-charcoal font-medium truncate max-w-[250px] sm:max-w-none">
+            <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            <span className="text-charcoal font-medium truncate max-w-[200px] sm:max-w-none py-1 px-1">
               {post.title}
             </span>
           </nav>

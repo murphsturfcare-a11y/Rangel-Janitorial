@@ -280,7 +280,7 @@ export default function Home() {
           <div className="mt-10 text-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 font-body font-semibold text-sage hover:text-forest transition-colors"
+              className="inline-flex items-center gap-2 font-body font-semibold text-sage hover:text-forest transition-colors py-3 px-4"
             >
               View All Services
               <ArrowRight className="w-4 h-4" />

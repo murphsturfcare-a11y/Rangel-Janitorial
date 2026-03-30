@@ -492,16 +492,16 @@ export default async function LocationPage({
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-white/60 text-sm font-body mb-8">
-            <Link href="/" className="hover:text-white transition-colors">
+          <nav className="flex items-center gap-1 text-white/60 text-sm font-body mb-8">
+            <Link href="/" className="hover:text-white transition-colors py-1 px-1">
               Home
             </Link>
-            <ChevronRight className="w-4 h-4" />
-            <Link href="/locations" className="hover:text-white transition-colors">
+            <ChevronRight className="w-4 h-4 flex-shrink-0" />
+            <Link href="/locations" className="hover:text-white transition-colors py-1 px-1">
               Locations
             </Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-white">{location.city}, {location.state}</span>
+            <ChevronRight className="w-4 h-4 flex-shrink-0" />
+            <span className="text-white py-1 px-1">{location.city}, {location.state}</span>
           </nav>
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">

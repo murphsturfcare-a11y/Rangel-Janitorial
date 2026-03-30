@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   ArrowRight,
-  MapPin,
   HelpCircle,
 } from 'lucide-react';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
@@ -110,13 +109,13 @@ export default function ServicesPage() {
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                       <Link
                         href="/locations"
-                        className="text-sm font-semibold font-body text-forest hover:text-forest-dark transition-colors"
+                        className="inline-flex items-center text-sm font-semibold font-body text-forest hover:text-forest-dark transition-colors py-2"
                       >
                         Get a Quote
                       </Link>
                       <Link
                         href={`/services/${service.slug}`}
-                        className="inline-flex items-center gap-1.5 text-sage font-semibold font-body text-sm hover:text-forest transition-colors group/link"
+                        className="inline-flex items-center gap-1.5 text-sage font-semibold font-body text-sm hover:text-forest transition-colors group/link py-2"
                       >
                         Learn More
                         <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
@@ -146,20 +145,13 @@ export default function ServicesPage() {
               recommend the perfect combination of services for your building.
               Free walkthroughs available across all service areas.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-2">
               <Link
                 href="/locations"
                 className="btn-hover inline-flex items-center gap-2 bg-sage hover:bg-sage-dark text-white font-semibold px-8 py-3.5 rounded-lg transition-colors font-body shadow-md hover:shadow-lg"
               >
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/locations"
-                className="btn-hover inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors font-body backdrop-blur-sm"
-              >
-                <MapPin className="w-5 h-5" />
-                Find Your Local Office
               </Link>
             </div>
           </div>

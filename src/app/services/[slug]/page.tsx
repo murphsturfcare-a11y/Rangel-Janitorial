@@ -5,7 +5,6 @@ import { notFound } from 'next/navigation';
 import {
   Check,
   ArrowRight,
-  MapPin,
   ChevronRight,
   ShieldCheck,
   Clock,
@@ -673,16 +672,16 @@ export default async function ServiceDetailPage({
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-white/70 font-body mb-8">
-            <Link href="/" className="hover:text-white transition-colors">
+          <nav className="flex items-center gap-1 text-sm text-white/70 font-body mb-8">
+            <Link href="/" className="hover:text-white transition-colors py-1 px-1">
               Home
             </Link>
-            <ChevronRight className="w-4 h-4" />
-            <Link href="/services" className="hover:text-white transition-colors">
+            <ChevronRight className="w-4 h-4 flex-shrink-0" />
+            <Link href="/services" className="hover:text-white transition-colors py-1 px-1">
               Services
             </Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-white font-medium">{service.name}</span>
+            <ChevronRight className="w-4 h-4 flex-shrink-0" />
+            <span className="text-white font-medium py-1 px-1">{service.name}</span>
           </nav>
 
           <AnimateOnScroll direction="fade">
@@ -827,20 +826,13 @@ export default async function ServiceDetailPage({
               quote tailored to your building&apos;s size and needs. With 30+ years of
               experience, Rangel Janitorial delivers results you can count on.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-2">
               <Link
                 href="/locations"
                 className="inline-flex items-center gap-2 bg-sage hover:bg-sage-dark text-white font-semibold px-8 py-3.5 rounded-lg transition-colors font-body shadow-md hover:shadow-lg"
               >
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/locations"
-                className="inline-flex items-center gap-2 text-forest font-semibold font-body hover:text-forest-light transition-colors"
-              >
-                <MapPin className="w-5 h-5" />
-                Find Your Local Office
               </Link>
             </div>
           </div>
@@ -921,20 +913,13 @@ export default async function ServiceDetailPage({
             discover why businesses across California trust Rangel Janitorial
             with their facility maintenance.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-2">
             <Link
               href="/locations"
               className="btn-hover inline-flex items-center gap-2 bg-sage hover:bg-sage-dark text-white font-semibold px-8 py-3.5 rounded-lg transition-colors font-body shadow-md hover:shadow-lg"
             >
               Contact Us for Pricing
               <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              href="/locations"
-              className="btn-hover inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors font-body backdrop-blur-sm"
-            >
-              <MapPin className="w-5 h-5" />
-              Find Your Local Office
             </Link>
           </div>
         </AnimateOnScroll>
