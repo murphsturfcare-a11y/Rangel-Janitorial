@@ -43,6 +43,7 @@ const referralOptions = [
 export default function LeadForm({ formId, location }: LeadFormProps) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [loadedAt] = useState(() => Date.now());
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -51,6 +52,19 @@ export default function LeadForm({ formId, location }: LeadFormProps) {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+
+    // Bot detection: honeypot field filled
+    if (data.get('website')) {
+      // Fake success — don't tell bots they were caught
+      setStatus('success');
+      return;
+    }
+
+    // Bot detection: submitted in under 3 seconds
+    if (Date.now() - loadedAt < 3000) {
+      setStatus('success');
+      return;
+    }
 
     const payload = {
       formId,
@@ -109,6 +123,12 @@ export default function LeadForm({ formId, location }: LeadFormProps) {
       <p className="text-charcoal-light font-body text-xs text-center mb-4">
         Tell us about your facility and we&apos;ll provide a custom estimate.
       </p>
+
+      {/* Honeypot — hidden from humans, bots fill it */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', height: 0, overflow: 'hidden' }}>
+        <label htmlFor="website">Website</label>
+        <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
 
       {/* Name row */}
       <div className="grid grid-cols-2 gap-3">
