@@ -143,9 +143,22 @@ export default function Footer() {
       {/* ---- Bottom bar ---- */}
       <div className="border-t border-charcoal-light">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row lg:px-8">
-          <p className="font-body text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} Rangel Janitorial. All rights reserved.
-          </p>
+          <div className="text-center sm:text-left">
+            <p className="font-body text-sm text-gray-400">
+              &copy; {new Date().getFullYear()} Rangel Janitorial. All rights reserved.
+            </p>
+            <p className="mt-1 font-body text-xs text-gray-400">
+              Website by{' '}
+              <a
+                href="https://tothemaxmedia.com"
+                target="_blank"
+                rel="noopener"
+                className="text-gray-300 transition-colors hover:text-sage"
+              >
+                To The Max Media
+              </a>
+            </p>
+          </div>
           <p className="font-body text-sm text-gray-400">
             Professional Crews | Fully Insured | Satisfaction Guaranteed
           </p>
