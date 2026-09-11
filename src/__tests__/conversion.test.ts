@@ -1,121 +1,26 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import * as gtag from "@/lib/analytics/gtag";
-import {
-  trackLeadConversion,
-  trackContactConversion,
-  trackNewsletterConversion,
-  trackQuoteRequest,
-} from "@/lib/analytics/conversion";
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { event } from '@/lib/analytics/gtag';
+import { isLeadEventDetail, trackLeadConversion, trackQuoteRequest } from '@/lib/analytics/conversion';
 
-vi.mock("@/lib/analytics/gtag");
-
-describe("conversion tracking module", () => {
-  beforeEach(() => {
-    window.dataLayer = [];
+vi.mock('@/lib/analytics/gtag', () => ({ event: vi.fn(() => true) }));
+const receipt = { region: 'murrieta', form_placement: 'hero' as const, submission_id: '8b75ba63-7b5d-4aa7-8e25-a4b9b3b3ef42' };
+beforeEach(() => {
+  vi.mocked(event).mockClear();
+  window.dataLayer = [];
+});
+describe('one conversion delivery path', () => {
+  it('sends only approved receipt dimensions with no currency/value or GTM copy', () => {
+    expect(trackLeadConversion(receipt)).toBe(true);
+    expect(event).toHaveBeenCalledExactlyOnceWith('generate_lead', { region: 'murrieta', form_placement: 'hero' });
+    expect(window.dataLayer).toEqual([]);
   });
 
-  afterEach(() => {
-    // @ts-expect-error cleaning up dataLayer
-    delete window.dataLayer;
-    vi.clearAllMocks();
+  it('keeps a quote start separate from an accepted lead', () => {
+    trackQuoteRequest(receipt);
+    expect(event).toHaveBeenCalledExactlyOnceWith('quote_start', { region: 'murrieta', form_placement: 'hero' });
   });
 
-  describe("trackLeadConversion", () => {
-    it("calls gtag.event with correct params including location", () => {
-      trackLeadConversion("turf_cleaning", "Dublin");
-
-      expect(gtag.event).toHaveBeenCalledWith("generate_lead", {
-        service_type: "turf_cleaning",
-        location: "Dublin",
-        value: 1,
-        currency: "EUR",
-      });
-    });
-
-    it("pushes lead_conversion event to dataLayer with location", () => {
-      trackLeadConversion("turf_cleaning", "Dublin");
-
-      expect(window.dataLayer).toContainEqual({
-        event: "lead_conversion",
-        service_type: "turf_cleaning",
-        location: "Dublin",
-      });
-    });
-
-    it("defaults location to empty string when not provided", () => {
-      trackLeadConversion("turf_cleaning");
-
-      expect(gtag.event).toHaveBeenCalledWith("generate_lead", {
-        service_type: "turf_cleaning",
-        location: "",
-        value: 1,
-        currency: "EUR",
-      });
-
-      expect(window.dataLayer).toContainEqual({
-        event: "lead_conversion",
-        service_type: "turf_cleaning",
-        location: "",
-      });
-    });
-  });
-
-  describe("trackContactConversion", () => {
-    it("calls gtag.event with contact_form_submission", () => {
-      trackContactConversion();
-
-      expect(gtag.event).toHaveBeenCalledWith("contact_form_submission", {
-        value: 1,
-        currency: "EUR",
-      });
-    });
-
-    it("pushes contact_conversion event to dataLayer", () => {
-      trackContactConversion();
-
-      expect(window.dataLayer).toContainEqual({
-        event: "contact_conversion",
-      });
-    });
-  });
-
-  describe("trackNewsletterConversion", () => {
-    it("calls gtag.event with newsletter_signup and value 0.5", () => {
-      trackNewsletterConversion();
-
-      expect(gtag.event).toHaveBeenCalledWith("newsletter_signup", {
-        value: 0.5,
-        currency: "EUR",
-      });
-    });
-
-    it("pushes newsletter_conversion event to dataLayer", () => {
-      trackNewsletterConversion();
-
-      expect(window.dataLayer).toContainEqual({
-        event: "newsletter_conversion",
-      });
-    });
-  });
-
-  describe("trackQuoteRequest", () => {
-    it("calls gtag.event with quote_request and serviceType", () => {
-      trackQuoteRequest("turf_cleaning");
-
-      expect(gtag.event).toHaveBeenCalledWith("quote_request", {
-        service_type: "turf_cleaning",
-        value: 5,
-        currency: "EUR",
-      });
-    });
-
-    it("pushes quote_request event to dataLayer with serviceType", () => {
-      trackQuoteRequest("turf_cleaning");
-
-      expect(window.dataLayer).toContainEqual({
-        event: "quote_request",
-        service_type: "turf_cleaning",
-      });
-    });
+  it.each([null, {}, { ...receipt, region: 'unlisted' }, { ...receipt, submission_id: 'customer@example.test' }, { ...receipt, form_placement: 'customer-name' }])('rejects unbounded or invalid custom-event details: %j', detail => {
+    expect(isLeadEventDetail(detail)).toBe(false);
   });
 });

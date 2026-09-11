@@ -1,80 +1,32 @@
-import { describe, expect, it } from "vitest";
-import {
-  SITE_URL,
-  COMPANY_NAME,
-  COMPANY_TAGLINE,
-  COMPANY_DESCRIPTION,
-  COMPANY_EMAIL,
-  COMPANY_ADDRESS,
-  DEFAULT_OG_IMAGE,
-  SOCIAL_LINKS,
-  SERVICE_SLUGS,
-  LOCATION_SLUGS,
-  BLOG_SLUGS,
-} from "@/lib/seo/constants";
+import { describe, it, expect } from 'vitest';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { SITE_URL, COMPANY_NAME, COMPANY_EMAIL, COMPANY_PHONE, COMPANY_ADDRESS, COMPANY_DESCRIPTION, DEFAULT_OG_IMAGE, SOCIAL_LINKS, SERVICE_SLUGS, LOCATION_SLUGS, BLOG_SLUGS } from '@/lib/seo/constants';
+import business from '@/data/business.json';
+import regions from '@/data/regions.json';
+import { services } from '@/data/services';
+import { BLOG_SUMMARIES } from '@/content/blog-index';
 
-describe("SEO constants", () => {
-  it("SITE_URL is the production URL with no trailing slash", () => {
-    expect(SITE_URL).toBe("https://rangeljanitorial.com");
-    expect(SITE_URL.endsWith("/")).toBe(false);
+describe('shared SEO constants', () => {
+  it('uses the production business identity and contact details', () => {
+    expect(SITE_URL).toBe('https://rangeljanitorial.com');
+    expect(COMPANY_NAME).toBe(business.name);
+    expect(COMPANY_EMAIL).toBe(business.email);
+    expect(COMPANY_PHONE.replace(/\D/g, '')).toBe(business.phone.replace(/\D/g, ''));
+    expect(COMPANY_ADDRESS).toMatchObject({ city: business.headquarters.addressLocality, state: business.headquarters.addressRegion });
+    expect(SOCIAL_LINKS).toEqual(business.socialLinks);
+    expect(COMPANY_DESCRIPTION).toMatch(/janitorial and commercial cleaning/);
   });
 
-  it("COMPANY_NAME is Rangel Janitorial", () => {
-    expect(COMPANY_NAME).toBe("Rangel Janitorial");
+  it('keeps the default preview image present on disk', () => {
+    expect(DEFAULT_OG_IMAGE.startsWith('/')).toBe(true);
+    expect(existsSync(resolve(__dirname, '../../../public', DEFAULT_OG_IMAGE.slice(1)))).toBe(true);
   });
 
-  it("COMPANY_TAGLINE is a non-empty string", () => {
-    expect(typeof COMPANY_TAGLINE).toBe("string");
-    expect(COMPANY_TAGLINE.length).toBeGreaterThan(0);
-  });
-
-  it("COMPANY_DESCRIPTION contains key terms", () => {
-    expect(COMPANY_DESCRIPTION).toContain("professional-grade");
-    expect(COMPANY_DESCRIPTION).toContain("California");
-    expect(COMPANY_DESCRIPTION).toContain("artificial turf");
-  });
-
-  it("COMPANY_EMAIL is ralph@rangeljanitorial.com", () => {
-    expect(COMPANY_EMAIL).toBe("ralph@rangeljanitorial.com");
-  });
-
-  it("COMPANY_ADDRESS has correct city, state, and full fields", () => {
-    expect(COMPANY_ADDRESS.city).toBe("Murrieta");
-    expect(COMPANY_ADDRESS.state).toBe("CA");
-    expect(COMPANY_ADDRESS.full).toBe("Murrieta, CA");
-  });
-
-  it("DEFAULT_OG_IMAGE starts with /", () => {
-    expect(DEFAULT_OG_IMAGE.startsWith("/")).toBe(true);
-  });
-
-  it("SOCIAL_LINKS has facebook, instagram, and youtube as valid URLs", () => {
-    expect(SOCIAL_LINKS).toHaveProperty("facebook");
-    expect(SOCIAL_LINKS).toHaveProperty("instagram");
-    expect(SOCIAL_LINKS).toHaveProperty("youtube");
-
-    for (const [, url] of Object.entries(SOCIAL_LINKS)) {
-      expect(typeof url).toBe("string");
-      expect(url).toMatch(/^https?:\/\//);
-    }
-  });
-
-  it("SERVICE_SLUGS has exactly 4 entries with expected slugs", () => {
-    expect(SERVICE_SLUGS).toHaveLength(4);
-    expect(SERVICE_SLUGS).toContain("pet-hair-debris");
-    expect(SERVICE_SLUGS).toContain("blooming-decompacting");
-    expect(SERVICE_SLUGS).toContain("disinfect-deodorize");
-    expect(SERVICE_SLUGS).toContain("poop-scooping");
-  });
-
-  it("LOCATION_SLUGS has exactly 3 entries with expected slugs", () => {
-    expect(LOCATION_SLUGS).toHaveLength(3);
-    expect(LOCATION_SLUGS).toContain("sacramento");
-    expect(LOCATION_SLUGS).toContain("murrieta");
-    expect(LOCATION_SLUGS).toContain("walnut-creek");
-  });
-
-  it("BLOG_SLUGS has exactly 12 entries", () => {
-    expect(BLOG_SLUGS).toHaveLength(12);
+  it('derives complete, unique route sets from current content', () => {
+    expect([...SERVICE_SLUGS].sort()).toEqual(services.map((service) => service.slug).sort());
+    expect(LOCATION_SLUGS).toEqual(regions.map((region) => region.slug));
+    expect(BLOG_SLUGS).toEqual(BLOG_SUMMARIES.map((post) => post.slug));
+    for (const slugs of [SERVICE_SLUGS, LOCATION_SLUGS, BLOG_SLUGS]) expect(new Set(slugs).size).toBe(slugs.length);
   });
 });

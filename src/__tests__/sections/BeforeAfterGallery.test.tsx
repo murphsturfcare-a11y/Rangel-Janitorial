@@ -11,24 +11,24 @@ describe('BeforeAfterGallery', () => {
   it('renders subtitle', () => {
     render(<BeforeAfterGallery />);
     expect(
-      screen.getByText('Real results from real customers'),
+      screen.getByText('Real results from real facilities'),
     ).toBeInTheDocument();
   });
 
   it('renders before/after image with correct src and alt', () => {
     render(<BeforeAfterGallery />);
-    const img = screen.getByAlt(
-      "Before and after turf cleaning by Rangel Janitorial",
+    const img = screen.getByAltText(
+      "Professional commercial cleaning by Rangel Janitorial",
     );
     expect(img).toBeInTheDocument();
-    expect(img).toHaveAttribute('src', '/images/before-after.png');
+    expect(img).toHaveAttribute('src', '/images/gallery/our-work/rangel-17-6941b0a17109a80798658d66.png');
   });
 
   it('renders caption text', () => {
     render(<BeforeAfterGallery />);
     expect(
       screen.getByText(
-        /30\+ years of experience delivering results you can see/,
+        /30\+ years of experience delivering spotless facilities/,
       ),
     ).toBeInTheDocument();
   });

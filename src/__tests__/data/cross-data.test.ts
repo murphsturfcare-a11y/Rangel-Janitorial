@@ -2,12 +2,13 @@ import { services } from '@/data/services';
 import { locations } from '@/data/locations';
 import { faqs } from '@/data/faqs';
 import { testimonials } from '@/data/testimonials';
+import regions from '@/data/regions.json';
 import { footerNav } from '@/data/navigation';
 
 describe('cross-data validation', () => {
   const validServiceSlugs = services.map((s) => s.slug);
   const validLocationSlugs = locations.map((l) => l.slug);
-  const validLocationNames = locations.map((l) => l.name);
+  const validLocationNames = regions.flatMap((region) => region.cities.map((city) => city.name));
 
   describe('FAQ service slug references', () => {
     it('all serviceSlug values in faqs reference valid service slugs', () => {
@@ -52,11 +53,11 @@ describe('cross-data validation', () => {
     it('all testimonial customerLocations reference valid location names', () => {
       for (const testimonial of testimonials) {
         const match = validLocationNames.some((name) =>
-          name.includes(testimonial.customerLocation),
+          name === testimonial.customerLocation,
         );
         expect(
           match,
-          `Testimonial from "${testimonial.customerName}" has customerLocation "${testimonial.customerLocation}" which is not found as a substring of any location name (${validLocationNames.join(', ')})`,
+          `Testimonial from "${testimonial.customerName}" has customerLocation "${testimonial.customerLocation}" which is not a registered service city (${validLocationNames.join(', ')})`,
         ).toBe(true);
       }
     });

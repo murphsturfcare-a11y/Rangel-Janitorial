@@ -5,7 +5,6 @@
   # Disable the Netlify Next.js runtime plugin so requests for unknown URLs
   # are served by Netlify's static CDN (clean 404) instead of being wrapped
   # in a serverless function that can crash and return 5xx.
-  # This is the root cause of the 45K+ Server error (5xx) reports in GSC.
   [build.environment]
     NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
@@ -37,28 +36,7 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# LLM SEO: serve markdown mirrors with correct content-type so AI crawlers
-# (ChatGPT, Claude, Perplexity, Google AI Overviews) ingest them as plain text.
-[[headers]]
-  for = "/blog/*.md"
-  [headers.values]
-    Content-Type = "text/markdown; charset=utf-8"
-    X-Robots-Tag = "index, follow"
-    Cache-Control = "public, max-age=3600, must-revalidate"
-
-[[headers]]
-  for = "/llms.txt"
-  [headers.values]
-    Content-Type = "text/plain; charset=utf-8"
-    X-Robots-Tag = "index, follow"
-    Cache-Control = "public, max-age=3600, must-revalidate"
-
-[[headers]]
-  for = "/llms-full.txt"
-  [headers.values]
-    Content-Type = "text/plain; charset=utf-8"
-    X-Robots-Tag = "index, follow"
-    Cache-Control = "public, max-age=3600, must-revalidate"
+# Mirror and optional AI-file headers are generated in public/_headers.
 
 [[redirects]]
   from = "/contact"
@@ -81,14 +59,8 @@
   status = 301
 
 # ---------------------------------------------------------------------------
-# HACK RESIDUE CLEANUP — 410 Gone
-# This site was previously compromised and Google Search Console still shows
-# ~92K URLs from the old hacked install. Returning 410 (instead of 404) tells
-# Google "this is permanently gone, remove it from the index" — de-indexing
-# happens ~10x faster than a regular 404.
-#
-# Each rule uses force=true so it beats any static file that might exist,
-# and status=410 which Google treats as a permanent removal signal.
+# RETIRED ROUTES — 410 Gone
+# Preserve intentional removal responses for legacy paths.
 # ---------------------------------------------------------------------------
 
 # Hacked /products/* URLs — this site sells services, not products. Every
@@ -239,7 +211,8 @@
   force = true
 
 [[redirects]]
-  from = "/?*s=*"
+  from = "/"
+  query = {s = ":search"}
   to = "/404.html"
   status = 410
   force = true

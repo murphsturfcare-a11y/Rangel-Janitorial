@@ -4,22 +4,26 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-llm-files.mjs",
+    "prebuild": "node scripts/generate-llm-files.mjs && node scripts/generate-routing.mjs",
     "generate:llm": "node scripts/generate-llm-files.mjs",
     "build": "next build",
+    "postbuild": "node scripts/verify-export.mjs",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "verify:export": "node scripts/verify-export.mjs",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.577.0",
-    "next": "16.2.0",
+    "next": "^16.3.5",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -29,7 +33,7 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^9",
-    "eslint-config-next": "16.2.0",
+    "eslint-config-next": "^16.3.5",
     "jsdom": "^29.0.1",
     "tailwindcss": "^4",
     "typescript": "^5",

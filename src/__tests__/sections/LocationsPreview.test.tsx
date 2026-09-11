@@ -6,7 +6,7 @@ describe('LocationsPreview', () => {
   it('renders section heading', () => {
     render(<LocationsPreview />);
     expect(
-      screen.getByText('Serving California Communities'),
+      screen.getByText('Serving California Businesses'),
     ).toBeInTheDocument();
   });
 
@@ -14,7 +14,7 @@ describe('LocationsPreview', () => {
     render(<LocationsPreview />);
     expect(
       screen.getByText(
-        'Professional artificial turf cleaning in your neighborhood',
+        'Professional commercial cleaning in your area',
       ),
     ).toBeInTheDocument();
   });
@@ -22,7 +22,7 @@ describe('LocationsPreview', () => {
   it('renders all 3 location city names', () => {
     render(<LocationsPreview />);
     expect(
-      screen.getByText('Greater Sacramento'),
+      screen.getByText('Sacramento'),
     ).toBeInTheDocument();
     expect(
       screen.getByText('Murrieta / Inland Empire'),

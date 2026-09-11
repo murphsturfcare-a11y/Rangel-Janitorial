@@ -1,14 +1,9 @@
+import business from '@/data/business.json';
+import { generatePageMetadata } from '@/lib/seo/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Terms of Service',
-  description:
-    "Rangel Janitorial terms of service. Review the terms and conditions governing your use of our janitorial and commercial cleaning services in California.",
-  alternates: {
-    canonical: '/terms-of-service',
-  },
-};
+export const metadata: Metadata = generatePageMetadata('Terms of Service', 'Rangel Janitorial terms of service. Review the terms and conditions governing your use of our janitorial and commercial cleaning services in California.', "/terms-of-service");
 
 const sections = [
   { id: 'acceptance', title: '1. Acceptance of Terms' },
@@ -525,12 +520,12 @@ export default function TermsOfServicePage() {
               </h3>
               <p className="text-charcoal font-body text-base leading-relaxed mb-6">
                 Please contact us directly by phone (find your{' '}
-                <a
+                <Link
                   href="/locations"
                   className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
                 >
                   local office number
-                </a>) or by email at{' '}
+                </Link>) or by email at{' '}
                 <a
                   href="mailto:ralph@rangeljanitorial.com"
                   className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
@@ -607,7 +602,7 @@ export default function TermsOfServicePage() {
                 </p>
                 <div className="text-charcoal font-body text-base leading-relaxed space-y-2">
                   <p>
-                    <strong>Address:</strong> 26323 Jefferson Avenue, Murrieta, CA 92562
+                    <strong>Address:</strong> {business.headquarters.streetAddress}, {business.headquarters.addressLocality}, {business.headquarters.addressRegion} {business.headquarters.postalCode}
                   </p>
                   <p>
                     <strong>Email:</strong>{' '}
@@ -620,12 +615,12 @@ export default function TermsOfServicePage() {
                   </p>
                   <p>
                     <strong>Phone:</strong>{' '}
-                    <a
+                    <Link
                       href="/locations"
                       className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
                     >
                       Find your local office number
-                    </a>
+                    </Link>
                   </p>
                   <p>
                     <strong>Business Hours:</strong> Monday through Friday, 7:00 AM to 6:00 PM PST;

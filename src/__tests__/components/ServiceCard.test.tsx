@@ -1,17 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
+import { forwardRef } from 'react';
+import type { LucideProps } from 'lucide-react';
 import ServiceCard from '@/components/cards/ServiceCard';
 
-vi.mock('next/link', () => ({
-  default: ({ children, href, ...props }: any) => <a href={href} {...props}>{children}</a>,
-}));
-
-function MockIcon(props: any) {
-  return <svg data-testid="service-icon" {...props} />;
-}
+const MockIcon = forwardRef<SVGSVGElement, LucideProps>(function MockIcon(props, ref) {
+  return <svg ref={ref} data-testid="service-icon" {...props} />;
+});
 
 const defaultProps = {
-  icon: MockIcon as any,
+  icon: MockIcon,
   name: 'Lawn Care',
   description: 'Professional lawn maintenance services.',
   slug: 'lawn-care',

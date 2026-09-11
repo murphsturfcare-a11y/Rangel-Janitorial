@@ -1,3 +1,4 @@
+import { SERVICE_SLUGS } from '@/lib/seo/constants';
 import { readFileSync } from 'fs';
 import path from 'path';
 
@@ -198,7 +199,7 @@ describe('NewsletterSubscriber type maps to newsletter_subscribers table', () =>
 describe('MISMATCH: LeadStatus values differ between TypeScript and database', () => {
   // Extract TS LeadStatus values
   const tsStatusMatch = typesTS.match(
-    /export type LeadStatus\s*=\s*([^;]+);/s
+    /export type LeadStatus\s*=\s*([^;]+);/
   );
   const tsStatuses = tsStatusMatch
     ? tsStatusMatch[1].match(/'([^']+)'/g)?.map((s) => s.replace(/'/g, ''))
@@ -308,7 +309,7 @@ describe('TypeScript uses camelCase while SQL uses snake_case', () => {
 describe('Contact type is missing status field from database schema', () => {
   it('should have a status column in the contacts table SQL', () => {
     const contactsTableMatch = schemaSQL.match(
-      /CREATE TABLE contacts\s*\(([^;]+?)\);/s
+      /CREATE TABLE contacts\s*\(([^;]+?)\);/
     );
     expect(contactsTableMatch).not.toBeNull();
     expect(contactsTableMatch![1]).toContain('status');
@@ -316,7 +317,7 @@ describe('Contact type is missing status field from database schema', () => {
 
   it('should have a CHECK constraint on contacts.status for unread, read, replied', () => {
     const contactsTableMatch = schemaSQL.match(
-      /CREATE TABLE contacts\s*\(([^;]+?)\);/s
+      /CREATE TABLE contacts\s*\(([^;]+?)\);/
     );
     expect(contactsTableMatch![1]).toMatch(
       /CHECK\s*\(status\s+IN\s*\('unread',\s*'read',\s*'replied'\)\)/
@@ -336,7 +337,7 @@ describe('Contact type is missing status field from database schema', () => {
 describe('NewsletterSubscriber type is missing unsubscribed_at from database schema', () => {
   it('should have unsubscribed_at column in newsletter_subscribers SQL table', () => {
     const tableMatch = schemaSQL.match(
-      /CREATE TABLE newsletter_subscribers\s*\(([^;]+?)\);/s
+      /CREATE TABLE newsletter_subscribers\s*\(([^;]+?)\);/
     );
     expect(tableMatch).not.toBeNull();
     expect(tableMatch![1]).toContain('unsubscribed_at');
@@ -408,63 +409,32 @@ describe('Database has tables with corresponding TypeScript interfaces', () => {
 });
 
 // ---------------------------------------------------------------------------
-// 10. ServiceType enum values don't match seed services
+// 10. Current service types and the dormant seed mismatch
 // ---------------------------------------------------------------------------
 
-describe("ServiceType enum values don't match seed services", () => {
-  // Extract TS ServiceType values
-  const tsServiceTypeMatch = typesTS.match(
-    /export type ServiceType\s*=\s*([\s\S]*?);/
-  );
-  const tsServiceTypes = tsServiceTypeMatch
-    ? tsServiceTypeMatch[1].match(/'([^']+)'/g)?.map((s) => s.replace(/'/g, ''))
-    : [];
+describe('current service types and dormant SQL', () => {
+  const tsServiceTypeMatch = typesTS.match(/export type ServiceType\s*=\s*([\s\S]*?);/);
+  const tsServiceTypes = tsServiceTypeMatch?.[1].match(/'([^']+)'/g)?.map((value) => value.replace(/'/g, '')) || [];
+  const seed = readFileSync(path.resolve(__dirname, '../../../supabase/seed.sql'), 'utf8');
+  const serviceBlock = seed.match(/INSERT INTO services[\s\S]*?;(?=\s*--\s*={5,}|\s*$)/)?.[0] || '';
 
-  // DB schema service_type is just text (no CHECK constraint)
-  // But seed data from the application uses completely different values
-  const seedServiceTypes = [
-    'lawn-cleaning',
-    'aeration',
-    'seeding',
-    'fertilization',
-    'pest-control',
-    'seasonal-maintenance',
-  ];
-
-  it('should have TS ServiceType values: pet-hair-debris, blooming-decompacting, disinfect-deodorize, poop-scooping, other', () => {
-    expect(tsServiceTypes).toEqual([
-      'pet-hair-debris',
-      'blooming-decompacting',
-      'disinfect-deodorize',
-      'poop-scooping',
-      'other',
-    ]);
+  it('aligns TypeScript service inputs with the website plus the other option', () => {
+    expect(tsServiceTypes).toEqual([...SERVICE_SLUGS, 'other']);
   });
 
-  it('should have DB service_type column as plain text with no CHECK constraint', () => {
-    // The leads table service_type column has no CHECK constraint
-    const leadsTable = schemaSQL.match(
-      /CREATE TABLE leads\s*\(([^;]+?)\);/s
-    );
-    expect(leadsTable).not.toBeNull();
-    expect(leadsTable![1]).toContain('service_type    text');
-    // There is a CHECK on status, but NOT on service_type
-    expect(leadsTable![1]).not.toMatch(/service_type.*CHECK/s);
+  it('checks only the service_type column for its unconstrained text type', () => {
+    const table = schemaSQL.match(/CREATE TABLE leads\s*\(([^;]+?)\);/)?.[1];
+    expect(table).toBeDefined();
+    const column = table!.split('\n').find((line) => /^\s*service_type\s/.test(line));
+    expect(column).toMatch(/service_type\s+text/);
+    expect(column).not.toContain('CHECK');
+    expect(table).toContain("CHECK (status IN");
   });
 
-  it('should have zero overlap between TS ServiceType values and seed service types', () => {
-    const overlap = tsServiceTypes!.filter((s) =>
-      seedServiceTypes.includes(s)
-    );
-    expect(overlap).toEqual([]);
-  });
-
-  it('should confirm TS ServiceType and seed service types are completely divergent', () => {
-    for (const tsType of tsServiceTypes!) {
-      expect(seedServiceTypes).not.toContain(tsType);
-    }
-    for (const seedType of seedServiceTypes) {
-      expect(tsServiceTypes).not.toContain(seedType);
-    }
+  it('identifies the remaining carpet-versus-office mismatch in the unused seed', () => {
+    expect(serviceBlock).toContain("'carpet-cleaning'");
+    expect(serviceBlock).not.toContain("'office-cleaning'");
+    expect(tsServiceTypes).toContain('office-cleaning');
+    expect(tsServiceTypes).not.toContain('carpet-cleaning');
   });
 });

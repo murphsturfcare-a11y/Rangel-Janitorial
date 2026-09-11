@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
+import { GA_MEASUREMENT_ID } from '@/lib/analytics/gtag';
 import NewsletterForm from '@/components/forms/NewsletterForm';
 
 /* ------------------------------------------------------------------ */
@@ -42,11 +43,10 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
             <div className="text-center md:text-left">
               <h3 className="font-heading text-xl font-bold text-white">
-                Stay Updated with Facility Cleaning Tips
+                Cleaning Resources
               </h3>
               <p className="mt-1 font-body text-sm text-gray-400">
-                Get industry insights and exclusive offers delivered to your
-                inbox.
+                Explore practical cleaning guides or contact your regional team.
               </p>
             </div>
             <div className="w-full max-w-md">
@@ -67,7 +67,7 @@ export default function Footer() {
               aria-label="Rangel Janitorial — Home"
             >
               <Image
-                src="/images/logo.webp"
+                src="/images/logo-small.webp"
                 alt="Rangel Janitorial"
                 width={420}
                 height={206}
@@ -159,6 +159,7 @@ export default function Footer() {
               </a>
             </p>
           </div>
+          <nav aria-label="Legal" className="flex gap-4 text-sm text-gray-300"><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-of-service">Terms of Service</Link>{GA_MEASUREMENT_ID && <button type="button" onClick={() => window.dispatchEvent(new Event('rangel:privacy-settings'))}>Cookie settings</button>}</nav>
           <p className="font-body text-sm text-gray-400">
             Professional Crews | Fully Insured | Satisfaction Guaranteed
           </p>

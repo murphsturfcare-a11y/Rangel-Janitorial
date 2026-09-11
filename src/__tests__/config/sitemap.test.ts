@@ -1,80 +1,31 @@
-import sitemap from "@/app/sitemap";
-import {
-  SITE_URL,
-  SERVICE_SLUGS,
-  LOCATION_SLUGS,
-  BLOG_SLUGS,
-} from "@/lib/seo/constants";
+import { describe, it, expect, vi } from 'vitest';
+import sitemap from '@/app/sitemap';
+import { SITE_URL, SERVICE_SLUGS } from '@/lib/seo/constants';
+import regions from '@/data/regions.json';
+import { BLOG_SLUGS, BLOG_PAGE_COUNT, getBlogPagePath } from '@/content/blog-index';
 
-describe("sitemap()", () => {
-  const entries = sitemap();
-
-  it("returns an array of URL entries", () => {
-    expect(Array.isArray(entries)).toBe(true);
-    expect(entries.length).toBeGreaterThan(0);
+describe('canonical sitemap', () => {
+  it('includes every retained route exactly once, including city and blog archive pages', () => {
+    const expected = [SITE_URL, ...['services', 'locations', 'blog', 'privacy-policy', 'terms-of-service'].map((path) => `${SITE_URL}/${path}`), ...SERVICE_SLUGS.map((slug) => `${SITE_URL}/services/${slug}`), ...regions.flatMap((region) => [`${SITE_URL}/locations/${region.slug}`, ...region.cities.map((city) => `${SITE_URL}/locations/${region.slug}/${city.slug}`)]), ...BLOG_SLUGS.map((slug) => `${SITE_URL}/blog/${slug}`), ...Array.from({ length: BLOG_PAGE_COUNT - 1 }, (_, i) => `${SITE_URL}${getBlogPagePath(i + 2)}`)];
+    const actual = sitemap().map((entry) => entry.url);
+    expect(actual.sort()).toEqual(expected.sort());
+    expect(new Set(actual).size).toBe(actual.length);
   });
 
-  it("includes the homepage", () => {
-    const homepage = entries.find((e) => e.url === SITE_URL);
-    expect(homepage).toBeDefined();
-    expect(homepage!.priority).toBe(1.0);
-  });
-
-  it("includes all static pages", () => {
-    const staticPaths = [
-      "/about",
-      "/services",
-      "/locations",
-      "/blog",
-      "/privacy-policy",
-      "/terms-of-service",
-    ];
-
-    for (const path of staticPaths) {
-      const entry = entries.find((e) => e.url === `${SITE_URL}${path}`);
-      expect(entry, `expected static page ${path} to be in sitemap`).toBeDefined();
+  it('excludes alternate text copies, redirected endpoints and nonexistent pages', () => {
+    for (const entry of sitemap()) {
+      expect(new URL(entry.url).origin).toBe(SITE_URL);
+      expect(entry.url).not.toMatch(/\.md$|llms|\.html$|\?|\/contact$|\/about$|\/blog\/page\/1$/);
     }
   });
 
-  it("includes all 5 service pages", () => {
-    expect(SERVICE_SLUGS).toHaveLength(5);
-
-    for (const slug of SERVICE_SLUGS) {
-      const entry = entries.find((e) => e.url === `${SITE_URL}/services/${slug}`);
-      expect(entry, `expected service page /services/${slug} to be in sitemap`).toBeDefined();
-    }
-  });
-
-  it("includes all 4 location pages", () => {
-    expect(LOCATION_SLUGS).toHaveLength(4);
-
-    for (const slug of LOCATION_SLUGS) {
-      const entry = entries.find((e) => e.url === `${SITE_URL}/locations/${slug}`);
-      expect(entry, `expected location page /locations/${slug} to be in sitemap`).toBeDefined();
-    }
-  });
-
-  it("includes all 12 blog pages", () => {
-    expect(BLOG_SLUGS).toHaveLength(12);
-
-    for (const slug of BLOG_SLUGS) {
-      const entry = entries.find((e) => e.url === `${SITE_URL}/blog/${slug}`);
-      expect(entry, `expected blog page /blog/${slug} to be in sitemap`).toBeDefined();
-    }
-  });
-
-  it("every entry has url and lastModified fields", () => {
-    for (const entry of entries) {
-      expect(entry.url).toBeDefined();
-      expect(typeof entry.url).toBe("string");
-      expect(entry.lastModified).toBeDefined();
-      expect(entry.lastModified).toBeInstanceOf(Date);
-    }
-  });
-
-  it("all URLs use the base URL https://rangeljanitorial.com", () => {
-    for (const entry of entries) {
-      expect(entry.url).toMatch(/^https:\/\/rangeljanitorial\.com/);
-    }
+  it('does not manufacture lastmod from the build clock', () => {
+    const original = sitemap();
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2030-01-01T00:00:00Z'));
+      expect(sitemap()).toEqual(original);
+      for (const entry of original) expect(entry.lastModified).toBeUndefined();
+    } finally { vi.useRealTimers(); }
   });
 });

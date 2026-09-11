@@ -1,64 +1,55 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+vi.hoisted(() => { process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = 'G-TEST1234'; });
 import { CookieConsent } from '../../components/analytics/CookieConsent';
+import { CONSENT_KEY, getAnalyticsConsent } from '@/lib/analytics/gtag';
+
+beforeEach(() => {
+  localStorage.clear();
+  delete window.rangelAnalyticsConsent;
+});
+afterEach(() => {
+  cleanup();
+  delete window.rangelAnalyticsConsent;
+  vi.restoreAllMocks();
+});
 
 describe('CookieConsent', () => {
-  beforeEach(() => {
-    localStorage.clear();
-    (localStorage.getItem as ReturnType<typeof vi.fn>).mockClear();
-    (localStorage.setItem as ReturnType<typeof vi.fn>).mockClear();
-  });
-
-  it('shows banner when no consent in localStorage', () => {
+  it('offers equal explicit accept/decline choices and a privacy link', () => {
     render(<CookieConsent />);
-
-    expect(screen.getByText(/We use cookies/)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Accept' })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'Analytics preferences' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Accept analytics' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Decline' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Privacy policy' })).toHaveAttribute('href', '/privacy-policy');
   });
 
-  it('does not show banner when consent already exists', () => {
-    localStorage.setItem('rangel_janitorial_cookie_consent', 'accepted');
-
+  it.each(['accepted', 'declined'])('restores %s without reprompting and allows settings to reopen', choice => {
+    localStorage.setItem(CONSENT_KEY, choice);
     render(<CookieConsent />);
-
-    expect(screen.queryByText(/We use cookies/)).not.toBeInTheDocument();
+    expect(screen.queryByRole('region')).not.toBeInTheDocument();
+    act(() => { window.dispatchEvent(new Event('rangel:privacy-settings')); });
+    expect(screen.getByRole('region')).toBeInTheDocument();
   });
 
-  it('Accept button hides banner and sets localStorage', async () => {
-    const user = userEvent.setup();
+  it.each([['Accept analytics', 'accepted'], ['Decline', 'declined']])('persists %s and notifies the analytics loader', (button, expected) => {
+    const consentEvent = vi.fn();
+    window.addEventListener('rangel:consent', consentEvent);
     render(<CookieConsent />);
-
-    expect(screen.getByText(/We use cookies/)).toBeInTheDocument();
-
-    await user.click(screen.getByRole('button', { name: 'Accept' }));
-
-    expect(localStorage.setItem).toHaveBeenCalledWith('rangel_janitorial_cookie_consent', 'accepted');
-    await waitFor(() => {
-      expect(screen.queryByText(/We use cookies/)).not.toBeInTheDocument();
-    });
+    fireEvent.click(screen.getByRole('button', { name: button }));
+    expect(localStorage.getItem(CONSENT_KEY)).toBe(expected);
+    expect(getAnalyticsConsent()).toBe(expected);
+    expect(consentEvent).toHaveBeenCalledTimes(1);
+    expect(screen.queryByRole('region')).not.toBeInTheDocument();
+    window.removeEventListener('rangel:consent', consentEvent);
   });
 
-  it('Decline button hides banner and sets localStorage', async () => {
-    const user = userEvent.setup();
+  it('lets a prior accepted user revoke consent even if storage becomes unavailable', () => {
+    localStorage.setItem(CONSENT_KEY, 'accepted');
     render(<CookieConsent />);
-
-    expect(screen.getByText(/We use cookies/)).toBeInTheDocument();
-
-    await user.click(screen.getByRole('button', { name: 'Decline' }));
-
-    expect(localStorage.setItem).toHaveBeenCalledWith('rangel_janitorial_cookie_consent', 'declined');
-    await waitFor(() => {
-      expect(screen.queryByText(/We use cookies/)).not.toBeInTheDocument();
-    });
-  });
-
-  it('renders cookie consent text', () => {
-    render(<CookieConsent />);
-
-    expect(
-      screen.getByText(/We use cookies to improve your experience and analyze site traffic/),
-    ).toBeInTheDocument();
+    act(() => { window.dispatchEvent(new Event('rangel:privacy-settings')); });
+    vi.mocked(localStorage.setItem).mockImplementationOnce(() => { throw new Error('Blocked'); });
+    fireEvent.click(screen.getByRole('button', { name: 'Decline' }));
+    expect(getAnalyticsConsent()).toBe('declined');
+    expect(screen.queryByRole('region')).not.toBeInTheDocument();
   });
 });

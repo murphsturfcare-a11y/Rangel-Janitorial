@@ -1,6 +1,11 @@
+import { getCityGuides, type CityContent, type LocalDetail } from '@/content/city-content';
+import regions from '@/data/regions.json';
+import business from '@/data/business.json';
+import { generatePageMetadata } from '@/lib/seo/metadata';
+import { ORGANIZATION_ID } from '@/lib/seo/schema';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Phone, CheckCircle, ArrowRight, ChevronRight, Building2, Sparkles } from 'lucide-react';
+import { Phone, ArrowRight, ChevronRight, Building2, Sparkles } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
 import OurWorkGallery from '@/components/sections/OurWorkGallery';
@@ -14,20 +19,12 @@ interface RegionData {
   slug: string;
   phone: string;
   email: string;
-  subcities: { name: string; subcitySlug: string }[];
+  subcities: { name: string; subcitySlug: string; localDetails?: LocalDetail[] }[];
 }
 
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
-
-function toSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[\/]/g, '-')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-}
 
 // ---------------------------------------------------------------------------
 // Services and facility types
@@ -35,27 +32,27 @@ function toSlug(name: string): string {
 
 const services = [
   {
-    name: 'Janitorial Cleaning',
+    name: 'Janitorial Cleaning', slug: 'janitorial-cleaning',
     description:
       'Comprehensive nightly and daily janitorial cleaning for offices, lobbies, restrooms, and common areas.',
   },
   {
-    name: 'Day Porter Services',
+    name: 'Day Porter Services', slug: 'day-porter',
     description:
       'On-site daytime cleaning staff to maintain cleanliness during business hours and handle immediate needs.',
   },
   {
-    name: 'Electrostatic Disinfection',
+    name: 'Electrostatic Disinfection', slug: 'electrostatic-disinfection',
     description:
-      'Hospital-grade electrostatic spraying that wraps disinfectant around surfaces for 360-degree coverage.',
+      'Targeted disinfectant application as part of a cleaning plan, following product instructions and required surface contact times.',
   },
   {
-    name: 'Floor Care',
+    name: 'Floor Care', slug: 'floor-care',
     description:
       'Professional floor stripping, waxing, buffing, and refinishing for hard surfaces including VCT, tile, and concrete.',
   },
   {
-    name: 'Office Cleaning',
+    name: 'Office Cleaning', slug: 'office-cleaning',
     description:
       'Comprehensive office cleaning services to keep workspaces, desks, and common areas spotless and professionally maintained.',
   },
@@ -78,95 +75,13 @@ const facilityTypes = [
 // Region data with all subcities
 // ---------------------------------------------------------------------------
 
-const regionData: Record<string, RegionData> = {
-  sacramento: {
-    regionName: 'Sacramento',
-    slug: 'sacramento',
-    phone: '(916) 426-2311',
-    email: 'ralph@rangeljanitorial.com',
-    subcities: [
-      'Sacramento',
-      'Downtown Sacramento',
-      'Midtown Sacramento',
-      'Roseville',
-      'Folsom',
-      'Rancho Cordova',
-      'Citrus Heights',
-      'Natomas',
-      'West Sacramento',
-      'Carmichael',
-      'Fair Oaks',
-      'Orangevale',
-      'Antelope',
-      'North Highlands',
-      'Arden-Arcade',
-      'Rocklin',
-      'Lincoln',
-      'Woodland',
-      'Davis',
-      'Loomis',
-      'Granite Bay',
-    ].map((name) => ({ name, subcitySlug: toSlug(name) })),
-  },
-
-  murrieta: {
-    regionName: 'Murrieta',
-    slug: 'murrieta',
-    phone: '(951) 894-4222',
-    email: 'ralph@rangeljanitorial.com',
-    subcities: [
-      'Murrieta',
-      'Temecula',
-      'French Valley',
-      'Menifee',
-      'Lake Elsinore',
-      'Hemet',
-      'Perris',
-      'Wildomar',
-      'Canyon Lake',
-      'Temescal Valley',
-      'Winchester',
-      'Ontario',
-      'Fontana',
-      'Rialto',
-      'Corona',
-      'Riverside',
-      'Moreno Valley',
-      'San Jacinto',
-      'Beaumont',
-      'Eastvale',
-    ].map((name) => ({ name, subcitySlug: toSlug(name) })),
-  },
-
-  'walnut-creek': {
-    regionName: 'Walnut Creek',
-    slug: 'walnut-creek',
-    phone: '(925) 655-9008',
-    email: 'ralph@rangeljanitorial.com',
-    subcities: [
-      'Walnut Creek',
-      'Concord',
-      'Pleasant Hill',
-      'Lafayette',
-      'Danville',
-      'Martinez',
-      'San Ramon',
-      'Dublin',
-      'Livermore',
-      'Pleasanton',
-      'Orinda',
-      'Moraga',
-      'Alamo',
-      'Clayton',
-      'Antioch',
-      'Brentwood',
-      'Oakley',
-      'Pittsburg',
-      'Bay Point',
-      'El Cerrito',
-    ].map((name) => ({ name, subcitySlug: toSlug(name) })),
-  },
-};
+const regionData: Record<string, RegionData> = Object.fromEntries(regions.map((region) => [region.slug, {
+  regionName: region.city,
+  slug: region.slug,
+  phone: region.phone,
+  email: business.email,
+  subcities: region.cities.map((city) => ({name: city.name, subcitySlug: city.slug, localDetails: (city as CityContent).localDetails})),
+}]));
 
 // ---------------------------------------------------------------------------
 // Static params — generates all region + subcity combinations
@@ -203,18 +118,7 @@ export async function generateMetadata({
   const title = `Professional Janitorial Services in ${city.name}, CA | Rangel Janitorial`;
   const description = `Rangel Janitorial provides professional commercial cleaning and janitorial services in ${city.name}, California. Serving offices, medical facilities, industrial parks & more. Call ${region.phone} for a free quote.`;
 
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: `https://rangeljanitorial.com/locations/${slug}/${city.subcitySlug}`,
-    },
-    openGraph: {
-      title,
-      description,
-      type: 'website',
-    },
-  };
+  return generatePageMetadata(title, description, `/locations/${slug}/${city.subcitySlug}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -239,6 +143,7 @@ export default async function SubcityPage({
     notFound();
   }
 
+  const guides = getCityGuides(slug, city.name);
   const phoneDigits = region.phone.replace(/[^\d+]/g, '');
 
   const breadcrumbSchema = {
@@ -252,12 +157,13 @@ export default async function SubcityPage({
     ],
   };
 
-  const localBusinessSchema = {
+  const serviceSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: `Rangel Janitorial - ${city.name}`,
+    '@type': 'Service',
+    '@id': `${business.url}/locations/${slug}/${subcity}#service`,
+    url: `${business.url}/locations/${slug}/${subcity}`,
+    name: `Commercial cleaning in ${city.name}`,
     description: `Professional janitorial and commercial cleaning services in ${city.name}, CA`,
-    telephone: `+1${phoneDigits}`,
     areaServed: {
       '@type': 'City',
       name: city.name,
@@ -266,22 +172,18 @@ export default async function SubcityPage({
         name: 'California',
       },
     },
-    parentOrganization: {
-      '@type': 'Organization',
-      name: 'Rangel Janitorial',
-      url: 'https://rangeljanitorial.com',
-    },
+    provider: { '@id': ORGANIZATION_ID },
   };
 
   return (
     <div className="scroll-smooth">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c') }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, '\\u003c') }}
       />
 
       {/* ================================================================
@@ -376,7 +278,7 @@ export default async function SubcityPage({
                     <Sparkles className="w-5 h-5 text-sage" />
                   </div>
                   <h4 className="text-lg font-bold text-charcoal font-heading mb-2">
-                    {service.name}
+                    <Link href={`/services/${service.slug}`} className="hover:underline">{service.name}</Link>
                   </h4>
                   <p className="text-charcoal-light font-body text-sm leading-relaxed">
                     {service.description}
@@ -385,6 +287,33 @@ export default async function SubcityPage({
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {city.localDetails?.map((detail) => (
+        <section key={detail.heading} className="py-12 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-heading font-bold text-forest mb-5">{detail.heading}</h2>
+            {detail.paragraphs.map((paragraph) => <p key={paragraph} className="mb-4 text-charcoal-light leading-relaxed">{paragraph}</p>)}
+          </div>
+        </section>
+      ))}
+
+      <section className="py-14 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="text-3xl font-heading font-bold text-charcoal mb-5">Plan cleaning for your {city.name} facility</h2>
+            <p className="text-charcoal-light leading-relaxed mb-5">Start with the building, not a generic package. Share your approximate square footage, floor surfaces, restroom count, and the areas that need attention. Tell the {region.regionName} team when staff or visitors use the space and how cleaners would access it.</p>
+            <p className="text-charcoal-light leading-relaxed">Ask for a written scope that separates recurring tasks, daytime support, and periodic floor care. Confirm the proposed schedule, supplies, exclusions, and point of contact before work begins. Availability and pricing are confirmed for your facility during the quote process.</p>
+            <Link href={`/locations/${slug}#quote-form`} className="inline-flex mt-6 text-forest font-semibold underline">Discuss your {city.name} cleaning scope</Link>
+          </div>
+          <h3 className="text-2xl font-heading font-bold text-charcoal mb-6">Cleaning guides from the {region.regionName} resource library</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {guides.map((guide) => <article key={guide.slug} className="rounded-xl bg-cream p-6">
+              <h4 className="font-heading font-semibold text-forest mb-3"><Link href={`/blog/${guide.slug}`} className="hover:underline">{guide.title}</Link></h4>
+              <p className="text-sm text-charcoal-light leading-relaxed">{guide.excerpt}</p>
+            </article>)}
+          </div>
         </div>
       </section>
 

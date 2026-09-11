@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import { useState, useEffect } from 'react';
 import { X, Gift } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -58,13 +60,13 @@ export default function ExitIntentPopup() {
                 Get <span className="font-bold text-sage">10% off</span> your first janitorial cleaning service
                 when you request a free quote today!
               </p>
-              <a
+              <Link
                 href="/locations"
                 className="block w-full bg-sage hover:bg-sage-dark text-white font-bold py-3 px-6 rounded-lg transition-colors font-body text-center mb-3"
                 onClick={() => setIsVisible(false)}
               >
                 Find Your Local Office
-              </a>
+              </Link>
               <button
                 onClick={() => setIsVisible(false)}
                 className="text-sm text-gray-400 hover:text-charcoal transition-colors font-body"

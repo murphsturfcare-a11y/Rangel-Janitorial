@@ -11,28 +11,19 @@ import {
   User,
   ChevronRight,
 } from 'lucide-react';
-import type { BlogPost } from './page';
+import { getBlogPagePath, formatBlogDate } from '@/content/blog-index';
+import type { BlogSummary } from '@/content/blog-index';
 
 /* ----------------------- TYPES ----------------------- */
 
 interface BlogContentProps {
-  posts: BlogPost[];
+  posts: BlogSummary[];
+  currentPage: number;
+  totalPages: number;
+  postsPerPage: number;
   categories: string[];
   categoryColors: Record<string, { bg: string; text: string }>;
   categoryCounts: Record<string, number>;
-}
-
-/* ----------------------- CONSTANTS ----------------------- */
-
-const POSTS_PER_PAGE = 6;
-
-function formatDate(dateStr: string): string {
-  const date = new Date(dateStr + 'T00:00:00');
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
 }
 
 /* ═══════════════════════ COMPONENT ═══════════════════════ */
@@ -42,10 +33,12 @@ export default function BlogContent({
   categories,
   categoryColors,
   categoryCounts,
+  currentPage,
+  totalPages,
+  postsPerPage,
 }: BlogContentProps) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
 
   /* -- Filtered posts -- */
   const filteredPosts = useMemo(() => {
@@ -69,24 +62,20 @@ export default function BlogContent({
     return result;
   }, [posts, activeCategory, searchQuery]);
 
-  /* -- Pagination -- */
-  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
-  const safePage = Math.min(currentPage, totalPages);
-  const paginatedPosts = filteredPosts.slice(
-    (safePage - 1) * POSTS_PER_PAGE,
-    safePage * POSTS_PER_PAGE
-  );
+  // Filters show all matching summaries. The unfiltered archive uses real URLs.
+  const isFiltering = activeCategory !== 'All' || searchQuery.trim().length > 0;
+  const paginatedPosts = isFiltering
+    ? filteredPosts
+    : posts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
 
   const recentPosts = posts.slice(0, 5);
 
   function handleCategoryChange(category: string) {
     setActiveCategory(category);
-    setCurrentPage(1);
   }
 
   function handleSearch(value: string) {
     setSearchQuery(value);
-    setCurrentPage(1);
   }
 
   return (
@@ -211,7 +200,7 @@ export default function BlogContent({
                           </div>
                           <div className="flex items-center gap-1.5 text-xs font-body text-charcoal-light">
                             <Calendar className="w-3.5 h-3.5" />
-                            <span>{formatDate(post.date)}</span>
+                            <span>{formatBlogDate(post.date)}</span>
                           </div>
                         </div>
 
@@ -243,8 +232,7 @@ export default function BlogContent({
                     onClick={() => {
                       setActiveCategory('All');
                       setSearchQuery('');
-                      setCurrentPage(1);
-                    }}
+                                      }}
                     className="mt-4 inline-flex items-center gap-2 font-body font-semibold text-sage hover:text-sage-dark transition-colors"
                   >
                     Clear all filters
@@ -253,55 +241,31 @@ export default function BlogContent({
                 </div>
               )}
 
-              {/* ----------------- PAGINATION ----------------- */}
-              {totalPages > 1 && (
-                <div className="mt-10 flex items-center justify-center gap-3">
-                  <button
-                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                    disabled={safePage <= 1}
-                    className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-body font-semibold text-sm transition-all duration-200 ${
-                      safePage <= 1
-                        ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                        : 'bg-white text-charcoal hover:bg-forest hover:text-white shadow-sm hover:shadow-md border border-gray-200 hover:border-forest'
-                    }`}
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                    Previous
-                  </button>
-
-                  <div className="flex items-center gap-1.5">
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                      (page) => (
-                        <button
-                          key={page}
-                          onClick={() => setCurrentPage(page)}
-                          className={`w-10 h-10 rounded-xl font-body font-semibold text-sm transition-all duration-200 ${
-                            safePage === page
-                              ? 'bg-forest text-white shadow-md'
-                              : 'bg-white text-charcoal-light hover:bg-gray-100 border border-gray-200'
-                          }`}
-                        >
-                          {page}
-                        </button>
-                      )
-                    )}
-                  </div>
-
-                  <button
-                    onClick={() =>
-                      setCurrentPage((p) => Math.min(totalPages, p + 1))
-                    }
-                    disabled={safePage >= totalPages}
-                    className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-body font-semibold text-sm transition-all duration-200 ${
-                      safePage >= totalPages
-                        ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                        : 'bg-white text-charcoal hover:bg-forest hover:text-white shadow-sm hover:shadow-md border border-gray-200 hover:border-forest'
-                    }`}
-                  >
-                    Next
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
+              {/* Every retained article is discoverable through normal archive links. */}
+              {!isFiltering && totalPages > 1 && (
+                <nav aria-label="Blog pagination" className="mt-10 flex flex-wrap items-center justify-center gap-2">
+                  {currentPage > 1 && (
+                    <Link href={getBlogPagePath(currentPage - 1)} rel="prev" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 font-body font-semibold text-sm hover:bg-forest hover:text-white">
+                      <ArrowLeft className="w-4 h-4" /> Previous
+                    </Link>
+                  )}
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                    <Link
+                      key={page}
+                      href={getBlogPagePath(page)}
+                      aria-label={`Blog page ${page}`}
+                      aria-current={currentPage === page ? 'page' : undefined}
+                      className={`w-10 h-10 inline-flex items-center justify-center rounded-xl font-body font-semibold text-sm ${currentPage === page ? 'bg-forest text-white' : 'bg-white border border-gray-200 hover:bg-gray-100'}`}
+                    >
+                      {page}
+                    </Link>
+                  ))}
+                  {currentPage < totalPages && (
+                    <Link href={getBlogPagePath(currentPage + 1)} rel="next" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 font-body font-semibold text-sm hover:bg-forest hover:text-white">
+                      Next <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  )}
+                </nav>
               )}
             </div>
 
@@ -317,6 +281,7 @@ export default function BlogContent({
                   <input
                     type="text"
                     placeholder="Search blog posts..."
+                    aria-label="Search blog posts"
                     value={searchQuery}
                     onChange={(e) => handleSearch(e.target.value)}
                     className="w-full rounded-xl border border-gray-200 pl-10 pr-4 py-3 font-body text-sm text-charcoal placeholder:text-gray-400 focus:border-sage focus:ring-2 focus:ring-sage/30 outline-none transition"
@@ -344,7 +309,7 @@ export default function BlogContent({
                           {post.title}
                         </h5>
                         <p className="font-body text-xs text-charcoal-light mt-1">
-                          {formatDate(post.date)}
+                          {formatBlogDate(post.date)}
                         </p>
                       </div>
                     </Link>

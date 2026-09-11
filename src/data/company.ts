@@ -1,20 +1,22 @@
+import business from './business.json';
+import regions from './regions.json';
 import type { Company } from '../types';
 
 export const company: Company = {
   name: "Rangel Janitorial",
   tagline: "Creating Excellent First Impressions",
-  phone: "951-894-4222",
-  email: "ralph@rangeljanitorial.com",
+  phone: regions.find((region) => region.slug === 'murrieta')!.phone.replace(/[()]/g, '').replace(/ /g, '-'),
+  email: business.email,
   address: {
-    street: "26323 Jefferson Ave Suite C",
+    street: business.headquarters.streetAddress,
     city: "Murrieta",
     state: "CA",
     zip: "92562",
   },
   businessHours: {
-    weekdays: "9:00 AM - 5:00 PM",
-    saturday: "Closed",
-    sunday: "Closed",
+    weekdays: "Contact your regional team to confirm office hours",
+    saturday: "Contact your regional team",
+    sunday: "Contact your regional team",
   },
   founded: 1989,
   description: `Rangel Janitorial is a professional commercial cleaning company headquartered in Murrieta, California. We provide janitorial cleaning, day porter services, electrostatic disinfection, floor care, and office cleaning for businesses across Southern and Northern California — from the Inland Empire to Walnut Creek and Sacramento. Our trained crews deliver consistent, reliable results for Class A office buildings, corporate campuses, medical and dental facilities, light industrial parks, multi-unit properties, municipalities, and fitness centers.`,

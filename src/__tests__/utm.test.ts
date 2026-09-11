@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   parseUTMFromURL,
   storeUTMParams,
@@ -129,5 +130,34 @@ describe("appendUTMToFormData", () => {
       utm_term: "turf",
       utm_content: "ad1",
     });
+  });
+});
+
+
+describe('campaign input boundaries', () => {
+  it.each([
+    'person@example.test', 'https://example.test/private', '<script>', 'x'.repeat(81),
+    '9515550100', '951 555 0100', '951-555-0100', 'phone-9515550100', 'line\nbreak',
+  ])('rejects unbounded or personal campaign values: %s', value => {
+    expect(parseUTMFromURL(new URLSearchParams({ utm_source: value }))).toBeNull();
+  });
+
+  it('normalizes stored data instead of trusting its shape or extra keys', () => {
+    sessionStorage.setItem('rangel_janitorial_utm', JSON.stringify({
+      source: 'google', medium: {}, campaign: 'office-cleaning', email: 'person@example.test', term: '9515550100',
+    }));
+    expect(getStoredUTMParams()).toEqual({ source: 'google', medium: '', campaign: 'office-cleaning', term: '', content: '' });
+    sessionStorage.setItem('rangel_janitorial_utm', '[]');
+    expect(getStoredUTMParams()).toBeNull();
+  });
+
+  it('does not prevent submitting forms when session storage is blocked', () => {
+    const get = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => { throw new Error('Blocked'); });
+    expect(getStoredUTMParams()).toBeNull();
+    expect(appendUTMToFormData({ email: 'person@example.test' })).toEqual({ email: 'person@example.test' });
+    get.mockRestore();
+    const set = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new Error('Blocked'); });
+    expect(() => storeUTMParams({ source: 'google', medium: '', campaign: '', term: '', content: '' })).not.toThrow();
+    set.mockRestore();
   });
 });

@@ -1,3 +1,7 @@
+import regions from '@/data/regions.json';
+import business from '@/data/business.json';
+import { generatePageMetadata } from '@/lib/seo/metadata';
+import { ORGANIZATION_ID } from '@/lib/seo/schema';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -55,7 +59,6 @@ interface LocationData {
   metaDescription: string;
   serviceAreaDescription: string;
   climateNote: string;
-  formId: string;
   mapQuery: string;
   mapEmbedUrl?: string;
   gmb?: string;
@@ -121,15 +124,6 @@ const processSteps = [
   },
 ];
 
-const galleryImages = [
-  { src: '/images/gallery/our-work/rangel-02-6941b0a16edec52d705e6e30.png', alt: 'Rangel crew member mopping commercial floors' },
-  { src: '/images/gallery/our-work/rangel-13-6941b0a1db710a50675087a5.png', alt: 'Rangel crew member cleaning restroom facilities' },
-  { src: '/images/gallery/our-work/rangel-17-6941b0a17109a80798658d66.png', alt: 'Freshly polished warehouse floor' },
-  { src: '/images/gallery/our-work/rangel-21-6941b0a10041dc7c1a15ddbd.png', alt: 'Rangel crew member vacuuming office space' },
-  { src: '/images/gallery/our-work/rangel-11-6941b0a175b6078f79318d3d.png', alt: 'Detailed surface cleaning by Rangel crew' },
-  { src: '/images/gallery/our-work/rangel-12-6941b0a1db710a16915087a6.png', alt: 'Commercial lobby floor cleaning' },
-];
-
 const locationFaqs = [
   {
     question: 'What types of facilities do you clean?',
@@ -172,19 +166,9 @@ const locationData: Record<string, LocationData> = {
     city: 'Sacramento',
     slug: 'sacramento',
     state: 'CA',
-    phone: '(916) 426-2311',
-    email: 'ralph@rangeljanitorial.com',
-    neighborhoods: [
-      'Sacramento',
-      'Downtown Sacramento',
-      'Midtown Sacramento',
-      'Roseville',
-      'Folsom',
-      'Rancho Cordova',
-      'Citrus Heights',
-      'Natomas',
-      'West Sacramento',
-    ],
+    phone: regions.find((region) => region.slug === 'sacramento')!.phone,
+    email: business.email,
+    neighborhoods: regions.find((region) => region.slug === 'sacramento')!.cities.map((city) => city.name),
     testimonials: [
       {
         name: 'Greg Thomsen',
@@ -212,7 +196,6 @@ const locationData: Record<string, LocationData> = {
       'Serving the greater Sacramento metro including Downtown Sacramento, Midtown Sacramento, Roseville, Folsom, Rancho Cordova, Citrus Heights, and West Sacramento.',
     climateNote:
       'Central Valley heat and dust demand frequent deep cleaning to maintain healthy, professional environments.',
-    formId: '6L08kToCUbkqyOiTqitu',
     mapQuery: 'Sacramento+CA',
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199665.09544980843!2d-121.59483879453124!3d38.56165478832246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA!5e0!3m2!1sen!2sus!4v1',
   },
@@ -221,21 +204,9 @@ const locationData: Record<string, LocationData> = {
     city: 'Murrieta',
     slug: 'murrieta',
     state: 'CA',
-    phone: '(951) 894-4222',
-    email: 'ralph@rangeljanitorial.com',
-    neighborhoods: [
-      'Murrieta',
-      'Temecula',
-      'French Valley',
-      'Menifee',
-      'Lake Elsinore',
-      'Hemet',
-      'Perris',
-      'Wildomar',
-      'Canyon Lake',
-      'Temescal Valley',
-      'Winchester',
-    ],
+    phone: regions.find((region) => region.slug === 'murrieta')!.phone,
+    email: business.email,
+    neighborhoods: regions.find((region) => region.slug === 'murrieta')!.cities.map((city) => city.name),
     testimonials: [
       {
         name: 'Brian Callahan',
@@ -263,7 +234,6 @@ const locationData: Record<string, LocationData> = {
       'Serving the entire Inland Empire from Temecula and French Valley through Menifee, Lake Elsinore, Hemet, Perris, Wildomar, Canyon Lake, and Winchester.',
     climateNote:
       'Inland Empire dust and summer heat require consistent cleaning to keep commercial spaces healthy and presentable.',
-    formId: 'fUggM7F49myI8reYUz05',
     mapQuery: 'Rangel+Janitorial+Murrieta+CA',
     gmb: 'https://www.google.com/maps/place/Rangel+Commercial+Cleaners+of+Murrieta/data=!4m2!3m1!1s0x0:0x846bff7e768aac1a',
   },
@@ -272,18 +242,9 @@ const locationData: Record<string, LocationData> = {
     city: 'Walnut Creek',
     slug: 'walnut-creek',
     state: 'CA',
-    phone: '(925) 655-9008',
-    email: 'ralph@rangeljanitorial.com',
-    neighborhoods: [
-      'Walnut Creek',
-      'Concord',
-      'Pleasant Hill',
-      'Lafayette',
-      'Danville',
-      'Martinez',
-      'San Ramon',
-      'Dublin',
-    ],
+    phone: regions.find((region) => region.slug === 'walnut-creek')!.phone,
+    email: business.email,
+    neighborhoods: regions.find((region) => region.slug === 'walnut-creek')!.cities.map((city) => city.name),
     testimonials: [
       {
         name: 'Richard Yamamoto',
@@ -311,7 +272,6 @@ const locationData: Record<string, LocationData> = {
       'Serving Contra Costa County from Walnut Creek through Concord, Pleasant Hill, Lafayette, Danville, Martinez, San Ramon, and Dublin.',
     climateNote:
       'Bay Area microclimates range from damp conditions near the coast to warm, dry conditions inland — requiring adaptable cleaning approaches.',
-    formId: 'FOFJpViBh8idExeBbAk8',
     mapQuery: 'Rangel+Janitorial+Walnut+Creek+CA',
     gmb: 'https://www.google.com/maps/place/Rangel+Janitorial/data=!4m2!3m1!1s0x0:0xc3ee3d9f0986ca02',
   },
@@ -322,11 +282,7 @@ const locationData: Record<string, LocationData> = {
 // ---------------------------------------------------------------------------
 
 export function generateStaticParams() {
-  return [
-    { slug: 'sacramento' },
-    { slug: 'murrieta' },
-    { slug: 'walnut-creek' },
-  ];
+  return regions.map((region) => ({slug: region.slug}));
 }
 
 export async function generateMetadata({
@@ -339,19 +295,7 @@ export async function generateMetadata({
   if (!location) {
     return { title: 'Location Not Found' };
   }
-  return {
-    title: location.metaTitle,
-    description: location.metaDescription,
-    alternates: {
-      canonical: `/locations/${slug}`,
-    },
-    openGraph: {
-      title: location.metaTitle,
-      description: location.metaDescription,
-      type: 'website',
-      url: `/locations/${slug}`,
-    },
-  };
+  return generatePageMetadata(`${regions.find((region) => region.slug === slug)!.name} Commercial Cleaning`, location.metaDescription, `/locations/${slug}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -370,12 +314,6 @@ export default async function LocationPage({
     notFound();
   }
 
-  // Calculate average rating from testimonials
-  const avgRating =
-    location.testimonials.reduce((sum, t) => sum + t.rating, 0) /
-    location.testimonials.length;
-  const avgRatingStr = avgRating.toFixed(1);
-
   // JSON-LD: FAQPage
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -390,46 +328,15 @@ export default async function LocationPage({
     })),
   };
 
-  // JSON-LD: LocalBusiness with AggregateRating + Reviews
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Rangel Janitorial',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: location.city,
-      addressRegion: location.state,
-      addressCountry: 'US',
-    },
-    telephone: location.phone,
-    email: location.email,
-    url: `https://rangeljanitorial.com/locations/${location.slug}`,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: avgRatingStr,
-      reviewCount: String(location.testimonials.length),
-      bestRating: '5',
-    },
-    review: location.testimonials.map((t) => ({
-      '@type': 'Review',
-      author: { '@type': 'Person', name: t.name },
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: String(t.rating),
-      },
-      reviewBody: t.text,
-    })),
-  };
-
   // JSON-LD: Service with areaServed
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     serviceType: 'Commercial Janitorial Services',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Rangel Janitorial',
-    },
+    '@id': `${business.url}/locations/${slug}#service`,
+    name: `Commercial cleaning in ${location.city}`,
+    url: `${business.url}/locations/${slug}`,
+    provider: { '@id': ORGANIZATION_ID },
     areaServed: location.neighborhoods.map((n) => ({
       '@type': 'City',
       name: n,
@@ -467,19 +374,15 @@ export default async function LocationPage({
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c') }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, '\\u003c') }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c') }}
       />
 
       {/* ================================================================
@@ -550,7 +453,7 @@ export default async function LocationPage({
             {/* Right: Lead form */}
             <AnimateOnScroll direction="up" className="w-full">
               <div className="bg-white rounded-2xl shadow-2xl">
-                <LeadForm formId={location.formId} location={location.city} />
+                <LeadForm regionSlug={location.slug} formPlacement="hero" />
               </div>
             </AnimateOnScroll>
           </div>
@@ -606,65 +509,7 @@ export default async function LocationPage({
       </section>
 
       {/* ================================================================
-          3. TRUSTED BY LOCAL BUSINESSES (Testimonial Section)
-          ================================================================ */}
-      <section className="py-14 sm:py-20 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <AnimateOnScroll direction="fade">
-              <div className="bg-white rounded-2xl p-8 sm:p-10 shadow-lg border border-gray-100">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-6 h-6 text-sage fill-sage" />
-                  ))}
-                </div>
-                <blockquote className="text-charcoal font-body text-lg leading-relaxed italic mb-6">
-                  &ldquo;{location.testimonials[0].text}&rdquo;
-                </blockquote>
-                <div className="border-t border-gray-200 pt-4">
-                  <p className="font-semibold text-charcoal font-heading">
-                    {location.testimonials[0].name}
-                  </p>
-                  <p className="text-charcoal-light font-body text-sm">
-                    {location.testimonials[0].neighborhood}, {location.state}
-                  </p>
-                </div>
-              </div>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll direction="up">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal font-heading mb-6">
-                Trusted by {location.city} Businesses
-              </h2>
-              <p className="text-charcoal-light font-body leading-relaxed text-base mb-8">
-                30+ years of commercial cleaning expertise. Our trained
-                crews deliver consistent, satisfaction-guaranteed facility maintenance across{' '}
-                {location.city} and surrounding communities.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                {[
-                  { icon: ShieldCheck, label: 'Insured & Bonded' },
-                  { icon: Leaf, label: 'Eco Friendly' },
-                  { icon: ThumbsUp, label: 'Satisfaction Guaranteed' },
-                ].map((badge) => (
-                  <div
-                    key={badge.label}
-                    className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5 shadow-sm border border-gray-100"
-                  >
-                    <badge.icon className="w-5 h-5 text-sage" />
-                    <span className="text-charcoal font-body text-sm font-medium">
-                      {badge.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </AnimateOnScroll>
-          </div>
-        </div>
-      </section>
-
-      {/* ================================================================
-          4. THREE-STEP PROCESS
+          3. THREE-STEP PROCESS
           ================================================================ */}
       <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -714,52 +559,50 @@ export default async function LocationPage({
       </section>
 
       {/* ================================================================
-          5. PHOTO GALLERY
+          4. OUR WORK GALLERY
           ================================================================ */}
-      <section className="py-14 sm:py-20 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateOnScroll direction="up" className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal font-heading">
-              Our Work
-            </h2>
-          </AnimateOnScroll>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {galleryImages.map((img, idx) => (
-              <StaggerItem key={idx}>
-                <div className="relative aspect-[5/4] rounded-xl overflow-hidden group">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      <OurWorkGallery />
 
       {/* ================================================================
-          6. TESTIMONIALS
+          5. TESTIMONIALS
           ================================================================ */}
-      <section className="py-14 sm:py-20 bg-white">
+      <section aria-labelledby="customer-reviews-heading" className="py-14 sm:py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll direction="up" className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal font-heading mb-4">
+            <h2 id="customer-reviews-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal font-heading mb-4">
               What {location.city} Customers Say
             </h2>
-            <p className="text-lg text-charcoal-light font-body">
+            <p className="text-lg text-charcoal-light font-body mb-4">
               Real reviews from real neighbors.
             </p>
+            <p className="text-charcoal-light font-body leading-relaxed text-base max-w-2xl mx-auto mb-8">
+              30+ years of commercial cleaning expertise. Our trained
+              crews deliver consistent, satisfaction-guaranteed facility maintenance across{' '}
+              {location.city} and surrounding communities.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {[
+                { icon: ShieldCheck, label: 'Insured & Bonded' },
+                { icon: Leaf, label: 'Eco Friendly' },
+                { icon: ThumbsUp, label: 'Satisfaction Guaranteed' },
+              ].map((badge) => (
+                <div
+                  key={badge.label}
+                  className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5 shadow-sm border border-gray-100"
+                >
+                  <badge.icon className="w-5 h-5 text-sage" />
+                  <span className="text-charcoal font-body text-sm font-medium">
+                    {badge.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </AnimateOnScroll>
 
           <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {location.testimonials.map((testimonial, idx) => (
               <StaggerItem key={idx}>
-                <div className="bg-cream rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100">
+                <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100">
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
                       <Star
@@ -768,9 +611,9 @@ export default async function LocationPage({
                       />
                     ))}
                   </div>
-                  <p className="text-charcoal-light font-body text-sm leading-relaxed mb-6 italic">
+                  <blockquote className="text-charcoal-light font-body text-sm leading-relaxed mb-6 italic">
                     &ldquo;{testimonial.text}&rdquo;
-                  </p>
+                  </blockquote>
                   <div className="border-t border-gray-200 pt-4">
                     <p className="font-semibold text-charcoal font-heading text-sm">
                       {testimonial.name}
@@ -787,12 +630,12 @@ export default async function LocationPage({
       </section>
 
       {/* ================================================================
-          7. FAQ
+          6. FAQ
           ================================================================ */}
       <FAQ items={locationFaqs} />
 
       {/* ================================================================
-          8. NEIGHBORHOODS WE SERVE
+          7. NEIGHBORHOODS WE SERVE
           ================================================================ */}
       <section className="py-14 sm:py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -852,12 +695,7 @@ export default async function LocationPage({
       </section>
 
       {/* ================================================================
-          9. OUR WORK GALLERY
-          ================================================================ */}
-      <OurWorkGallery />
-
-      {/* ================================================================
-          10. BOTTOM CTA + LEAD FORM
+          8. BOTTOM CTA + LEAD FORM
           ================================================================ */}
       <section id="bottom-form" className="py-14 sm:py-20 bg-forest scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -909,7 +747,7 @@ export default async function LocationPage({
             {/* Right: Lead form */}
             <AnimateOnScroll direction="up" className="w-full">
               <div className="bg-white rounded-2xl shadow-2xl">
-                <LeadForm formId={location.formId} location={location.city} />
+                <LeadForm regionSlug={location.slug} formPlacement="bottom" />
               </div>
             </AnimateOnScroll>
           </div>

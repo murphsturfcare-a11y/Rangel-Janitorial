@@ -4,7 +4,7 @@ import { SERVICE_SLUGS, LOCATION_SLUGS } from '@/lib/seo/constants';
 describe('navigation data', () => {
   describe('mainNav', () => {
     it('has correct links for all primary pages', () => {
-      const expectedHrefs = ['/', '/about', '/services', '/locations', '/contact', '/blog'];
+      const expectedHrefs = ['/', '/services', '/locations', '/blog'];
       const hrefs = mainNav.map((item) => item.href);
       for (const expected of expectedHrefs) {
         expect(hrefs).toContain(expected);
@@ -47,7 +47,7 @@ describe('navigation data', () => {
       }
     });
 
-    it('Locations group links match all 4 location slugs', () => {
+    it('Locations group links match every regional slug', () => {
       const locationsGroup = footerNav.find((g) => g.title === 'Locations');
       expect(locationsGroup).toBeDefined();
       const hrefs = locationsGroup!.links.map((l) => l.href);
@@ -62,8 +62,8 @@ describe('navigation data', () => {
       expect(ctaText).toBe('Get a Quote');
     });
 
-    it('ctaHref is "/contact"', () => {
-      expect(ctaHref).toBe('/contact');
+    it('ctaHref is the regional contact selector', () => {
+      expect(ctaHref).toBe('/locations');
     });
   });
 });

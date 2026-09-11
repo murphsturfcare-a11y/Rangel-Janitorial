@@ -1,0 +1,279 @@
+[
+  {
+    "slug": "sacramento",
+    "name": "Greater Sacramento",
+    "region": "Sacramento region",
+    "phone": "(916) 426-2311",
+    "phoneHref": "tel:+19164262311",
+    "city": "Sacramento",
+    "state": "CA",
+    "cities": [
+      {
+        "name": "Sacramento",
+        "slug": "sacramento"
+      },
+      {
+        "name": "Downtown Sacramento",
+        "slug": "downtown-sacramento"
+      },
+      {
+        "name": "Midtown Sacramento",
+        "slug": "midtown-sacramento"
+      },
+      {
+        "name": "Roseville",
+        "slug": "roseville"
+      },
+      {
+        "name": "Folsom",
+        "slug": "folsom"
+      },
+      {
+        "name": "Rancho Cordova",
+        "slug": "rancho-cordova"
+      },
+      {
+        "name": "Citrus Heights",
+        "slug": "citrus-heights"
+      },
+      {
+        "name": "Natomas",
+        "slug": "natomas"
+      },
+      {
+        "name": "West Sacramento",
+        "slug": "west-sacramento"
+      },
+      {
+        "name": "Carmichael",
+        "slug": "carmichael"
+      },
+      {
+        "name": "Fair Oaks",
+        "slug": "fair-oaks"
+      },
+      {
+        "name": "Orangevale",
+        "slug": "orangevale"
+      },
+      {
+        "name": "Antelope",
+        "slug": "antelope"
+      },
+      {
+        "name": "North Highlands",
+        "slug": "north-highlands"
+      },
+      {
+        "name": "Arden-Arcade",
+        "slug": "arden-arcade"
+      },
+      {
+        "name": "Rocklin",
+        "slug": "rocklin"
+      },
+      {
+        "name": "Lincoln",
+        "slug": "lincoln"
+      },
+      {
+        "name": "Woodland",
+        "slug": "woodland"
+      },
+      {
+        "name": "Davis",
+        "slug": "davis"
+      },
+      {
+        "name": "Loomis",
+        "slug": "loomis"
+      },
+      {
+        "name": "Granite Bay",
+        "slug": "granite-bay"
+      }
+    ]
+  },
+  {
+    "slug": "murrieta",
+    "name": "Murrieta / Inland Empire",
+    "region": "Inland Empire",
+    "phone": "(951) 894-4222",
+    "phoneHref": "tel:+19518944222",
+    "city": "Murrieta",
+    "state": "CA",
+    "cities": [
+      {
+        "name": "Murrieta",
+        "slug": "murrieta"
+      },
+      {
+        "name": "Temecula",
+        "slug": "temecula"
+      },
+      {
+        "name": "French Valley",
+        "slug": "french-valley"
+      },
+      {
+        "name": "Menifee",
+        "slug": "menifee"
+      },
+      {
+        "name": "Lake Elsinore",
+        "slug": "lake-elsinore"
+      },
+      {
+        "name": "Hemet",
+        "slug": "hemet"
+      },
+      {
+        "name": "Perris",
+        "slug": "perris"
+      },
+      {
+        "name": "Wildomar",
+        "slug": "wildomar"
+      },
+      {
+        "name": "Canyon Lake",
+        "slug": "canyon-lake"
+      },
+      {
+        "name": "Temescal Valley",
+        "slug": "temescal-valley"
+      },
+      {
+        "name": "Winchester",
+        "slug": "winchester"
+      },
+      {
+        "name": "Ontario",
+        "slug": "ontario"
+      },
+      {
+        "name": "Fontana",
+        "slug": "fontana"
+      },
+      {
+        "name": "Rialto",
+        "slug": "rialto"
+      },
+      {
+        "name": "Corona",
+        "slug": "corona"
+      },
+      {
+        "name": "Riverside",
+        "slug": "riverside"
+      },
+      {
+        "name": "Moreno Valley",
+        "slug": "moreno-valley"
+      },
+      {
+        "name": "San Jacinto",
+        "slug": "san-jacinto"
+      },
+      {
+        "name": "Beaumont",
+        "slug": "beaumont"
+      },
+      {
+        "name": "Eastvale",
+        "slug": "eastvale"
+      }
+    ]
+  },
+  {
+    "slug": "walnut-creek",
+    "name": "Walnut Creek / East Bay",
+    "region": "East Bay",
+    "phone": "(925) 655-9008",
+    "phoneHref": "tel:+19256559008",
+    "city": "Walnut Creek",
+    "state": "CA",
+    "cities": [
+      {
+        "name": "Walnut Creek",
+        "slug": "walnut-creek"
+      },
+      {
+        "name": "Concord",
+        "slug": "concord"
+      },
+      {
+        "name": "Pleasant Hill",
+        "slug": "pleasant-hill"
+      },
+      {
+        "name": "Lafayette",
+        "slug": "lafayette"
+      },
+      {
+        "name": "Danville",
+        "slug": "danville"
+      },
+      {
+        "name": "Martinez",
+        "slug": "martinez"
+      },
+      {
+        "name": "San Ramon",
+        "slug": "san-ramon"
+      },
+      {
+        "name": "Dublin",
+        "slug": "dublin"
+      },
+      {
+        "name": "Livermore",
+        "slug": "livermore"
+      },
+      {
+        "name": "Pleasanton",
+        "slug": "pleasanton"
+      },
+      {
+        "name": "Orinda",
+        "slug": "orinda"
+      },
+      {
+        "name": "Moraga",
+        "slug": "moraga"
+      },
+      {
+        "name": "Alamo",
+        "slug": "alamo"
+      },
+      {
+        "name": "Clayton",
+        "slug": "clayton"
+      },
+      {
+        "name": "Antioch",
+        "slug": "antioch"
+      },
+      {
+        "name": "Brentwood",
+        "slug": "brentwood"
+      },
+      {
+        "name": "Oakley",
+        "slug": "oakley"
+      },
+      {
+        "name": "Pittsburg",
+        "slug": "pittsburg"
+      },
+      {
+        "name": "Bay Point",
+        "slug": "bay-point"
+      },
+      {
+        "name": "El Cerrito",
+        "slug": "el-cerrito"
+      }
+    ]
+  }
+]

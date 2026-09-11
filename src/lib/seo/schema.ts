@@ -1,40 +1,29 @@
-import {
-  SITE_URL,
-  COMPANY_NAME,
-  COMPANY_DESCRIPTION,
-  COMPANY_EMAIL,
-  COMPANY_ADDRESS,
-  SOCIAL_LINKS,
-} from "./constants";
+import { SITE_URL, COMPANY_NAME, COMPANY_DESCRIPTION } from "./constants";
+import business from "@/data/business.json";
+import regions from "@/data/regions.json";
+
+export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 
 export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: COMPANY_NAME,
+    "@id": ORGANIZATION_ID,
+    name: business.name,
+    description: COMPANY_DESCRIPTION,
     url: SITE_URL,
-    logo: `${SITE_URL}/images/logo.webp`,
-    contactPoint: {
+    email: business.email,
+    logo: `${SITE_URL}/images/logo-small.webp`,
+    location: { "@id": `${SITE_URL}/#headquarters` },
+    contactPoint: regions.map((region) => ({
       "@type": "ContactPoint",
+      "@id": `${SITE_URL}/#contact-${region.slug}`,
+      telephone: region.phoneHref.replace('tel:', ''),
       contactType: "customer service",
-      areaServed: "US",
-      availableLanguage: "English",
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: COMPANY_ADDRESS.city,
-      addressRegion: COMPANY_ADDRESS.state,
-      addressCountry: "US",
-    },
-    areaServed: {
-      "@type": "State",
-      name: "California",
-    },
-    sameAs: [
-      SOCIAL_LINKS.facebook,
-      SOCIAL_LINKS.instagram,
-      SOCIAL_LINKS.youtube,
-    ],
+      areaServed: region.cities.map((city) => city.name),
+      url: `${SITE_URL}/locations/${region.slug}`,
+    })),
+    sameAs: Object.values(business.socialLinks),
   };
 }
 
@@ -42,118 +31,41 @@ export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${SITE_URL}/#localbusiness`,
-    name: COMPANY_NAME,
-    description: COMPANY_DESCRIPTION,
-    url: SITE_URL,
-    email: COMPANY_EMAIL,
-    additionalType: "https://schema.org/ProfessionalService",
-    knowsAbout: [
-      "Janitorial Cleaning",
-      "Day Porter Services",
-      "Electrostatic Disinfection",
-      "Floor Care",
-      "Office Cleaning",
-      "Commercial Facility Maintenance",
-      "Medical Facility Cleaning",
-    ],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: COMPANY_ADDRESS.city,
-      addressRegion: COMPANY_ADDRESS.state,
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 33.5539,
-      longitude: -117.2139,
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "07:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "08:00",
-        closes: "16:00",
-      },
-    ],
-    priceRange: "$$",
+    "@id": `${SITE_URL}/#headquarters`,
+    name: business.name,
+    url: `${SITE_URL}/locations/murrieta`,
+    telephone: regions.find((region) => region.slug === 'murrieta')!.phoneHref.replace('tel:', ''),
+    email: business.email,
+    address: { "@type": "PostalAddress", ...business.headquarters },
+    parentOrganization: { "@id": ORGANIZATION_ID },
     image: `${SITE_URL}/images/og-image.png`,
-    sameAs: [
-      SOCIAL_LINKS.facebook,
-      SOCIAL_LINKS.instagram,
-      SOCIAL_LINKS.youtube,
-    ],
   };
 }
 
-export function generateServiceSchema(service: {
-  name: string;
-  slug: string;
-  description: string;
-}) {
+export function generateServiceSchema(service: { name: string; slug: string; description: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Janitorial and Commercial Cleaning Service",
+    "@id": `${SITE_URL}/services/${service.slug}#service`,
     name: service.name,
+    serviceType: service.name,
     description: service.description,
     url: `${SITE_URL}/services/${service.slug}`,
-    provider: {
-      "@type": "LocalBusiness",
-      name: COMPANY_NAME,
-      url: SITE_URL,
-    },
-    areaServed: {
-      "@type": "State",
-      name: "California",
-    },
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      priceCurrency: "USD",
-    },
+    provider: { "@id": ORGANIZATION_ID },
+    areaServed: regions.flatMap((region) => region.cities.map((city) => ({ "@type": "City", name: city.name, address: {"@type": "PostalAddress", addressRegion: "CA", addressCountry: "US"} }))),
   };
 }
 
-export function generateLocationSchema(location: {
-  name: string;
-  slug: string;
-  description: string;
-  phone?: string;
-}) {
+export function generateLocationSchema(location: { name: string; slug: string; description: string; phone?: string }) {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: `${COMPANY_NAME} - ${location.name}`,
+    "@type": "Service",
+    "@id": `${SITE_URL}/locations/${location.slug}#service`,
+    name: `Commercial cleaning in ${location.name}`,
     description: location.description,
     url: `${SITE_URL}/locations/${location.slug}`,
-    ...(location.phone ? { telephone: location.phone } : {}),
-    additionalType: "https://schema.org/ProfessionalService",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: location.name,
-      addressRegion: "CA",
-      addressCountry: "US",
-    },
-    parentOrganization: {
-      "@type": "Organization",
-      name: COMPANY_NAME,
-      url: SITE_URL,
-    },
-    serviceArea: {
-      "@type": "City",
-      name: location.name,
-      containedInPlace: {
-        "@type": "State",
-        name: "California",
-      },
-    },
+    provider: { "@id": ORGANIZATION_ID },
+    areaServed: { "@type": "City", name: location.name, containedInPlace: { "@type": "State", name: "California" } },
   };
 }
 
@@ -236,13 +148,15 @@ export function generateBlogPostSchema(post: {
     description: post.description,
     url: `${SITE_URL}/blog/${post.slug}`,
     datePublished: post.datePublished,
-    dateModified: post.dateModified || post.datePublished,
+    ...(post.dateModified ? { dateModified: post.dateModified } : {}),
     author: {
+      "@id": ORGANIZATION_ID,
       "@type": "Organization",
       name: post.author || COMPANY_NAME,
       url: SITE_URL,
     },
     publisher: {
+      "@id": ORGANIZATION_ID,
       "@type": "Organization",
       name: COMPANY_NAME,
       url: SITE_URL,
@@ -271,6 +185,7 @@ export function generateBlogListSchema(posts: { title: string; slug: string }[])
     description: "Janitorial and commercial cleaning tips, facility maintenance guides, and professional cleaning insights for California businesses and property managers.",
     url: `${SITE_URL}/blog`,
     publisher: {
+      "@id": ORGANIZATION_ID,
       "@type": "Organization",
       name: COMPANY_NAME,
       url: SITE_URL,

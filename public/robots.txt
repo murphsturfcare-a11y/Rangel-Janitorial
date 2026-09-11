@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://rangel-janitorial.netlify.app/sitemap.xml

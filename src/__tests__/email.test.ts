@@ -18,7 +18,7 @@ describe('email stub functions', () => {
       name: 'John Doe',
       email: 'john@example.com',
       phone: '555-123-4567',
-      serviceType: 'pet-hair-debris',
+      serviceType: 'janitorial-cleaning',
       status: 'new',
       createdAt: '2026-03-21T00:00:00Z',
       updatedAt: '2026-03-21T00:00:00Z',

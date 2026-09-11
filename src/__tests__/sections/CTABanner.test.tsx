@@ -6,7 +6,7 @@ describe('CTABanner', () => {
   it('renders heading text', () => {
     render(<CTABanner />);
     expect(
-      screen.getByText('Ready for Clean, Fresh Turf?')
+      screen.getByText('Ready for a Spotless Facility?')
     ).toBeInTheDocument();
   });
 
@@ -14,7 +14,7 @@ describe('CTABanner', () => {
     render(<CTABanner />);
     expect(
       screen.getByText(
-        /Get a free quote today and see the difference professional turf cleaning makes/
+        /Get a free quote today and see the difference professional janitorial/
       )
     ).toBeInTheDocument();
   });

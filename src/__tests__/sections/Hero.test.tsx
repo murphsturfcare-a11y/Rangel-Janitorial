@@ -5,7 +5,7 @@ import Hero from '@/components/sections/Hero';
 describe('Hero', () => {
   it('renders the headline text', () => {
     render(<Hero />);
-    const headlineWords = ['When', 'You', 'Care', 'About', 'Clean', 'Turf,', 'Call', 'Rangel\u2019s', 'Turf'];
+    const headlineWords = ['Creating', 'Excellent', 'First', 'Impressions', 'Every', 'Day'];
     for (const word of headlineWords) {
       expect(screen.getByText(word)).toBeInTheDocument();
     }
@@ -20,7 +20,7 @@ describe('Hero', () => {
 
   it('renders hero image', () => {
     render(<Hero />);
-    const img = screen.getByAlt('Beautiful clean artificial turf');
+    const img = screen.getByAltText('Professional commercial cleaning by Rangel Janitorial');
     expect(img).toBeInTheDocument();
     expect(img).toHaveAttribute('src', '/images/hero.jpg');
   });
@@ -28,15 +28,15 @@ describe('Hero', () => {
   it('renders all stats labels', () => {
     render(<Hero />);
     expect(screen.getByText('Years Experience')).toBeInTheDocument();
-    expect(screen.getByText('Happy Customers')).toBeInTheDocument();
+    expect(screen.getByText('Happy Clients')).toBeInTheDocument();
     expect(screen.getByText('Satisfaction Rate')).toBeInTheDocument();
-    expect(screen.getByText('Projects Completed')).toBeInTheDocument();
+    expect(screen.getByText('Facilities Cleaned')).toBeInTheDocument();
   });
 
   it('renders subtitle text', () => {
     render(<Hero />);
     expect(
-      screen.getByText(/Worried about your pets ruining your turf/),
+      screen.getByText(/Rangel Janitorial provides reliable, professional commercial cleaning/),
     ).toBeInTheDocument();
   });
 });

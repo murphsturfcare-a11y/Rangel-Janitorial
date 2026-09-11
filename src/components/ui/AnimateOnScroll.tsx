@@ -1,7 +1,11 @@
 'use client';
 
-import { type ReactNode, useRef, useState, useEffect } from 'react';
-import { motion, useInView, type Variants } from 'framer-motion';
+import { type ReactNode, useRef, useState, useEffect, useSyncExternalStore } from 'react';
+import { motion, useInView, useReducedMotion, type Variants } from 'framer-motion';
+
+const subscribeHydration = () => () => {};
+const clientSnapshot = () => true;
+const serverSnapshot = () => false;
 
 type Direction = 'up' | 'down' | 'left' | 'right' | 'fade' | 'scale';
 
@@ -74,24 +78,23 @@ export function AnimateOnScroll({
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once, amount });
-  const [isVisible, setIsVisible] = useState(false);
+  const [fallbackVisible, setFallbackVisible] = useState(false);
+  const isVisible = isInView || fallbackVisible;
+  const hydrated = useSyncExternalStore(subscribeHydration, clientSnapshot, serverSnapshot);
+  const reducedMotion = useReducedMotion();
   const variants = getVariants(direction, distance, duration);
-
-  useEffect(() => {
-    if (isInView) setIsVisible(true);
-  }, [isInView]);
 
   // Fallback: ensure content becomes visible even if observer never fires
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 1500);
+    const timer = setTimeout(() => setFallbackVisible(true), 1500);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isVisible ? 'visible' : 'hidden'}
+      initial={false}
+      animate={!hydrated || reducedMotion || isVisible ? 'visible' : 'hidden'}
       variants={variants}
       transition={{ delay }}
       className={className}
@@ -131,23 +134,22 @@ export function StaggerContainer({
 }: StaggerContainerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once, amount });
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    if (isInView) setIsVisible(true);
-  }, [isInView]);
+  const [fallbackVisible, setFallbackVisible] = useState(false);
+  const isVisible = isInView || fallbackVisible;
+  const hydrated = useSyncExternalStore(subscribeHydration, clientSnapshot, serverSnapshot);
+  const reducedMotion = useReducedMotion();
 
   // Fallback: ensure content becomes visible even if observer never fires
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 1500);
+    const timer = setTimeout(() => setFallbackVisible(true), 1500);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isVisible ? 'visible' : 'hidden'}
+      initial={false}
+      animate={!hydrated || reducedMotion || isVisible ? 'visible' : 'hidden'}
       variants={{
         hidden: {},
         visible: {
@@ -220,7 +222,7 @@ export function Counter({
 function CounterInner({ target, duration }: { target: number; duration: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target);
 
   useEffect(() => {
     if (!isInView) return;

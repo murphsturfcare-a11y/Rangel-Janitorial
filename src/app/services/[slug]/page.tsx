@@ -1,3 +1,5 @@
+import { generatePageMetadata } from '@/lib/seo/metadata';
+import { generateServiceSchema } from '@/lib/seo/schema';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,7 +14,6 @@ import {
   TrendingUp,
   Zap,
   Sparkles,
-  Droplets,
   Building2,
   UserCheck,
   CalendarCheck,
@@ -541,13 +542,7 @@ const servicesData: Record<string, ServiceData> = {
 // Static Params & Metadata
 // ---------------------------------------------------------------------------
 
-const validSlugs = [
-  'janitorial-cleaning',
-  'day-porter',
-  'electrostatic-disinfection',
-  'floor-care',
-  'office-cleaning',
-];
+const validSlugs = Object.keys(servicesData);
 
 export function generateStaticParams() {
   return validSlugs.map((slug) => ({ slug }));
@@ -565,19 +560,7 @@ export async function generateMetadata({
     return { title: 'Service Not Found' };
   }
 
-  return {
-    title: `${service.name} | Rangel Janitorial`,
-    description: service.metaDescription,
-    alternates: {
-      canonical: `/services/${slug}`,
-    },
-    openGraph: {
-      title: `${service.name} | Rangel Janitorial — Commercial Cleaning`,
-      description: service.metaDescription,
-      type: 'website',
-      url: `/services/${slug}`,
-    },
-  };
+  return generatePageMetadata(service.name, service.metaDescription, `/services/${slug}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -598,28 +581,7 @@ export default async function ServiceDetailPage({
 
   // Build JSON-LD structured data
   const serviceSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: service.name,
-    description: service.metaDescription,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Rangel Janitorial',
-      url: 'https://rangeljanitorial.com',
-      telephone: '+19518944222',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '26323 Jefferson Ave Suite C',
-        addressLocality: 'Murrieta',
-        addressRegion: 'CA',
-        postalCode: '92562',
-      },
-    },
-    areaServed: [
-      { '@type': 'City', name: 'Sacramento' },
-      { '@type': 'City', name: 'Murrieta' },
-      { '@type': 'City', name: 'Walnut Creek' },
-    ],
+    ...generateServiceSchema({name: service.name, slug, description: service.metaDescription}),
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: `${service.name} Services`,
@@ -656,7 +618,7 @@ export default async function ServiceDetailPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([serviceSchema, faqSchema, breadcrumbSchema]),
+          __html: JSON.stringify([serviceSchema, faqSchema, breadcrumbSchema]).replace(/</g, '\\u003c'),
         }}
       />
 

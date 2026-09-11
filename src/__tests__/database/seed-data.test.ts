@@ -1,3 +1,5 @@
+import regions from '@/data/regions.json';
+import { SERVICE_SLUGS } from '@/lib/seo/constants';
 import { readFileSync } from 'fs';
 import path from 'path';
 
@@ -21,76 +23,23 @@ describe('seed.sql', () => {
   // -------------------------------------------------------------------------
   // 2. Services
   // -------------------------------------------------------------------------
-  it('seeds 6 services', () => {
-    const expectedSlugs = [
-      'lawn-cleaning',
-      'aeration',
-      'seeding',
-      'fertilization',
-      'pest-control',
-      'seasonal-maintenance',
-    ];
-
-    for (const slug of expectedSlugs) {
-      expect(seedSQL).toContain(`'${slug}'`);
-    }
+  it('contains the current dormant janitorial service seed records', () => {
+    const serviceBlock = seedSQL.match(/INSERT INTO services[\s\S]*?;(?=\s*--\s*={5,}|\s*$)/)?.[0];
+    expect(serviceBlock).toBeDefined();
+    for (const slug of ['janitorial-cleaning', 'day-porter', 'electrostatic-disinfection', 'floor-care', 'carpet-cleaning']) expect(serviceBlock).toContain(`'${slug}'`);
   });
 
-  // -------------------------------------------------------------------------
-  // 3. Colorado locations
-  // -------------------------------------------------------------------------
-  it('seeds 6 Colorado locations', () => {
-    const expectedSlugs = [
-      'denver',
-      'colorado-springs',
-      'aurora',
-      'lakewood',
-      'boulder',
-      'fort-collins',
-    ];
-
-    for (const slug of expectedSlugs) {
-      expect(seedSQL).toContain(`'${slug}'`);
-    }
+  it('seeds the three California regions', () => {
+    const locationBlock = seedSQL.match(/INSERT INTO locations[\s\S]*?;(?=\s*--\s*={5,}|\s*$)/)?.[0];
+    expect(locationBlock).toBeDefined();
+    for (const slug of ['sacramento', 'murrieta-inland-empire', 'walnut-creek-east-bay']) expect(locationBlock).toContain(`'${slug}'`);
+    expect(locationBlock).not.toMatch(/'denver'|'colorado-springs'|'boulder'/);
   });
 
-  // -------------------------------------------------------------------------
-  // 4. Testimonials count
-  // -------------------------------------------------------------------------
-  it('seeds testimonials', () => {
-    // Extract the testimonials INSERT block (from "INSERT INTO testimonials" to the next section separator or end)
-    const testimonialsMatch = seedSQL.match(
-      /INSERT INTO testimonials[\s\S]*?;(?=\s*--\s*={5,}|\s*$)/
-    );
-    expect(testimonialsMatch).not.toBeNull();
-
-    const testimonialsBlock = testimonialsMatch![0];
-
-    // Count customer names — each testimonial row starts with a customer_name value
-    const customerNames = [
-      'Karen Lindstrom',
-      'David and Maria Espinoza',
-      'Tom Nguyen',
-      'Rachel Whitfield',
-      'Mike Hannigan',
-      'Jennifer Castillo',
-      'Brian Kowalski',
-      'Amanda Reyes',
-      'Greg Johannsen',
-      'Priya Sharma',
-      'Steve Caldwell',
-      'Lisa Tran',
-    ];
-
-    let count = 0;
-    for (const name of customerNames) {
-      if (testimonialsBlock.includes(name)) {
-        count++;
-      }
-    }
-
-    // At least 10 testimonial entries
-    expect(count).toBeGreaterThanOrEqual(10);
+  it('contains the complete dormant testimonial fixture set', () => {
+    const block = seedSQL.match(/INSERT INTO testimonials[\s\S]*?;(?=\s*--\s*={5,}|\s*$)/)?.[0];
+    expect(block).toBeDefined();
+    for (const name of ['Diana Robles', 'Mark Ellison', 'Sandra Villanueva', 'Kevin Fong', 'Patricia Harmon', 'Richard Contreras']) expect(block).toContain(`'${name}'`);
   });
 
   // -------------------------------------------------------------------------
@@ -132,41 +81,18 @@ describe('seed.sql', () => {
   // -------------------------------------------------------------------------
   // 7. DISCREPANCY: Colorado vs California locations
   // -------------------------------------------------------------------------
-  it('DISCREPANCY: seed data uses Colorado locations but frontend uses California locations', () => {
-    // The frontend in src/data/locations.ts uses California locations
-    // (sacramento, murrieta, walnut-creek) while the database
-    // seed file uses Colorado locations. This means the seeded DB data
-    // and the frontend static data are for entirely different geographies.
-
-    // Seed SQL contains Colorado locations
-    expect(seedSQL).toContain('denver');
-    expect(seedSQL).toContain('colorado-springs');
-    expect(seedSQL).toContain('boulder');
-
-    // Seed SQL does NOT contain California locations used by the frontend
-    expect(seedSQL).not.toContain('huntington-beach');
-    expect(seedSQL).not.toContain('temecula');
-    expect(seedSQL).not.toContain('san-diego');
+  it('records the two old regional aliases in the unused seed', () => {
+    expect(seedSQL).toContain("'murrieta-inland-empire'");
+    expect(seedSQL).toContain("'walnut-creek-east-bay'");
+    expect(regions.map((region) => region.slug)).toEqual(['sacramento', 'murrieta', 'walnut-creek']);
   });
 
-  // -------------------------------------------------------------------------
-  // 8. DISCREPANCY: seed services vs frontend services
-  // -------------------------------------------------------------------------
-  it('DISCREPANCY: seed services differ from frontend services', () => {
-    // The frontend uses artificial turf cleaning services
-    // (pet-hair-debris, blooming-decompacting, disinfect-deodorize, etc.) while
-    // the database seed uses traditional lawn care services
-    // (lawn-cleaning, aeration, fertilization, etc.).
-
-    // Seed SQL contains traditional lawn care services
-    expect(seedSQL).toContain('lawn-cleaning');
-    expect(seedSQL).toContain('aeration');
-    expect(seedSQL).toContain('fertilization');
-
-    // Seed SQL does NOT contain artificial turf services used by the frontend
-    expect(seedSQL).not.toContain('pet-hair-debris');
-    expect(seedSQL).not.toContain('blooming-decompacting');
-    expect(seedSQL).not.toContain('oxyturf');
+  it('records the remaining dormant service mismatch without treating the seed as runtime data', () => {
+    const serviceBlock = seedSQL.match(/INSERT INTO services[\s\S]*?;(?=\s*--\s*={5,}|\s*$)/)?.[0];
+    expect(serviceBlock).toContain("'carpet-cleaning'");
+    expect(serviceBlock).not.toContain("'office-cleaning'");
+    expect(SERVICE_SLUGS).toContain('office-cleaning');
+    expect(SERVICE_SLUGS).not.toContain('carpet-cleaning');
   });
 
   // -------------------------------------------------------------------------
@@ -223,16 +149,11 @@ describe('seed.sql', () => {
   // -------------------------------------------------------------------------
   // 11. SQL apostrophe escaping
   // -------------------------------------------------------------------------
-  it('uses proper SQL apostrophe escaping', () => {
-    // Common words with apostrophes should be escaped as '' in SQL strings
+  it('escapes the apostrophes present in the SQL fixture text', () => {
     expect(seedSQL).toContain("Rangel''s");
-    expect(seedSQL).toContain("don''t");
-
-    // Verify no unescaped apostrophes break string literals by checking
-    // that known possessives/contractions use the '' escape pattern
-    expect(seedSQL).toContain("yard''s");
-    expect(seedSQL).toContain("lawn''s");
-    expect(seedSQL).toContain("O''Brien");
+    expect(seedSQL).toContain("facility''s");
+    expect(seedSQL).toContain("They''ve");
+    expect(seedSQL).toContain("hasn''t");
   });
 
   // -------------------------------------------------------------------------
