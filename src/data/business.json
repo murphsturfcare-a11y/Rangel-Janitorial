@@ -1,0 +1,19 @@
+{
+  "name": "Rangel Janitorial",
+  "url": "https://rangeljanitorial.com",
+  "email": "ralph@rangeljanitorial.com",
+  "phone": "(951) 894-4222",
+  "headquarters": {
+    "streetAddress": "26323 Jefferson Ave Suite C",
+    "addressLocality": "Murrieta",
+    "addressRegion": "CA",
+    "postalCode": "92562",
+    "addressCountry": "US"
+  },
+  "socialLinks": {
+    "facebook": "https://www.facebook.com/profile.php?id=100090088264095",
+    "instagram": "https://www.instagram.com/rangeljanitorial/",
+    "youtube": "https://www.youtube.com/@rangeljanitorial/featured"
+  },
+  "officeHours": null
+}

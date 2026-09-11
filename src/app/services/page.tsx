@@ -1,3 +1,4 @@
+import { generatePageMetadata } from '@/lib/seo/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,17 +9,7 @@ import {
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
 import OurWorkGallery from '@/components/sections/OurWorkGallery';
 
-export const metadata: Metadata = {
-  title: 'Commercial Cleaning Services | Rangel Janitorial',
-  description:
-    "Professional janitorial cleaning, day porter, electrostatic disinfection, floor care, and office cleaning services. Serving Sacramento, Murrieta, and Walnut Creek. Get a free quote today.",
-  alternates: {
-    canonical: '/services',
-  },
-  openGraph: {
-    url: '/services',
-  },
-};
+export const metadata: Metadata = generatePageMetadata('Commercial Cleaning Services | Rangel Janitorial', 'Professional janitorial cleaning, day porter, electrostatic disinfection, floor care, and office cleaning services. Serving Sacramento, Murrieta, and Walnut Creek. Get a free quote today.', "/services");
 
 const services = [
   {

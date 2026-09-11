@@ -1,14 +1,12 @@
 'use client';
 
+import regions from '@/data/regions.json';
+
 import { useState } from 'react';
 import Link from 'next/link';
 import { Phone, ArrowRight, MapPin, X } from 'lucide-react';
 
-const locations = [
-  { slug: 'sacramento', name: 'Greater Sacramento', phone: '916-426-2311', tel: '9164262311' },
-  { slug: 'murrieta', name: 'Murrieta / Inland Empire', phone: '951-894-4222', tel: '9518944222' },
-  { slug: 'walnut-creek', name: 'Walnut Creek / East Bay', phone: '925-655-9008', tel: '9256559008' },
-];
+const locations = regions.map((region) => ({...region, tel: region.phoneHref.replace('tel:', '')}));
 
 export default function MobileStickyQuote() {
   const [pickerOpen, setPickerOpen] = useState(false);

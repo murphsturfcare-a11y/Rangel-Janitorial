@@ -12,8 +12,8 @@ describe('WhyChooseUs', () => {
 
   it('renders all 3 benefit titles', () => {
     render(<WhyChooseUs />);
-    expect(screen.getByText('100% Pet Friendly')).toBeInTheDocument();
-    expect(screen.getByText('Eco Friendly')).toBeInTheDocument();
+    expect(screen.getByText('Reliable, Professional Crews')).toBeInTheDocument();
+    expect(screen.getByText('Fully Bonded & Insured')).toBeInTheDocument();
     expect(screen.getByText('Satisfaction Guaranteed')).toBeInTheDocument();
   });
 
@@ -21,12 +21,12 @@ describe('WhyChooseUs', () => {
     render(<WhyChooseUs />);
     expect(
       screen.getByText(
-        /all our products and methods are completely safe for your furry friends/i
+        /Every team member is thoroughly trained and vetted/i
       )
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /we use environmentally responsible, biodegradable products/i
+        /We carry comprehensive liability insurance and bonding/i
       )
     ).toBeInTheDocument();
     expect(

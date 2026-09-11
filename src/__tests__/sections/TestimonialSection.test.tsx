@@ -6,7 +6,7 @@ describe('TestimonialSection', () => {
   it('renders section heading', () => {
     render(<TestimonialSection />);
     expect(
-      screen.getByText('What Our Customers Say')
+      screen.getByText('What Our Clients Say')
     ).toBeInTheDocument();
   });
 
@@ -35,12 +35,12 @@ describe('TestimonialSection', () => {
     render(<TestimonialSection />);
     expect(
       screen.getByText(
-        /Rangel Janitorial completely transformed our backyard turf/
+        /Rangel Janitorial keeps our corporate offices immaculate/
       )
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /Best turf cleaning service in California/
+        /Best commercial cleaning service in California/
       )
     ).toBeInTheDocument();
     expect(

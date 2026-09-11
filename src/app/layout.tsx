@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
-import Script from 'next/script';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { generateOrganizationSchema, generateLocalBusinessSchema } from '@/lib/seo/schema';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { CookieConsent } from '@/components/analytics/CookieConsent';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -61,12 +64,6 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
-  other: {
-    'ai-content-declaration': 'human-authored',
-    'content-type-ai-readable': 'true',
-    'llm-index': '/llms.txt',
-    'llm-full-content': '/llms-full.txt',
-  },
   openGraph: {
     title: "Rangel Janitorial | Professional Commercial Cleaning Services in California",
     description:
@@ -101,47 +98,10 @@ export default function RootLayout({
         <Footer />
         <ExitIntentPopup />
         <MobileStickyQuote />
-        {/* GHL form embed script removed — using native LeadForm component */}
-        <Script
-          id="structured-data"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Rangel Janitorial",
-              "description": "Professional janitorial and commercial cleaning services across California. Serving offices, medical facilities, industrial parks, and more.",
-              "url": "https://rangeljanitorial.com",
-              "contactPoint": [
-                { "@type": "ContactPoint", "telephone": "+19164262311", "areaServed": ["Sacramento"], "contactType": "customer service" },
-                { "@type": "ContactPoint", "telephone": "+19518944222", "areaServed": ["Murrieta", "Inland Empire"], "contactType": "customer service" },
-                { "@type": "ContactPoint", "telephone": "+19256559008", "areaServed": ["Walnut Creek", "East Bay"], "contactType": "customer service" }
-              ],
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "26323 Jefferson Avenue",
-                "addressLocality": "Murrieta",
-                "addressRegion": "CA",
-                "postalCode": "92562",
-                "addressCountry": "US"
-              },
-              "areaServed": [
-                { "@type": "City", "name": "Sacramento" },
-                { "@type": "City", "name": "Murrieta" },
-                { "@type": "City", "name": "Walnut Creek" }
-              ],
-              "openingHours": ["Mo-Fr 09:00-17:00"],
-              "priceRange": "$$",
-              "image": "https://rangeljanitorial.com/images/logo.webp",
-              "sameAs": [
-                "https://www.instagram.com/rangeljanitorial/",
-                "https://www.facebook.com/profile.php?id=100090088264095",
-                "https://www.youtube.com/@rangeljanitorial/featured",
-                "https://www.google.com/maps/place/Rangel+Commercial+Cleaners+of+Murrieta/data=!4m2!3m1!1s0x0:0x846bff7e768aac1a"
-              ]
-            })
-          }}
-        />
+        <JsonLd schema={generateOrganizationSchema()} />
+        <JsonLd schema={generateLocalBusinessSchema()} />
+        <GoogleAnalytics />
+        <CookieConsent />
       </body>
     </html>
   );

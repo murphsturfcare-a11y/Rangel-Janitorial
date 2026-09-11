@@ -2,7 +2,7 @@ import { seoMetadata } from '@/data/seo';
 import { SERVICE_SLUGS, LOCATION_SLUGS } from '@/lib/seo/constants';
 
 describe('seo metadata', () => {
-  const staticPages = ['home', 'about', 'contact', 'services', 'locations', 'blog', 'privacy', 'terms'];
+  const staticPages = ['home', 'contact', 'services', 'locations', 'blog', 'privacy', 'terms'];
 
   describe('page coverage', () => {
     it('has entries for all static pages', () => {

@@ -1,9 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 
-vi.mock('next/link', () => ({
-  default: ({ children, href, ...props }: any) => <a href={href} {...props}>{children}</a>,
-}));
 vi.mock('@/components/seo/JsonLd', () => ({
   JsonLd: () => null,
 }));

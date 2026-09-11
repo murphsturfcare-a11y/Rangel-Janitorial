@@ -1,134 +1,30 @@
+import { describe, it, expect } from 'vitest';
 import { locations } from '@/data/locations';
+import regions from '@/data/regions.json';
 import { LOCATION_SLUGS } from '@/lib/seo/constants';
 
-const REQUIRED_FIELDS = [
-  'slug',
-  'name',
-  'state',
-  'description',
-  'serviceAreaDescription',
-  'neighborhoods',
-  'phone',
-  'address',
-  'metaTitle',
-  'metaDescription',
-] as const;
-
-const EXPECTED_PHONES: Record<string, string> = {
-  sacramento: '916-426-2311',
-  murrieta: '951-894-4222',
-  'walnut-creek': '925-655-9008',
-};
-
-describe('locations data', () => {
-  it('contains exactly 3 locations', () => {
-    expect(locations).toHaveLength(3);
+describe('regional business data', () => {
+  it('contains exactly the regional registry with unique slugs', () => {
+    expect(locations.map((location) => location.slug)).toEqual(regions.map((region) => region.slug));
+    expect(LOCATION_SLUGS).toEqual(regions.map((region) => region.slug));
+    expect(new Set(LOCATION_SLUGS).size).toBe(LOCATION_SLUGS.length);
   });
 
-  describe('slug integrity', () => {
-    it('all slugs are unique', () => {
-      const slugs = locations.map((l) => l.slug);
-      expect(new Set(slugs).size).toBe(slugs.length);
-    });
-
-    it('every location slug exists in LOCATION_SLUGS', () => {
-      const constantSlugs = [...LOCATION_SLUGS];
-      for (const location of locations) {
-        expect(constantSlugs).toContain(location.slug);
-      }
-    });
-
-    it('every LOCATION_SLUGS entry has a matching location', () => {
-      const locationSlugs = locations.map((l) => l.slug);
-      for (const slug of LOCATION_SLUGS) {
-        expect(locationSlugs).toContain(slug);
-      }
-    });
+  it.each(locations)('$slug uses the regional phone and the full served-city list', (location) => {
+    const region = regions.find((region) => region.slug === location.slug)!;
+    expect(location.phone.replace(/\D/g, '')).toBe(region.phone.replace(/\D/g, ''));
+    expect(location.neighborhoods).toEqual(region.cities.map((city) => city.name));
+    expect(location.state).toBe(region.state);
   });
 
-  describe('required fields', () => {
-    it.each(locations.map((l) => [l.slug, l]))(
-      '%s has all required fields with non-empty values',
-      (_slug, location) => {
-        for (const field of REQUIRED_FIELDS) {
-          expect(location).toHaveProperty(field);
-          const value = location[field as keyof typeof location];
-          if (typeof value === 'string') {
-            expect(value.trim().length).toBeGreaterThan(0);
-          }
-        }
-      },
-    );
+  it('preserves the three intentionally different phone numbers', () => {
+    const phones = Object.fromEntries(locations.map((location) => [location.slug, location.phone.replace(/\D/g, '')]));
+    expect(phones).toEqual({ sacramento: '9164262311', murrieta: '9518944222', 'walnut-creek': '9256559008' });
   });
 
-  describe('state', () => {
-    it.each(locations.map((l) => [l.slug, l]))(
-      '%s has state "CA"',
-      (_slug, location) => {
-        expect(location.state).toBe('CA');
-      },
-    );
-  });
-
-  describe('neighborhoods', () => {
-    it.each(locations.map((l) => [l.slug, l]))(
-      '%s has a non-empty array of strings for neighborhoods',
-      (_slug, location) => {
-        expect(Array.isArray(location.neighborhoods)).toBe(true);
-        expect(location.neighborhoods.length).toBeGreaterThan(0);
-        for (const neighborhood of location.neighborhoods) {
-          expect(typeof neighborhood).toBe('string');
-          expect(neighborhood.trim().length).toBeGreaterThan(0);
-        }
-      },
-    );
-  });
-
-  describe('phone numbers', () => {
-    it.each(Object.entries(EXPECTED_PHONES))(
-      '%s has the correct phone number %s',
-      (slug, expectedPhone) => {
-        const location = locations.find((l) => l.slug === slug);
-        expect(location).toBeDefined();
-        expect(location!.phone).toBe(expectedPhone);
-      },
-    );
-
-    it.each(locations.map((l) => [l.slug, l]))(
-      '%s phone matches XXX-XXX-XXXX pattern',
-      (_slug, location) => {
-        expect(location.phone).toMatch(/^\d{3}-\d{3}-\d{4}$/);
-      },
-    );
-  });
-
-  describe('metaTitle', () => {
-    it.each(locations.map((l) => [l.slug, l]))(
-      '%s metaTitle contains "Rangel\'s Turf"',
-      (_slug, location) => {
-        expect(location.metaTitle).toContain("Rangel Janitorial");
-      },
-    );
-  });
-
-  describe('no empty strings', () => {
-    it.each(locations.map((l) => [l.slug, l]))(
-      '%s has no empty string values in any field',
-      (_slug, location) => {
-        for (const field of REQUIRED_FIELDS) {
-          const value = location[field as keyof typeof location];
-          if (typeof value === 'string') {
-            expect(value.trim()).not.toBe('');
-          }
-          if (Array.isArray(value)) {
-            for (const item of value) {
-              if (typeof item === 'string') {
-                expect(item.trim()).not.toBe('');
-              }
-            }
-          }
-        }
-      },
-    );
+  it.each(locations)('$slug provides complete descriptions and metadata', (location) => {
+    for (const field of ['name', 'description', 'serviceAreaDescription', 'address', 'metaTitle', 'metaDescription'] as const) expect(location[field].trim()).not.toBe('');
+    expect(location.metaTitle).toContain('Rangel Janitorial');
+    expect(location.metaDescription.replace(/\D/g, '')).toContain(location.phone.replace(/\D/g, ''));
   });
 });

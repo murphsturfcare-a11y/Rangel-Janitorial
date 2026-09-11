@@ -17,7 +17,7 @@ const AI_CRAWLERS = [
   // Perplexity
   "PerplexityBot",
   "Perplexity-User",
-  // Google (AI Overviews / Gemini uses Google-Extended)
+  // Googlebot controls Search crawling; Google-Extended is a separate AI-use control.
   "Google-Extended",
   "Googlebot",
   // Microsoft / Bing / Copilot

@@ -1,12 +1,4 @@
-import {
-  leadsRateLimiter,
-  contactRateLimiter,
-  newsletterRateLimiter,
-} from '@/lib/rate-limit';
-
-// We need to re-import fresh instances for isolated tests, so we use dynamic imports
-// within describe blocks that need clean state. For the exported limiter config tests,
-// we use the static imports above.
+// Dynamic imports provide fresh limiter instances after each module reset.
 
 describe('RateLimiter', () => {
   beforeEach(() => {

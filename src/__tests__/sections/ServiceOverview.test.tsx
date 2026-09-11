@@ -1,60 +1,24 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import ServiceOverview from '@/components/sections/ServiceOverview';
-
-const serviceNames = [
-  'Pet Hair & Debris Removal',
-  'Blooming & De-Compacting',
-  'Disinfect & Deodorize',
-  'Poop Scooping & Removal',
-];
-
-const serviceSlugs = [
-  'pet-hair-debris',
-  'blooming-decompacting',
-  'disinfect-deodorize',
-  'poop-scooping',
-];
-
-const serviceDescriptions = [
-  'Thorough removal of pet hair, fur, and debris from your artificial turf to keep it clean and safe for your family and pets.',
-  "Restore your turf's natural look and feel with our professional blooming and de-compacting service that revives flattened fibers.",
-  'Eliminate bacteria, odors, and harmful pathogens with our eco-friendly disinfecting and deodorizing treatment.',
-  'Regular pet waste cleanup and removal to maintain a hygienic outdoor space for your family.',
-];
+import services from '@/data/service-index.json';
 
 describe('ServiceOverview', () => {
-  it('renders section heading', () => {
+  it('renders a commercial-cleaning heading and every service', () => {
     render(<ServiceOverview />);
-    expect(
-      screen.getByText('Our Turf Cleaning Services'),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Our Commercial Cleaning Services' })).toBeInTheDocument();
+    for (const service of services) expect(screen.getByRole('heading', { name: service.name })).toBeInTheDocument();
   });
 
-  it('renders all 4 service names', () => {
+  it('gives each service a useful description and its actual service-page link', () => {
     render(<ServiceOverview />);
-    for (const name of serviceNames) {
-      expect(screen.getByText(name)).toBeInTheDocument();
-    }
-  });
-
-  it('renders all 4 service descriptions', () => {
-    render(<ServiceOverview />);
-    for (const desc of serviceDescriptions) {
-      expect(screen.getByText(desc)).toBeInTheDocument();
-    }
-  });
-
-  it('renders links to each service page', () => {
-    render(<ServiceOverview />);
-    const learnMoreLinks = screen.getAllByText(/Learn More/);
-    expect(learnMoreLinks).toHaveLength(4);
-
-    for (const slug of serviceSlugs) {
-      const link = learnMoreLinks.find(
-        (el) => el.closest('a')?.getAttribute('href') === `/services/${slug}`,
-      );
-      expect(link).toBeDefined();
+    const links = screen.getAllByRole('link', { name: /Learn More/ });
+    expect(links).toHaveLength(services.length);
+    for (const service of services) {
+      const heading = screen.getByRole('heading', { name: service.name });
+      const card = heading.parentElement!;
+      expect(card.querySelector('p')?.textContent?.trim().length).toBeGreaterThan(30);
+      expect(within(card).getByRole('link', { name: /Learn More/ })).toHaveAttribute('href', `/services/${service.slug}`);
     }
   });
 });

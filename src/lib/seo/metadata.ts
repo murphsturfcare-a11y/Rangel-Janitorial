@@ -12,17 +12,18 @@ export function generatePageMetadata(
   path: string,
   image?: string
 ): Metadata {
+  const brandedTitle = `${title.replace(/\s*\|\s*Rangel Janitorial(?: Blog)?/g, "")} | ${COMPANY_NAME}`;
   const url = `${SITE_URL}${path}`;
   const ogImage = image || DEFAULT_OG_IMAGE;
 
   return {
-    title: `${title} | ${COMPANY_NAME}`,
+    title: { absolute: brandedTitle },
     description,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${title} | ${COMPANY_NAME}`,
+      title: brandedTitle,
       description,
       url,
       siteName: COMPANY_NAME,
@@ -39,7 +40,7 @@ export function generatePageMetadata(
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | ${COMPANY_NAME}`,
+      title: brandedTitle,
       description,
       images: [ogImage.startsWith("http") ? ogImage : `${SITE_URL}${ogImage}`],
     },
@@ -81,7 +82,7 @@ export function generateBlogMetadata(post: {
   const ogImage = post.image || DEFAULT_OG_IMAGE;
 
   return {
-    title: `${post.title} | ${COMPANY_NAME} Blog`,
+    title: { absolute: `${post.title} | ${COMPANY_NAME}` },
     description: post.description,
     alternates: {
       canonical: `${SITE_URL}/blog/${post.slug}`,
@@ -141,9 +142,6 @@ export const DEFAULT_METADATA: Metadata = {
     "medical facility cleaning",
     "Rangel Janitorial",
   ],
-  alternates: {
-    canonical: SITE_URL,
-  },
   openGraph: {
     title: COMPANY_NAME,
     description: COMPANY_DESCRIPTION,

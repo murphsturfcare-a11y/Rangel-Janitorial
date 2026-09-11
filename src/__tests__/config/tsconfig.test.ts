@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { readFileSync } from 'fs';
 
 const tsconfig = JSON.parse(
-  readFileSync(resolve(__dirname, '../../../../tsconfig.json'), 'utf-8')
+  readFileSync(resolve(__dirname, '../../../tsconfig.json'), 'utf-8')
 );
 
 describe('tsconfig.json', () => {

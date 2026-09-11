@@ -9,15 +9,19 @@ vi.mock('next/link', () => ({
 
 // Mock next/image
 vi.mock('next/image', () => ({
-  default: ({ src, alt, fill, priority, ...props }: { src: string; alt: string; fill?: boolean; priority?: boolean; [key: string]: unknown }) =>
-    React.createElement('img', { src, alt, ...props }),
+  default: (props: { src: string; alt: string; fill?: boolean; priority?: boolean; [key: string]: unknown }) => {
+    const domProps = Object.fromEntries(Object.entries(props).filter(([key]) => !['fill', 'priority'].includes(key)));
+    return React.createElement('img', domProps);
+  },
 }));
 
 // Mock framer-motion
 vi.mock('framer-motion', () => {
+  const animationProps = new Set(['initial', 'animate', 'exit', 'variants', 'transition', 'whileHover', 'whileInView']);
   const createMotionComponent = (tag: string) =>
-    React.forwardRef(({ children, initial, animate, exit, variants, transition, whileHover, whileInView, style, ...props }: Record<string, unknown>, ref: React.Ref<HTMLElement>) => {
-      return React.createElement(tag, { ...props, ref, style }, children as React.ReactNode);
+    React.forwardRef(function MockMotion({ children, ...props }: Record<string, unknown>, ref: React.Ref<HTMLElement>) {
+      const domProps = Object.fromEntries(Object.entries(props).filter(([key]) => !animationProps.has(key)));
+      return React.createElement(tag, { ...domProps, ref }, children as React.ReactNode);
     });
 
   return {
@@ -28,6 +32,7 @@ vi.mock('framer-motion', () => {
     useScroll: () => ({ scrollYProgress: { get: () => 0 } }),
     useTransform: () => '0%',
     useInView: () => true,
+    useReducedMotion: () => false,
   };
 });
 

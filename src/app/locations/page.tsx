@@ -1,20 +1,12 @@
+import regions from '@/data/regions.json';
+import { generatePageMetadata } from '@/lib/seo/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { MapPin, ArrowRight, Phone } from 'lucide-react';
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from '@/components/ui/AnimateOnScroll';
 import OurWorkGallery from '@/components/sections/OurWorkGallery';
 
-export const metadata: Metadata = {
-  title: 'Service Locations | Professional Janitorial Services Across California',
-  description:
-    "Rangel Janitorial provides professional janitorial and commercial cleaning services across California. Serving Sacramento, Murrieta, and Walnut Creek.",
-  alternates: {
-    canonical: '/locations',
-  },
-  openGraph: {
-    url: '/locations',
-  },
-};
+export const metadata: Metadata = generatePageMetadata('Service Locations | Professional Janitorial Services Across California', 'Rangel Janitorial provides professional janitorial and commercial cleaning services across California. Serving Sacramento, Murrieta, and Walnut Creek.', "/locations");
 
 const locations = [
   {
@@ -115,11 +107,11 @@ export default function LocationsPage() {
               help keep your facility clean.
             </p>
             <a
-              href="tel:9256559008"
+              href={regions.find((region) => region.slug === 'walnut-creek')!.phoneHref}
               className="inline-flex items-center gap-2 bg-forest hover:bg-forest-light text-white font-bold px-10 py-4 rounded-lg transition-colors font-body shadow-md hover:shadow-lg text-lg"
             >
               <Phone className="w-5 h-5" />
-              Call Us: (925) 655-9008
+              Call Us: {regions.find((region) => region.slug === 'walnut-creek')!.phone}
             </a>
           </div>
         </AnimateOnScroll>

@@ -1,56 +1,33 @@
-export interface UTMParams {
-  source: string;
-  medium: string;
-  campaign: string;
-  term: string;
-  content: string;
+export interface UTMParams { source: string; medium: string; campaign: string; term: string; content: string; }
+const UTM_STORAGE_KEY = 'rangel_janitorial_utm';
+const fields = ['source', 'medium', 'campaign', 'term', 'content'] as const;
+
+function campaignValue(value: unknown): string {
+  if (typeof value !== 'string') return '';
+  const trimmed = value.trim();
+  return /^[a-zA-Z0-9][a-zA-Z0-9 ._-]{0,79}$/.test(trimmed) && !/\d(?:[ ._-]*\d){6,}/.test(trimmed) ? trimmed : '';
 }
-
-const UTM_STORAGE_KEY = "rangel_janitorial_utm";
-
+function normalize(value: unknown): UTMParams | null {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const record = value as Record<string, unknown>;
+  const result = Object.fromEntries(fields.map((field) => [field, campaignValue(record[field])])) as unknown as UTMParams;
+  return result.source || result.medium || result.campaign ? result : null;
+}
 export function parseUTMFromURL(searchParams: URLSearchParams): UTMParams | null {
-  const source = searchParams.get("utm_source");
-  const medium = searchParams.get("utm_medium");
-  const campaign = searchParams.get("utm_campaign");
-  const term = searchParams.get("utm_term");
-  const content = searchParams.get("utm_content");
-
-  if (!source && !medium && !campaign) return null;
-
-  return {
-    source: source ?? "",
-    medium: medium ?? "",
-    campaign: campaign ?? "",
-    term: term ?? "",
-    content: content ?? "",
-  };
+  return normalize(Object.fromEntries(fields.map((field) => [field, searchParams.get(`utm_${field}`)])));
 }
-
 export function storeUTMParams(params: UTMParams): void {
-  if (typeof window === "undefined") return;
-  sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(params));
+  if (typeof window === 'undefined') return;
+  const clean = normalize(params);
+  try { if (clean) sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(clean)); }
+  catch { /* Attribution is optional when browser storage is unavailable. */ }
 }
-
 export function getStoredUTMParams(): UTMParams | null {
-  if (typeof window === "undefined") return null;
-  const stored = sessionStorage.getItem(UTM_STORAGE_KEY);
-  if (!stored) return null;
-  try {
-    return JSON.parse(stored) as UTMParams;
-  } catch {
-    return null;
-  }
+  if (typeof window === 'undefined') return null;
+  try { return normalize(JSON.parse(sessionStorage.getItem(UTM_STORAGE_KEY) || 'null')); }
+  catch { return null; }
 }
-
-export function appendUTMToFormData(formData: Record<string, any>): Record<string, any> {
+export function appendUTMToFormData<T extends Record<string, unknown>>(formData: T): T & Record<string, unknown> {
   const utm = getStoredUTMParams();
-  if (!utm) return formData;
-  return {
-    ...formData,
-    utm_source: utm.source,
-    utm_medium: utm.medium,
-    utm_campaign: utm.campaign,
-    utm_term: utm.term,
-    utm_content: utm.content,
-  };
+  return utm ? {...formData, ...Object.fromEntries(fields.map((field) => [`utm_${field}`, utm[field]]))} : formData;
 }

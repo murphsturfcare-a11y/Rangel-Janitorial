@@ -1,51 +1,23 @@
-import * as gtag from "./gtag";
+import { event } from './gtag';
+import regions from '@/data/regions.json';
+import { submissionIdPattern, type FormPlacement } from '@/lib/leads';
 
-function pushToDataLayer(event: string, data: Record<string, any>): void {
-  if (typeof window === "undefined") return;
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event, ...data });
+export interface LeadEventDetail { region: string; form_placement: FormPlacement; submission_id: string; }
+
+export function isLeadEventDetail(value: unknown): value is LeadEventDetail {
+  if (!value || typeof value !== 'object') return false;
+  const detail = value as Record<string, unknown>;
+  return regions.some(region => region.slug === detail.region)
+    && (detail.form_placement === 'hero' || detail.form_placement === 'bottom')
+    && typeof detail.submission_id === 'string' && submissionIdPattern.test(detail.submission_id);
 }
 
-export function trackLeadConversion(serviceType: string, location?: string): void {
-  gtag.event("generate_lead", {
-    service_type: serviceType,
-    location: location ?? "",
-    value: 1,
-    currency: "EUR",
-  });
-
-  pushToDataLayer("lead_conversion", {
-    service_type: serviceType,
-    location: location ?? "",
-  });
+/** Called only for an accepted delivery event, with no contact details or invented values. */
+export function trackLeadConversion(detail: LeadEventDetail): boolean {
+  if (!isLeadEventDetail(detail)) return false;
+  return event('generate_lead', { region: detail.region, form_placement: detail.form_placement });
 }
-
-export function trackContactConversion(): void {
-  gtag.event("contact_form_submission", {
-    value: 1,
-    currency: "EUR",
-  });
-
-  pushToDataLayer("contact_conversion", {});
-}
-
-export function trackNewsletterConversion(): void {
-  gtag.event("newsletter_signup", {
-    value: 0.5,
-    currency: "EUR",
-  });
-
-  pushToDataLayer("newsletter_conversion", {});
-}
-
-export function trackQuoteRequest(serviceType: string): void {
-  gtag.event("quote_request", {
-    service_type: serviceType,
-    value: 5,
-    currency: "EUR",
-  });
-
-  pushToDataLayer("quote_request", {
-    service_type: serviceType,
-  });
+export function trackQuoteRequest(detail: LeadEventDetail): boolean {
+  if (!isLeadEventDetail(detail)) return false;
+  return event('quote_start', { region: detail.region, form_placement: detail.form_placement });
 }

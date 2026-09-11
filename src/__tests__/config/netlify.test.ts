@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { readFileSync } from 'fs';
 
 const netlifyToml = readFileSync(
-  resolve(__dirname, '../../../../netlify.toml'),
+  resolve(__dirname, '../../../netlify.toml'),
   'utf-8'
 );
 

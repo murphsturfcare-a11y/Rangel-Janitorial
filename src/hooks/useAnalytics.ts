@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import * as gtag from "@/lib/analytics/gtag";
 
 export function useAnalytics() {
-  const trackEvent = useCallback((action: string, params: Record<string, any>) => {
+  const trackEvent = useCallback((action: string, params: Parameters<typeof gtag.event>[1]) => {
     gtag.event(action, params);
   }, []);
 

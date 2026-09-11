@@ -1,14 +1,9 @@
+import business from '@/data/business.json';
+import { generatePageMetadata } from '@/lib/seo/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description:
-    "Rangel Janitorial privacy policy. Learn how we collect, use, and protect your personal information when you use our janitorial and commercial cleaning services.",
-  alternates: {
-    canonical: '/privacy-policy',
-  },
-};
+export const metadata: Metadata = generatePageMetadata('Privacy Policy', 'Rangel Janitorial privacy policy. Learn how we collect, use, and protect your personal information when you use our janitorial and commercial cleaning services.', "/privacy-policy");
 
 const sections = [
   { id: 'information-we-collect', title: '1. Information We Collect' },
@@ -436,7 +431,7 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <div className="text-charcoal font-body text-base leading-relaxed space-y-2">
                   <p>
-                    <strong>Address:</strong> 26323 Jefferson Avenue, Murrieta, CA 92562
+                    <strong>Address:</strong> {business.headquarters.streetAddress}, {business.headquarters.addressLocality}, {business.headquarters.addressRegion} {business.headquarters.postalCode}
                   </p>
                   <p>
                     <strong>Email:</strong>{' '}
@@ -449,12 +444,12 @@ export default function PrivacyPolicyPage() {
                   </p>
                   <p>
                     <strong>Phone:</strong>{' '}
-                    <a
+                    <Link
                       href="/locations"
                       className="text-forest hover:text-sage underline underline-offset-2 transition-colors"
                     >
                       Find your local office number
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>

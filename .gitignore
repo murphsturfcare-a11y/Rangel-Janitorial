@@ -46,3 +46,8 @@ supabase/.temp/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Browser test output
+/test-results/
+/playwright-report/
+.gstack/

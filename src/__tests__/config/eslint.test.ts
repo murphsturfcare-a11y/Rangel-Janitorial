@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { readFileSync } from 'fs';
 
 const eslintConfig = readFileSync(
-  resolve(__dirname, '../../../../eslint.config.mjs'),
+  resolve(__dirname, '../../../eslint.config.mjs'),
   'utf-8'
 );
 

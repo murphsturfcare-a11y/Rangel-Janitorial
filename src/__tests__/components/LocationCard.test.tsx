@@ -1,10 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import LocationCard from '@/components/cards/LocationCard';
-
-vi.mock('next/link', () => ({
-  default: ({ children, href, ...props }: any) => <a href={href} {...props}>{children}</a>,
-}));
 
 describe('LocationCard', () => {
   const defaultProps = {

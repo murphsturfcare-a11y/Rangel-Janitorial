@@ -4,10 +4,10 @@ import { describe, it, expect } from 'vitest';
 import FAQ from '@/components/sections/FAQ';
 
 const defaultQuestions = [
-  'How much does artificial turf cleaning cost?',
-  'How often should I have my turf cleaned?',
+  'What types of facilities do you clean?',
+  'How often do you provide cleaning services?',
   'Do you offer free estimates?',
-  'Is your cleaning solution safe for pets and children?',
+  'What cleaning services do you offer?',
   'What areas do you serve?',
   "What if I'm not satisfied with the service?",
 ];
@@ -41,7 +41,7 @@ describe('FAQ', () => {
     const user = userEvent.setup();
     render(<FAQ />);
     const firstButton = screen.getByRole('button', {
-      name: /how much does artificial turf cleaning cost/i,
+      name: /what types of facilities do you clean/i,
     });
 
     await user.click(firstButton);
@@ -53,7 +53,7 @@ describe('FAQ', () => {
     const user = userEvent.setup();
     render(<FAQ />);
     const firstButton = screen.getByRole('button', {
-      name: /how much does artificial turf cleaning cost/i,
+      name: /what types of facilities do you clean/i,
     });
 
     await user.click(firstButton);

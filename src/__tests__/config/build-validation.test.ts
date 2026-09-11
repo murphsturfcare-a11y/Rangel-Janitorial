@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import { readFileSync, existsSync } from 'fs';
 
-const projectRoot = resolve(__dirname, '../../../../');
+const projectRoot = resolve(__dirname, '../../../');
 const packageJson = JSON.parse(
   readFileSync(resolve(projectRoot, 'package.json'), 'utf-8')
 );
