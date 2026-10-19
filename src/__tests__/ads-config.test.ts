@@ -51,3 +51,25 @@ describe('verified GTM Ads base configuration', () => {
     expect(config.GTM_ADS_CONFIGURED).toBe(true);
   });
 });
+
+describe('separate regional calls-from-website configuration', () => {
+  it.each(['', '<script>', 'x'.repeat(101), 'quote_label'])('ignores absent, malformed or reused quote label %s', async label => {
+    vi.stubEnv('NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL', 'quote_label');
+    vi.stubEnv('NEXT_PUBLIC_GOOGLE_ADS_WEBSITE_CALL_LABEL_SACRAMENTO', label);
+    vi.resetModules();
+    const { websiteCallLabel } = await import('@/lib/analytics/ads-config');
+    expect(websiteCallLabel('sacramento')).toBe('');
+  });
+
+  it('keeps the two established regions separate and leaves other regions unconfigured', async () => {
+    vi.stubEnv('NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL', 'quote_label');
+    vi.stubEnv('NEXT_PUBLIC_GOOGLE_ADS_WEBSITE_CALL_LABEL_SACRAMENTO', 'sacramento_label');
+    vi.stubEnv('NEXT_PUBLIC_GOOGLE_ADS_WEBSITE_CALL_LABEL_WALNUT_CREEK', 'walnut_label');
+    vi.resetModules();
+    const { websiteCallLabel } = await import('@/lib/analytics/ads-config');
+    expect(websiteCallLabel('sacramento')).toBe('sacramento_label');
+    expect(websiteCallLabel('walnut-creek')).toBe('walnut_label');
+    expect(websiteCallLabel('murrieta')).toBe('');
+    expect(websiteCallLabel('unknown')).toBe('');
+  });
+});

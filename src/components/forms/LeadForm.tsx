@@ -9,6 +9,7 @@ import { facilityOptions, frequencyOptions, referralOptions, leadLimits, REQUEST
 import { hasAdsConsent } from '@/lib/analytics/gtag';
 import { captureAdAttribution } from '@/lib/analytics/ad-attribution';
 import { GOOGLE_ADS_CONFIGURED } from '@/lib/analytics/ads-config';
+import WebsiteCallLink from '@/components/analytics/WebsiteCallLink';
 
 const facilityIcons: Record<typeof facilityOptions[number], LucideIcon> = {
   'Office Building': Building2, 'Medical / Dental': Stethoscope,
@@ -404,9 +405,9 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
         <div ref={errorRef} role="alert" tabIndex={-1} className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm font-body">
           <p className="text-red-800">{errorMsg}</p>
           {region ? (
-            <a href={region.phoneHref} className="mt-2 inline-flex items-center gap-2 font-semibold text-forest underline">
-              <Phone className="h-4 w-4" aria-hidden="true" /> Call {region.phone}
-            </a>
+            <WebsiteCallLink regionSlug={region.slug} label="Call " className="mt-2 inline-flex items-center gap-2 font-semibold text-forest underline">
+              <Phone className="h-4 w-4" aria-hidden="true" />
+            </WebsiteCallLink>
           ) : <Link href="/locations" className="underline">Find your local office</Link>}
           {reference && <p className="mt-2 break-all text-xs text-charcoal-light">Request reference: {reference}</p>}
         </div>

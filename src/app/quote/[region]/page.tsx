@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight, Check, ClipboardCheck, Clock3, MessageCircle, Phone, UsersRound } from 'lucide-react';
 import { QuoteWizardButton, QuoteWizardProvider } from '@/components/quote/QuoteWizard';
 import QuotePrivacySettings from '@/components/quote/QuotePrivacySettings';
+import WebsiteCallLink from '@/components/analytics/WebsiteCallLink';
 import business from '@/data/business.json';
 import regions from '@/data/regions.json';
 import { generatePageMetadata } from '@/lib/seo/metadata';
@@ -88,13 +89,9 @@ export default async function QuotePage({ params }: QuotePageProps) {
           <Link href="/" aria-label={`${business.name} home`} className={`shrink-0 rounded ${focusStyle}`}>
             <Image src="/images/logo-small.webp" alt={business.name} width={480} height={235} priority className="h-12 w-auto sm:h-14" />
           </Link>
-          <a href={region.phoneHref} className={`inline-flex min-h-11 items-center gap-2 rounded text-forest ${focusStyle}`}>
+          <WebsiteCallLink regionSlug={region.slug} className={`inline-flex min-h-11 items-center gap-2 rounded text-right text-forest ${focusStyle}`} label={`Call our ${region.city} team`} labelClassName="block text-xs font-medium" numberClassName="block text-sm font-bold sm:text-base">
             <Phone className="hidden h-5 w-5 sm:block" aria-hidden="true" />
-            <span className="text-right">
-              <span className="block text-xs font-medium">Call our {region.city} team</span>
-              <span className="block text-sm font-bold sm:text-base">{region.phone}</span>
-            </span>
-          </a>
+          </WebsiteCallLink>
         </div>
       </header>
 

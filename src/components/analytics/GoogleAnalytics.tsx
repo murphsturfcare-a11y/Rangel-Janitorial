@@ -9,6 +9,7 @@ import { captureAdAttribution, clearAdAttribution } from '@/lib/analytics/ad-att
 import { parseUTMFromURL, storeUTMParams, clearUTMParams } from '@/lib/analytics/utm';
 import { GTM_ADS_CONFIGURED } from '@/lib/analytics/ads-config';
 import { loadGoogleTagManager } from './GoogleTagManager';
+import { resetWebsiteCallTracking, syncWebsiteCallTracking } from '@/lib/analytics/website-calls';
 import regions from '@/data/regions.json';
 
 export function GoogleAnalytics() {
@@ -42,7 +43,10 @@ export function GoogleAnalytics() {
         clearUTMParams();
       }
       // Google's RDP cookies follow regional defaults; our own attribution stays opt-in.
-      if (!ads || defaultAdsDenied) clearMeasurementCookies(/^_gcl_/);
+      if (!ads || defaultAdsDenied) {
+        clearMeasurementCookies(/^(?:_gcl_|gwcc$)/);
+        resetWebsiteCallTracking();
+      }
       if (!analytics && !ads && !initialized.current) return;
       if (!initialized.current) {
         window.dataLayer = window.dataLayer || [];
@@ -93,6 +97,7 @@ export function GoogleAnalytics() {
         script.src = 'https://www.googletagmanager.com/gtag/js?id=' + (analytics ? GA_MEASUREMENT_ID : GOOGLE_ADS_ID);
         document.head.appendChild(script);
       }
+      syncWebsiteCallTracking(pathname);
       // The GA stream must also disable Enhanced Measurement history pageviews.
       if (analytics && lastPage.current !== path && pageview(path)) lastPage.current = path;
     }
@@ -115,7 +120,8 @@ export function GoogleAnalytics() {
       if (!href) return;
       if (href.startsWith('tel:')) {
         const digits = href.replace(/\D/g, '').replace(/^1(?=\d{10}$)/, '');
-        const region = regions.find(item => item.phone.replace(/\D/g, '') === digits);
+        const region = regions.find(item => item.slug === anchor?.getAttribute('data-phone-region'))
+          || regions.find(item => item.phone.replace(/\D/g, '') === digits);
         if (region) event('phone_click', { region: region.slug });
       } else if (/^\/(?:locations|quote)(?:\/[^/?#]+)?(?:#quote-form)?$/.test(href)) {
         event('quote_cta_click', { page_path: pathname });
