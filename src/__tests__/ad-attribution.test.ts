@@ -4,18 +4,44 @@ import { adAttributionMaxAgeMs, normalizeAdAttribution, validAdClickId } from '@
 import { AD_ATTRIBUTION_KEY, captureAdAttribution, getAdAttribution } from '@/lib/analytics/ad-attribution';
 import { ADS_CONSENT_KEY, CONSENT_KEY, setAdsConsent } from '@/lib/analytics/gtag';
 import { getStoredUTMParams, storeUTMParams } from '@/lib/analytics/utm';
+import { adsPageLocation } from '@/lib/analytics/ads';
 
 const click = 'EAIaIQobChMI_test-click-12345678901234567890';
 beforeEach(() => {
   localStorage.clear(); sessionStorage.clear(); delete window.rangelAdsConsent;
+  Reflect.deleteProperty(window.navigator, 'globalPrivacyControl');
   window.history.replaceState({}, '', '/quote/murrieta?gclid=' + click + '&email=private@example.test');
 });
 afterEach(() => {
   vi.restoreAllMocks(); vi.useRealTimers(); delete window.rangelAdsConsent;
+  Reflect.deleteProperty(window.navigator, 'globalPrivacyControl');
   window.history.replaceState({}, '', '/');
 });
 
 describe('consented, bounded first-party ad attribution', () => {
+  it('default Ads page context uses only validated current IDs without reading or writing first-party attribution', () => {
+    sessionStorage.setItem(AD_ATTRIBUTION_KEY, JSON.stringify({ consent: 'granted', capturedAt: new Date().toISOString(), clickIds: { wbraid: 'ClQK_previous123' } }));
+    window.history.replaceState({}, '', '/quote/murrieta?gclid=' + click + '&gbraid=person%40example.test&email=private@example.test');
+    const stored = sessionStorage.getItem(AD_ATTRIBUTION_KEY);
+    expect(adsPageLocation()).toBe(window.location.origin + '/quote/murrieta?gclid=' + click);
+    expect(sessionStorage.getItem(AD_ATTRIBUTION_KEY)).toBe(stored);
+    window.history.replaceState({}, '', '/quote/murrieta');
+    expect(adsPageLocation()).toBe(window.location.origin + '/quote/murrieta');
+    expect(localStorage.getItem(ADS_CONSENT_KEY)).toBeNull();
+  });
+
+  it('GPC overrides an old grant for first-party click IDs, campaign storage, and Ads URL context', () => {
+    localStorage.setItem(ADS_CONSENT_KEY, 'accepted');
+    captureAdAttribution();
+    Object.defineProperty(window.navigator, 'globalPrivacyControl', { configurable: true, value: true });
+    expect(captureAdAttribution()).toBeNull();
+    expect(getAdAttribution()).toBeNull();
+    storeUTMParams({ source: 'google', medium: 'cpc', campaign: 'commercial', term: '', content: '' });
+    expect(getStoredUTMParams()).toBeNull();
+    expect(adsPageLocation()).toBe(window.location.origin + '/quote/murrieta');
+    expect(sessionStorage.getItem(AD_ATTRIBUTION_KEY)).toBeNull();
+  });
+
   it.each([null, 'declined'])('does not capture or forward identifiers or store UTM labels with ads consent %s', choice => {
     localStorage.setItem(CONSENT_KEY, 'accepted');
     if (choice) localStorage.setItem(ADS_CONSENT_KEY, choice);

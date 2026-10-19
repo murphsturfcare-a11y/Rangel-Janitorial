@@ -40,6 +40,7 @@ describe('unconfigured analytics', () => {
     fireEvent.change(screen.getByLabelText(/Last Name/), { target: { value: 'Visitor' } });
     fireEvent.change(screen.getByLabelText(/Phone/), { target: { value: '9515550100' } });
     fireEvent.change(screen.getByLabelText(/Email/), { target: { value: 'test@example.test' } });
+    fireEvent.click(screen.getByRole('checkbox', { name: /I acknowledge the Privacy Policy/ }));
     fireEvent.submit(screen.getByRole('form'));
     await screen.findByRole('status');
     const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);

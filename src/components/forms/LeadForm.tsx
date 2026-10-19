@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Building2, CalendarCheck2, CalendarDays, CalendarRange, CalendarSync, Check, CheckCircle, ChevronRight, CircleHelp, Dumbbell, Ellipsis, GraduationCap, House, Landmark, Loader2, Mail, Pencil, Phone, Repeat2, Sparkles, Stethoscope, Store, Trees, Warehouse, type LucideIcon } from 'lucide-react';
 import wizardStyles from '@/components/quote/QuoteWizard.module.css';
 import regions from '@/data/regions.json';
-import { facilityOptions, frequencyOptions, referralOptions, leadLimits, type FormPlacement, type LeadResult } from '@/lib/leads';
+import { facilityOptions, frequencyOptions, referralOptions, leadLimits, REQUEST_FOLLOWUP_NOTICE_VERSION, type FormPlacement, type LeadResult } from '@/lib/leads';
 import { hasAdsConsent } from '@/lib/analytics/gtag';
 import { captureAdAttribution } from '@/lib/analytics/ad-attribution';
 import { GOOGLE_ADS_CONFIGURED } from '@/lib/analytics/ads-config';
@@ -27,6 +27,7 @@ interface LeadFormProps {
   formPlacement?: FormPlacement;
   sourcePage?: string;
   variant?: 'standard' | 'compact' | 'wizard';
+  requestType?: 'quote' | 'walkthrough';
   /** Kept while existing callers migrate from the former embedded GHL forms. */
   formId?: string;
   location?: string;
@@ -52,7 +53,7 @@ function focusVisibleWizardElement(element: HTMLElement | null): void {
   if (!dialog || dialog.open) element.focus();
 }
 
-export default function LeadForm({ regionSlug, location, formPlacement = 'hero', sourcePage, variant = 'standard' }: LeadFormProps) {
+export default function LeadForm({ regionSlug, location, formPlacement = 'hero', sourcePage, variant = 'standard', requestType = 'quote' }: LeadFormProps) {
   const instanceId = useId();
   const id = (field: string) => instanceId + '-' + field;
   const region = regions.find(region => region.slug === regionSlug || (!regionSlug && region.city === location));
@@ -61,6 +62,7 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
   const [retryAllowed, setRetryAllowed] = useState(true);
   const [reference, setReference] = useState('');
   const isWizard = variant === 'wizard';
+  const isWalkthrough = requestType === 'walkthrough';
   const isCondensed = variant !== 'standard';
   const [wizardStep, setWizardStep] = useState<1 | 2 | 3>(1);
   const [selectedFacility, setSelectedFacility] = useState('');
@@ -113,11 +115,21 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
       showError('Please choose your local office to request a quote.', false, false);
       return;
     }
+    const data = new FormData(e.currentTarget);
+    if (data.get('requestConsent') !== 'on') {
+      showError('Please acknowledge the privacy policy and request follow-up before submitting.', false, true);
+      return;
+    }
     begin();
     const submissionId = attemptId.current!;
-    const data = new FormData(e.currentTarget);
     const payload = {
       submissionId,
+      requestType,
+      requestConsent: {
+        noticeVersion: REQUEST_FOLLOWUP_NOTICE_VERSION,
+        privacyAcknowledged: true,
+        followUpRequested: true,
+      },
       regionSlug: region.slug,
       formPlacement,
       sourcePage: sourcePage ?? '/locations/' + region.slug,
@@ -176,10 +188,10 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
           <CheckCircle className="w-8 h-8 text-sage" />
         </div>
         <h3 className="text-xl font-bold text-charcoal font-heading mb-2">
-          Quote Request Received!
+          {isWalkthrough ? 'Walkthrough Request Received!' : 'Quote Request Received!'}
         </h3>
         <p className="text-charcoal-light font-body text-sm max-w-sm">
-          Thank you! Your request is recorded. Our team will review your facility details and contact you about your estimate.
+          {isWalkthrough ? 'Thank you! Your request is recorded. Our team will contact you to discuss your facility and confirm a walkthrough time.' : 'Thank you! Your request is recorded. Our team will review your facility details and contact you about your estimate.'}
         </p>
       </div>
     );
@@ -191,7 +203,7 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
         && !(event.target instanceof Element && event.target.closest('button[type="button"]'))) event.preventDefault();
     }} aria-busy={status === 'loading'} aria-labelledby={id('heading')} className={isWizard ? wizardStyles.form : 'space-y-4 p-4 sm:p-6'}>
       {isWizard && <>
-        <ol aria-label="Quote progress" className={wizardStyles.progress}>
+        <ol aria-label={isWalkthrough ? 'Walkthrough request progress' : 'Quote progress'} className={wizardStyles.progress}>
           {['Facility', 'Schedule', 'Contact'].map((label, index) => <li key={label} aria-current={wizardStep === index + 1 ? 'step' : undefined} data-complete={wizardStep > index + 1}>
             <span className={wizardStyles.stepNumber} aria-hidden="true">{wizardStep > index + 1 ? <Check size={14} /> : index + 1}</span>
             <span>{label}<span className="sr-only">{wizardStep > index + 1 ? ', completed' : ''}</span></span>
@@ -203,10 +215,10 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
         </div>
       </>}
       <h3 id={id('heading')} ref={isWizard ? questionRef : undefined} data-wizard-heading={isWizard ? '' : undefined} tabIndex={isWizard ? -1 : undefined} className={isWizard ? wizardStyles.question : 'text-lg font-bold text-charcoal font-heading text-center mb-1'}>
-        {isWizard ? wizardStep === 1 ? 'What type of facility needs cleaning?' : wizardStep === 2 ? 'How often do you need cleaning?' : 'Where can we send your quote?' : 'Get Your Free Quote'}
+        {isWizard ? wizardStep === 1 ? 'What type of facility needs cleaning?' : wizardStep === 2 ? 'How often do you need cleaning?' : isWalkthrough ? 'How can we arrange your walkthrough?' : 'Where can we send your quote?' : 'Get Your Free Quote'}
       </h3>
       <p className={isWizard ? wizardStyles.helper : 'text-charcoal-light font-body text-xs text-center mb-4'}>
-        {isWizard ? wizardStep === 3 ? 'Our team will contact you to talk through your cleaning needs.' : wizardStep === 2 ? 'Choose a schedule, or let us help you decide. Tap to continue.' : 'Choose the closest match. One tap takes you to the next step.' : "Tell us about your facility and we'll provide a custom estimate."}
+        {isWizard ? wizardStep === 3 ? isWalkthrough ? 'Our team will contact you to confirm a time. No appointment is booked yet.' : 'Our team will contact you to talk through your cleaning needs.' : wizardStep === 2 ? 'Choose a schedule, or let us help you decide. Tap to continue.' : 'Choose the closest match. One tap takes you to the next step.' : "Tell us about your facility and we'll provide a custom estimate."}
       </p>
 
       {isWizard && <>
@@ -231,7 +243,7 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
           <button type="button" aria-label={`Change facility type: Your facility, ${selectedFacility}`} disabled={navigationLocked} onClick={() => setWizardStep(1)}><Building2 size={18} aria-hidden="true" /><span><span className={wizardStyles.summaryLabel}>Your facility</span>{selectedFacility}</span><Pencil size={14} aria-hidden="true" /></button>
           <button type="button" aria-label={`Change cleaning frequency: Your schedule, ${selectedFrequency}`} disabled={navigationLocked} onClick={() => setWizardStep(2)}><CalendarDays size={18} aria-hidden="true" /><span><span className={wizardStyles.summaryLabel}>Your schedule</span>{selectedFrequency}</span><Pencil size={14} aria-hidden="true" /></button>
         </div>}
-        {wizardStep < 3 && <p className={wizardStyles.reassurance}><CheckCircle size={15} aria-hidden="true" />Free quote. No obligation to book.</p>}
+        {wizardStep < 3 && <p className={wizardStyles.reassurance}><CheckCircle size={15} aria-hidden="true" />{isWalkthrough ? 'Free 20-minute walkthrough. No obligation.' : 'Free quote. No obligation to book.'}</p>}
       </>}
 
       {/* Honeypot — hidden from humans, bots fill it */}
@@ -376,6 +388,18 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
         />
       </div>
 
+      <label htmlFor={id('requestConsent')} className={`${wizardStyles.requestConsent} flex min-h-11 cursor-pointer items-start gap-3 rounded-lg border border-forest/15 bg-forest/5 p-3 text-xs leading-relaxed text-charcoal`}>
+        <input
+          id={id('requestConsent')}
+          name="requestConsent"
+          type="checkbox"
+          required
+          disabled={navigationLocked}
+          className="mt-1 h-4 w-4 shrink-0 accent-forest focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest"
+        />
+        <span>I acknowledge the <Link href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">Privacy Policy<span className="sr-only"> (opens in a new tab)</span></Link> and ask Rangel Janitorial to contact me by phone or email about this {isWalkthrough ? 'walkthrough' : 'quote'} request. <span aria-hidden="true">*</span></span>
+      </label>
+
       {errorMsg && (
         <div ref={errorRef} role="alert" tabIndex={-1} className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm font-body">
           <p className="text-red-800">{errorMsg}</p>
@@ -400,16 +424,12 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
           </>
         ) : (
           <>
-            {isWizard ? 'Send quote request' : 'Get Your Free Quote'}
+            {isWalkthrough ? 'Request my free walkthrough' : isWizard ? 'Send quote request' : 'Get Your Free Quote'}
             <ArrowRight className="w-4 h-4" />
           </>
         )}
       </button>
 
-      <p className={`${isCondensed ? 'text-xs text-charcoal-light' : 'text-[11px] text-gray-400'} font-body text-center leading-snug`}>
-        By submitting, you ask Rangel Janitorial to contact you about this quote.
-        See our <Link href="/privacy-policy" className="underline">privacy policy</Link> for how we handle your information.
-      </p>
       </fieldset>
     </form>
   );

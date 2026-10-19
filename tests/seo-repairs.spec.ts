@@ -16,6 +16,7 @@ async function fillQuote(form: Locator) {
   await form.getByLabel('Last Name', {exact: false}).fill('Test');
   await form.getByLabel('Phone', {exact: false}).fill('2025550149');
   await form.getByLabel('Email', {exact: false}).fill('browser-test@example.com');
+  await form.getByRole('checkbox', {name: /I acknowledge the Privacy Policy/}).check();
 }
 async function recordLeadEvents(page: Page) {
   await page.addInitScript(() => {

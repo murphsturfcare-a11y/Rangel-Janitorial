@@ -37,7 +37,7 @@ describe('quote wizard dialog', () => {
     renderWizard();
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Start quote' }));
-    const dialog = screen.getByRole('dialog', { name: 'Your cleaning quote' });
+    const dialog = screen.getByRole('dialog', { name: 'Your free walkthrough' });
     expect(dialog).toHaveAttribute('open');
     expect(screen.getByRole('heading', { name: 'Choose your facility' })).toHaveFocus();
     expect(document.body.style.overflow).toBe('hidden');

@@ -25,7 +25,7 @@ describe('paid-page privacy settings', () => {
     tracking.ads = ads;
     const dispatch = vi.spyOn(window, 'dispatchEvent');
     render(<QuotePrivacySettings />);
-    fireEvent.click(screen.getByRole('button', { name: 'Cookie settings' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Privacy settings' }));
     expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({ type: 'rangel:privacy-settings' }));
   });
 });

@@ -2,7 +2,8 @@ vi.hoisted(() => { process.env.NEXT_PUBLIC_GOOGLE_ADS_ID = 'AW-123456789'; proce
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { ADS_CONSENT_KEY } from '@/lib/analytics/gtag';
+import { ADS_CONSENT_KEY, getAdsConsent } from '@/lib/analytics/gtag';
+import { REQUEST_FOLLOWUP_NOTICE_VERSION } from '@/lib/leads';
 import LeadForm from '@/components/forms/LeadForm';
 
 const fetchMock = vi.fn<typeof fetch>();
@@ -15,6 +16,8 @@ function fill(container: HTMLElement = document.body) {
   fireEvent.change(scope.getByLabelText(/Last Name/), { target: { value: "O'Neil" } });
   fireEvent.change(scope.getByLabelText(/Phone/), { target: { value: '(951) 555-0100' } });
   fireEvent.change(scope.getByLabelText(/Email/), { target: { value: 'jamie@example.test' } });
+  const consent = scope.getByRole('checkbox', { name: /I acknowledge the Privacy Policy/ });
+  if (!(consent as HTMLInputElement).checked) fireEvent.click(consent);
 }
 function submit() { fireEvent.submit(screen.getByRole('form')); }
 function accept() {
@@ -45,6 +48,32 @@ afterEach(() => {
 });
 
 describe('LeadForm', () => {
+  it.each(['standard', 'compact', 'wizard'] as const)('requires a fresh request acknowledgment in the %s form without granting advertising consent', variant => {
+    render(<LeadForm regionSlug="murrieta" variant={variant} />);
+    if (variant === 'wizard') {
+      expect(screen.queryByRole('checkbox', { name: /I acknowledge/ })).not.toBeInTheDocument();
+      fireEvent.click(screen.getByRole('button', { name: 'Office Building' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Weekly' }));
+    }
+    const acknowledgment = screen.getByRole('checkbox', { name: /I acknowledge the Privacy Policy/ });
+    expect(acknowledgment).toBeRequired();
+    expect(acknowledgment).not.toBeChecked();
+    fireEvent.click(acknowledgment);
+    expect(getAdsConsent()).toBeNull();
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(acceptedEvent).not.toHaveBeenCalled();
+  });
+
+  it('rejects submission without acknowledgment even if native validation is bypassed', () => {
+    render(<LeadForm regionSlug="murrieta" />);
+    fill();
+    fireEvent.click(screen.getByRole('checkbox', { name: /I acknowledge the Privacy Policy/ }));
+    submit();
+    expect(screen.getByRole('alert')).toHaveTextContent('Please acknowledge the privacy policy');
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(acceptedEvent).not.toHaveBeenCalled();
+  });
+
   it('submits legitimate fast autofill and emits exactly one accepted event', async () => {
     accept();
     render(<LeadForm regionSlug="murrieta" formPlacement="hero" />);
@@ -58,7 +87,7 @@ describe('LeadForm', () => {
     expect(detail).toMatchObject({ region: 'murrieta', form_placement: 'hero' });
     expect(Object.keys(detail).sort()).toEqual(['form_placement', 'region', 'submission_id']);
     const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
-    expect(payload).toMatchObject({ regionSlug: 'murrieta', formPlacement: 'hero', website: '', sourcePage: '/locations/murrieta' });
+    expect(payload).toMatchObject({ regionSlug: 'murrieta', formPlacement: 'hero', website: '', sourcePage: '/locations/murrieta', requestType: 'quote', requestConsent: { noticeVersion: REQUEST_FOLLOWUP_NOTICE_VERSION, privacyAcknowledged: true, followUpRequested: true } });
   });
 
   it('gives both form instances distinct label associations', () => {

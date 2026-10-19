@@ -80,7 +80,7 @@ export function QuoteWizardProvider({ regionSlug, children }: { regionSlug: stri
         <div className={`${styles.header} sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-forest/10 px-5 py-3 sm:px-8`}>
           <div className="flex items-center gap-3">
             <Sparkles className="h-6 w-6 shrink-0 text-forest" strokeWidth={1.6} aria-hidden="true" />
-            <div><h2 id={titleId} tabIndex={-1} className="font-heading text-sm font-bold outline-none">Your cleaning quote</h2><p className="mt-1 text-xs text-charcoal-light">Rangel Janitorial{region ? ` · ${region.city}` : ''}</p></div>
+            <div><h2 id={titleId} tabIndex={-1} className="font-heading text-sm font-bold outline-none">Your free walkthrough</h2><p className="mt-1 text-xs text-charcoal-light">Rangel Janitorial{region ? ` · ${region.city}` : ''}</p></div>
           </div>
           <button
             type="button"
@@ -91,7 +91,7 @@ export function QuoteWizardProvider({ regionSlug, children }: { regionSlug: stri
             <X className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
-        <LeadForm regionSlug={regionSlug} sourcePage={`/quote/${regionSlug}`} formPlacement="hero" variant="wizard" />
+        <LeadForm regionSlug={regionSlug} sourcePage={`/quote/${regionSlug}`} formPlacement="hero" variant="wizard" requestType="walkthrough" />
       </dialog>
     </WizardContext.Provider>
   );

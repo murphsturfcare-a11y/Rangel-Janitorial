@@ -21,7 +21,7 @@ describe('regional paid quote pages', () => {
     const { container } = render(await QuotePage({ params: Promise.resolve({ region: region.slug }) }));
 
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(`Commercial & office cleaning in ${region.city}`);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('You don’t have a cleaning problem. You have a reliability problem.');
     expect(screen.getAllByRole('main')).toHaveLength(1);
     expect(screen.queryByRole('form')).not.toBeInTheDocument();
     expect(container.querySelectorAll('dialog form')).toHaveLength(1);
@@ -42,8 +42,10 @@ describe('regional paid quote pages', () => {
     expect(screen.getByRole('img', { name: 'Rangel crew members cleaning a break-room table and countertop' })).toBeInTheDocument();
     expect(screen.getByRole('navigation', { name: 'Legal' })).toBeInTheDocument();
     expect(screen.queryByRole('navigation', { name: 'Main navigation' })).not.toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Get my free quote' })).toHaveAttribute('aria-haspopup', 'dialog');
-    expect(screen.getByRole('button', { name: 'Request my cleaning quote' })).toHaveAttribute('aria-haspopup', 'dialog');
+    const launchers = screen.getAllByRole('button', { name: 'Request my free walkthrough' });
+    expect(launchers).toHaveLength(2);
+    for (const launcher of launchers) expect(launcher).toHaveAttribute('aria-haspopup', 'dialog');
+    expect(screen.getByText(`Serving ${region.city} & surrounding communities`)).toBeInTheDocument();
     expect(container.querySelector('#quote-form')).toBeInTheDocument();
   });
 
@@ -51,7 +53,7 @@ describe('regional paid quote pages', () => {
     const metadata = await generateMetadata({ params: Promise.resolve({ region: region.slug }) });
     expect(metadata.alternates?.canonical).toBe(`${business.url}/quote/${region.slug}`);
     expect(metadata.robots).toEqual({ index: false, follow: true, googleBot: { index: false, follow: true } });
-    expect(metadata.title).toEqual({ absolute: `Commercial Cleaning Quote in ${region.city} | ${business.name}` });
+    expect(metadata.title).toEqual({ absolute: `Commercial Cleaning in ${region.city} | Free Walkthrough | ${business.name}` });
     expect(metadata.description).toContain(region.phone);
   });
 

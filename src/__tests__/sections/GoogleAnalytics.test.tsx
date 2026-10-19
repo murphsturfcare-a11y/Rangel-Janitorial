@@ -3,6 +3,9 @@ import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const state = vi.hoisted(() => {
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = 'G-TEST1234';
+  delete process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+  delete process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
+  delete process.env.NEXT_PUBLIC_GTM_ID;
   return { pathname: '/locations/murrieta' };
 });
 vi.mock('next/navigation', () => ({ usePathname: () => state.pathname }));
@@ -65,15 +68,20 @@ describe('GoogleAnalytics consent integration', () => {
 
   it('counts an accepted receipt once and never forwards contact fields or its identifier', () => {
     localStorage.setItem(CONSENT_KEY, 'accepted');
+    window.history.replaceState({}, '', '/locations/murrieta?gclid=ValidClickId123&email=private@example.test#private');
+    vi.spyOn(document, 'referrer', 'get').mockReturnValue('https://example.test/private?email=private@example.test');
     const { rerender } = render(<GoogleAnalytics />);
     act(() => { dispatchReceipt({ ...receipt, email: 'private@example.test', phone: '9515550100' }); dispatchReceipt(); });
-    expect(eventCommands('generate_lead')).toEqual([['event', 'generate_lead', { region: 'murrieta', form_placement: 'hero', send_to: 'G-TEST1234' }]]);
+    expect(eventCommands('generate_lead')).toEqual([['event', 'generate_lead', {
+      region: 'murrieta', form_placement: 'hero', send_to: 'G-TEST1234',
+      page_location: window.location.origin + '/locations/murrieta', page_referrer: 'https://example.test',
+    }]]);
     state.pathname = '/services';
     rerender(<GoogleAnalytics />);
     act(() => dispatchReceipt());
     expect(eventCommands('generate_lead')).toHaveLength(1);
     expect(eventCommands('page_view')).toHaveLength(2);
-    expect(JSON.stringify(commands())).not.toMatch(/private@example|9515550100|8b75ba63/);
+    expect(JSON.stringify(commands())).not.toMatch(/private@example|9515550100|8b75ba63|ValidClickId123|gclid|\/private/);
   });
 
   it('does not replay pre-consent interactions after the visitor accepts', () => {
@@ -132,6 +140,6 @@ describe('GoogleAnalytics consent integration', () => {
     const { getByText } = render(<><GoogleAnalytics /><a href="tel:+19518944222">Office</a><a href="tel:+19515550100">Other</a></>);
     fireEvent.click(getByText('Other'));
     fireEvent.click(getByText('Office'));
-    expect(eventCommands('phone_click')).toEqual([['event', 'phone_click', { region: 'murrieta', send_to: 'G-TEST1234' }]]);
+    expect(eventCommands('phone_click')).toEqual([['event', 'phone_click', { region: 'murrieta', send_to: 'G-TEST1234', page_location: window.location.origin + '/locations/murrieta', page_referrer: '' }]]);
   });
 });

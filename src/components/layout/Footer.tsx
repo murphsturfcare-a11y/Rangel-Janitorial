@@ -163,7 +163,7 @@ export default function Footer() {
               </a>
             </p>
           </div>
-          <nav aria-label="Legal" className="flex gap-4 text-sm text-gray-300"><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-of-service">Terms of Service</Link>{(GA_MEASUREMENT_ID || GOOGLE_ADS_CONFIGURED) && <button type="button" onClick={() => window.dispatchEvent(new Event('rangel:privacy-settings'))}>Cookie settings</button>}</nav>
+          <nav aria-label="Legal" className="flex gap-4 text-sm text-gray-300"><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-of-service">Terms of Service</Link>{(GA_MEASUREMENT_ID || GOOGLE_ADS_CONFIGURED) && <button type="button" onClick={() => window.dispatchEvent(new Event('rangel:privacy-settings'))}>Privacy settings</button>}</nav>
           <p className="font-body text-sm text-gray-400">
             Professional Crews | Fully Insured | Satisfaction Guaranteed
           </p>

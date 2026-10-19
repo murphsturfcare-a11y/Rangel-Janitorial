@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import regions from '../../src/data/regions.json';
-import { facilityOptions, frequencyOptions, referralOptions, leadLimits, submissionIdPattern, type LeadResult } from '../../src/lib/leads';
+import { facilityOptions, frequencyOptions, referralOptions, leadLimits, submissionIdPattern, REQUEST_FOLLOWUP_NOTICE_VERSION, type LeadResult } from '../../src/lib/leads';
 import { adClickKeys, normalizeAdAttribution } from '../../src/lib/ad-clicks';
 
 declare const Netlify: { env: { get(name: string): string | undefined } };
@@ -106,6 +106,31 @@ function adAttribution(body: Record<string, unknown>): string[] {
     ...adClickKeys.flatMap(key => clean.clickIds[key] ? [key + ': ' + clean.clickIds[key]] : [])];
 }
 
+function requestAcknowledgment(body: Record<string, unknown>): string[] {
+  if (body.requestType !== 'quote' && body.requestType !== 'walkthrough') {
+    throw new InputError('Please reload the form to confirm the type of request.');
+  }
+  const raw = body.requestConsent;
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
+    throw new InputError('Please acknowledge the privacy policy and request-specific follow-up before submitting.');
+  }
+  const consent = raw as Record<string, unknown>;
+  if (consent.noticeVersion !== REQUEST_FOLLOWUP_NOTICE_VERSION
+    || consent.privacyAcknowledged !== true || consent.followUpRequested !== true) {
+    throw new InputError('Please acknowledge the privacy policy and request-specific follow-up before submitting.');
+  }
+  // Record only the known notice and server receipt time, never client-supplied
+  // timestamps, channels or broader marketing permissions. This is not ad consent.
+  return [
+    'Request type: ' + body.requestType,
+    'Request acknowledgment version: ' + REQUEST_FOLLOWUP_NOTICE_VERSION,
+    'Privacy policy acknowledged: yes',
+    'Follow-up requested: phone/email about this ' + body.requestType + ' only',
+    'Promotional campaigns and SMS: not authorized by this acknowledgment',
+    'Acknowledgment received by server: ' + new Date().toISOString(),
+  ];
+}
+
 export default async function lead(req: Request): Promise<Response> {
   const origin = req.headers.get('origin') || '';
   const isAllowed = !origin || allowedOrigins().has(origin);
@@ -142,6 +167,7 @@ export default async function lead(req: Request): Promise<Response> {
     if (!['hero', 'bottom'].includes(placement)) throw new InputError('Please use a current quote form.');
     const sourcePage = field(body, 'sourcePage', 200, true);
     if (!['/locations/' + region.slug, '/quote/' + region.slug].includes(sourcePage)) throw new InputError('Please use your regional quote form.');
+    const acknowledgment = requestAcknowledgment(body);
     const firstName = field(body, 'firstName', leadLimits.name, true);
     const lastName = field(body, 'lastName', leadLimits.name, true);
     const phone = field(body, 'phone', leadLimits.phone, true);
@@ -154,7 +180,7 @@ export default async function lead(req: Request): Promise<Response> {
     const frequency = choice(body, 'frequency', frequencyOptions);
     const referralSource = choice(body, 'referralSource', referralOptions);
     const message = field(body, 'message', leadLimits.message);
-    const details = [message, 'Website request reference: ' + submissionId, 'Page: ' + sourcePage, 'Form: ' + placement, ...attribution(body), ...adAttribution(body)].filter(Boolean).join('\n');
+    const details = [message, 'Website request reference: ' + submissionId, 'Page: ' + sourcePage, 'Form: ' + placement, ...attribution(body), ...adAttribution(body), ...acknowledgment].filter(Boolean).join('\n');
     const customFields = [
       ...(facilityType ? [{ id: CUSTOM_FIELD_IDS.facilityType, field_value: facilityType }] : []),
       ...(frequency ? [{ id: CUSTOM_FIELD_IDS.frequency, field_value: frequency }] : []),

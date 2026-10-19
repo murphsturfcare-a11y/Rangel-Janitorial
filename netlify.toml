@@ -8,11 +8,12 @@
   [build.environment]
     NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
-# Public identifiers for consent-gated quote measurement in production builds.
+# Public identifiers for restricted Google Ads quote measurement in production builds.
 # These identify a Google Ads conversion action; they are not API credentials.
 [context.production.environment]
   NEXT_PUBLIC_GOOGLE_ADS_ID = "AW-11465582021"
   NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL = "SJyFCJHXorkbEMXLm9sq"
+  NEXT_PUBLIC_GTM_ID = "GTM-MB764DLF"
 
 [[headers]]
   for = "/*"

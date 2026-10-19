@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p className="text-sage-light font-body text-lg">
-            Last updated: January 1, 2026
+            Last updated: October 19, 2026
           </p>
         </div>
       </section>
@@ -46,9 +46,9 @@ export default function PrivacyPolicyPage() {
               practices regarding your personal data.
             </p>
             <p className="text-charcoal font-body text-base leading-relaxed">
-              By accessing or using our website and services, you acknowledge that you have read,
-              understood, and agree to be bound by this Privacy Policy. If you do not agree with the
-              terms of this policy, please do not access our website or use our services.
+              When you submit a quote or walkthrough request, we ask you to acknowledge this notice
+              and request follow-up about your inquiry. That acknowledgment does not waive your
+              privacy rights or enroll you in promotional communications.
             </p>
           </div>
 
@@ -99,6 +99,7 @@ export default function PrivacyPolicyPage() {
                 <li>Mailing address and service property address</li>
                 <li>Billing and payment information</li>
                 <li>Details about your facility and cleaning needs</li>
+                <li>Your request type, privacy-notice acknowledgment, request for follow-up, notice version, and the time our server receives your request</li>
                 <li>Any other information you choose to provide in correspondence with us</li>
               </ul>
 
@@ -150,6 +151,13 @@ export default function PrivacyPolicyPage() {
               <h3 className="text-lg font-semibold font-heading text-charcoal mb-2">
                 Communication
               </h3>
+              <p className="text-charcoal font-body text-base leading-relaxed mb-4">
+                Our quote and walkthrough forms require an acknowledgment of this Privacy Policy
+                and a request for Rangel Janitorial to contact you by phone or email about that
+                inquiry. We store this acknowledgment with your request in our customer management
+                system. It does not authorize promotional campaigns or text messages. You may ask
+                our team to stop following up on your inquiry.
+              </p>
               <ul className="list-disc list-inside text-charcoal font-body text-base leading-relaxed mb-6 space-y-1 pl-4">
                 <li>To respond to your inquiries, questions, and requests</li>
                 <li>To send appointment confirmations and service reminders</li>
@@ -314,8 +322,8 @@ export default function PrivacyPolicyPage() {
               <ul className="list-disc list-inside text-charcoal font-body text-base leading-relaxed mb-6 space-y-2 pl-4">
                 <li>
                   <strong>Preference Storage:</strong> We remember your analytics and advertising
-                  measurement choices separately in your browser. You can request a quote without
-                  accepting either optional category.
+                  measurement choices separately in your browser. You can request a quote with
+                  measurement turned off.
                 </li>
                 <li>
                   <strong>Analytics Cookies:</strong> When analytics is configured and you accept it,
@@ -324,14 +332,25 @@ export default function PrivacyPolicyPage() {
                   strings. Analytics acceptance does not enable advertising measurement.
                 </li>
                 <li>
-                  <strong>Advertising Measurement:</strong> When Google Ads measurement is configured
-                  and you separately accept it, Google may store ad measurement cookies. We also retain
-                  validated ad click identifiers and campaign labels in browser session storage for
-                  the current tab. Click identifiers expire after 30 days at the latest. If you request
-                  a quote while this choice is enabled, these details accompany your request in our
-                  customer management system, and a confirmed quote event with a random request
-                  reference is sent to Google Ads. We do not send your form contact details or message
-                  to Google Ads through this implementation, and personalized advertising remains off.
+                  <strong>Advertising Measurement:</strong> We use Google Ads through Google Tag
+                  Manager to measure which ads lead to confirmed requests. We enable Google&apos;s
+                  restricted data processing and keep personalized advertising off. For visitors in
+                  the United States, ad measurement cookies are enabled by default unless you turn
+                  measurement off or your browser sends a Global Privacy Control signal. Outside the
+                  United States, advertising storage and advertising user-data permissions default
+                  to denied unless you enable measurement in Privacy settings. Google may still
+                  receive limited, cookieless measurements while those permissions are denied.
+                  A conversion is recorded only after our server accepts your request, using a random
+                  request reference. Our conversion-event code does not include your form contact
+                  details or message.
+                </li>
+                <li>
+                  <strong>Request Attribution:</strong> If you explicitly enable ad measurement in
+                  Privacy settings, we also retain validated ad click identifiers and campaign labels
+                  in browser session storage for the current tab. Click identifiers expire after
+                  30 days at the latest. These details accompany a submitted request in our customer
+                  management system. The required acknowledgment on the form requests follow-up
+                  about your inquiry; it does not change your measurement preferences.
                 </li>
               </ul>
 
@@ -339,11 +358,12 @@ export default function PrivacyPolicyPage() {
                 Managing Cookies
               </h3>
               <p className="text-charcoal font-body text-base leading-relaxed">
-                Use Cookie settings in the footer to change or withdraw either optional choice when
-                measurement is enabled. Withdrawal stops subsequent events and removes the relevant
-                measurement cookies and advertising attribution from this browser. It does not recall
-                data already sent with an earlier quote. You can also block or delete browser storage
-                through your browser settings.
+                Use Privacy settings in the footer to turn off ad measurement or change analytics
+                preferences when those services are configured. We honor Global Privacy Control by
+                blocking ad measurement even if you previously enabled it. Turning measurement off
+                stops subsequent conversion events and removes the relevant first-party measurement
+                cookies and stored request attribution from this browser. It does not recall data
+                already sent. You can also block or delete browser storage through your browser settings.
                 To learn more about cookies and how to manage them, visit{' '}
                 <a
                   href="https://www.allaboutcookies.org"
@@ -413,9 +433,9 @@ export default function PrivacyPolicyPage() {
                 email or by placing a prominent notice on our website.
               </p>
               <p className="text-charcoal font-body text-base leading-relaxed">
-                We encourage you to review this Privacy Policy periodically to stay informed about how
-                we are protecting your information. Your continued use of our website and services
-                after any changes to this policy constitutes your acceptance of the updated terms.
+                We encourage you to review this Privacy Policy periodically to stay informed about
+                our practices. A policy update does not change a privacy choice you have already
+                made or grant consent for a new use of your information.
               </p>
             </div>
 

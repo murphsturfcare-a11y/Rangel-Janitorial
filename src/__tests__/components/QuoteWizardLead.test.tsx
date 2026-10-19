@@ -35,6 +35,8 @@ function fill() {
   fireEvent.change(screen.getByLabelText(/Last Name/), { target: { value: 'Test' } });
   fireEvent.change(screen.getByLabelText(/Phone/), { target: { value: '9515550100' } });
   fireEvent.change(screen.getByLabelText(/Email/), { target: { value: 'jamie@example.test' } });
+  const consent = screen.getByRole('checkbox', { name: /I acknowledge the Privacy Policy/ });
+  if (!(consent as HTMLInputElement).checked) fireEvent.click(consent);
 }
 function payload() { return JSON.parse(fetchMock.mock.calls[0][1]?.body as string); }
 function deferRequest() {
@@ -46,18 +48,19 @@ function deferRequest() {
 describe('real quote dialog with the lead wizard', () => {
   it('preserves in-flight state through close/reopen and focuses one accepted result while open', async () => {
     const resolve = deferRequest(); renderWizard(); open(); finishChoices(); fill();
-    fireEvent.click(screen.getByRole('button', { name: 'Send quote request' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Request my free walkthrough' }));
     close(); expect(screen.getByRole('button', { name: 'Request a quote' })).toHaveFocus();
     open();
     expect(screen.getByRole('button', { name: 'Submitting...' })).toBeDisabled();
     expect(screen.getByLabelText(/Email/)).toHaveValue('jamie@example.test');
+    expect(screen.getByRole('checkbox', { name: /I acknowledge the Privacy Policy/ })).toBeChecked();
     fireEvent.submit(screen.getByRole('form'));
     expect(fetchMock).toHaveBeenCalledTimes(1);
     await resolve(Response.json({ success: true, outcome: 'accepted', submissionId: payload().submissionId }));
     expect(screen.getByRole('status')).toHaveFocus();
     expect(accepted).toHaveBeenCalledTimes(1);
     close(); open();
-    expect(screen.getByRole('status')).toHaveTextContent('Quote Request Received');
+    expect(screen.getByRole('status')).toHaveTextContent('Walkthrough Request Received');
     expect(screen.getByRole('status')).toHaveFocus();
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(accepted).toHaveBeenCalledTimes(1);
@@ -65,7 +68,7 @@ describe('real quote dialog with the lead wizard', () => {
 
   it('a success received while closed does not steal launcher focus and is focused on reopening', async () => {
     const resolve = deferRequest(); renderWizard(); open(); finishChoices(); fill();
-    fireEvent.click(screen.getByRole('button', { name: 'Send quote request' })); close();
+    fireEvent.click(screen.getByRole('button', { name: 'Request my free walkthrough' })); close();
     await resolve(Response.json({ success: true, outcome: 'accepted', submissionId: payload().submissionId }));
     expect(screen.queryByRole('dialog')).toBeNull();
     expect(screen.getByRole('button', { name: 'Request a quote' })).toHaveFocus();
@@ -76,14 +79,14 @@ describe('real quote dialog with the lead wizard', () => {
 
   it('an unknown receipt stays locked after close/reopen, with draft and call fallback intact', async () => {
     const resolve = deferRequest(); renderWizard(); open(); finishChoices(); fill();
-    fireEvent.click(screen.getByRole('button', { name: 'Send quote request' })); close();
+    fireEvent.click(screen.getByRole('button', { name: 'Request my free walkthrough' })); close();
     await resolve(Response.json({ success: true, outcome: 'accepted', submissionId: 'wrong-reference' }));
     expect(screen.getByRole('button', { name: 'Request a quote' })).toHaveFocus();
     open();
     expect(screen.getByRole('alert')).toHaveFocus();
     expect(screen.getByRole('alert')).toHaveTextContent('could not confirm receipt');
     expect(screen.getByLabelText(/Email/)).toHaveValue('jamie@example.test');
-    expect(screen.getByRole('button', { name: 'Send quote request' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Request my free walkthrough' })).toBeDisabled();
     expect(screen.getByRole('link', { name: /Call/ })).toHaveAttribute('href', 'tel:+19518944222');
     fireEvent.submit(screen.getByRole('form'));
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
@@ -92,7 +95,7 @@ describe('real quote dialog with the lead wizard', () => {
 
   it('retains a partial draft and chosen answers while closing and using Back', () => {
     renderWizard(); open(); finishChoices(); fill(); close(); open();
-    expect(screen.getByRole('heading', { name: 'Where can we send your quote?' })).toHaveFocus();
+    expect(screen.getByRole('heading', { name: 'How can we arrange your walkthrough?' })).toHaveFocus();
     fireEvent.click(screen.getByRole('button', { name: 'Back to cleaning frequency' }));
     expect(screen.getByRole('button', { name: 'Weekly' })).toHaveAttribute('aria-pressed', 'true');
     close(); open();
@@ -138,10 +141,11 @@ describe('real quote dialog with the lead wizard', () => {
     expect(fetchMock).not.toHaveBeenCalled();
     expect(accepted).not.toHaveBeenCalled();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Send quote request' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Request my free walkthrough' }));
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(payload()).toMatchObject({
       regionSlug: 'murrieta', sourcePage: '/quote/murrieta', formPlacement: 'hero',
+      requestType: 'walkthrough', requestConsent: { noticeVersion: 'request-followup-v1', privacyAcknowledged: true, followUpRequested: true },
       facilityType: 'Medical / Dental', frequency: 'One-Time Deep Clean',
       firstName: 'Jamie', lastName: 'Test', phone: '9515550100', email: 'jamie@example.test',
       message: 'Acme, Murrieta; evening cleaning.',
@@ -152,14 +156,14 @@ describe('real quote dialog with the lead wizard', () => {
 
   it('locks summary edits during delivery and after an unknown result, including after reopening', async () => {
     const resolve = deferRequest(); renderWizard(); open(); finishChoices(); fill();
-    fireEvent.click(screen.getByRole('button', { name: 'Send quote request' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Request my free walkthrough' }));
     for (const name of [/^Change facility type/, /^Change cleaning frequency/]) {
       const edit = screen.getByRole('button', { name });
       expect(edit).toHaveAttribute('type', 'button');
       expect(edit).toBeDisabled();
       fireEvent.click(edit);
     }
-    expect(screen.getByRole('heading', { name: 'Where can we send your quote?' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'How can we arrange your walkthrough?' })).toBeInTheDocument();
     close(); open();
     expect(screen.getByRole('button', { name: /^Change facility type/ })).toBeDisabled();
     expect(screen.getByRole('button', { name: /^Change cleaning frequency/ })).toBeDisabled();
@@ -172,8 +176,8 @@ describe('real quote dialog with the lead wizard', () => {
       expect(edit).toBeDisabled();
       fireEvent.click(edit);
     }
-    expect(screen.getByRole('heading', { name: 'Where can we send your quote?' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Send quote request' })).toBeDisabled();
+    expect(screen.getByRole('heading', { name: 'How can we arrange your walkthrough?' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Request my free walkthrough' })).toBeDisabled();
     expect(screen.getByLabelText(/Email/)).toHaveValue('jamie@example.test');
     fireEvent.submit(screen.getByRole('form'));
     expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -198,7 +202,7 @@ describe('real quote dialog with the lead wizard', () => {
     expect(frequencyIcon).toHaveAttribute('aria-hidden', 'true');
     fireEvent.click(frequencyIcon);
     expect(screen.getByText('Step 3 of 3')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Where can we send your quote?' })).toHaveFocus();
+    expect(screen.getByRole('heading', { name: 'How can we arrange your walkthrough?' })).toHaveFocus();
     const draft = new FormData(screen.getByRole('form') as HTMLFormElement);
     expect(draft.getAll('facilityType')).toEqual(['Office Building']);
     expect(draft.getAll('frequency')).toEqual(['Weekly']);

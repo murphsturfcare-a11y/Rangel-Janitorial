@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { act, cleanup, render } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const state = vi.hoisted(() => {
+  delete process.env.NEXT_PUBLIC_GTM_ID;
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = 'G-TEST1234';
   process.env.NEXT_PUBLIC_GOOGLE_ADS_ID = 'AW-123456789';
   process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL = 'test_label';
@@ -21,6 +22,8 @@ function accept(detail: unknown = receipt) { window.dispatchEvent(new CustomEven
 beforeEach(() => {
   localStorage.clear(); sessionStorage.clear(); window.dataLayer = [];
   delete window.rangelAnalyticsConsent; delete window.rangelAdsConsent; delete window.rangelAdsReceipts;
+  delete window.rangelAdsGlobalOverride;
+  Reflect.deleteProperty(window.navigator, 'globalPrivacyControl');
   Reflect.deleteProperty(window, 'gtag'); document.getElementById('rangel-ga-script')?.remove();
   window.history.replaceState({}, '', '/quote/murrieta?gclid=' + click + '&email=private@example.test');
   state.pathname = '/quote/murrieta';
@@ -28,20 +31,27 @@ beforeEach(() => {
 afterEach(() => {
   cleanup(); vi.restoreAllMocks();
   delete window.rangelAnalyticsConsent; delete window.rangelAdsConsent; delete window.rangelAdsReceipts;
+  delete window.rangelAdsGlobalOverride;
+  Reflect.deleteProperty(window.navigator, 'globalPrivacyControl');
   document.getElementById('rangel-ga-script')?.remove();
   window.history.replaceState({}, '', '/');
 });
 
 describe('native Google Ads accepted-lead dispatch', () => {
-  it('loads no tag and stores no attribution before consent', () => {
+  it('loads RDP measurement by default without fabricating consent or storing first-party attribution', () => {
     render(<GoogleAnalytics />); act(() => accept());
-    expect(commands()).toEqual([]);
+    expect(localStorage.getItem(ADS_CONSENT_KEY)).toBeNull();
     expect(sessionStorage.getItem(AD_ATTRIBUTION_KEY)).toBeNull();
-    expect(document.getElementById('rangel-ga-script')).toBeNull();
+    expect(document.getElementById('rangel-ga-script')).toHaveAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=AW-123456789');
+    expect(commands().find(command => command[0] === 'config')?.[2]).toMatchObject({ restricted_data_processing: true });
+    expect(events('conversion')).toHaveLength(1);
+    expect(events('generate_lead')).toHaveLength(0);
+    expect(events('page_view')).toHaveLength(0);
   });
 
-  it('analytics acceptance alone never enables Ads or click attribution', () => {
+  it('analytics acceptance respects a separate Ads opt-out and never stores click attribution', () => {
     localStorage.setItem(CONSENT_KEY, 'accepted');
+    localStorage.setItem(ADS_CONSENT_KEY, 'declined');
     render(<GoogleAnalytics />); act(() => accept());
     expect(events('generate_lead')).toHaveLength(1);
     expect(events('conversion')).toHaveLength(0);
@@ -57,7 +67,7 @@ describe('native Google Ads accepted-lead dispatch', () => {
     expect(document.querySelectorAll('#rangel-ga-script')).toHaveLength(1);
     act(() => { accept(); accept(); });
     expect(events('conversion')).toEqual([['event', 'conversion', {
-      send_to: 'AW-123456789/test_label', transaction_id: receipt.submission_id,
+      send_to: 'AW-123456789/test_label', transaction_id: receipt.submission_id, restricted_data_processing: true,
       page_location: window.location.origin + '/quote/murrieta?gclid=' + click, page_referrer: '',
     }]]);
     expect(events('generate_lead')).toHaveLength(0);
@@ -71,14 +81,15 @@ describe('native Google Ads accepted-lead dispatch', () => {
     state.pathname = '/services'; window.history.replaceState({}, '', '/services'); rerender(<GoogleAnalytics />);
     act(() => accept());
     expect(events('conversion')).toHaveLength(1);
-    expect(events('generate_lead')).toEqual([['event', 'generate_lead', { region: 'murrieta', form_placement: 'hero', send_to: 'G-TEST1234' }]]);
+    expect(events('generate_lead')).toEqual([['event', 'generate_lead', { region: 'murrieta', form_placement: 'hero', send_to: 'G-TEST1234', page_location: window.location.origin + '/quote/murrieta', page_referrer: '' }]]);
     const gaConfig = commands().find(command => command[0] === 'config' && command[1] === 'G-TEST1234');
     expect(JSON.stringify(gaConfig)).not.toContain(click);
     expect(JSON.stringify(events('page_view'))).not.toContain(click);
     expect(JSON.stringify(commands())).not.toMatch(/private@example|9515550100|email=/);
   });
 
-  it('never replays pre-consent accepted events or treats a form start as a conversion', () => {
+  it('never replays opted-out accepted events or treats a form start as a conversion', () => {
+    localStorage.setItem(ADS_CONSENT_KEY, 'declined');
     render(<GoogleAnalytics />);
     act(() => { accept(); window.dispatchEvent(new CustomEvent('rangel:lead-started', { detail: receipt })); });
     act(() => setAdsConsent('accepted'));
@@ -112,6 +123,7 @@ describe('native Google Ads accepted-lead dispatch', () => {
 
   it('the native helper also rejects invalid details and deduplicates accepted receipt IDs', () => {
     window.gtag = vi.fn();
+    localStorage.setItem(ADS_CONSENT_KEY, 'declined');
     expect(trackAdsLeadConversion(receipt)).toBe(false);
     localStorage.setItem(ADS_CONSENT_KEY, 'accepted');
     expect(trackAdsLeadConversion({ ...receipt, submission_id: 'private@example.test' })).toBe(false);

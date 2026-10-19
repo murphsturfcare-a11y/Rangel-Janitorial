@@ -15,6 +15,7 @@ declare global {
     dataLayer: unknown[];
     rangelAnalyticsConsent?: ConsentChoice;
     rangelAdsConsent?: ConsentChoice;
+    rangelAdsGlobalOverride?: boolean;
     [key: `ga-disable-${string}`]: boolean | undefined;
   }
 }
@@ -39,7 +40,18 @@ export function getAdsConsent(): ConsentChoice | null {
   } catch { return null; }
 }
 
-export function hasAdsConsent(): boolean { return getAdsConsent() === 'accepted'; }
+export function hasGlobalPrivacyControl(): boolean {
+  return typeof window !== 'undefined'
+    && (window.navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl === true;
+}
+
+/** Explicit opt-in is still required for our own click-ID and campaign storage. */
+export function hasAdsConsent(): boolean { return !hasGlobalPrivacyControl() && getAdsConsent() === 'accepted'; }
+
+/** Google applies regional defaults; this is measurement eligibility, not a consent grant. */
+export function isAdsMeasurementAllowed(): boolean {
+  return typeof window !== 'undefined' && !hasGlobalPrivacyControl() && getAdsConsent() !== 'declined';
+}
 
 export function setAdsConsent(choice: ConsentChoice): void {
   if (typeof window === 'undefined') return;
@@ -146,7 +158,11 @@ export function event(action: string, params: Record<string, unknown>): boolean 
     default: return false;
   }
   // Never broadcast GA events to an Ads destination configured on the same Google tag.
-  window.gtag('event', action, { ...clean, send_to: GA_MEASUREMENT_ID });
+  window.gtag('event', action, {
+    page_location: window.location.origin + analyticsPath(window.location.pathname),
+    page_referrer: safeReferrer(),
+    ...clean, send_to: GA_MEASUREMENT_ID,
+  });
   return true;
 }
 

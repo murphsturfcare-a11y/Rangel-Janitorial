@@ -12,7 +12,7 @@ export default function QuotePrivacySettings() {
       onClick={() => window.dispatchEvent(new Event('rangel:privacy-settings'))}
       className="inline-flex min-h-11 items-center rounded underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest"
     >
-      Cookie settings
+      Privacy settings
     </button>
   );
 }

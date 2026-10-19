@@ -2,11 +2,13 @@
 
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { GA_MEASUREMENT_ID, GA_DISABLE_KEY, CONSENT_KEY, ADS_CONSENT_KEY, event, pageview, hasAnalyticsConsent, hasAdsConsent, analyticsPath, safeReferrer } from '@/lib/analytics/gtag';
+import { GA_MEASUREMENT_ID, GA_DISABLE_KEY, CONSENT_KEY, ADS_CONSENT_KEY, event, pageview, hasAnalyticsConsent, hasAdsConsent, isAdsMeasurementAllowed, analyticsPath, safeReferrer } from '@/lib/analytics/gtag';
 import { isLeadEventDetail, trackLeadConversion, trackQuoteRequest } from '@/lib/analytics/conversion';
 import { GOOGLE_ADS_CONFIGURED, GOOGLE_ADS_ID, adsPageLocation, trackAdsLeadConversion } from '@/lib/analytics/ads';
 import { captureAdAttribution, clearAdAttribution } from '@/lib/analytics/ad-attribution';
 import { parseUTMFromURL, storeUTMParams, clearUTMParams } from '@/lib/analytics/utm';
+import { GTM_ADS_CONFIGURED } from '@/lib/analytics/ads-config';
+import { loadGoogleTagManager } from './GoogleTagManager';
 import regions from '@/data/regions.json';
 
 export function GoogleAnalytics() {
@@ -21,22 +23,26 @@ export function GoogleAnalytics() {
   useEffect(() => {
     function syncConsent() {
       const analytics = Boolean(GA_MEASUREMENT_ID) && hasAnalyticsConsent();
-      const ads = GOOGLE_ADS_CONFIGURED && hasAdsConsent();
+      const ads = GOOGLE_ADS_CONFIGURED && isAdsMeasurementAllowed();
+      const explicitAds = GOOGLE_ADS_CONFIGURED && hasAdsConsent();
+      // An update cannot restore regional defaults. After a saved choice is removed,
+      // keep storage denied until explicit re-enablement or a fresh document load.
+      const defaultAdsDenied = ads && !explicitAds && window.rangelAdsGlobalOverride === true;
       window[GA_DISABLE_KEY] = !analytics;
       if (!analytics) {
         clearMeasurementCookies(/^_ga(?:_|$)/);
         lastPage.current = '';
       }
-      if (ads) {
+      if (explicitAds) {
         captureAdAttribution();
         const utm = parseUTMFromURL(new URLSearchParams(window.location.search));
         if (utm) storeUTMParams(utm);
       } else {
         clearAdAttribution();
         clearUTMParams();
-        clearMeasurementCookies(/^_gcl_/);
       }
-      // With no prior consent, neither Google tag nor advertising storage is initialized.
+      // Google's RDP cookies follow regional defaults; our own attribution stays opt-in.
+      if (!ads || defaultAdsDenied) clearMeasurementCookies(/^_gcl_/);
       if (!analytics && !ads && !initialized.current) return;
       if (!initialized.current) {
         window.dataLayer = window.dataLayer || [];
@@ -48,30 +54,38 @@ export function GoogleAnalytics() {
           };
         }
         window.gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
-        window.gtag('set', { ads_data_redaction: true, url_passthrough: false });
+        if (GOOGLE_ADS_CONFIGURED) {
+          window.gtag('consent', 'default', { region: ['US'], ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'denied' });
+        }
+        window.gtag('set', { restricted_data_processing: true, ads_data_redaction: true, url_passthrough: false });
         window.gtag('js', new Date());
         initialized.current = true;
       }
       window.gtag('consent', 'update', {
         analytics_storage: analytics ? 'granted' : 'denied',
-        ad_storage: ads ? 'granted' : 'denied',
-        ad_user_data: ads ? 'granted' : 'denied',
+        // A global update for the no-choice state would erase regional defaults.
+        ...(!ads || defaultAdsDenied ? { ad_storage: 'denied', ad_user_data: 'denied' }
+          : explicitAds ? { ad_storage: 'granted', ad_user_data: 'granted' } : {}),
         ad_personalization: 'denied',
       });
+      if (!ads || explicitAds) window.rangelAdsGlobalOverride = true;
       if (!analytics && !ads) return;
       const path = analyticsPath(pathname);
       const page = { page_location: window.location.origin + path, page_referrer: safeReferrer() };
-      window.gtag('set', page);
-      const privacy = { ...page, send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false };
+      const privacy = { ...page, send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false, restricted_data_processing: true };
+      // The GTM-owned Ads base must inherit the same privacy settings before it loads.
+      window.gtag('set', { ...privacy, page_location: ads ? adsPageLocation() : page.page_location });
       if (analytics && !gaConfigured.current) {
         window.gtag('config', GA_MEASUREMENT_ID, { ...privacy, groups: 'analytics' });
         gaConfigured.current = true;
       }
-      if (ads && !adsConfigured.current) {
+      if (ads && !GTM_ADS_CONFIGURED && !adsConfigured.current) {
         window.gtag('config', GOOGLE_ADS_ID, { ...privacy, page_location: adsPageLocation(), groups: 'ads' });
         adsConfigured.current = true;
       }
-      if (!document.getElementById('rangel-ga-script')) {
+      if (ads && GTM_ADS_CONFIGURED) loadGoogleTagManager();
+      // GTM owns the Ads base only; analytics-only visitors still need the GA loader.
+      if ((analytics || (ads && !GTM_ADS_CONFIGURED)) && !document.getElementById('rangel-ga-script')) {
         const script = document.createElement('script');
         script.id = 'rangel-ga-script';
         script.async = true;
@@ -87,7 +101,7 @@ export function GoogleAnalytics() {
       if (!isLeadEventDetail(detail)) return;
       const seen = raw.type === 'rangel:lead-accepted' ? receipts.current : starts.current;
       if (seen.has(detail.submission_id)) return;
-      // Do not replay pre-consent interactions after a later consent change.
+      // Do not replay opted-out interactions after a later preference change.
       seen.add(detail.submission_id);
       if (raw.type === 'rangel:lead-accepted') {
         trackLeadConversion(detail);

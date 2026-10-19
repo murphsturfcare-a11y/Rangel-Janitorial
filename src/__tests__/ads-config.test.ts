@@ -22,3 +22,32 @@ describe('optional Google Ads configuration', () => {
     expect(config.GOOGLE_ADS_CONVERSION_LABEL).toBe('test_label-Ab12');
   });
 });
+
+describe('verified GTM Ads base configuration', () => {
+  it.each([
+    ['', 'AW-11465582021', 'test_label'],
+    ['GTM-UNREVIEWED', 'AW-11465582021', 'test_label'],
+    ["GTM-MB764DLF';alert(1)", 'AW-11465582021', 'test_label'],
+    ['GTM-MB764DLF', 'AW-123456789', 'test_label'],
+    ['GTM-MB764DLF', '', 'test_label'],
+    ['GTM-MB764DLF', 'AW-11465582021', ''],
+  ])('does not load an absent, unreviewed, or mismatched container %s / %s / %s', async (container, id, label) => {
+    vi.stubEnv('NEXT_PUBLIC_GTM_ID', container);
+    vi.stubEnv('NEXT_PUBLIC_GOOGLE_ADS_ID', id);
+    vi.stubEnv('NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL', label);
+    vi.resetModules();
+    const config = await import('@/lib/analytics/ads-config');
+    expect(config.GOOGLE_TAG_MANAGER_ID).toBe('');
+    expect(config.GTM_ADS_CONFIGURED).toBe(false);
+  });
+
+  it('enables only the reviewed container and its matching conversion destination', async () => {
+    vi.stubEnv('NEXT_PUBLIC_GTM_ID', 'GTM-MB764DLF');
+    vi.stubEnv('NEXT_PUBLIC_GOOGLE_ADS_ID', 'AW-11465582021');
+    vi.stubEnv('NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL', 'test_label');
+    vi.resetModules();
+    const config = await import('@/lib/analytics/ads-config');
+    expect(config.GOOGLE_TAG_MANAGER_ID).toBe('GTM-MB764DLF');
+    expect(config.GTM_ADS_CONFIGURED).toBe(true);
+  });
+});

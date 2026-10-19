@@ -17,6 +17,15 @@ export const referralOptions = [
 export const leadLimits = { name: 100, phone: 40, email: 254, message: 2000 } as const;
 export const submissionIdPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 export type FormPlacement = 'hero' | 'bottom';
+export type RequestType = 'quote' | 'walkthrough';
+export const REQUEST_FOLLOWUP_NOTICE_VERSION = 'request-followup-v1';
+
+/** Request-specific phone/email follow-up, independent of measurement preferences. */
+export interface RequestConsent {
+  noticeVersion: typeof REQUEST_FOLLOWUP_NOTICE_VERSION;
+  privacyAcknowledged: true;
+  followUpRequested: true;
+}
 
 export interface LeadResult {
   success: boolean;

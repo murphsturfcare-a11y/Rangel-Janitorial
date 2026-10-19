@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import lead, { config } from '../../netlify/functions/lead.mjs';
+import { REQUEST_FOLLOWUP_NOTICE_VERSION } from '@/lib/leads';
 
 const submissionId = '8b75ba63-7b5d-4aa7-8e25-a4b9b3b3ef42';
 const valid = {
@@ -7,6 +8,8 @@ const valid = {
   website: '', firstName: 'Jamie', lastName: "O'Neil", phone: '(951) 555-0100',
   email: 'jamie@example.test', facilityType: 'Office Building', frequency: 'Weekly',
   referralSource: 'Google Search', message: 'Please clean our office.',
+  requestType: 'quote',
+  requestConsent: { noticeVersion: REQUEST_FOLLOWUP_NOTICE_VERSION, privacyAcknowledged: true, followUpRequested: true },
 };
 const fetchMock = vi.fn<typeof fetch>();
 let settings: Record<string, string>;
@@ -106,6 +109,65 @@ describe('lead delivery contract', () => {
     const body = JSON.stringify(JSON.parse(fetchMock.mock.calls[0][1]?.body as string).customFields);
     expect(body).toContain('source: google');
     expect(body).not.toMatch(/user@example|https:|private search/);
+  });
+});
+
+describe('request-specific acknowledgment boundary', () => {
+  it.each([
+    undefined, null, [], true, 'accepted', {},
+    { ...valid.requestConsent, noticeVersion: undefined },
+    { ...valid.requestConsent, noticeVersion: 'request-followup-v0' },
+    { ...valid.requestConsent, noticeVersion: 'request-followup-v1\nSMS allowed' },
+    { ...valid.requestConsent, privacyAcknowledged: undefined },
+    { ...valid.requestConsent, privacyAcknowledged: false },
+    { ...valid.requestConsent, privacyAcknowledged: 'true' },
+    { ...valid.requestConsent, privacyAcknowledged: 1 },
+    { ...valid.requestConsent, followUpRequested: undefined },
+    { ...valid.requestConsent, followUpRequested: false },
+    { ...valid.requestConsent, followUpRequested: 'true' },
+    { ...valid.requestConsent, followUpRequested: 1 },
+  ])('rejects missing or invalid acknowledgment before CRM: %j', async requestConsent => {
+    const response = await lead(request({ ...valid, requestConsent }));
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ outcome: 'rejected', code: 'INVALID_INPUT', retryAllowed: true, submissionId });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it.each([undefined, null, '', 'Quote', 'quote ', 'marketing', 'walkthrough\nSMS allowed', 1, {}])('rejects an invalid request type before CRM: %j', async requestType => {
+    const response = await lead(request({ ...valid, requestType }));
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ outcome: 'rejected', code: 'INVALID_INPUT' });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it.each(['quote', 'walkthrough'])('records bounded %s acknowledgment with server receipt time and no advertising requirement', async requestType => {
+    vi.useFakeTimers();
+    const receivedAt = new Date('2026-10-19T20:30:00.000Z');
+    vi.setSystemTime(receivedAt);
+    fetchMock.mockResolvedValue(Response.json({ contact: { id: 'contact-test' } }, { status: 201 }));
+    const response = await lead(request({
+      ...valid, requestType, adAttribution: null, attribution: {},
+      requestConsent: {
+        ...valid.requestConsent, receivedAt: '1999-01-01T00:00:00.000Z', acknowledgedAt: '2099-01-01T00:00:00.000Z',
+        channels: ['sms'], promotionalCampaigns: true, advertising: 'accepted', noticeText: 'untrusted permission text',
+      },
+    }));
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject({ success: true, outcome: 'accepted', submissionId, retryAllowed: false });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    const metadata = payload.customFields.find((field: { field_value: string }) => field.field_value.includes('Website request reference:')).field_value;
+    expect(metadata).toContain('Request type: ' + requestType);
+    expect(metadata).toContain('Request acknowledgment version: request-followup-v1');
+    expect(metadata).toContain('Privacy policy acknowledged: yes');
+    expect(metadata).toContain('Follow-up requested: phone/email about this ' + requestType + ' only');
+    expect(metadata).toContain('Promotional campaigns and SMS: not authorized by this acknowledgment');
+    expect(metadata).toContain('Acknowledgment received by server: ' + receivedAt.toISOString());
+    expect(metadata).not.toMatch(/1999|2099|untrusted permission|Advertising measurement consent/);
+    expect(payload.tags).toEqual(['website-lead', 'location-murrieta', 'facility-office-building', 'freq-weekly', 'ref-google-search']);
+    expect(payload).not.toHaveProperty('requestConsent');
+    expect(payload).not.toHaveProperty('requestType');
+    expect(JSON.stringify(vi.mocked(console.info).mock.calls)).not.toMatch(/Jamie|example\.test|phone\/email|acknowledg/);
   });
 });
 

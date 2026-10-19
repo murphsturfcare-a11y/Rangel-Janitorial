@@ -1,6 +1,7 @@
-import { analyticsPath, hasAdsConsent, safeReferrer } from './gtag';
+import { analyticsPath, hasAdsConsent, isAdsMeasurementAllowed, safeReferrer } from './gtag';
 import { isLeadEventDetail, type LeadEventDetail } from './conversion';
 import { captureAdAttribution } from './ad-attribution';
+import { readAdClickIds } from '@/lib/ad-clicks';
 import { GOOGLE_ADS_CONFIGURED, GOOGLE_ADS_ID, GOOGLE_ADS_CONVERSION_LABEL } from './ads-config';
 export { GOOGLE_ADS_CONFIGURED, GOOGLE_ADS_ID, GOOGLE_ADS_CONVERSION_LABEL } from './ads-config';
 
@@ -10,16 +11,18 @@ declare global { interface Window { rangelAdsReceipts?: Set<string>; } }
 export function adsPageLocation(): string {
   if (typeof window === 'undefined') return '';
   const url = new URL(analyticsPath(window.location.pathname), window.location.origin);
-  if (GOOGLE_ADS_CONFIGURED && hasAdsConsent()) {
-    const attribution = captureAdAttribution();
-    for (const [key, value] of Object.entries(attribution?.clickIds || {})) url.searchParams.set(key, value);
+  if (GOOGLE_ADS_CONFIGURED && isAdsMeasurementAllowed()) {
+    const clickIds = hasAdsConsent()
+      ? captureAdAttribution()?.clickIds
+      : readAdClickIds(Object.fromEntries(new URLSearchParams(window.location.search)));
+    for (const [key, value] of Object.entries(clickIds || {})) url.searchParams.set(key, value);
   }
   return url.href;
 }
 
 /** Only called for the form's matching accepted receipt. No contact data enters Google tags. */
 export function trackAdsLeadConversion(detail: LeadEventDetail): boolean {
-  if (typeof window === 'undefined' || !GOOGLE_ADS_CONFIGURED || !hasAdsConsent() || !window.gtag || !isLeadEventDetail(detail)) return false;
+  if (typeof window === 'undefined' || !GOOGLE_ADS_CONFIGURED || !isAdsMeasurementAllowed() || !window.gtag || !isLeadEventDetail(detail)) return false;
   const destination = GOOGLE_ADS_ID + '/' + GOOGLE_ADS_CONVERSION_LABEL;
   const key = destination + ':' + detail.submission_id;
   const receipts = window.rangelAdsReceipts ??= new Set<string>();
@@ -27,6 +30,7 @@ export function trackAdsLeadConversion(detail: LeadEventDetail): boolean {
   window.gtag('event', 'conversion', {
     send_to: destination,
     transaction_id: detail.submission_id,
+    restricted_data_processing: true,
     page_location: adsPageLocation(),
     page_referrer: safeReferrer(),
   });
