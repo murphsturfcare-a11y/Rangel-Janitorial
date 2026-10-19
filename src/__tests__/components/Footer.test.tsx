@@ -48,17 +48,14 @@ describe('Footer', () => {
     }
   });
 
-  it('renders social media links (Instagram, Facebook, YouTube via aria-label)', () => {
+  it('links only to the owner-confirmed Facebook profile', () => {
     render(<Footer />);
-
-    const instagram = screen.getByLabelText('Instagram');
-    expect(instagram).toHaveAttribute('href', 'https://www.instagram.com/rangeljanitorial/');
-
     const facebook = screen.getByLabelText('Facebook');
-    expect(facebook).toHaveAttribute('href', 'https://www.facebook.com/profile.php?id=100090088264095');
-
-    const youtube = screen.getByLabelText('YouTube');
-    expect(youtube).toHaveAttribute('href', 'https://www.youtube.com/@rangeljanitorial/featured');
+    expect(facebook).toHaveAttribute('href', 'https://www.facebook.com/rangeljanitorial');
+    expect(facebook).toHaveAttribute('target', '_blank');
+    expect(facebook).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(screen.queryByLabelText('Instagram')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('YouTube')).not.toBeInTheDocument();
   });
 
   it('renders company description text', () => {

@@ -1,3 +1,6 @@
+import { hasAdsConsent } from './gtag';
+import { GOOGLE_ADS_CONFIGURED } from './ads-config';
+
 export interface UTMParams { source: string; medium: string; campaign: string; term: string; content: string; }
 const UTM_STORAGE_KEY = 'rangel_janitorial_utm';
 const fields = ['source', 'medium', 'campaign', 'term', 'content'] as const;
@@ -17,15 +20,20 @@ export function parseUTMFromURL(searchParams: URLSearchParams): UTMParams | null
   return normalize(Object.fromEntries(fields.map((field) => [field, searchParams.get(`utm_${field}`)])));
 }
 export function storeUTMParams(params: UTMParams): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined' || !GOOGLE_ADS_CONFIGURED || !hasAdsConsent()) return;
   const clean = normalize(params);
   try { if (clean) sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(clean)); }
   catch { /* Attribution is optional when browser storage is unavailable. */ }
 }
 export function getStoredUTMParams(): UTMParams | null {
-  if (typeof window === 'undefined') return null;
+  if (typeof window === 'undefined' || !GOOGLE_ADS_CONFIGURED || !hasAdsConsent()) return null;
   try { return normalize(JSON.parse(sessionStorage.getItem(UTM_STORAGE_KEY) || 'null')); }
   catch { return null; }
+}
+export function clearUTMParams(): void {
+  if (typeof window === 'undefined') return;
+  try { sessionStorage.removeItem(UTM_STORAGE_KEY); }
+  catch { /* A declined choice prevents forwarding even if storage is inaccessible. */ }
 }
 export function appendUTMToFormData<T extends Record<string, unknown>>(formData: T): T & Record<string, unknown> {
   const utm = getStoredUTMParams();

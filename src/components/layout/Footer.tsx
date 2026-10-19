@@ -4,7 +4,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { GA_MEASUREMENT_ID } from '@/lib/analytics/gtag';
+import { GOOGLE_ADS_CONFIGURED } from '@/lib/analytics/ads';
 import NewsletterForm from '@/components/forms/NewsletterForm';
+import business from '@/data/business.json';
+import type { SocialMedia } from '@/types';
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -24,11 +27,12 @@ const locationsLinks = [
   { label: 'Walnut Creek / East Bay', href: '/locations/walnut-creek' },
 ];
 
+const socialProfiles: SocialMedia = business.socialLinks;
 const socialLinks = [
-  { name: 'Instagram', href: 'https://www.instagram.com/rangeljanitorial/', icon: Instagram },
-  { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100090088264095', icon: Facebook },
-  { name: 'YouTube', href: 'https://www.youtube.com/@rangeljanitorial/featured', icon: Youtube },
-];
+  { name: 'Instagram', href: socialProfiles.instagram, icon: Instagram },
+  { name: 'Facebook', href: socialProfiles.facebook, icon: Facebook },
+  { name: 'YouTube', href: socialProfiles.youtube, icon: Youtube },
+].filter((social) => Boolean(social.href));
 
 /* ------------------------------------------------------------------ */
 /*  Footer                                                             */
@@ -80,7 +84,7 @@ export default function Footer() {
             </p>
             {/* Social links only — address and phone removed per client request */}
             {/* Social Media Links */}
-            <div className="mt-6 flex items-center gap-4">
+            {socialLinks.length > 0 && <div className="mt-6 flex items-center gap-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -96,7 +100,7 @@ export default function Footer() {
                   </a>
                 );
               })}
-            </div>
+            </div>}
           </div>
 
           {/* Column 2 — Services */}
@@ -159,7 +163,7 @@ export default function Footer() {
               </a>
             </p>
           </div>
-          <nav aria-label="Legal" className="flex gap-4 text-sm text-gray-300"><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-of-service">Terms of Service</Link>{GA_MEASUREMENT_ID && <button type="button" onClick={() => window.dispatchEvent(new Event('rangel:privacy-settings'))}>Cookie settings</button>}</nav>
+          <nav aria-label="Legal" className="flex gap-4 text-sm text-gray-300"><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-of-service">Terms of Service</Link>{(GA_MEASUREMENT_ID || GOOGLE_ADS_CONFIGURED) && <button type="button" onClick={() => window.dispatchEvent(new Event('rangel:privacy-settings'))}>Cookie settings</button>}</nav>
           <p className="font-body text-sm text-gray-400">
             Professional Crews | Fully Insured | Satisfaction Guaranteed
           </p>

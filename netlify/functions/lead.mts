@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import regions from '../../src/data/regions.json';
 import { facilityOptions, frequencyOptions, referralOptions, leadLimits, submissionIdPattern, type LeadResult } from '../../src/lib/leads';
+import { adClickKeys, normalizeAdAttribution } from '../../src/lib/ad-clicks';
 
 declare const Netlify: { env: { get(name: string): string | undefined } };
 
@@ -97,6 +98,14 @@ function attribution(body: Record<string, unknown>): string[] {
   });
 }
 
+function adAttribution(body: Record<string, unknown>): string[] {
+  if (body.adAttribution == null) return [];
+  const clean = normalizeAdAttribution(body.adAttribution);
+  if (!clean) throw new InputError('Please reload the form to refresh advertising preferences.');
+  return ['Advertising measurement consent: granted', 'Ad click captured: ' + clean.capturedAt,
+    ...adClickKeys.flatMap(key => clean.clickIds[key] ? [key + ': ' + clean.clickIds[key]] : [])];
+}
+
 export default async function lead(req: Request): Promise<Response> {
   const origin = req.headers.get('origin') || '';
   const isAllowed = !origin || allowedOrigins().has(origin);
@@ -132,7 +141,7 @@ export default async function lead(req: Request): Promise<Response> {
     const placement = field(body, 'formPlacement', 20, true);
     if (!['hero', 'bottom'].includes(placement)) throw new InputError('Please use a current quote form.');
     const sourcePage = field(body, 'sourcePage', 200, true);
-    if (sourcePage !== '/locations/' + region.slug) throw new InputError('Please use your regional quote form.');
+    if (!['/locations/' + region.slug, '/quote/' + region.slug].includes(sourcePage)) throw new InputError('Please use your regional quote form.');
     const firstName = field(body, 'firstName', leadLimits.name, true);
     const lastName = field(body, 'lastName', leadLimits.name, true);
     const phone = field(body, 'phone', leadLimits.phone, true);
@@ -145,7 +154,7 @@ export default async function lead(req: Request): Promise<Response> {
     const frequency = choice(body, 'frequency', frequencyOptions);
     const referralSource = choice(body, 'referralSource', referralOptions);
     const message = field(body, 'message', leadLimits.message);
-    const details = [message, 'Website request reference: ' + submissionId, 'Page: ' + sourcePage, 'Form: ' + placement, ...attribution(body)].filter(Boolean).join('\n');
+    const details = [message, 'Website request reference: ' + submissionId, 'Page: ' + sourcePage, 'Form: ' + placement, ...attribution(body), ...adAttribution(body)].filter(Boolean).join('\n');
     const customFields = [
       ...(facilityType ? [{ id: CUSTOM_FIELD_IDS.facilityType, field_value: facilityType }] : []),
       ...(frequency ? [{ id: CUSTOM_FIELD_IDS.frequency, field_value: frequency }] : []),

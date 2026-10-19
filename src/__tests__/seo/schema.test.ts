@@ -11,7 +11,7 @@ describe('business entity graph', () => {
   it('uses a stable organization identity and a contact point for every real regional phone', () => {
     const schema = generateOrganizationSchema();
     expect(schema).toMatchObject({ '@context': 'https://schema.org', '@type': 'Organization', '@id': organizationId, name: business.name, url: site, email: business.email, location: { '@id': `${site}/#headquarters` } });
-    expect(schema.sameAs).toEqual(Object.values(business.socialLinks));
+    expect(schema.sameAs).toEqual(['https://www.facebook.com/rangeljanitorial']);
     expect(schema.contactPoint).toHaveLength(regions.length);
     for (const region of regions) {
       expect(schema.contactPoint).toContainEqual({ '@type': 'ContactPoint', '@id': `${site}/#contact-${region.slug}`, telephone: region.phoneHref.replace('tel:', ''), contactType: 'customer service', areaServed: region.cities.map((city) => city.name), url: `${site}/locations/${region.slug}` });

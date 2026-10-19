@@ -1,3 +1,5 @@
+vi.hoisted(() => { process.env.NEXT_PUBLIC_GOOGLE_ADS_ID = 'AW-123456789'; process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL = 'test_label'; });
+import { ADS_CONSENT_KEY } from '@/lib/analytics/gtag';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   parseUTMFromURL,
@@ -8,6 +10,9 @@ import {
 import type { UTMParams } from "@/lib/analytics/utm";
 
 beforeEach(() => {
+  localStorage.clear();
+  delete window.rangelAdsConsent;
+  localStorage.setItem(ADS_CONSENT_KEY, 'accepted');
   sessionStorage.clear();
 });
 

@@ -168,3 +168,46 @@ describe('server input and abuse protection', () => {
     expect(config.rateLimit).toMatchObject({ aggregateBy: ['ip', 'domain'], windowSize: 60, windowLimit: 10, action: 'rate_limit' });
   });
 });
+
+describe('paid source and consented click metadata boundary', () => {
+  it.each(['murrieta', 'sacramento', 'walnut-creek'])('allows only the matching regional paid source for %s', async regionSlug => {
+    fetchMock.mockResolvedValue(Response.json({ contact: { id: 'accepted' } }));
+    const response = await lead(request({ ...valid, regionSlug, sourcePage: '/quote/' + regionSlug }));
+    expect(response.status).toBe(200);
+    const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    expect(payload.tags).toContain('location-' + regionSlug);
+    expect(JSON.stringify(payload.customFields)).toContain('Page: /quote/' + regionSlug);
+  });
+
+  it.each(['/quote/sacramento', '/quote/murrieta?gclid=private', 'https://example.test/quote/murrieta'])('rejects spoofed or unbounded source %s', async sourcePage => {
+    expect((await lead(request({ ...valid, sourcePage }))).status).toBe(400);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('preserves validated IDs with consent and timestamp only in CRM request metadata', async () => {
+    fetchMock.mockResolvedValue(Response.json({ contact: { id: 'accepted' } }));
+    const capturedAt = new Date().toISOString();
+    const response = await lead(request({ ...valid, adAttribution: { consent: 'granted', capturedAt, clickIds: { gclid: 'EAIaIQobChMI_12345678901234567890', gbraid: '0AAAA_test_braid', wbraid: 'ClQK_test_braid', email: 'private@example.test' } } }));
+    expect(response.status).toBe(200);
+    const metadata = JSON.stringify(JSON.parse(fetchMock.mock.calls[0][1]?.body as string).customFields);
+    expect(metadata).toContain('gclid: EAIaIQobChMI_12345678901234567890');
+    expect(metadata).toContain('gbraid: 0AAAA_test_braid');
+    expect(metadata).toContain('wbraid: ClQK_test_braid');
+    expect(metadata).toContain('Advertising measurement consent: granted');
+    expect(metadata).toContain(capturedAt);
+    expect(metadata).not.toContain('private@example.test');
+    expect(JSON.stringify(vi.mocked(console.info).mock.calls)).not.toMatch(/EAIaIQ|0AAAA|ClQK/);
+    expect(await response.json()).not.toHaveProperty('adAttribution');
+  });
+
+  it.each([
+    { consent: 'denied', capturedAt: new Date().toISOString(), clickIds: { gclid: 'valid_test_click' } },
+    { consent: 'granted', capturedAt: 'bad', clickIds: { gclid: 'valid_test_click' } },
+    { consent: 'granted', capturedAt: new Date().toISOString(), clickIds: { gclid: 'person@example.test' } },
+    { consent: 'granted', capturedAt: new Date().toISOString(), clickIds: { gclid: 'x'.repeat(513) } },
+    [],
+  ])('rejects invalid ad metadata without contacting CRM: %j', async adAttribution => {
+    expect((await lead(request({ ...valid, adAttribution }))).status).toBe(400);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+});

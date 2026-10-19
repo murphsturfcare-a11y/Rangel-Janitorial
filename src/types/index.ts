@@ -156,9 +156,9 @@ export interface CompanyStats {
 }
 
 export interface SocialMedia {
-  facebook: string;
-  instagram: string;
-  youtube: string;
+  facebook?: string;
+  instagram?: string;
+  youtube?: string;
 }
 
 export interface TeamMember {

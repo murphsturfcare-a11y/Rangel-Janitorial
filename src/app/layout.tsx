@@ -9,6 +9,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
 import MobileStickyQuote from '@/components/ui/MobileStickyQuote';
+import SiteShell from '@/components/layout/SiteShell';
 
 const montserrat = Montserrat({
   variable: '--font-heading',
@@ -93,11 +94,13 @@ export default function RootLayout({
       className={`${montserrat.variable} ${openSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body">
-        <Header />
-        <main className="flex-1 pt-24 lg:pt-28 pb-16 lg:pb-0">{children}</main>
-        <Footer />
-        <ExitIntentPopup />
-        <MobileStickyQuote />
+        <SiteShell
+          header={<Header />}
+          footer={<Footer />}
+          marketingControls={<><ExitIntentPopup /><MobileStickyQuote /></>}
+        >
+          {children}
+        </SiteShell>
         <JsonLd schema={generateOrganizationSchema()} />
         <JsonLd schema={generateLocalBusinessSchema()} />
         <GoogleAnalytics />

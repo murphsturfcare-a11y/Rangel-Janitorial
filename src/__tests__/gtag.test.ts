@@ -51,7 +51,7 @@ describe('analytics consent and privacy boundary', () => {
       phone: '9515550100', message: 'private', page_location: 'https://example.test/private?name=Jamie',
       value: 1, currency: 'EUR',
     });
-    expect(window.gtag).toHaveBeenCalledExactlyOnceWith('event', 'generate_lead', { region: 'murrieta', form_placement: 'bottom' });
+    expect(window.gtag).toHaveBeenCalledExactlyOnceWith('event', 'generate_lead', { region: 'murrieta', form_placement: 'bottom', send_to: 'G-TEST1234' });
   });
 
   it('does not accept unknown actions, regions, or arbitrary conversion locations', () => {
@@ -70,6 +70,7 @@ describe('analytics consent and privacy boundary', () => {
       page_path: '/locations/murrieta',
       page_location: window.location.origin + '/locations/murrieta',
       page_referrer: 'https://example.test',
+      send_to: 'G-TEST1234',
     });
   });
 
@@ -84,7 +85,7 @@ describe('analytics consent and privacy boundary', () => {
     trackPhoneCall('(951) 555-0100');
     expect(window.gtag).not.toHaveBeenCalled();
     trackPhoneCall('tel:+19518944222');
-    expect(window.gtag).toHaveBeenCalledExactlyOnceWith('event', 'phone_click', { region: 'murrieta' });
+    expect(window.gtag).toHaveBeenCalledExactlyOnceWith('event', 'phone_click', { region: 'murrieta', send_to: 'G-TEST1234' });
   });
 
   it('limits scroll events to meaningful numeric milestones', () => {
@@ -92,7 +93,7 @@ describe('analytics consent and privacy boundary', () => {
     trackScrollDepth(Number.NaN);
     trackScrollDepth(200);
     trackScrollDepth(75);
-    expect(window.gtag).toHaveBeenCalledExactlyOnceWith('event', 'scroll_depth', { depth_percentage: 75 });
+    expect(window.gtag).toHaveBeenCalledExactlyOnceWith('event', 'scroll_depth', { depth_percentage: 75, send_to: 'G-TEST1234' });
   });
 
   it('returns safely when storage cannot be read or gtag is absent', () => {

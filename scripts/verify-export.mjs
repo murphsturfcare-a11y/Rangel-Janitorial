@@ -6,6 +6,7 @@ const paths = htmlPaths();
 const errors = [];
 const graph = new Map();
 const site = business.url;
+const approvedSocialProfiles = Object.values(business.socialLinks).sort();
 const out = new URL('../out/', import.meta.url);
 const fileFor = (path) => new URL(path === '/' ? 'index.html' : `${path.slice(1)}.html`, out);
 const check = (ok, message) => { if (!ok) errors.push(message); };
@@ -46,6 +47,12 @@ for (const path of paths) {
     catch { errors.push(`${path}: invalid JSON-LD`); return []; }
   });
   check(schemas.some((schema) => schema['@id'] === `${site}/#organization`), `${path}: organization missing from initial HTML`);
+  const organization = schemas.find((schema) => schema['@id'] === `${site}/#organization`);
+  check(JSON.stringify([...(organization?.sameAs || [])].sort()) === JSON.stringify(approvedSocialProfiles), `${path}: organization social profiles differ from approved business data`);
+  const footerProfiles = [...doc.querySelectorAll('footer a[href]')]
+    .filter((anchor) => /(^|\.)(facebook\.com|instagram\.com|youtube\.com)$/.test(new URL(anchor.href).hostname))
+    .map((anchor) => anchor.href).sort();
+  check(JSON.stringify(footerProfiles) === JSON.stringify(approvedSocialProfiles), `${path}: footer social profiles differ from approved business data`);
   schemas.forEach((schema) => walkSchema(schema, path));
   const ids = [...doc.querySelectorAll('[id]')].map((node) => node.id);
   check(new Set(ids).size === ids.length, `${path}: duplicate DOM IDs`);
@@ -81,6 +88,32 @@ for (const name of ['llms.txt', 'llms-full.txt']) {
   check(!content.includes('331-3300'), `${name}: old Murrieta number`);
   regions.forEach((region) => check(content.includes(region.phone), `${name}: missing ${region.slug} phone`));
 }
+// Paid landing pages are intentionally separate from the indexable route graph.
+// Verify their exported HTML without adding them to the sitemap or city directory.
+for (const region of regions) {
+  const path = `/quote/${region.slug}`;
+  check(existsSync(fileFor(path)), `${path}: missing paid landing page`);
+  if (!existsSync(fileFor(path))) continue;
+  const dom = new JSDOM(readFileSync(fileFor(path), 'utf8'), { url: site + path });
+  const doc = dom.window.document;
+  check(!sitemapPaths.includes(path), `${path}: paid page must stay out of sitemap`);
+  check([...doc.querySelectorAll('meta[name="robots"]')].some(node => /(?:^|,)\s*noindex(?:,|$)/i.test(node.content)), `${path}: missing noindex`);
+  const canonicals = [...doc.querySelectorAll('link[rel="canonical"]')];
+  check(canonicals.length === 1 && canonicals[0]?.href === site + path, `${path}: paid page canonical mismatch`);
+  check(doc.querySelectorAll('h1').length === 1, `${path}: expected one H1`);
+  check(doc.querySelectorAll('form').length === 1, `${path}: expected one quote form`);
+  const quoteDialog = doc.querySelector('dialog');
+  check(Boolean(quoteDialog) && !quoteDialog.hasAttribute('open') && quoteDialog.querySelectorAll('form').length === 1, `${path}: expected one initially closed quote wizard`);
+  check(doc.querySelectorAll('button[aria-haspopup="dialog"]').length === 2, `${path}: expected both quote buttons to open the wizard`);
+  const phones = [...doc.querySelectorAll('a[href^="tel:"]')];
+  check(phones.length > 0 && phones.every(anchor => anchor.getAttribute('href') === region.phoneHref), `${path}: phone links must use only the matching regional number`);
+  check(doc.querySelector('body')?.textContent.includes(region.phone), `${path}: regional number missing from visible text`);
+  check(doc.querySelectorAll('input[name="firstName"], input[name="lastName"], input[name="phone"], input[name="email"]').length === 4, `${path}: required quote contact fields missing or duplicated`);
+  check(doc.querySelector('input[name="website"]')?.getAttribute('tabindex') === '-1', `${path}: missing accessible honeypot`);
+  const ids = [...doc.querySelectorAll('[id]')].map(node => node.id);
+  check(new Set(ids).size === ids.length, `${path}: duplicate DOM IDs`);
+  dom.window.close();
+}
 check(!readFileSync(new URL('robots.txt', out), 'utf8').includes('netlify.app'), 'Stale robots hostname');
 if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; }
-else console.log(`PASS: ${paths.length} HTML pages; ${posts.length} article mirrors; zero unreachable pages; canonicals, schema, dates, regional phones, and sitemap verified.`);
+else console.log(`PASS: ${paths.length} indexable HTML pages; ${regions.length} paid landing pages; ${posts.length} article mirrors; zero unreachable indexable pages; canonicals, schema, dates, regional phones, and sitemap verified.`);

@@ -6,6 +6,7 @@ const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
 export const GA_MEASUREMENT_ID = /^G-[A-Z0-9]{4,20}$/.test(measurementId) ? measurementId : '';
 export const GA_DISABLE_KEY = `ga-disable-${GA_MEASUREMENT_ID}` as const;
 export const CONSENT_KEY = 'rangel_janitorial_cookie_consent';
+export const ADS_CONSENT_KEY = 'rangel_janitorial_ads_consent';
 export type ConsentChoice = 'accepted' | 'declined';
 
 declare global {
@@ -13,6 +14,7 @@ declare global {
     gtag: (...args: unknown[]) => void;
     dataLayer: unknown[];
     rangelAnalyticsConsent?: ConsentChoice;
+    rangelAdsConsent?: ConsentChoice;
     [key: `ga-disable-${string}`]: boolean | undefined;
   }
 }
@@ -27,6 +29,25 @@ export function getAnalyticsConsent(): ConsentChoice | null {
 }
 
 export function hasAnalyticsConsent(): boolean { return getAnalyticsConsent() === 'accepted'; }
+
+export function getAdsConsent(): ConsentChoice | null {
+  if (typeof window === 'undefined') return null;
+  if (window.rangelAdsConsent) return window.rangelAdsConsent;
+  try {
+    const stored = window.localStorage.getItem(ADS_CONSENT_KEY);
+    return stored === 'accepted' || stored === 'declined' ? stored : null;
+  } catch { return null; }
+}
+
+export function hasAdsConsent(): boolean { return getAdsConsent() === 'accepted'; }
+
+export function setAdsConsent(choice: ConsentChoice): void {
+  if (typeof window === 'undefined') return;
+  window.rangelAdsConsent = choice;
+  try { window.localStorage.setItem(ADS_CONSENT_KEY, choice); }
+  catch { /* Revocation remains effective for this tab when storage is blocked. */ }
+  window.dispatchEvent(new Event('rangel:consent'));
+}
 
 export function setAnalyticsConsent(choice: ConsentChoice): void {
   if (typeof window === 'undefined') return;
@@ -43,6 +64,7 @@ const knownPaths = new Set([
   ...BLOG_SLUGS.map(slug => '/blog/' + slug),
   ...Array.from({ length: Math.max(0, BLOG_PAGE_COUNT - 1) }, (_, index) => '/blog/page/' + (index + 2)),
   ...regions.flatMap(region => ['/locations/' + region.slug, ...region.cities.map(city => '/locations/' + region.slug + '/' + city.slug)]),
+  ...regions.map(region => '/quote/' + region.slug),
 ]);
 
 /** Unknown paths may contain user input. Report them only as /404. */
@@ -123,7 +145,8 @@ export function event(action: string, params: Record<string, unknown>): boolean 
       break;
     default: return false;
   }
-  window.gtag('event', action, clean);
+  // Never broadcast GA events to an Ads destination configured on the same Google tag.
+  window.gtag('event', action, { ...clean, send_to: GA_MEASUREMENT_ID });
   return true;
 }
 

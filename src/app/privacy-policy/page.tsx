@@ -313,25 +313,25 @@ export default function PrivacyPolicyPage() {
               </h3>
               <ul className="list-disc list-inside text-charcoal font-body text-base leading-relaxed mb-6 space-y-2 pl-4">
                 <li>
-                  <strong>Essential Cookies:</strong> These cookies are necessary for the website to
-                  function properly. They enable core functionality such as page navigation and access
-                  to secure areas of the website. The website cannot function properly without these
-                  cookies.
+                  <strong>Preference Storage:</strong> We remember your analytics and advertising
+                  measurement choices separately in your browser. You can request a quote without
+                  accepting either optional category.
                 </li>
                 <li>
-                  <strong>Analytics Cookies:</strong> These cookies help us understand how visitors
-                  interact with our website by collecting and reporting information anonymously. We use
-                  this data to improve website performance and user experience.
+                  <strong>Analytics Cookies:</strong> When analytics is configured and you accept it,
+                  Google Analytics measures page visits and interactions such as confirmed quote
+                  requests. Our event code excludes form contact details, message text, and URL query
+                  strings. Analytics acceptance does not enable advertising measurement.
                 </li>
                 <li>
-                  <strong>Functional Cookies:</strong> These cookies allow the website to remember
-                  choices you make, such as your preferred language or region, and provide enhanced,
-                  personalized features.
-                </li>
-                <li>
-                  <strong>Marketing Cookies:</strong> These cookies may be used to track visitors
-                  across websites to display relevant advertisements. They are typically placed by
-                  third-party advertising networks with our permission.
+                  <strong>Advertising Measurement:</strong> When Google Ads measurement is configured
+                  and you separately accept it, Google may store ad measurement cookies. We also retain
+                  validated ad click identifiers and campaign labels in browser session storage for
+                  the current tab. Click identifiers expire after 30 days at the latest. If you request
+                  a quote while this choice is enabled, these details accompany your request in our
+                  customer management system, and a confirmed quote event with a random request
+                  reference is sent to Google Ads. We do not send your form contact details or message
+                  to Google Ads through this implementation, and personalized advertising remains off.
                 </li>
               </ul>
 
@@ -339,8 +339,11 @@ export default function PrivacyPolicyPage() {
                 Managing Cookies
               </h3>
               <p className="text-charcoal font-body text-base leading-relaxed">
-                Most web browsers allow you to control cookies through their settings. You can choose
-                to block or delete cookies, but doing so may affect the functionality of our website.
+                Use Cookie settings in the footer to change or withdraw either optional choice when
+                measurement is enabled. Withdrawal stops subsequent events and removes the relevant
+                measurement cookies and advertising attribution from this browser. It does not recall
+                data already sent with an earlier quote. You can also block or delete browser storage
+                through your browser settings.
                 To learn more about cookies and how to manage them, visit{' '}
                 <a
                   href="https://www.allaboutcookies.org"

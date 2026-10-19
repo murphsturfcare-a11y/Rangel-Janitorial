@@ -41,11 +41,7 @@ export const company: Company = {
     satisfactionRate: "99%",
     projectsCompleted: "5,000+",
   },
-  socialMedia: {
-    facebook: "https://www.facebook.com/profile.php?id=100090088264095",
-    instagram: "https://www.instagram.com/rangeljanitorial/",
-    youtube: "https://www.youtube.com/@rangeljanitorial/featured",
-  },
+  socialMedia: business.socialLinks,
   certifications: [
     "Licensed & Insured",
     "EPA List N Approved Disinfectants",

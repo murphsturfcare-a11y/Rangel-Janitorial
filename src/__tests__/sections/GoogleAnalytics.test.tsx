@@ -67,7 +67,7 @@ describe('GoogleAnalytics consent integration', () => {
     localStorage.setItem(CONSENT_KEY, 'accepted');
     const { rerender } = render(<GoogleAnalytics />);
     act(() => { dispatchReceipt({ ...receipt, email: 'private@example.test', phone: '9515550100' }); dispatchReceipt(); });
-    expect(eventCommands('generate_lead')).toEqual([['event', 'generate_lead', { region: 'murrieta', form_placement: 'hero' }]]);
+    expect(eventCommands('generate_lead')).toEqual([['event', 'generate_lead', { region: 'murrieta', form_placement: 'hero', send_to: 'G-TEST1234' }]]);
     state.pathname = '/services';
     rerender(<GoogleAnalytics />);
     act(() => dispatchReceipt());
@@ -132,6 +132,6 @@ describe('GoogleAnalytics consent integration', () => {
     const { getByText } = render(<><GoogleAnalytics /><a href="tel:+19518944222">Office</a><a href="tel:+19515550100">Other</a></>);
     fireEvent.click(getByText('Other'));
     fireEvent.click(getByText('Office'));
-    expect(eventCommands('phone_click')).toEqual([['event', 'phone_click', { region: 'murrieta' }]]);
+    expect(eventCommands('phone_click')).toEqual([['event', 'phone_click', { region: 'murrieta', send_to: 'G-TEST1234' }]]);
   });
 });
