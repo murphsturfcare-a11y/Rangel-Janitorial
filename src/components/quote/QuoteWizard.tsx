@@ -2,14 +2,14 @@
 
 import { createContext, useContext, useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { Sparkles, X } from 'lucide-react';
-import LeadForm from '@/components/forms/LeadForm';
+import LeadForm, { type LeadFormHandle } from '@/components/forms/LeadForm';
 import regions from '@/data/regions.json';
 import styles from './QuoteWizard.module.css';
 
 interface WizardContextValue {
   dialogId: string;
   isOpen: boolean;
-  open: (trigger: HTMLButtonElement) => void;
+  open: (trigger: HTMLButtonElement, options?: { facilityType?: string; showFacilities?: boolean }) => void;
 }
 
 const WizardContext = createContext<WizardContextValue | null>(null);
@@ -19,6 +19,7 @@ export function QuoteWizardProvider({ regionSlug, children }: { regionSlug: stri
   const dialogId = `${id}-quote-dialog`;
   const titleId = `${id}-quote-title`;
   const dialog = useRef<HTMLDialogElement>(null);
+  const leadForm = useRef<LeadFormHandle>(null);
   const trigger = useRef<HTMLButtonElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const region = regions.find(entry => entry.slug === regionSlug);
@@ -30,10 +31,12 @@ export function QuoteWizardProvider({ regionSlug, children }: { regionSlug: stri
     return () => { document.body.style.overflow = overflow; };
   }, [isOpen]);
 
-  function open(button: HTMLButtonElement) {
+  function open(button: HTMLButtonElement, options?: { facilityType?: string; showFacilities?: boolean }) {
     if (!dialog.current || dialog.current.open) return;
     trigger.current = button;
     dialog.current.showModal();
+    if (options?.showFacilities) leadForm.current?.showFacilities();
+    else if (options?.facilityType) leadForm.current?.selectFacility(options.facilityType);
     setIsOpen(true);
     const target = Array.from(dialog.current.querySelectorAll<HTMLElement>('[role="status"], [role="alert"]')).find(element => !element.closest('[hidden]'))
       || dialog.current.querySelector<HTMLElement>('[data-wizard-heading]')
@@ -91,18 +94,18 @@ export function QuoteWizardProvider({ regionSlug, children }: { regionSlug: stri
             <X className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
-        <LeadForm regionSlug={regionSlug} sourcePage={`/quote/${regionSlug}`} formPlacement="hero" variant="wizard" requestType="walkthrough" />
+        <LeadForm ref={leadForm} regionSlug={regionSlug} sourcePage={`/quote/${regionSlug}`} formPlacement="hero" variant="wizard" requestType="walkthrough" />
       </dialog>
     </WizardContext.Provider>
   );
 }
 
-export function QuoteWizardButton({ children, className }: { children: ReactNode; className?: string }) {
+export function QuoteWizardButton({ children, className, facilityType, showFacilities }: { children: ReactNode; className?: string; facilityType?: string; showFacilities?: boolean }) {
   const wizard = useContext(WizardContext);
   if (!wizard) throw new Error('QuoteWizardButton requires QuoteWizardProvider');
 
   return (
-    <button type="button" className={className} aria-haspopup="dialog" aria-controls={wizard.dialogId} aria-expanded={wizard.isOpen} onClick={(event) => wizard.open(event.currentTarget)}>
+    <button type="button" className={className} aria-haspopup="dialog" aria-controls={wizard.dialogId} aria-expanded={wizard.isOpen} onClick={(event) => wizard.open(event.currentTarget, { facilityType, showFacilities })}>
       {children}
     </button>
   );

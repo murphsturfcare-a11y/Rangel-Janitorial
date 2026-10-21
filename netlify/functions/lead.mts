@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto';
 import regions from '../../src/data/regions.json';
 import { facilityOptions, frequencyOptions, referralOptions, leadLimits, submissionIdPattern, REQUEST_FOLLOWUP_NOTICE_VERSION, type LeadResult } from '../../src/lib/leads';
 import { adClickKeys, normalizeAdAttribution } from '../../src/lib/ad-clicks';
+import { campaignLabelKeys, classifyLeadSource, normalizeCampaignLabels, normalizeLeadOrigin } from '../../src/lib/lead-source';
 
 declare const Netlify: { env: { get(name: string): string | undefined } };
 
@@ -13,6 +14,7 @@ const CUSTOM_FIELD_IDS = {
   frequency: 'npSugoNIifW9NuoWENST',
   referralSource: '35dEadwR8DjeqFd7wiKH',
   message: 'V3Is6asWPYYuj2lWnjIG',
+  requestDetails: 'swxhJlbYtJHOTPi41zwy',
 };
 
 // Netlify enforces this across invocations, before calling the function.
@@ -90,12 +92,8 @@ function attribution(body: Record<string, unknown>): string[] {
   // Only conventional campaign labels: never copy arbitrary query strings or URLs into CRM/analytics.
   if (body.attribution == null) return [];
   if (typeof body.attribution !== 'object' || Array.isArray(body.attribution)) throw new InputError('Invalid attribution.');
-  const values = body.attribution as Record<string, unknown>;
-  return ['source', 'medium', 'campaign'].flatMap(key => {
-    const value = values[key];
-    if (typeof value !== 'string' || !/^[a-zA-Z0-9][a-zA-Z0-9._ -]{0,79}$/.test(value) || /\d(?:[ ._-]*\d){6,}/.test(value)) return [];
-    return [key + ': ' + value];
-  });
+  const values = normalizeCampaignLabels(body.attribution);
+  return campaignLabelKeys.flatMap(key => values[key] ? [key + ': ' + values[key]] : []);
 }
 
 function adAttribution(body: Record<string, unknown>): string[] {
@@ -180,17 +178,29 @@ export default async function lead(req: Request): Promise<Response> {
     const frequency = choice(body, 'frequency', frequencyOptions);
     const referralSource = choice(body, 'referralSource', referralOptions);
     const message = field(body, 'message', leadLimits.message);
-    const details = [message, 'Website request reference: ' + submissionId, 'Page: ' + sourcePage, 'Form: ' + placement, ...attribution(body), ...adAttribution(body), ...acknowledgment].filter(Boolean).join('\n');
+    const campaignMetadata = attribution(body);
+    const clickMetadata = adAttribution(body);
+    const leadOrigin = body.leadOrigin == null ? null : normalizeLeadOrigin(body.leadOrigin);
+    if (body.leadOrigin != null && !leadOrigin) throw new InputError('Please reload the form to refresh the request source.');
+    const leadSource = classifyLeadSource(body.attribution, body.adAttribution, leadOrigin);
+    const details = [
+      'Website request reference: ' + submissionId,
+      'Lead channel: ' + leadSource.label,
+      'Attribution evidence: ' + leadSource.evidence,
+      'Page: ' + sourcePage, 'Form: ' + placement,
+      ...campaignMetadata, ...clickMetadata, ...acknowledgment,
+    ].join('\n');
     const customFields = [
       ...(facilityType ? [{ id: CUSTOM_FIELD_IDS.facilityType, field_value: facilityType }] : []),
       ...(frequency ? [{ id: CUSTOM_FIELD_IDS.frequency, field_value: frequency }] : []),
       ...(referralSource ? [{ id: CUSTOM_FIELD_IDS.referralSource, field_value: referralSource }] : []),
-      { id: CUSTOM_FIELD_IDS.message, field_value: details },
+      { id: CUSTOM_FIELD_IDS.message, field_value: message || 'No additional notes provided.' },
+      { id: CUSTOM_FIELD_IDS.requestDetails, field_value: details },
     ];
     payload = {
       firstName, lastName, phone, email,
-      source: 'Website - ' + region.city,
-      tags: ['website-lead', 'location-' + region.slug,
+      source: leadSource.label + ' - ' + region.city,
+      tags: ['website-lead', 'location-' + region.slug, 'lead-channel-' + leadSource.channel,
         facilityType ? 'facility-' + facilityType.toLowerCase().replace(/[\s\/]+/g, '-') : '',
         frequency ? 'freq-' + frequency.toLowerCase().replace(/[\s\/()]+/g, '-') : '',
         referralSource ? 'ref-' + referralSource.toLowerCase().replace(/\s+/g, '-') : '',

@@ -104,7 +104,8 @@ for (const region of regions) {
   check(doc.querySelectorAll('form').length === 1, `${path}: expected one quote form`);
   const quoteDialog = doc.querySelector('dialog');
   check(Boolean(quoteDialog) && !quoteDialog.hasAttribute('open') && quoteDialog.querySelectorAll('form').length === 1, `${path}: expected one initially closed quote wizard`);
-  check(doc.querySelectorAll('button[aria-haspopup="dialog"]').length === 2, `${path}: expected both quote buttons to open the wizard`);
+  const quoteLaunchers = [...doc.querySelectorAll('button[aria-haspopup="dialog"]')];
+  check(quoteLaunchers.length >= 2 && quoteLaunchers.every(button => button.getAttribute('aria-controls') === quoteDialog?.id), `${path}: all walkthrough buttons must open the single quote wizard`);
   const phones = [...doc.querySelectorAll('a[href^="tel:"]')];
   check(phones.length > 0 && phones.every(anchor => anchor.getAttribute('href') === region.phoneHref), `${path}: phone links must use only the matching regional number`);
   check(doc.querySelector('body')?.textContent.includes(region.phone), `${path}: regional number missing from visible text`);

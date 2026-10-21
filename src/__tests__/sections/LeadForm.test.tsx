@@ -203,6 +203,29 @@ describe('LeadForm', () => {
 });
 
 describe('paid landing form and attribution', () => {
+  it('sends only the current channel marker without granting consent or forwarding ad IDs for a default visitor', async () => {
+    const click = 'EAIaIQobChMI_test-click123';
+    window.history.replaceState({}, '', '/quote/murrieta?gclid=' + click + '&utm_source=google&utm_medium=cpc');
+    accept(); render(<LeadForm regionSlug="murrieta" sourcePage="/quote/murrieta" variant="compact" />);
+    fill(); submit(); await screen.findByRole('status');
+    const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    expect(payload.leadOrigin).toEqual({ channel: 'google-ads', basis: 'current-google-click-marker' });
+    expect(payload.attribution).toEqual({});
+    expect(payload.adAttribution).toBeNull();
+    expect(JSON.stringify(payload)).not.toContain(click);
+    expect(getAdsConsent()).toBeNull();
+    expect(sessionStorage.getItem('rangel_janitorial_ad_click')).toBeNull();
+    expect(sessionStorage.getItem('rangel_janitorial_utm')).toBeNull();
+  });
+
+  it('does not mark an untagged quote-page visit as a paid lead', async () => {
+    window.history.replaceState({}, '', '/quote/murrieta');
+    accept(); render(<LeadForm regionSlug="murrieta" sourcePage="/quote/murrieta" variant="compact" />);
+    fill(); submit(); await screen.findByRole('status');
+    const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    expect(payload.leadOrigin).toBeNull();
+  });
+
   it('submits a compact quote with the explicit paid source and consented ad metadata', async () => {
     localStorage.setItem(ADS_CONSENT_KEY, 'accepted');
     window.history.replaceState({}, '', '/quote/murrieta?gclid=EAIaIQobChMI_test-click123&utm_source=google&utm_medium=cpc&email=private@example.test');
@@ -228,6 +251,7 @@ describe('paid landing form and attribution', () => {
     const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
     expect(payload.attribution).toEqual({});
     expect(payload.adAttribution).toBeNull();
+    expect(payload.leadOrigin).toBeNull();
   });
 });
 

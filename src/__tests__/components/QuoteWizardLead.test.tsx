@@ -4,13 +4,15 @@ import { QuoteWizardButton, QuoteWizardProvider } from '@/components/quote/Quote
 
 const fetchMock = vi.fn<typeof fetch>();
 const accepted = vi.fn();
+const started = vi.fn();
 const originalMethods = ['showModal', 'close'].map(name => [name, Object.getOwnPropertyDescriptor(HTMLDialogElement.prototype, name)] as const);
 beforeEach(() => {
   Object.defineProperty(HTMLDialogElement.prototype, 'showModal', { configurable: true, value: function (this: HTMLDialogElement) { this.open = true; } });
   Object.defineProperty(HTMLDialogElement.prototype, 'close', { configurable: true, value: function (this: HTMLDialogElement) { this.open = false; this.dispatchEvent(new Event('close')); } });
   localStorage.clear(); sessionStorage.clear(); delete window.rangelAdsConsent;
-  fetchMock.mockReset(); accepted.mockReset(); vi.stubGlobal('fetch', fetchMock);
+  fetchMock.mockReset(); accepted.mockReset(); started.mockReset(); vi.stubGlobal('fetch', fetchMock);
   window.addEventListener('rangel:lead-accepted', accepted);
+  window.addEventListener('rangel:lead-started', started);
 });
 afterEach(() => {
   cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks();
@@ -19,12 +21,21 @@ afterEach(() => {
     else Reflect.deleteProperty(HTMLDialogElement.prototype, name);
   }
   window.removeEventListener('rangel:lead-accepted', accepted);
+  window.removeEventListener('rangel:lead-started', started);
   document.body.style.overflow = '';
 });
 function renderWizard() {
-  render(<QuoteWizardProvider regionSlug="murrieta"><QuoteWizardButton>Request a quote</QuoteWizardButton></QuoteWizardProvider>);
+  render(<QuoteWizardProvider regionSlug="murrieta">
+    <QuoteWizardButton>Request a quote</QuoteWizardButton>
+    <QuoteWizardButton facilityType="Office Building">Quick start office</QuoteWizardButton>
+    <QuoteWizardButton facilityType="Medical / Dental">Quick start medical</QuoteWizardButton>
+    <QuoteWizardButton facilityType="Unrecognized facility">Invalid facility</QuoteWizardButton>
+    <QuoteWizardButton showFacilities>See all facility types</QuoteWizardButton>
+  </QuoteWizardProvider>);
 }
 function open() { fireEvent.click(screen.getByRole('button', { name: 'Request a quote' })); }
+function quickStartMedical() { fireEvent.click(screen.getByRole('button', { name: 'Quick start medical' })); }
+function showFacilities() { fireEvent.click(screen.getByRole('button', { name: 'See all facility types' })); }
 function close() { fireEvent.click(screen.getByRole('button', { name: 'Close quote wizard' })); }
 function finishChoices() {
   fireEvent.click(screen.getByRole('button', { name: 'Office Building' }));
@@ -46,11 +57,99 @@ function deferRequest() {
 }
 
 describe('real quote dialog with the lead wizard', () => {
-  it('preserves in-flight state through close/reopen and focuses one accepted result while open', async () => {
+  it('uses a valid landing-page choice as step one and lets a generic launcher resume without resetting it', () => {
+    renderWizard();
+    expect(started).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: 'Quick start office' }));
+    const form = screen.getByRole('form');
+    expect(screen.getByText('Step 2 of 3')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'How often do you need cleaning?' })).toHaveFocus();
+    expect(new FormData(form as HTMLFormElement).get('facilityType')).toBe('Office Building');
+    expect(started).toHaveBeenCalledTimes(1);
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(accepted).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: 'Weekly' })); fill(); close(); open();
+    expect(screen.getByRole('form')).toBe(form);
+    expect(screen.getByText('Step 3 of 3')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'How can we arrange your walkthrough?' })).toHaveFocus();
+    expect(screen.getByLabelText(/Email/)).toHaveValue('jamie@example.test');
+    expect(screen.getByRole('checkbox', { name: /I acknowledge the Privacy Policy/ })).toBeChecked();
+    expect(started).toHaveBeenCalledTimes(1);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('ignores an invalid landing-page choice and keeps the existing facility options available', () => {
+    renderWizard();
+    fireEvent.click(screen.getByRole('button', { name: 'Invalid facility' }));
+    expect(screen.getByText('Step 1 of 3')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'What type of facility needs cleaning?' })).toHaveFocus();
+    expect(new FormData(screen.getByRole('form') as HTMLFormElement).get('facilityType')).toBe('');
+    expect(screen.getByRole('button', { name: 'Office Building' })).toBeInTheDocument();
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(accepted).not.toHaveBeenCalled();
+  });
+
+  it('shows all facility choices from a contact draft while preserving its answers, fields and reference', async () => {
+    const resolve = deferRequest(); renderWizard(); open(); finishChoices(); fill();
+    const form = screen.getByRole('form');
+    const startedReference = (started.mock.calls[0][0] as CustomEvent).detail.submission_id;
+    fireEvent.change(screen.getByLabelText(/Company, facility city/), { target: { value: 'Acme, Murrieta; evenings.' } });
+    close(); showFacilities();
+    expect(screen.getByRole('form')).toBe(form);
+    expect(screen.getByText('Step 1 of 3')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'What type of facility needs cleaning?' })).toHaveFocus();
+    expect(screen.getByRole('button', { name: 'Office Building' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: 'School / Educational' })).toBeInTheDocument();
+    expect(screen.getByLabelText(/Email/)).toBeDisabled();
+    expect(fetchMock).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: 'School / Educational' }));
+    expect(screen.getByRole('button', { name: 'Weekly' })).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(screen.getByRole('button', { name: 'Weekly' }));
+    expect(screen.getByLabelText(/First Name/)).toHaveValue('Jamie');
+    expect(screen.getByLabelText(/Last Name/)).toHaveValue('Test');
+    expect(screen.getByLabelText(/Phone/)).toHaveValue('9515550100');
+    expect(screen.getByLabelText(/Email/)).toHaveValue('jamie@example.test');
+    expect(screen.getByLabelText(/Company, facility city/)).toHaveValue('Acme, Murrieta; evenings.');
+    expect(screen.getByRole('checkbox', { name: /I acknowledge the Privacy Policy/ })).toBeChecked();
+    expect(started).toHaveBeenCalledTimes(1);
+    expect(accepted).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: 'Request my free walkthrough' }));
+    expect(payload()).toMatchObject({ submissionId: startedReference, facilityType: 'School / Educational', frequency: 'Weekly' });
+    await resolve(Response.json({ success: true, outcome: 'accepted', submissionId: payload().submissionId }));
+    expect(accepted).toHaveBeenCalledTimes(1);
+  });
+
+  it('changes a quick-start facility in the same unsubmitted draft without losing contact details or its reference', async () => {
+    const resolve = deferRequest(); renderWizard(); open(); finishChoices(); fill();
+    const form = screen.getByRole('form');
+    const startedReference = (started.mock.calls[0][0] as CustomEvent).detail.submission_id;
+    fireEvent.change(screen.getByLabelText(/Company, facility city/), { target: { value: 'Acme, Murrieta; evenings.' } });
+    close(); quickStartMedical();
+    expect(screen.getByRole('form')).toBe(form);
+    expect(screen.getByText('Step 2 of 3')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'How often do you need cleaning?' })).toHaveFocus();
+    expect(screen.getByRole('button', { name: 'Weekly' })).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(screen.getByRole('button', { name: 'Monthly' }));
+    expect(screen.getByRole('button', { name: /^Change facility type/ })).toHaveTextContent('Medical / Dental');
+    expect(screen.getByLabelText(/Email/)).toHaveValue('jamie@example.test');
+    expect(screen.getByLabelText(/Company, facility city/)).toHaveValue('Acme, Murrieta; evenings.');
+    expect(screen.getByRole('checkbox', { name: /I acknowledge the Privacy Policy/ })).toBeChecked();
+    expect(started).toHaveBeenCalledTimes(1);
+    expect(fetchMock).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: 'Request my free walkthrough' }));
+    expect(payload()).toMatchObject({ submissionId: startedReference, facilityType: 'Medical / Dental', frequency: 'Monthly', email: 'jamie@example.test' });
+    await resolve(Response.json({ success: true, outcome: 'accepted', submissionId: payload().submissionId }));
+    expect(accepted).toHaveBeenCalledTimes(1);
+  });
+
+  it('preserves in-flight state through a quick-start reopen and focuses one accepted result while open', async () => {
     const resolve = deferRequest(); renderWizard(); open(); finishChoices(); fill();
     fireEvent.click(screen.getByRole('button', { name: 'Request my free walkthrough' }));
     close(); expect(screen.getByRole('button', { name: 'Request a quote' })).toHaveFocus();
-    open();
+    quickStartMedical();
+    expect(screen.getByRole('button', { name: 'Submitting...' })).toBeDisabled();
+    close(); showFacilities();
+    expect(screen.getByText('Step 3 of 3')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Submitting...' })).toBeDisabled();
     expect(screen.getByLabelText(/Email/)).toHaveValue('jamie@example.test');
     expect(screen.getByRole('checkbox', { name: /I acknowledge the Privacy Policy/ })).toBeChecked();
@@ -59,11 +158,14 @@ describe('real quote dialog with the lead wizard', () => {
     await resolve(Response.json({ success: true, outcome: 'accepted', submissionId: payload().submissionId }));
     expect(screen.getByRole('status')).toHaveFocus();
     expect(accepted).toHaveBeenCalledTimes(1);
-    close(); open();
+    close(); quickStartMedical();
+    close(); showFacilities();
     expect(screen.getByRole('status')).toHaveTextContent('Walkthrough Request Received');
     expect(screen.getByRole('status')).toHaveFocus();
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(accepted).toHaveBeenCalledTimes(1);
+    expect(started).toHaveBeenCalledTimes(1);
+    expect(payload().facilityType).toBe('Office Building');
   });
 
   it('a success received while closed does not steal launcher focus and is focused on reopening', async () => {
@@ -77,12 +179,13 @@ describe('real quote dialog with the lead wizard', () => {
     expect(accepted).toHaveBeenCalledTimes(1);
   });
 
-  it('an unknown receipt stays locked after close/reopen, with draft and call fallback intact', async () => {
+  it('an unknown receipt stays locked after a quick-start reopen, with draft and call fallback intact', async () => {
     const resolve = deferRequest(); renderWizard(); open(); finishChoices(); fill();
     fireEvent.click(screen.getByRole('button', { name: 'Request my free walkthrough' })); close();
     await resolve(Response.json({ success: true, outcome: 'accepted', submissionId: 'wrong-reference' }));
     expect(screen.getByRole('button', { name: 'Request a quote' })).toHaveFocus();
-    open();
+    quickStartMedical();
+    close(); showFacilities();
     expect(screen.getByRole('alert')).toHaveFocus();
     expect(screen.getByRole('alert')).toHaveTextContent('could not confirm receipt');
     expect(screen.getByLabelText(/Email/)).toHaveValue('jamie@example.test');
@@ -90,6 +193,31 @@ describe('real quote dialog with the lead wizard', () => {
     expect(screen.getByRole('link', { name: /Call/ })).toHaveAttribute('href', 'tel:+19518944222');
     fireEvent.submit(screen.getByRole('form'));
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    expect(accepted).not.toHaveBeenCalled();
+    expect(screen.getByRole('button', { name: /^Change facility type/ })).toHaveTextContent('Office Building');
+    expect(started).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([true, false])('preserves a known rejection and its retry permission (%s) through a quick-start reopen', async retryAllowed => {
+    fetchMock.mockResolvedValue(Response.json({ success: false, outcome: 'rejected', message: 'Please check your details.', retryAllowed }, { status: 400 }));
+    renderWizard(); open(); finishChoices(); fill();
+    fireEvent.click(screen.getByRole('button', { name: 'Request my free walkthrough' }));
+    expect(await screen.findByRole('alert')).toHaveTextContent('Please check your details.');
+    close(); quickStartMedical();
+    close(); showFacilities();
+    expect(screen.getByRole('alert')).toHaveFocus();
+    expect(screen.getByRole('alert')).toHaveTextContent('Please check your details.');
+    expect(screen.getByRole('button', { name: /^Change facility type/ })).toHaveTextContent('Office Building');
+    expect(screen.getByLabelText(/Email/)).toHaveValue('jamie@example.test');
+    expect(screen.getByText('Step 3 of 3')).toBeInTheDocument();
+    const submit = screen.getByRole('button', { name: 'Request my free walkthrough' });
+    if (retryAllowed) expect(submit).toBeEnabled();
+    else {
+      expect(submit).toBeDisabled();
+      fireEvent.submit(screen.getByRole('form'));
+    }
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(started).toHaveBeenCalledTimes(1);
     expect(accepted).not.toHaveBeenCalled();
   });
 

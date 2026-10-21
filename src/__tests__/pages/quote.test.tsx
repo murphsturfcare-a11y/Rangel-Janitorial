@@ -42,9 +42,14 @@ describe('regional paid quote pages', () => {
     expect(screen.getByRole('img', { name: 'Rangel crew members cleaning a break-room table and countertop' })).toBeInTheDocument();
     expect(screen.getByRole('navigation', { name: 'Legal' })).toBeInTheDocument();
     expect(screen.queryByRole('navigation', { name: 'Main navigation' })).not.toBeInTheDocument();
-    const launchers = screen.getAllByRole('button', { name: 'Request my free walkthrough' });
-    expect(launchers).toHaveLength(2);
-    for (const launcher of launchers) expect(launcher).toHaveAttribute('aria-haspopup', 'dialog');
+    const launchers = container.querySelectorAll('button[aria-haspopup="dialog"]');
+    expect(launchers.length).toBeGreaterThanOrEqual(2);
+    for (const launcher of launchers) expect(launcher).toHaveAttribute('aria-controls', container.querySelector('dialog')?.id);
+    expect(screen.getAllByRole('button', { name: 'Book your free walkthrough today' })).toHaveLength(2);
+    expect(screen.getByRole('button', { name: 'Office Building' })).toHaveAttribute('aria-haspopup', 'dialog');
+    expect(screen.getByRole('button', { name: 'See all facility types' })).toHaveAttribute('aria-haspopup', 'dialog');
+    expect(container.querySelectorAll('dl > div')).toHaveLength(4);
+    expect(screen.getByText('Photo-verified inspections and issues addressed before they reach your desk.')).toBeInTheDocument();
     expect(screen.getByText(`Serving ${region.city} & surrounding communities`)).toBeInTheDocument();
     expect(container.querySelector('#quote-form')).toBeInTheDocument();
   });

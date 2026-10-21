@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, Check, ClipboardCheck, Clock3, MessageCircle, Phone, UsersRound } from 'lucide-react';
+import { ArrowRight, Building2, Check, CheckCheck, ChevronRight, ClipboardCheck, Clock3, MapPin, MessageCircle, Phone, Stethoscope, UsersRound, Warehouse } from 'lucide-react';
 import { QuoteWizardButton, QuoteWizardProvider } from '@/components/quote/QuoteWizard';
 import QuotePrivacySettings from '@/components/quote/QuotePrivacySettings';
 import WebsiteCallLink from '@/components/analytics/WebsiteCallLink';
 import business from '@/data/business.json';
 import regions from '@/data/regions.json';
 import { generatePageMetadata } from '@/lib/seo/metadata';
+import styles from './quote.module.css';
 
 type QuotePageProps = { params: Promise<{ region: string }> };
 
@@ -36,31 +37,35 @@ export async function generateMetadata({ params }: QuotePageProps): Promise<Meta
   };
 }
 
+const facilityStarters = [
+  { label: 'Office Building', icon: Building2 },
+  { label: 'Medical / Dental', icon: Stethoscope },
+  { label: 'Industrial / Warehouse', icon: Warehouse },
+];
+
+// Ralph's supplied landing-page copy, with spelling and punctuation corrected.
+const reasonsToSwitch = [
+  { icon: CheckCheck, copy: 'We are a cleaning company that reduces work, not one that creates more of it.' },
+  { icon: ClipboardCheck, copy: 'We accept accountability daily so your facility stays clean without constant follow-up.' },
+  { icon: UsersRound, copy: 'Reliable, trained staff.' },
+];
+
+const accountability = [
+  { problem: 'Inconsistent quality', solution: 'Documented checklists, supervisor inspections and measurable quality scores.' },
+  { problem: 'Missed communication', solution: 'A real point of contact, proactive updates and fast response times.' },
+  { problem: 'Unreliable staffing', solution: 'Trained primary crews supported by backup coverage.' },
+  { problem: 'Problems discovered too late', solution: 'Photo-verified inspections and issues addressed before they reach your desk.' },
+];
+
 const cleaningScope = [
   { title: 'Offices & common areas', detail: 'Workspaces, meeting rooms and lobbies.' },
   { title: 'Restrooms & break rooms', detail: 'Cleaning, restocking and trash removal.' },
   { title: 'Floors & ongoing upkeep', detail: 'Floor care and a cleaning schedule suited to your facility.' },
 ];
 
-const reasonsToSwitch = [
-  {
-    icon: ClipboardCheck,
-    title: 'Consistent quality. Daily accountability.',
-    detail: 'Documented checklists, supervisor inspections and measurable quality scores. Photo-verified inspections help us address issues before they reach your desk.',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Communication you can count on.',
-    detail: 'A real point of contact, proactive updates and fast response times. You stay informed without constant follow-up.',
-  },
-  {
-    icon: UsersRound,
-    title: 'Reliable, trained staff.',
-    detail: 'Trained primary crews supported by backup coverage, so your facility has a team it can depend on.',
-  },
-];
-
-const focusStyle = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest';
+function WalkthroughButton() {
+  return <QuoteWizardButton className={styles.primaryButton}>Book your free walkthrough today <ArrowRight size={18} aria-hidden="true" /></QuoteWizardButton>;
+}
 
 export default async function QuotePage({ params }: QuotePageProps) {
   const region = getRegion((await params).region);
@@ -81,122 +86,115 @@ export default async function QuotePage({ params }: QuotePageProps) {
 
   return (
     <QuoteWizardProvider key={region.slug} regionSlug={region.slug}>
-      <a href="#quote-form" className={`sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:rounded-lg focus:bg-white focus:p-4 ${focusStyle}`}>
-        Skip to walkthrough request
-      </a>
-      <header className="sticky top-0 z-40 border-b border-forest/10 bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <Link href="/" aria-label={`${business.name} home`} className={`shrink-0 rounded ${focusStyle}`}>
-            <Image src="/images/logo-small.webp" alt={business.name} width={480} height={235} priority className="h-12 w-auto sm:h-14" />
-          </Link>
-          <WebsiteCallLink regionSlug={region.slug} className={`inline-flex min-h-11 items-center gap-2 rounded text-right text-forest ${focusStyle}`} label={`Call our ${region.city} team`} labelClassName="block text-xs font-medium" numberClassName="block text-sm font-bold sm:text-base">
-            <Phone className="hidden h-5 w-5 sm:block" aria-hidden="true" />
-          </WebsiteCallLink>
-        </div>
-      </header>
-
-      <main id="main-content" className="flex-1">
-        <section aria-labelledby="quote-title" className="border-b border-forest/10 bg-cream">
-          <div className="mx-auto grid max-w-6xl items-start gap-6 px-4 py-7 sm:px-6 sm:py-10 lg:grid-cols-[1fr_1fr] lg:gap-14 lg:px-8 lg:py-12">
-            <div className="lg:py-8">
-              <p className="mb-4 max-w-md text-xs leading-relaxed font-bold uppercase tracking-widest text-forest">Commercial cleaning for professional facilities</p>
-              <h1 id="quote-title" className="font-heading text-3xl leading-tight font-extrabold text-charcoal sm:text-4xl lg:text-5xl">
-                You don’t have a cleaning problem. <span className="mt-2 block text-forest">You have a reliability problem.</span>
-              </h1>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal-light sm:text-lg">
-                Missed details, poor communication and inconsistent crews create more work for your team. Rangel delivers accountable commercial cleaning across Northern &amp; Southern California.
-              </p>
-              <p className="mt-5 text-sm font-semibold text-forest">Serving {region.city} &amp; surrounding communities</p>
+      <div className={styles.page}>
+        <a href="#quote-form" className={styles.skipLink}>Skip to walkthrough request</a>
+        <header className={styles.header}>
+          <div className={`${styles.container} ${styles.headerInner}`}>
+            <Link href="/" aria-label={`${business.name} home`} className={styles.logo}>
+              <Image src="/images/logo-small.webp" alt={business.name} width={480} height={235} priority />
+            </Link>
+            <div className={styles.headerActions}>
+              <WebsiteCallLink regionSlug={region.slug} className={styles.phone} label={`Call our ${region.city} team`} labelClassName={styles.phoneLabel} numberClassName={styles.phoneNumber}>
+                <span className={styles.phoneIcon}><Phone size={19} aria-hidden="true" /></span>
+              </WebsiteCallLink>
+              <QuoteWizardButton className={styles.headerButton}>Free walkthrough <ArrowRight size={16} aria-hidden="true" /></QuoteWizardButton>
             </div>
-            <section id="quote-form" tabIndex={-1} aria-labelledby="quote-form-label" className="scroll-mt-24 rounded-2xl border border-forest/15 bg-white p-6 shadow-[0_12px_40px_rgba(45,80,22,0.08)] outline-forest sm:p-8 lg:my-8">
-              <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-forest"><Clock3 className="h-4 w-4" aria-hidden="true" />Free 20-minute walkthrough</p>
-              <h2 id="quote-form-label" className="mt-3 font-heading text-2xl font-bold text-charcoal sm:text-3xl">Book your free walkthrough.</h2>
-              <p className="mt-4 hidden text-base leading-relaxed text-charcoal-light sm:block">Choose your facility type and cleaning frequency, then tell us how to reach you.</p>
-              <ol className="my-6 hidden space-y-3 text-sm font-medium text-charcoal sm:block">
-                {['Your facility', 'Your cleaning schedule', 'Your contact details'].map((step, index) => <li key={step} className="flex items-center gap-3"><span aria-hidden="true" className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-forest/10 text-xs font-bold text-forest">{index + 1}</span>{step}</li>)}
-              </ol>
-              <QuoteWizardButton className={`mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-forest px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-forest/90 sm:mt-0 sm:text-base ${focusStyle}`}>
-                Request my free walkthrough <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-              </QuoteWizardButton>
-              <p className="mt-3 text-center text-xs leading-relaxed text-charcoal-light">No obligation · Response same business day</p>
-              <p className="mt-2 text-center text-xs leading-relaxed text-charcoal-light">We’ll contact you to confirm a walkthrough time.</p>
-            </section>
           </div>
-        </section>
+        </header>
 
-        <section aria-labelledby="reasons-title" className="bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-forest">3 reasons to switch to Rangel</p>
-            <h2 id="reasons-title" className="max-w-2xl font-heading text-2xl font-bold text-charcoal sm:text-3xl">A cleaning company that reduces work instead of creating more of it.</h2>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-charcoal-light">When communication disappears and quality changes from shift to shift, your team becomes the cleaning company’s account manager. Rangel replaces that uncertainty with a documented system.</p>
-            <ol className="mt-8 grid gap-7 sm:grid-cols-3">
-              {reasonsToSwitch.map(({ icon: Icon, title, detail }, index) => (
-                <li key={title} className="border-t-2 border-forest/20 pt-5">
-                  <div className="mb-4 flex items-center justify-between text-forest"><Icon className="h-7 w-7" strokeWidth={1.6} aria-hidden="true" /><span className="text-xs font-bold" aria-hidden="true">0{index + 1}</span></div>
-                  <h3 className="font-heading text-lg font-bold text-charcoal">{title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-charcoal-light">{detail}</p>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-9 border-t border-forest/10 pt-7 font-heading text-xl leading-relaxed font-bold text-forest sm:text-2xl">We show up. We follow through. We handle it.</p>
-          </div>
-        </section>
-
-        <section aria-labelledby="scope-title" className="border-t border-forest/10 bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-            <h2 id="scope-title" className="font-heading text-2xl font-bold text-charcoal sm:text-3xl">Cleaning systems built around your facility</h2>
-            <ul className="mt-7 grid gap-6 sm:grid-cols-3">
-              {cleaningScope.map((item) => (
-                <li key={item.title} className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-forest" aria-hidden="true" />
-                  <div><h3 className="font-heading text-base font-bold text-charcoal">{item.title}</h3><p className="mt-2 text-sm leading-relaxed text-charcoal-light">{item.detail}</p></div>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10 grid items-center gap-7 border-t border-forest/10 pt-10 sm:grid-cols-[2fr_3fr] sm:gap-10">
-              <figure>
-                <div className="relative aspect-[5/4] overflow-hidden rounded-xl">
-                  <Image src="/images/gallery/our-work/rangel-21-6941b0a10041dc7c1a15ddbd.png" alt="Rangel crew members cleaning a break-room table and countertop" fill sizes="(min-width: 640px) 400px, calc(100vw - 32px)" className="object-cover" />
+        <main id="main-content">
+          <section aria-labelledby="quote-title" className={styles.hero}>
+            <div className={`${styles.container} ${styles.heroGrid}`}>
+              <div className={styles.heroCopy}>
+                <p className={styles.region}><MapPin size={15} aria-hidden="true" />Serving {region.city} &amp; surrounding communities</p>
+                <p className={styles.eyebrow}>Commercial cleaning for professional facilities</p>
+                <h1 id="quote-title">You don’t have a cleaning problem. <span>You have a reliability problem.</span></h1>
+                <p className={styles.intro}>Missed details, poor communication and inconsistent crews create more work for your team. Rangel delivers accountable commercial cleaning across Northern &amp; Southern California.</p>
+                <WalkthroughButton />
+                <ul className={styles.assurance} aria-label="Your walkthrough offer">
+                  <li><Clock3 size={15} aria-hidden="true" />Free 20-minute walkthrough</li>
+                  <li><Check size={15} aria-hidden="true" />No obligation</li>
+                  <li><MessageCircle size={15} aria-hidden="true" />Response same business day</li>
+                </ul>
+              </div>
+              <section id="quote-form" tabIndex={-1} aria-labelledby="quote-form-label" className={styles.entryCard}>
+                <div className={styles.entryIntro}><span className={styles.entryStep}>01</span><p>YOUR FREE WALKTHROUGH<span>Facility <ChevronRight size={12} aria-hidden="true" /> Schedule <ChevronRight size={12} aria-hidden="true" /> Contact</span></p></div>
+                <div className={styles.entryBody}>
+                  <h2 id="quote-form-label">Let’s start with your facility.</h2>
+                  <p className={styles.entryHint}>What type of facility needs cleaning?</p>
+                  <div className={styles.facilityStarters} role="group" aria-labelledby="quote-form-label">
+                    {facilityStarters.map(({ label, icon: Icon }) => <QuoteWizardButton key={label} facilityType={label} className={styles.facilityButton}>
+                      <Icon size={25} strokeWidth={1.6} aria-hidden="true" /><span>{label}</span><ChevronRight className={styles.facilityArrow} size={16} aria-hidden="true" />
+                    </QuoteWizardButton>)}
+                    <QuoteWizardButton showFacilities className={`${styles.facilityButton} ${styles.allFacilities}`}><Building2 size={25} strokeWidth={1.6} aria-hidden="true" /><span>See all facility types</span><ChevronRight className={styles.facilityArrow} size={16} aria-hidden="true" /></QuoteWizardButton>
+                  </div>
+                  <p className={styles.entryNote}><Check size={15} aria-hidden="true" />Select your facility to continue. No commitment.</p>
                 </div>
-                <figcaption className="mt-2 text-xs text-charcoal-light">A look at our crew’s work.</figcaption>
+                <p className={styles.entryFoot}>We’ll contact you to confirm a walkthrough time.</p>
+              </section>
+            </div>
+          </section>
+
+          <section aria-labelledby="reasons-title" className={styles.reasons}>
+            <div className={styles.container}>
+              <p className={styles.eyebrow}>Why Rangel</p>
+              <h2 id="reasons-title" className={styles.sectionTitle}>Top 3 reasons why you should switch to Rangel.</h2>
+              <ol className={styles.reasonsGrid}>
+                {reasonsToSwitch.map(({ icon: Icon, copy }, index) => <li key={copy}>
+                  <div className={styles.reasonIcon}><Icon size={25} strokeWidth={1.6} aria-hidden="true" /><span aria-hidden="true">0{index + 1}</span></div>
+                  <h3>{copy}</h3>
+                </li>)}
+              </ol>
+            </div>
+          </section>
+
+          <section aria-labelledby="accountability-title" className={styles.accountability}>
+            <div className={`${styles.container} ${styles.accountabilityGrid}`}>
+              <figure className={styles.crewFigure}>
+                <div className={styles.crewImage}><Image src="/images/gallery/our-work/rangel-21-6941b0a10041dc7c1a15ddbd.png" alt="Rangel crew members cleaning a break-room table and countertop" fill sizes="(min-width: 1100px) 450px, (min-width: 760px) 40vw, calc(100vw - 40px)" className={styles.crewPhoto} /></div>
+                <figcaption><span className={styles.photoMark} aria-hidden="true"><CheckCheck size={21} /></span><span>We show up. We follow through. We handle it.</span></figcaption>
               </figure>
               <div>
-                <h3 className="font-heading text-xl font-bold text-charcoal sm:text-2xl">Your facility. Your priorities. A clear plan.</h3>
-                <p className="mt-4 text-base leading-relaxed text-charcoal-light">We provide janitorial cleaning for offices and commercial facilities. Discuss the spaces, tasks and frequency you need with our {region.name} team.</p>
-                <p className="mt-3 text-sm leading-relaxed text-charcoal-light">Need daytime upkeep or floor care? Include it in your request so it can be considered in your cleaning scope.</p>
+                <p className={styles.eyebrow}>Daily accountability</p>
+                <h2 id="accountability-title" className={styles.sectionTitle}>A documented system. Less follow-up.</h2>
+                <p className={styles.bodyCopy}>When communication disappears and quality changes from shift to shift, your team becomes the cleaning company’s account manager. Rangel replaces that uncertainty with a documented system.</p>
+                <dl className={styles.accountabilityList}>
+                  {accountability.map(({ problem, solution }) => <div key={problem}><dt><Check size={17} aria-hidden="true" />{problem}</dt><dd>{solution}</dd></div>)}
+                </dl>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section aria-labelledby="questions-title" className="border-y border-forest/10 bg-cream">
-          <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
-            <h2 id="questions-title" className="font-heading text-2xl font-bold text-charcoal sm:text-3xl">Before your walkthrough</h2>
-            <div className="mt-6 divide-y divide-forest/15 border-y border-forest/15">
-              {faqs.map((faq) => (
-                <details key={faq.question} className="group py-1">
-                  <summary className={`cursor-pointer rounded py-4 pr-2 text-base leading-relaxed font-semibold text-charcoal ${focusStyle}`}>{faq.question}</summary>
-                  <p className="pb-5 text-sm leading-relaxed text-charcoal-light">{faq.answer}</p>
-                </details>
-              ))}
+          <section aria-labelledby="scope-title" className={styles.scope}>
+            <div className={styles.container}>
+              <p className={styles.eyebrow}>Your facility. Your priorities.</p>
+              <h2 id="scope-title" className={styles.sectionTitle}>Cleaning systems built around your facility.</h2>
+              <ul className={styles.scopeGrid}>{cleaningScope.map(item => <li key={item.title}><Check size={21} aria-hidden="true" /><div><h3>{item.title}</h3><p>{item.detail}</p></div></li>)}</ul>
             </div>
-            <QuoteWizardButton className={`mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-forest px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-forest-dark sm:w-auto ${focusStyle}`}>
-              Request my free walkthrough <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-            </QuoteWizardButton>
-          </div>
-        </section>
-      </main>
+          </section>
 
-      <footer className="bg-white">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 text-xs text-charcoal-light sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>© {business.name}</p>
-          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link href="/privacy-policy" className={`inline-flex min-h-11 items-center underline underline-offset-4 ${focusStyle}`}>Privacy policy</Link>
-            <Link href="/terms-of-service" className={`inline-flex min-h-11 items-center underline underline-offset-4 ${focusStyle}`}>Terms of service</Link>
-            <QuotePrivacySettings />
-          </nav>
-        </div>
-      </footer>
+          <section aria-labelledby="questions-title" className={styles.questions}>
+            <div className={`${styles.container} ${styles.questionsGrid}`}>
+              <div><p className={styles.eyebrow}>A clear next step</p><h2 id="questions-title" className={styles.sectionTitle}>Before your walkthrough.</h2><p className={styles.bodyCopy}>Tell us about your facility. We’ll discuss the scope, schedule and priorities with you.</p></div>
+              <div className={styles.faqs}>{faqs.map(faq => <details key={faq.question}><summary>{faq.question}<span className={styles.faqPlus} aria-hidden="true" /></summary><p>{faq.answer}</p></details>)}</div>
+            </div>
+          </section>
+
+          <section aria-labelledby="final-title" className={styles.finalCta}>
+            <div className={`${styles.container} ${styles.finalInner}`}>
+              <div><p className={styles.eyebrow}>Commercial cleaning in {region.city}</p><h2 id="final-title">Book your free walkthrough today.</h2><p>Free 20-minute walkthrough · No obligation · Response same business day</p></div>
+              <WalkthroughButton />
+            </div>
+          </section>
+        </main>
+        <footer className={styles.footer}>
+          <div className={`${styles.container} ${styles.footerInner}`}>
+            <p>© {business.name}</p>
+            <nav aria-label="Legal"><Link href="/privacy-policy">Privacy policy</Link><Link href="/terms-of-service">Terms of service</Link><QuotePrivacySettings /></nav>
+          </div>
+        </footer>
+        <div className={styles.mobileAction}><QuoteWizardButton className={styles.primaryButton}>Book my free walkthrough <ArrowRight size={17} aria-hidden="true" /></QuoteWizardButton></div>
+      </div>
     </QuoteWizardProvider>
   );
 }

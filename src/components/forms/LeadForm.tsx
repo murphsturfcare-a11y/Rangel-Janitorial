@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useImperativeHandle, useRef, useState, type Ref } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Building2, CalendarCheck2, CalendarDays, CalendarRange, CalendarSync, Check, CheckCircle, ChevronRight, CircleHelp, Dumbbell, Ellipsis, GraduationCap, House, Landmark, Loader2, Mail, Pencil, Phone, Repeat2, Sparkles, Stethoscope, Store, Trees, Warehouse, type LucideIcon } from 'lucide-react';
 import wizardStyles from '@/components/quote/QuoteWizard.module.css';
@@ -8,6 +8,7 @@ import regions from '@/data/regions.json';
 import { facilityOptions, frequencyOptions, referralOptions, leadLimits, REQUEST_FOLLOWUP_NOTICE_VERSION, type FormPlacement, type LeadResult } from '@/lib/leads';
 import { hasAdsConsent } from '@/lib/analytics/gtag';
 import { captureAdAttribution } from '@/lib/analytics/ad-attribution';
+import { captureLeadOrigin } from '@/lib/analytics/lead-origin';
 import { GOOGLE_ADS_CONFIGURED } from '@/lib/analytics/ads-config';
 import WebsiteCallLink from '@/components/analytics/WebsiteCallLink';
 
@@ -23,7 +24,13 @@ const frequencyIcons: Record<typeof frequencyOptions[number], LucideIcon> = {
   'Bi-Weekly': Repeat2, Monthly: CalendarRange, 'One-Time Deep Clean': Sparkles, 'Not Sure': CircleHelp,
 };
 
+export interface LeadFormHandle {
+  selectFacility: (facilityType: string) => void;
+  showFacilities: () => void;
+}
+
 interface LeadFormProps {
+  ref?: Ref<LeadFormHandle>;
   regionSlug?: string;
   formPlacement?: FormPlacement;
   sourcePage?: string;
@@ -54,7 +61,7 @@ function focusVisibleWizardElement(element: HTMLElement | null): void {
   if (!dialog || dialog.open) element.focus();
 }
 
-export default function LeadForm({ regionSlug, location, formPlacement = 'hero', sourcePage, variant = 'standard', requestType = 'quote' }: LeadFormProps) {
+export default function LeadForm({ ref, regionSlug, location, formPlacement = 'hero', sourcePage, variant = 'standard', requestType = 'quote' }: LeadFormProps) {
   const instanceId = useId();
   const id = (field: string) => instanceId + '-' + field;
   const region = regions.find(region => region.slug === regionSlug || (!regionSlug && region.city === location));
@@ -76,6 +83,22 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
   const started = useRef(false);
   const errorRef = useRef<HTMLDivElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    selectFacility(facilityType) {
+      // A launcher can edit an unsubmitted draft, but must preserve every delivery/result state.
+      if (!isWizard || status !== 'idle' || navigationLocked || inFlight.current
+        || !facilityOptions.some(option => option === facilityType)) return;
+      begin();
+      setSelectedFacility(facilityType);
+      setWizardStep(2);
+    },
+    showFacilities() {
+      if (!isWizard || status !== 'idle' || navigationLocked || inFlight.current) return;
+      begin();
+      setWizardStep(1);
+    },
+  }));
 
   useEffect(() => {
     // The dialog owns initial/reopen focus. Only a user's step change moves focus here.
@@ -136,6 +159,7 @@ export default function LeadForm({ regionSlug, location, formPlacement = 'hero',
       sourcePage: sourcePage ?? '/locations/' + region.slug,
       attribution: campaignLabels(),
       adAttribution: captureAdAttribution(),
+      leadOrigin: captureLeadOrigin(),
       website: data.get('website'),
       firstName: data.get('firstName'),
       lastName: data.get('lastName'),

@@ -47,7 +47,7 @@ describe('lead delivery contract', () => {
     const [, options] = fetchMock.mock.calls[0];
     expect(options?.headers).toMatchObject({ Version: '2021-07-28' });
     const payload = JSON.parse(options?.body as string);
-    expect(payload).toMatchObject({ locationId: 'test-office', source: 'Website - ' + city, lastName: "O'Neil" });
+    expect(payload).toMatchObject({ locationId: 'test-office', source: 'Website (organic/direct) - ' + city, lastName: "O'Neil" });
     expect(payload.tags).toContain('location-' + regionSlug);
     expect(JSON.stringify(payload.customFields)).toContain(submissionId);
     expect(payload).not.toHaveProperty('companyName'); // A facility category is not a company name.
@@ -164,7 +164,7 @@ describe('request-specific acknowledgment boundary', () => {
     expect(metadata).toContain('Promotional campaigns and SMS: not authorized by this acknowledgment');
     expect(metadata).toContain('Acknowledgment received by server: ' + receivedAt.toISOString());
     expect(metadata).not.toMatch(/1999|2099|untrusted permission|Advertising measurement consent/);
-    expect(payload.tags).toEqual(['website-lead', 'location-murrieta', 'facility-office-building', 'freq-weekly', 'ref-google-search']);
+    expect(payload.tags).toEqual(['website-lead', 'location-murrieta', 'lead-channel-website', 'facility-office-building', 'freq-weekly', 'ref-google-search']);
     expect(payload).not.toHaveProperty('requestConsent');
     expect(payload).not.toHaveProperty('requestType');
     expect(JSON.stringify(vi.mocked(console.info).mock.calls)).not.toMatch(/Jamie|example\.test|phone\/email|acknowledg/);
@@ -263,6 +263,52 @@ describe('paid source and consented click metadata boundary', () => {
   });
 
   it.each([
+    [{ source: 'google', medium: 'cpc', campaign: 'sacramento-cleaning' }, 'Google Ads', 'google-ads'],
+    [{ source: 'google', medium: 'organic' }, 'Organic Search', 'organic-search'],
+    [{ source: 'bing', medium: 'ppc' }, 'Paid campaign', 'paid-campaign'],
+    [{}, 'Website (organic/direct)', 'website'],
+  ])('routes %j with its evidenced channel and preserves existing workflow tags', async (attribution, label, channel) => {
+    fetchMock.mockResolvedValue(Response.json({ contact: { id: 'accepted' } }));
+    const response = await lead(request({ ...valid, regionSlug: 'sacramento', sourcePage: '/quote/sacramento', attribution }));
+    expect(response.status).toBe(200);
+    const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    expect(payload.source).toBe(label + ' - Sacramento');
+    expect(payload.tags).toEqual(expect.arrayContaining(['website-lead', 'location-sacramento', 'lead-channel-' + channel]));
+    const metadata = JSON.stringify(payload.customFields);
+    expect(metadata).toContain('Lead channel: ' + label);
+    expect(metadata).toContain('Attribution evidence: ');
+  });
+
+  it('does not treat the quote route or self-reported Google Search answer as paid evidence', async () => {
+    fetchMock.mockResolvedValue(Response.json({ contact: { id: 'accepted' } }));
+    await lead(request({ ...valid, sourcePage: '/quote/murrieta' }));
+    const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    expect(payload.source).toBe('Website (organic/direct) - Murrieta');
+    expect(payload.tags).not.toContain('lead-channel-google-ads');
+  });
+
+  it('records a non-identifying current Google label without inventing click identifiers or measurement permission', async () => {
+    fetchMock.mockResolvedValue(Response.json({ contact: { id: 'accepted' } }));
+    const response = await lead(request({ ...valid, leadOrigin: { channel: 'google-ads', basis: 'current-google-click-marker' } }));
+    expect(response.status).toBe(200);
+    const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    expect(payload.source).toBe('Google Ads - Murrieta');
+    expect(payload.tags).toContain('lead-channel-google-ads');
+    expect(JSON.stringify(payload.customFields)).toContain('reported by website; advertising attribution not verified');
+    expect(JSON.stringify(payload.customFields)).not.toMatch(/gclid:|gbraid:|wbraid:|Advertising measurement consent/);
+  });
+
+  it.each([
+    'google-ads', [],
+    { channel: 'google-ads', basis: 'current-organic-utm' },
+    { channel: 'google-ads', basis: 'current-google-click-marker', url: 'https://private.example.test' },
+  ])('rejects an invalid current-source boundary before delivery: %j', async leadOrigin => {
+    const response = await lead(request({ ...valid, leadOrigin }));
+    expect(response.status).toBe(400);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it.each([
     { consent: 'denied', capturedAt: new Date().toISOString(), clickIds: { gclid: 'valid_test_click' } },
     { consent: 'granted', capturedAt: 'bad', clickIds: { gclid: 'valid_test_click' } },
     { consent: 'granted', capturedAt: new Date().toISOString(), clickIds: { gclid: 'person@example.test' } },
@@ -271,5 +317,49 @@ describe('paid source and consented click metadata boundary', () => {
   ])('rejects invalid ad metadata without contacting CRM: %j', async adAttribution => {
     expect((await lead(request({ ...valid, adAttribution }))).status).toBe(400);
     expect(fetchMock).not.toHaveBeenCalled();
+  });
+});
+
+describe('owner-facing notes and request audit separation', () => {
+  const messageFieldId = 'V3Is6asWPYYuj2lWnjIG';
+  const requestDetailsFieldId = 'swxhJlbYtJHOTPi41zwy';
+
+  it('keeps the customer message readable and writes the complete audit to the configured field', async () => {
+    fetchMock.mockResolvedValue(Response.json({ contact: { id: 'accepted' } }));
+    const capturedAt = new Date().toISOString();
+    const clickId = 'Google_click_test_1234';
+    await lead(request({ ...valid, adAttribution: { consent: 'granted', capturedAt, clickIds: { gclid: clickId } } }));
+    const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    expect(payload.customFields.find((field: { id: string }) => field.id === messageFieldId).field_value).toBe(valid.message);
+    const audit = payload.customFields.find((field: { id: string }) => field.id === requestDetailsFieldId).field_value;
+    expect(audit).toContain('Website request reference: ' + submissionId);
+    expect(audit).toContain('Lead channel: Google Ads');
+    expect(audit).toContain('Attribution evidence: Google click identifier present: gclid (format validated)');
+    expect(audit).toContain('Page: /locations/murrieta');
+    expect(audit).toContain('Request acknowledgment version: ' + REQUEST_FOLLOWUP_NOTICE_VERSION);
+    expect(audit).toContain('gclid: ' + clickId);
+    expect(audit).toContain(capturedAt);
+    expect(audit).not.toContain(valid.message);
+  });
+
+  it('uses a clear notes fallback while keeping the audit separate', async () => {
+    fetchMock.mockResolvedValue(Response.json({ contact: { id: 'accepted' } }));
+    await lead(request({ ...valid, message: '' }));
+    const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    expect(payload.customFields.find((field: { id: string }) => field.id === messageFieldId).field_value).toBe('No additional notes provided.');
+    expect(payload.customFields.find((field: { id: string }) => field.id === requestDetailsFieldId).field_value).toContain(submissionId);
+  });
+
+  it('preserves all metadata in the dedicated request field even without any source evidence', async () => {
+    fetchMock.mockResolvedValue(Response.json({ contact: { id: 'accepted' } }));
+    await lead(request());
+    const payload = JSON.parse(fetchMock.mock.calls[0][1]?.body as string);
+    const message = payload.customFields.find((field: { id: string }) => field.id === messageFieldId).field_value;
+    expect(message).toBe(valid.message);
+    const audit = payload.customFields.find((field: { id: string }) => field.id === requestDetailsFieldId).field_value;
+    expect(audit).toContain('Website request reference: ' + submissionId);
+    expect(audit).toContain('Privacy policy acknowledged: yes');
+    expect(audit).toContain('Lead channel: Website (organic/direct)');
+    expect(payload.customFields).toHaveLength(5);
   });
 });
