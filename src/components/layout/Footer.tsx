@@ -156,7 +156,7 @@ export default function Footer() {
               <a
                 href="https://tothemaxmedia.com"
                 target="_blank"
-                rel="noopener"
+                rel="nofollow noopener"
                 className="text-gray-300 transition-colors hover:text-sage"
               >
                 To The Max Media
