@@ -41,6 +41,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Keep the estimate's action clear while visitors use the calculator on a phone. */
+body:has(#cleaning-calculator[data-in-view="true"]) [data-mobile-quote] {
+  display: none;
+}
+
 /* FAQ Accordion Animation */
 .accordion-content {
   overflow: hidden;

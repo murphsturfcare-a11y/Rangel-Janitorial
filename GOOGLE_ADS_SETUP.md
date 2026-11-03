@@ -15,6 +15,14 @@ Account settings: **auto-tagging on, call reporting on, auto-apply off**. The Oc
 
 ## Website lead delivery and owner notification
 
+### Cleaning calculator
+
+The homepage and all three regional `/quote/` landing pages include an interactive cleaning calculator. Visitors can compare Standard, Detailed and Platinum estimates, select specific tasks and send the selected estimate with their contact details. Regional landing pages keep their local office; homepage visitors choose their service area.
+
+Calculator requests use the same lead function and accepted-receipt conversion event as the existing forms. The server validates the calculator inputs and recomputes prices. For these requests, **Questions / Comments** includes customer notes followed by the selected industry, square footage, schedule, tasks, package and estimated prices, so the existing owner email includes the estimate. The same summary is retained in **Website Request Details**. Other form requests retain their existing notes format.
+
+Prices are planning estimates. Final package scope and price require a facility walkthrough. Calculator interaction and pressing the initial send button do not count as lead conversions; only a matching accepted request receipt does. Calculator source tests and mocked delivery checks do not establish actual inbox delivery or Google-attributed conversions.
+
 The regional website form submits to the same-origin Netlify lead function, which directly creates the contact in Rangel's HighLevel sub-account using server-only `GHL_API_KEY` and `GHL_LOCATION_ID`. Rangel's separate Make account is not involved. The existing published **Contact Form Submission** workflow uses **Contact created with regional-tag filtering**, alongside legacy **Form submitted** triggers. Tags are routing/filter conditions; this route is not a standalone tag-added trigger.
 
 All three owner email actions now use **Rangel Janitorial Leads** as the sender name and Rangel's business address. The subject includes region, source and contact name. The layout has a source panel, contact details, call/email links, facility/frequency, clean customer notes and a tested HighLevel contact-record link. Internal request, attribution and acknowledgment details are stored in **Website Request Details**, separately from **Questions / Comments**. Recipients, triggers and internal SMS actions were preserved.

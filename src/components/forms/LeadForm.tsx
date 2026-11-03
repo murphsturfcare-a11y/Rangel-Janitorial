@@ -11,6 +11,7 @@ import { captureAdAttribution } from '@/lib/analytics/ad-attribution';
 import { captureLeadOrigin } from '@/lib/analytics/lead-origin';
 import { GOOGLE_ADS_CONFIGURED } from '@/lib/analytics/ads-config';
 import WebsiteCallLink from '@/components/analytics/WebsiteCallLink';
+import type { CleaningEstimateInput } from '@/lib/cleaning-estimate';
 
 const facilityIcons: Record<typeof facilityOptions[number], LucideIcon> = {
   'Office Building': Building2, 'Medical / Dental': Stethoscope,
@@ -36,6 +37,8 @@ interface LeadFormProps {
   sourcePage?: string;
   variant?: 'standard' | 'compact' | 'wizard';
   requestType?: 'quote' | 'walkthrough';
+  cleaningEstimate?: CleaningEstimateInput;
+  onSubmissionLockedChange?: (locked: boolean) => void;
   /** Kept while existing callers migrate from the former embedded GHL forms. */
   formId?: string;
   location?: string;
@@ -61,7 +64,7 @@ function focusVisibleWizardElement(element: HTMLElement | null): void {
   if (!dialog || dialog.open) element.focus();
 }
 
-export default function LeadForm({ ref, regionSlug, location, formPlacement = 'hero', sourcePage, variant = 'standard', requestType = 'quote' }: LeadFormProps) {
+export default function LeadForm({ ref, regionSlug, location, formPlacement = 'hero', sourcePage, variant = 'standard', requestType = 'quote', cleaningEstimate, onSubmissionLockedChange }: LeadFormProps) {
   const instanceId = useId();
   const id = (field: string) => instanceId + '-' + field;
   const region = regions.find(region => region.slug === regionSlug || (!regionSlug && region.city === location));
@@ -83,6 +86,10 @@ export default function LeadForm({ ref, regionSlug, location, formPlacement = 'h
   const started = useRef(false);
   const errorRef = useRef<HTMLDivElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    onSubmissionLockedChange?.(navigationLocked || status === 'success');
+  }, [navigationLocked, status, onSubmissionLockedChange]);
 
   useImperativeHandle(ref, () => ({
     selectFacility(facilityType) {
@@ -169,6 +176,7 @@ export default function LeadForm({ ref, regionSlug, location, formPlacement = 'h
       frequency: data.get('frequency'),
       referralSource: data.get('referralSource'),
       message: data.get('message'),
+      ...(cleaningEstimate ? { cleaningEstimate } : {}),
     };
     inFlight.current = true;
     setStatus('loading');
@@ -213,7 +221,7 @@ export default function LeadForm({ ref, regionSlug, location, formPlacement = 'h
           <CheckCircle className="w-8 h-8 text-sage" />
         </div>
         <h3 className="text-xl font-bold text-charcoal font-heading mb-2">
-          {isWalkthrough ? 'Walkthrough Request Received!' : 'Quote Request Received!'}
+          {cleaningEstimate ? 'Estimate Request Received!' : isWalkthrough ? 'Walkthrough Request Received!' : 'Quote Request Received!'}
         </h3>
         <p className="text-charcoal-light font-body text-sm max-w-sm">
           {isWalkthrough ? 'Thank you! Your request is recorded. Our team will contact you to discuss your facility and confirm a walkthrough time.' : 'Thank you! Your request is recorded. Our team will review your facility details and contact you about your estimate.'}
@@ -240,10 +248,10 @@ export default function LeadForm({ ref, regionSlug, location, formPlacement = 'h
         </div>
       </>}
       <h3 id={id('heading')} ref={isWizard ? questionRef : undefined} data-wizard-heading={isWizard ? '' : undefined} tabIndex={isWizard ? -1 : undefined} className={isWizard ? wizardStyles.question : 'text-lg font-bold text-charcoal font-heading text-center mb-1'}>
-        {isWizard ? wizardStep === 1 ? 'What type of facility needs cleaning?' : wizardStep === 2 ? 'How often do you need cleaning?' : isWalkthrough ? 'How can we arrange your walkthrough?' : 'Where can we send your quote?' : 'Get Your Free Quote'}
+        {cleaningEstimate ? 'Send your estimate to Rangel' : isWizard ? wizardStep === 1 ? 'What type of facility needs cleaning?' : wizardStep === 2 ? 'How often do you need cleaning?' : isWalkthrough ? 'How can we arrange your walkthrough?' : 'Where can we send your quote?' : 'Get Your Free Quote'}
       </h3>
       <p className={isWizard ? wizardStyles.helper : 'text-charcoal-light font-body text-xs text-center mb-4'}>
-        {isWizard ? wizardStep === 3 ? isWalkthrough ? 'Our team will contact you to confirm a time. No appointment is booked yet.' : 'Our team will contact you to talk through your cleaning needs.' : wizardStep === 2 ? 'Choose a schedule, or let us help you decide. Tap to continue.' : 'Choose the closest match. One tap takes you to the next step.' : "Tell us about your facility and we'll provide a custom estimate."}
+        {cleaningEstimate ? 'Our team will review your estimate and contact you to confirm the details.' : isWizard ? wizardStep === 3 ? isWalkthrough ? 'Our team will contact you to confirm a time. No appointment is booked yet.' : 'Our team will contact you to talk through your cleaning needs.' : wizardStep === 2 ? 'Choose a schedule, or let us help you decide. Tap to continue.' : 'Choose the closest match. One tap takes you to the next step.' : "Tell us about your facility and we'll provide a custom estimate."}
       </p>
 
       {isWizard && <>
@@ -278,7 +286,7 @@ export default function LeadForm({ ref, regionSlug, location, formPlacement = 'h
       </div>
 
       {/* Keep contact fields mounted so Back and dialog close/reopen preserve entered details. */}
-      <fieldset hidden={isWizard && wizardStep !== 3} disabled={isWizard && wizardStep !== 3} aria-label={isWizard ? 'Contact details' : undefined} className="min-w-0 space-y-4 border-0 p-0">
+      <fieldset hidden={isWizard && wizardStep !== 3} disabled={(isWizard && wizardStep !== 3) || (!!cleaningEstimate && navigationLocked)} aria-label={isWizard ? 'Contact details' : undefined} className="min-w-0 space-y-4 border-0 p-0">
       {/* Name row */}
       <div className={isWizard ? wizardStyles.nameRow : 'grid grid-cols-2 gap-3'}>
         <div>
@@ -314,7 +322,7 @@ export default function LeadForm({ ref, regionSlug, location, formPlacement = 'h
       </div>
 
       {/* Contact row */}
-      <div className={isWizard ? wizardStyles.contactRow : 'grid grid-cols-2 gap-3'}>
+      <div className={isWizard ? wizardStyles.contactRow : cleaningEstimate ? 'grid grid-cols-1 sm:grid-cols-2 gap-3' : 'grid grid-cols-2 gap-3'}>
         <div>
           <label htmlFor={id('phone')} className="block text-xs font-semibold text-charcoal font-body mb-1">
             {isWizard && <Phone size={14} aria-hidden="true" />} Phone <span className="text-red-500">*</span>
@@ -348,7 +356,7 @@ export default function LeadForm({ ref, regionSlug, location, formPlacement = 'h
       </div>
 
       {/* Facility + Frequency row */}
-      {!isWizard && <div className="grid grid-cols-2 gap-3">
+      {!isWizard && !cleaningEstimate && <div className="grid grid-cols-2 gap-3">
         <div>
           <label htmlFor={id('facilityType')} className="block text-xs font-semibold text-charcoal font-body mb-1">
             Type of Facility
@@ -449,7 +457,7 @@ export default function LeadForm({ ref, regionSlug, location, formPlacement = 'h
           </>
         ) : (
           <>
-            {isWalkthrough ? 'Request my free walkthrough' : isWizard ? 'Send quote request' : 'Get Your Free Quote'}
+            {cleaningEstimate ? 'Send estimate request' : isWalkthrough ? 'Request my free walkthrough' : isWizard ? 'Send quote request' : 'Get Your Free Quote'}
             <ArrowRight className="w-4 h-4" />
           </>
         )}

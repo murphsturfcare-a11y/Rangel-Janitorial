@@ -26,6 +26,7 @@ import {
   MapPin,
 } from 'lucide-react';
 import OurWorkGallery from '@/components/sections/OurWorkGallery';
+import CleaningCalculator from '@/components/calculator/CleaningCalculator';
 
 /* ========================== DATA ========================== */
 
@@ -199,7 +200,7 @@ export default function HomeContent() {
             <p className="mt-5 text-lg sm:text-xl text-gray-200 font-body leading-relaxed max-w-2xl">
               30+ years of experience. Spotless facilities — guaranteed. Trusted by 500+ California businesses.
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap items-center gap-5">
               <Link
                 href="/locations"
                 className="inline-flex items-center justify-center gap-2 bg-sage hover:bg-sage-dark text-white font-heading font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-md hover:shadow-lg"
@@ -207,6 +208,7 @@ export default function HomeContent() {
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />
               </Link>
+              <a href="#cleaning-calculator" className="inline-flex min-h-11 items-center gap-2 font-body text-sm font-semibold text-white underline underline-offset-4">Estimate your cleaning cost <ArrowRight size={17} aria-hidden="true" /></a>
             </div>
           </div>
         </div>
@@ -379,6 +381,8 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
+
+      <CleaningCalculator sourcePage="/" />
 
       {/* TESTIMONIALS */}
       <section className="bg-white py-16 sm:py-20">

@@ -10,6 +10,7 @@ import business from '@/data/business.json';
 import regions from '@/data/regions.json';
 import { generatePageMetadata } from '@/lib/seo/metadata';
 import styles from './quote.module.css';
+import CleaningCalculator from '@/components/calculator/CleaningCalculator';
 
 type QuotePageProps = { params: Promise<{ region: string }> };
 
@@ -111,6 +112,7 @@ export default async function QuotePage({ params }: QuotePageProps) {
                 <h1 id="quote-title">You don’t have a cleaning problem. <span>You have a reliability problem.</span></h1>
                 <p className={styles.intro}>Missed details, poor communication and inconsistent crews create more work for your team. Rangel delivers accountable commercial cleaning across Northern &amp; Southern California.</p>
                 <WalkthroughButton />
+                <a href="#cleaning-calculator" className={styles.calculatorLink}>Estimate your cleaning cost <ArrowRight size={16} aria-hidden="true" /></a>
                 <ul className={styles.assurance} aria-label="Your walkthrough offer">
                   <li><Clock3 size={15} aria-hidden="true" />Free 20-minute walkthrough</li>
                   <li><Check size={15} aria-hidden="true" />No obligation</li>
@@ -134,6 +136,8 @@ export default async function QuotePage({ params }: QuotePageProps) {
               </section>
             </div>
           </section>
+
+          <CleaningCalculator regionSlug={region.slug} sourcePage={`/quote/${region.slug}`} variant="landing" />
 
           <section aria-labelledby="reasons-title" className={styles.reasons}>
             <div className={styles.container}>
@@ -193,7 +197,7 @@ export default async function QuotePage({ params }: QuotePageProps) {
             <nav aria-label="Legal"><Link href="/privacy-policy">Privacy policy</Link><Link href="/terms-of-service">Terms of service</Link><QuotePrivacySettings /></nav>
           </div>
         </footer>
-        <div className={styles.mobileAction}><QuoteWizardButton className={styles.primaryButton}>Book my free walkthrough <ArrowRight size={17} aria-hidden="true" /></QuoteWizardButton></div>
+        <div data-mobile-quote className={styles.mobileAction}><QuoteWizardButton className={styles.primaryButton}>Book my free walkthrough <ArrowRight size={17} aria-hidden="true" /></QuoteWizardButton></div>
       </div>
     </QuoteWizardProvider>
   );

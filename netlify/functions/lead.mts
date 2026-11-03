@@ -3,6 +3,7 @@ import regions from '../../src/data/regions.json';
 import { facilityOptions, frequencyOptions, referralOptions, leadLimits, submissionIdPattern, REQUEST_FOLLOWUP_NOTICE_VERSION, type LeadResult } from '../../src/lib/leads';
 import { adClickKeys, normalizeAdAttribution } from '../../src/lib/ad-clicks';
 import { campaignLabelKeys, classifyLeadSource, normalizeCampaignLabels, normalizeLeadOrigin } from '../../src/lib/lead-source';
+import { calculateCleaningEstimate, cleaningPackages, cleaningTasks, normalizeCleaningEstimateInput, type CleaningEstimateInput } from '../../src/lib/cleaning-estimate';
 
 declare const Netlify: { env: { get(name: string): string | undefined } };
 
@@ -129,6 +130,39 @@ function requestAcknowledgment(body: Record<string, unknown>): string[] {
   ];
 }
 
+/** Prices and descriptions are rebuilt from validated choices, never supplied by the browser. */
+function cleaningEstimateSummary(input: CleaningEstimateInput): string {
+  const estimate = calculateCleaningEstimate(input);
+  const selected = estimate.packages[input.package];
+  const packageLabel = cleaningPackages.find(option => option.id === input.package)!.label;
+  const taskLabels = cleaningTasks.filter(task => input.tasks.includes(task.id)).map(task => task.label);
+  const money = (amount: number) => '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return [
+    'Cleaning calculator estimate (budget only)',
+    'Industry: ' + input.industry,
+    'Facility size: ' + input.squareFootage.toLocaleString('en-US') + ' sq ft',
+    'Cleaning schedule: ' + input.daysPerWeek + (input.daysPerWeek === 1 ? ' day per week' : ' days per week'),
+    'Estimated visits per month: ' + estimate.visitsPerMonth,
+    'Selected tasks: ' + (taskLabels.length ? taskLabels.join('; ') : 'None'),
+    'Package: ' + packageLabel,
+    'Estimated hours per visit: ' + estimate.hoursPerVisit.toFixed(2),
+    'Estimated cost per visit: ' + money(selected.costPerVisit),
+    'Estimated monthly cost: ' + money(selected.monthlyCost),
+    'Final scope and price require facility review. This is not a booking or final quote.',
+  ].join('\n');
+}
+
+function cleaningEstimateFacility(input: CleaningEstimateInput): string {
+  if (input.industry === 'Office' || input.industry.startsWith('Large Office')) return 'Office Building';
+  return input.industry === 'Industrial' ? 'Industrial / Warehouse' : 'Other';
+}
+
+function cleaningEstimateFrequency(input: CleaningEstimateInput): string {
+  if (input.daysPerWeek === 1) return 'Weekly';
+  if (input.daysPerWeek === 5) return 'Daily (5x/week)';
+  return input.daysPerWeek + 'x per week';
+}
+
 export default async function lead(req: Request): Promise<Response> {
   const origin = req.headers.get('origin') || '';
   const isAllowed = !origin || allowedOrigins().has(origin);
@@ -163,8 +197,13 @@ export default async function lead(req: Request): Promise<Response> {
     if (!region) throw new InputError('Please choose a valid service region.');
     const placement = field(body, 'formPlacement', 20, true);
     if (!['hero', 'bottom'].includes(placement)) throw new InputError('Please use a current quote form.');
+    const normalizedEstimate = body.cleaningEstimate === undefined ? null : normalizeCleaningEstimateInput(body.cleaningEstimate);
+    if (normalizedEstimate && !normalizedEstimate.success) throw new InputError(normalizedEstimate.error);
+    const cleaningEstimate = normalizedEstimate?.success ? normalizedEstimate.data : null;
+    const estimateSummary = cleaningEstimate ? cleaningEstimateSummary(cleaningEstimate) : '';
     const sourcePage = field(body, 'sourcePage', 200, true);
-    if (!['/locations/' + region.slug, '/quote/' + region.slug].includes(sourcePage)) throw new InputError('Please use your regional quote form.');
+    const sourcePages = ['/locations/' + region.slug, '/quote/' + region.slug, ...(cleaningEstimate ? ['/', '/cleaning-calculator'] : [])];
+    if (!sourcePages.includes(sourcePage)) throw new InputError('Please use your regional quote form.');
     const acknowledgment = requestAcknowledgment(body);
     const firstName = field(body, 'firstName', leadLimits.name, true);
     const lastName = field(body, 'lastName', leadLimits.name, true);
@@ -174,8 +213,8 @@ export default async function lead(req: Request): Promise<Response> {
     if (!/^[+()\d\s.-]+$/.test(phone) || phone.replace(/\D/g, '').length < 7 || phone.replace(/\D/g, '').length > 15) {
       throw new InputError('Please enter a valid phone number.');
     }
-    const facilityType = choice(body, 'facilityType', facilityOptions);
-    const frequency = choice(body, 'frequency', frequencyOptions);
+    const facilityType = cleaningEstimate ? cleaningEstimateFacility(cleaningEstimate) : choice(body, 'facilityType', facilityOptions);
+    const frequency = cleaningEstimate ? cleaningEstimateFrequency(cleaningEstimate) : choice(body, 'frequency', frequencyOptions);
     const referralSource = choice(body, 'referralSource', referralOptions);
     const message = field(body, 'message', leadLimits.message);
     const campaignMetadata = attribution(body);
@@ -189,12 +228,16 @@ export default async function lead(req: Request): Promise<Response> {
       'Attribution evidence: ' + leadSource.evidence,
       'Page: ' + sourcePage, 'Form: ' + placement,
       ...campaignMetadata, ...clickMetadata, ...acknowledgment,
+      ...(estimateSummary ? ['', estimateSummary] : []),
     ].join('\n');
+    // The existing owner email template reads questions/comments. Include the estimate
+    // there as well as in the audit so no live workflow/template change is needed.
+    const ownerNotes = estimateSummary ? [message, estimateSummary].filter(Boolean).join('\n\n') : message || 'No additional notes provided.';
     const customFields = [
       ...(facilityType ? [{ id: CUSTOM_FIELD_IDS.facilityType, field_value: facilityType }] : []),
       ...(frequency ? [{ id: CUSTOM_FIELD_IDS.frequency, field_value: frequency }] : []),
       ...(referralSource ? [{ id: CUSTOM_FIELD_IDS.referralSource, field_value: referralSource }] : []),
-      { id: CUSTOM_FIELD_IDS.message, field_value: message || 'No additional notes provided.' },
+      { id: CUSTOM_FIELD_IDS.message, field_value: ownerNotes },
       { id: CUSTOM_FIELD_IDS.requestDetails, field_value: details },
     ];
     payload = {
