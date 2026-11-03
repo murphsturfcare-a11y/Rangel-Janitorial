@@ -3,7 +3,8 @@ import regions from '../../src/data/regions.json';
 import { facilityOptions, frequencyOptions, referralOptions, leadLimits, submissionIdPattern, REQUEST_FOLLOWUP_NOTICE_VERSION, type LeadResult } from '../../src/lib/leads';
 import { adClickKeys, normalizeAdAttribution } from '../../src/lib/ad-clicks';
 import { campaignLabelKeys, classifyLeadSource, normalizeCampaignLabels, normalizeLeadOrigin } from '../../src/lib/lead-source';
-import { calculateCleaningEstimate, cleaningPackages, cleaningTasks, normalizeCleaningEstimateInput, type CleaningEstimateInput } from '../../src/lib/cleaning-estimate';
+import { cleaningPackages, cleaningTasks, normalizeCleaningEstimateInput, type CleaningEstimate, type CleaningEstimateInput } from '../../src/lib/cleaning-estimate';
+import { calculateCleaningEstimate, getCleaningPricingVersion, PricingConfigurationError, readCleaningPricingPolicy } from '../lib/cleaning-pricing';
 
 declare const Netlify: { env: { get(name: string): string | undefined } };
 
@@ -131,8 +132,7 @@ function requestAcknowledgment(body: Record<string, unknown>): string[] {
 }
 
 /** Prices and descriptions are rebuilt from validated choices, never supplied by the browser. */
-function cleaningEstimateSummary(input: CleaningEstimateInput): string {
-  const estimate = calculateCleaningEstimate(input);
+function cleaningEstimateSummary(input: CleaningEstimateInput, estimate: CleaningEstimate): string {
   const selected = estimate.packages[input.package];
   const packageLabel = cleaningPackages.find(option => option.id === input.package)!.label;
   const taskLabels = cleaningTasks.filter(task => input.tasks.includes(task.id)).map(task => task.label);
@@ -200,7 +200,6 @@ export default async function lead(req: Request): Promise<Response> {
     const normalizedEstimate = body.cleaningEstimate === undefined ? null : normalizeCleaningEstimateInput(body.cleaningEstimate);
     if (normalizedEstimate && !normalizedEstimate.success) throw new InputError(normalizedEstimate.error);
     const cleaningEstimate = normalizedEstimate?.success ? normalizedEstimate.data : null;
-    const estimateSummary = cleaningEstimate ? cleaningEstimateSummary(cleaningEstimate) : '';
     const sourcePage = field(body, 'sourcePage', 200, true);
     const sourcePages = ['/locations/' + region.slug, '/quote/' + region.slug, ...(cleaningEstimate ? ['/', '/cleaning-calculator'] : [])];
     if (!sourcePages.includes(sourcePage)) throw new InputError('Please use your regional quote form.');
@@ -222,12 +221,26 @@ export default async function lead(req: Request): Promise<Response> {
     const leadOrigin = body.leadOrigin == null ? null : normalizeLeadOrigin(body.leadOrigin);
     if (body.leadOrigin != null && !leadOrigin) throw new InputError('Please reload the form to refresh the request source.');
     const leadSource = classifyLeadSource(body.attribution, body.adAttribution, leadOrigin);
+    let estimateSummary = '';
+    let pricingVersion = '';
+    if (cleaningEstimate) {
+      const policy = readCleaningPricingPolicy(getEnv);
+      pricingVersion = getCleaningPricingVersion(policy);
+      if (typeof body.cleaningEstimateVersion !== 'string' || !body.cleaningEstimateVersion.trim()) {
+        return respond(409, 'rejected', 'ESTIMATE_EXPIRED', 'Please reload this page and review your refreshed estimate before sending it.', false);
+      }
+      if (body.cleaningEstimateVersion !== pricingVersion) {
+        return respond(409, 'rejected', 'ESTIMATE_EXPIRED', 'Your estimate needs to be refreshed. Please edit your estimate and review the updated price before sending it.', true);
+      }
+      estimateSummary = cleaningEstimateSummary(cleaningEstimate, calculateCleaningEstimate(cleaningEstimate, policy));
+    }
     const details = [
       'Website request reference: ' + submissionId,
       'Lead channel: ' + leadSource.label,
       'Attribution evidence: ' + leadSource.evidence,
       'Page: ' + sourcePage, 'Form: ' + placement,
       ...campaignMetadata, ...clickMetadata, ...acknowledgment,
+      ...(pricingVersion ? ['Estimate pricing revision: ' + pricingVersion] : []),
       ...(estimateSummary ? ['', estimateSummary] : []),
     ].join('\n');
     // The existing owner email template reads questions/comments. Include the estimate
@@ -252,6 +265,7 @@ export default async function lead(req: Request): Promise<Response> {
     };
   } catch (error) {
     if (error instanceof InputError) return respond(error.status, 'rejected', 'INVALID_INPUT', error.message, true);
+    if (error instanceof PricingConfigurationError) return respond(503, 'rejected', 'ESTIMATE_UNAVAILABLE', 'Cleaning estimates are temporarily unavailable. Please contact your local office for a quote.', true);
     return respond(400, 'rejected', 'INVALID_INPUT', 'We could not read the form. Please try again.', true);
   }
 

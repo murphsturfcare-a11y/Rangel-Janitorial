@@ -1,8 +1,16 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import lead from '../../netlify/functions/lead.mjs';
 import { REQUEST_FOLLOWUP_NOTICE_VERSION } from '@/lib/leads';
+import { getCleaningPricingVersion, readCleaningPricingPolicy } from '../../netlify/lib/cleaning-pricing';
 
 const submissionId = '8b75ba63-7b5d-4aa7-8e25-a4b9b3b3ef42';
+const pricingSettings: Record<string, string> = {
+  CLEANING_BASE_HOURLY_RATE: '45', CLEANING_OFFICE_MARKUP_PERCENT: '0',
+  CALCULATOR_PAYROLL_TAX_INSURANCE_PERCENT: '0', CALCULATOR_OVERHEAD_PERCENT: '0',
+  CALCULATOR_PROFIT_MARKUP_PERCENT: '0', CALCULATOR_MISC_MONTHLY_COST: '0',
+};
+const estimateVersion = getCleaningPricingVersion(readCleaningPricingPolicy(name => pricingSettings[name]));
+let settings: Record<string, string>;
 const estimate = { industry: 'Office', squareFootage: 10_000, daysPerWeek: 5, tasks: [], package: 'standard' };
 const valid = {
   submissionId, regionSlug: 'sacramento', formPlacement: 'bottom', sourcePage: '/',
@@ -10,7 +18,7 @@ const valid = {
   facilityType: '', frequency: '', referralSource: '', message: 'Please contact me about our office.',
   requestType: 'quote',
   requestConsent: { noticeVersion: REQUEST_FOLLOWUP_NOTICE_VERSION, privacyAcknowledged: true, followUpRequested: true },
-  cleaningEstimate: estimate,
+  cleaningEstimate: estimate, cleaningEstimateVersion: estimateVersion,
 };
 const messageFieldId = 'V3Is6asWPYYuj2lWnjIG';
 const detailsFieldId = 'swxhJlbYtJHOTPi41zwy';
@@ -32,7 +40,8 @@ function customField(id: string): string {
 }
 
 beforeEach(() => {
-  vi.stubGlobal('Netlify', { env: { get: (key: string) => ({ GHL_API_KEY: 'test-only-key', GHL_LOCATION_ID: 'test-office' })[key] } });
+  settings = { ...pricingSettings, GHL_API_KEY: 'test-only-key', GHL_LOCATION_ID: 'test-office' };
+  vi.stubGlobal('Netlify', { env: { get: (key: string) => settings[key] } });
   vi.stubGlobal('fetch', fetchMock);
   fetchMock.mockReset();
   fetchMock.mockResolvedValue(Response.json({ contact: { id: 'accepted' } }));
@@ -158,5 +167,83 @@ describe('calculator lead delivery', () => {
     expect(await response.json()).toMatchObject({ success: false, outcome: 'unknown', retryAllowed: false });
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(JSON.stringify(vi.mocked(console.error).mock.calls)).not.toMatch(/Jamie|example\.test|calculator|3,960/);
+  });
+
+  it.each([undefined, null, '', '   ', 0, {}, []])('requires a reload for a missing or unusable preview revision: %j', async cleaningEstimateVersion => {
+    const response = await lead(request({ ...valid, cleaningEstimateVersion }));
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({
+      success: false, outcome: 'rejected', code: 'ESTIMATE_EXPIRED', retryAllowed: false,
+      message: 'Please reload this page and review your refreshed estimate before sending it.',
+    });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it.each(['old-revision', estimateVersion + ' '])('allows edit-and-refresh for a stale known preview revision: %j', async cleaningEstimateVersion => {
+    const response = await lead(request({ ...valid, cleaningEstimateVersion }));
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({
+      success: false, outcome: 'rejected', code: 'ESTIMATE_EXPIRED', retryAllowed: true,
+      message: 'Your estimate needs to be refreshed. Please edit your estimate and review the updated price before sending it.',
+    });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('rejects an old estimate after private pricing changes, without delivering a different quote', async () => {
+    settings.CALCULATOR_OVERHEAD_PERCENT = '26';
+    const response = await lead(request(valid));
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ code: 'ESTIMATE_EXPIRED' });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('accepts a refreshed preview and applies private costs without exposing the assumptions in customer-facing details', async () => {
+    settings = {
+      ...settings, CLEANING_BASE_HOURLY_RATE: '60', CLEANING_OFFICE_MARKUP_PERCENT: '10',
+      CALCULATOR_PAYROLL_TAX_INSURANCE_PERCENT: '25', CALCULATOR_OVERHEAD_PERCENT: '26',
+      CALCULATOR_PROFIT_MARKUP_PERCENT: '30',
+    };
+    const cleaningEstimateVersion = getCleaningPricingVersion(readCleaningPricingPolicy(name => settings[name]));
+    const response = await lead(request({
+      ...valid, cleaningEstimateVersion, cleaningEstimate: { ...estimate, squareFootage: 2000, daysPerWeek: 2 },
+    }));
+    expect(response.status).toBe(200);
+    expect(customField(messageFieldId)).toContain('Estimated cost per visit: $128.70');
+    expect(customField(messageFieldId)).toContain('Estimated monthly cost: $1,158.30');
+    expect(customField(detailsFieldId)).toContain('Estimate pricing revision: ' + cleaningEstimateVersion);
+    expect(customField(messageFieldId)).not.toMatch(/payroll|insurance|overhead|profit|misc|markup/i);
+  });
+
+  it.each([
+    ['CALCULATOR_PAYROLL_TAX_INSURANCE_PERCENT', 'NaN'], ['CALCULATOR_OVERHEAD_PERCENT', ''],
+    ['CALCULATOR_PROFIT_MARKUP_PERCENT', '-1'], ['CALCULATOR_MISC_MONTHLY_COST', 'Infinity'],
+  ])('does not send a calculator lead with invalid private configuration %s', async (name, value) => {
+    settings[name] = value;
+    const response = await lead(request(valid));
+    expect(response.status).toBe(503);
+    expect(await response.json()).toMatchObject({ success: false, outcome: 'rejected', code: 'ESTIMATE_UNAVAILABLE', retryAllowed: true });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('delivers a matching inclusive estimate when all pricing environment settings are absent', async () => {
+    settings = { GHL_API_KEY: 'test-only-key', GHL_LOCATION_ID: 'test-office' };
+    const cleaningEstimateVersion = getCleaningPricingVersion(readCleaningPricingPolicy(() => undefined));
+    const response = await lead(request({
+      ...valid, cleaningEstimateVersion, cleaningEstimate: { ...estimate, squareFootage: 2000, daysPerWeek: 2 },
+    }));
+    expect(response.status).toBe(200);
+    expect(customField(messageFieldId)).toContain('Estimated cost per visit: $79.20');
+    expect(customField(messageFieldId)).toContain('Estimated monthly cost: $712.80');
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps ordinary regional lead delivery available when calculator configuration is absent', async () => {
+    settings = { GHL_API_KEY: 'test-only-key', GHL_LOCATION_ID: 'test-office' };
+    const response = await lead(request({
+      ...valid, sourcePage: '/locations/sacramento', cleaningEstimate: undefined, cleaningEstimateVersion: undefined,
+    }));
+    expect(response.status).toBe(200);
+    expect(customField(messageFieldId)).toBe(valid.message);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });
