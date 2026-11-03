@@ -1,11 +1,11 @@
-/** Shared browser/server pricing model, preserving the supplied calculator's formula. */
+/** Client-safe choices, validation and public results. Pricing policy stays in Netlify functions. */
 export const CLEANING_INDUSTRIES = [
-  { id: 'Office', label: 'Office', multiplier: 0 },
-  { id: 'Dealership', label: 'Dealership', multiplier: 0.17 },
-  { id: 'Industrial', label: 'Industrial', multiplier: 0.04 },
-  { id: 'Restaurant', label: 'Restaurant', multiplier: 0.09 },
-  { id: 'Large Office [10-15]', label: 'Large Office [10-15]', multiplier: 0.12 },
-  { id: 'Large Office [15-20]', label: 'Large Office [15-20]', multiplier: 0.12 },
+  { id: 'Office', label: 'Office' },
+  { id: 'Dealership', label: 'Dealership' },
+  { id: 'Industrial', label: 'Industrial' },
+  { id: 'Restaurant', label: 'Restaurant' },
+  { id: 'Large Office [10-15]', label: 'Large Office [10-15]' },
+  { id: 'Large Office [15-20]', label: 'Large Office [15-20]' },
 ] as const;
 
 export const CLEANING_TASKS = [
@@ -26,9 +26,9 @@ export const CLEANING_TASKS = [
 ] as const;
 
 export const CLEANING_PACKAGES = [
-  { id: 'standard', label: 'Standard Clean', hourlyPremium: 0 },
-  { id: 'detailed', label: 'Detailed Clean', hourlyPremium: 5 },
-  { id: 'platinum', label: 'Platinum Clean', hourlyPremium: 10 },
+  { id: 'standard', label: 'Standard Clean' },
+  { id: 'detailed', label: 'Detailed Clean' },
+  { id: 'platinum', label: 'Platinum Clean' },
 ] as const;
 
 export const cleaningIndustries = CLEANING_INDUSTRIES;
@@ -49,14 +49,11 @@ export interface CleaningEstimateInput {
 }
 
 export interface CleaningPackageEstimate {
-  hourlyRate: number;
   costPerVisit: number;
   monthlyCost: number;
 }
 
 export interface CleaningEstimate {
-  baseHourlyRate: number;
-  industryHourlyRate: number;
   hoursPerVisit: number;
   visitsPerMonth: number;
   packages: Record<CleaningPackage, CleaningPackageEstimate>;
@@ -65,14 +62,10 @@ export interface CleaningEstimate {
 export const MIN_CLEANING_SQUARE_FOOTAGE = 1;
 export const MAX_CLEANING_SQUARE_FOOTAGE = 1_000_000;
 
-const BASE_HOURLY_RATE = 45;
-const HOURS_PER_ADDITIONAL_TASK = 0.167;
-const SQUARE_FEET_PER_HOUR: Record<CleaningDaysPerWeek, number> = {
-  1: 1250, 2: 2000, 3: 2000, 4: 2000, 5: 2500, 6: 2500, 7: 2500,
-};
-const VISITS_PER_MONTH: Record<CleaningDaysPerWeek, number> = {
-  1: 4.3, 2: 9, 3: 13, 4: 17, 5: 22, 6: 26, 7: 30.5,
-};
+/** The endpoint returns customer-facing totals only, never the internal pricing policy. */
+export type CleaningEstimateResponse =
+  | { success: true; estimate: CleaningEstimate; pricingVersion: string }
+  | { success: false; message: string };
 
 export type CleaningEstimateInputResult =
   | { success: true; data: CleaningEstimateInput }
@@ -116,32 +109,6 @@ export function normalizeCleaningEstimateInput(value: unknown): CleaningEstimate
       squareFootage,
       tasks: CLEANING_TASKS.filter(choice => tasks.includes(choice.id)).map(choice => choice.id),
       package: cleaningPackage.id,
-    },
-  };
-}
-
-/** Round only for display; the original monthly formula uses the unrounded visit cost. */
-export function calculateCleaningEstimate(input: CleaningEstimateInput): CleaningEstimate {
-  const industry = CLEANING_INDUSTRIES.find(choice => choice.id === input.industry)!;
-  const industryHourlyRate = BASE_HOURLY_RATE * (1 + industry.multiplier);
-  const hoursPerVisit = input.squareFootage / SQUARE_FEET_PER_HOUR[input.daysPerWeek]
-    + input.tasks.length * HOURS_PER_ADDITIONAL_TASK;
-  const visitsPerMonth = VISITS_PER_MONTH[input.daysPerWeek];
-  const estimateForPackage = (hourlyPremium: number): CleaningPackageEstimate => {
-    const hourlyRate = industryHourlyRate + hourlyPremium;
-    const costPerVisit = hourlyRate * hoursPerVisit;
-    return { hourlyRate, costPerVisit, monthlyCost: costPerVisit * visitsPerMonth };
-  };
-
-  return {
-    baseHourlyRate: BASE_HOURLY_RATE,
-    industryHourlyRate,
-    hoursPerVisit,
-    visitsPerMonth,
-    packages: {
-      standard: estimateForPackage(0),
-      detailed: estimateForPackage(5),
-      platinum: estimateForPackage(10),
     },
   };
 }

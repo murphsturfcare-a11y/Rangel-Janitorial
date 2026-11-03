@@ -38,6 +38,7 @@ interface LeadFormProps {
   variant?: 'standard' | 'compact' | 'wizard';
   requestType?: 'quote' | 'walkthrough';
   cleaningEstimate?: CleaningEstimateInput;
+  cleaningEstimateVersion?: string;
   onSubmissionLockedChange?: (locked: boolean) => void;
   /** Kept while existing callers migrate from the former embedded GHL forms. */
   formId?: string;
@@ -64,7 +65,7 @@ function focusVisibleWizardElement(element: HTMLElement | null): void {
   if (!dialog || dialog.open) element.focus();
 }
 
-export default function LeadForm({ ref, regionSlug, location, formPlacement = 'hero', sourcePage, variant = 'standard', requestType = 'quote', cleaningEstimate, onSubmissionLockedChange }: LeadFormProps) {
+export default function LeadForm({ ref, regionSlug, location, formPlacement = 'hero', sourcePage, variant = 'standard', requestType = 'quote', cleaningEstimate, cleaningEstimateVersion, onSubmissionLockedChange }: LeadFormProps) {
   const instanceId = useId();
   const id = (field: string) => instanceId + '-' + field;
   const region = regions.find(region => region.slug === regionSlug || (!regionSlug && region.city === location));
@@ -176,7 +177,7 @@ export default function LeadForm({ ref, regionSlug, location, formPlacement = 'h
       frequency: data.get('frequency'),
       referralSource: data.get('referralSource'),
       message: data.get('message'),
-      ...(cleaningEstimate ? { cleaningEstimate } : {}),
+      ...(cleaningEstimate ? { cleaningEstimate, cleaningEstimateVersion } : {}),
     };
     inFlight.current = true;
     setStatus('loading');

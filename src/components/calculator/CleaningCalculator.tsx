@@ -7,10 +7,11 @@ import LeadForm from '@/components/forms/LeadForm';
 import regions from '@/data/regions.json';
 import {
   CLEANING_INDUSTRIES, CLEANING_PACKAGES, CLEANING_TASKS,
-  calculateCleaningEstimate, normalizeCleaningEstimateInput,
+  normalizeCleaningEstimateInput,
   type CleaningIndustry, type CleaningPackage, type CleaningTaskId, type CleaningEstimateInput,
 } from '@/lib/cleaning-estimate';
 import styles from './CleaningCalculator.module.css';
+import { useCleaningEstimate } from './useCleaningEstimate';
 
 const money = (amount: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
 
@@ -30,7 +31,7 @@ export default function CleaningCalculator({ regionSlug, sourcePage, variant = '
   const [selectedPackage, setSelectedPackage] = useState<CleaningPackage>('standard');
   const [office, setOffice] = useState(regionSlug || '');
   const [contactOpen, setContactOpen] = useState(false);
-  const [requestDraft, setRequestDraft] = useState<{ input: CleaningEstimateInput; office: string } | null>(null);
+  const [requestDraft, setRequestDraft] = useState<{ input: CleaningEstimateInput; office: string; pricingVersion: string } | null>(null);
   const [deliveryLocked, setDeliveryLocked] = useState(false);
   const section = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
@@ -38,7 +39,7 @@ export default function CleaningCalculator({ regionSlug, sourcePage, variant = '
   const estimateHeading = useRef<HTMLHeadingElement>(null);
   const validation = normalizeCleaningEstimateInput({ industry, squareFootage: Number(squareFootage), daysPerWeek, tasks, package: selectedPackage });
   const input = validation.success ? validation.data : null;
-  const estimate = input ? calculateCleaningEstimate(input) : null;
+  const { estimate, pricingVersion, loading, error: estimateError, refresh } = useCleaningEstimate(input);
   const selected = estimate?.packages[selectedPackage];
   const selectedLabel = CLEANING_PACKAGES.find(entry => entry.id === selectedPackage)!.label;
   const region = regions.find(entry => entry.slug === office);
@@ -51,8 +52,8 @@ export default function CleaningCalculator({ regionSlug, sourcePage, variant = '
   }, []);
 
   function openContact() {
-    if (!input || !region) return;
-    setRequestDraft({ input, office });
+    if (!input || !region || !estimate || !pricingVersion) return;
+    setRequestDraft({ input, office, pricingVersion });
     setContactOpen(true);
     requestAnimationFrame(() => {
       contactHeading.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
@@ -63,6 +64,7 @@ export default function CleaningCalculator({ regionSlug, sourcePage, variant = '
   function editEstimate() {
     if (deliveryLocked) return;
     setContactOpen(false);
+    refresh();
     requestAnimationFrame(() => {
       estimateHeading.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
       estimateHeading.current?.focus({ preventScroll: true });
@@ -127,12 +129,17 @@ export default function CleaningCalculator({ regionSlug, sourcePage, variant = '
             </details>
           </fieldset>
 
-          <div className={styles.result}>
+          <div className={styles.result} aria-busy={loading}>
             <div className={styles.resultHeading}><span className={styles.liveDot} aria-hidden="true" /><h3>Your monthly estimate</h3></div>
             <div aria-live="polite" aria-atomic="true" className={styles.total}>
               <span>{selected ? money(selected.monthlyCost) : '—'}</span>
               <span className={styles.period}>per month · {selectedLabel}</span>
             </div>
+            {loading && <p className={styles.quoteStatus}>Calculating your estimate…</p>}
+            {estimateError && <div className={styles.quoteError} role="alert">
+              <p>Your estimate couldn’t be calculated. Try again, or contact your local office for a quote.</p>
+              <button type="button" onClick={refresh}>Try again</button>
+            </div>}
             <fieldset disabled={contactOpen || !estimate} className={styles.packages}>
               <legend>Compare packages</legend>
               {CLEANING_PACKAGES.map(entry => <label key={entry.id} className={selectedPackage === entry.id ? styles.selectedPackage : ''}>
@@ -147,7 +154,7 @@ export default function CleaningCalculator({ regionSlug, sourcePage, variant = '
             </dl>
             <p className={styles.estimateNote}>For planning purposes. Final pricing and package scope are confirmed after a walkthrough of your facility.</p>
             {!contactOpen ? <>
-              <button type="button" onClick={openContact} disabled={!input || !region} className={styles.sendButton}>Send my estimate <ArrowRight size={18} aria-hidden="true" /></button>
+              <button type="button" onClick={openContact} disabled={!input || !region || !estimate || !pricingVersion} className={styles.sendButton}>Send my estimate <ArrowRight size={18} aria-hidden="true" /></button>
               <p className={styles.sendHint}>{!region ? 'Choose your local office to send your estimate.' : <><Check size={14} aria-hidden="true" />No obligation. Your details go to our {region.city} team.</>}</p>
             </> : <p className={styles.continueHint}><Mail size={18} aria-hidden="true" />Add your contact details below to send this estimate.</p>}
           </div>
@@ -161,7 +168,7 @@ export default function CleaningCalculator({ regionSlug, sourcePage, variant = '
             <button type="button" onClick={editEstimate} disabled={deliveryLocked} className={styles.editButton}><ArrowLeft size={15} aria-hidden="true" />Edit estimate</button>
           </div>
           <div className={styles.contactForm}>
-            <LeadForm regionSlug={requestDraft.office} sourcePage={sourcePage} variant="compact" formPlacement="bottom" cleaningEstimate={requestDraft.input} onSubmissionLockedChange={setDeliveryLocked} />
+            <LeadForm regionSlug={requestDraft.office} sourcePage={sourcePage} variant="compact" formPlacement="bottom" cleaningEstimate={requestDraft.input} cleaningEstimateVersion={requestDraft.pricingVersion} onSubmissionLockedChange={setDeliveryLocked} />
           </div>
         </div>}
         <noscript><p className={styles.hint}>Enable JavaScript to use the calculator, or <Link href="/locations">contact your local Rangel office</Link> for a free quote.</p></noscript>
