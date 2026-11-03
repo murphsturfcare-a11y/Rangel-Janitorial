@@ -76,6 +76,10 @@ export default function Header() {
             Services
           </Link>
 
+          <Link href="/#cleaning-calculator" className={linkClass}>
+            Cost Calculator
+          </Link>
+
           <Link href="/locations" className={linkClass}>
             Locations
           </Link>
@@ -195,6 +199,8 @@ export default function Header() {
                 >
                   Blog
                 </Link>
+
+                <Link href="/#cleaning-calculator" onClick={closeDrawer} className="block py-3 font-body text-base font-medium text-charcoal transition-colors hover:text-forest">Cost Calculator</Link>
 
                 {/* CTA */}
                 <Link

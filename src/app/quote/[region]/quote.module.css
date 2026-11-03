@@ -7,6 +7,7 @@
   background: #fff;
 }
 .container { width: min(100% - 80px, 1160px); margin-inline: auto; }
+.calculatorLink { display: flex; align-items: center; gap: 8px; width: fit-content; min-height: 44px; margin-top: 12px; font-size: 13px; font-weight: 650; color: #2d5016; text-decoration: underline; text-underline-offset: 4px; }
 .page button, .page a, .page summary { -webkit-tap-highlight-color: transparent; }
 .page button:focus-visible, .page a:focus-visible, .page summary:focus-visible { outline: 2px solid #2d5016; outline-offset: 5px; }
 .skipLink { position: fixed; left: 12px; top: -100px; z-index: 60; padding: 14px; background: white; border-radius: 6px; }

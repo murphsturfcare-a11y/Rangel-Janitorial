@@ -28,7 +28,7 @@ describe('regional paid quote pages', () => {
     expect(container.querySelector('dialog')).not.toHaveAttribute('open');
     expect(screen.getByLabelText(/First Name/)).toBeRequired();
     expect(screen.getByLabelText(/Last Name/)).toBeRequired();
-    expect(screen.getByLabelText(/Phone/)).toBeRequired();
+    expect(screen.getByLabelText(/Phone/, { selector: 'input[type="tel"]' })).toBeRequired();
     expect(screen.getByLabelText(/Email/)).toBeRequired();
     expect(screen.queryByLabelText(/How Did You Hear About Us/)).not.toBeInTheDocument();
     expect(container.querySelectorAll('a[href^="tel:"]').length).toBeGreaterThan(0);
@@ -48,7 +48,7 @@ describe('regional paid quote pages', () => {
     expect(screen.getAllByRole('button', { name: 'Book your free walkthrough today' })).toHaveLength(2);
     expect(screen.getByRole('button', { name: 'Office Building' })).toHaveAttribute('aria-haspopup', 'dialog');
     expect(screen.getByRole('button', { name: 'See all facility types' })).toHaveAttribute('aria-haspopup', 'dialog');
-    expect(container.querySelectorAll('dl > div')).toHaveLength(4);
+    expect(container.querySelectorAll('section[aria-labelledby="accountability-title"] dl > div')).toHaveLength(4);
     expect(screen.getByText('Photo-verified inspections and issues addressed before they reach your desk.')).toBeInTheDocument();
     expect(screen.getByText(`Serving ${region.city} & surrounding communities`)).toBeInTheDocument();
     expect(container.querySelector('#quote-form')).toBeInTheDocument();
