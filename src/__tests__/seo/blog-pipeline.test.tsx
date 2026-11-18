@@ -10,7 +10,7 @@ import { BLOG_POSTS } from '@/content/blog-registry';
 import { BLOG_PAGE_COUNT, BLOG_SLUGS, getBlogPage } from '@/content/blog-index';
 import business from '@/data/business.json';
 import regions from '@/data/regions.json';
-import { buildGeneratedFiles, writeGeneratedFiles, validatePosts } from '../../../scripts/generate-llm-files.mjs';
+import { buildGeneratedFiles, writeGeneratedFiles, validatePosts, htmlToMarkdown } from '../../../scripts/generate-llm-files.mjs';
 
 vi.mock('next/navigation', () => ({ notFound: () => { throw new Error('NEXT_NOT_FOUND'); } }));
 const services = { 'office-cleaning': 'Office Cleaning' };
@@ -61,6 +61,20 @@ describe('crawlable blog output', () => {
 });
 
 describe('deterministic generated mirrors', () => {
+  it('keeps phone, email and external links usable in generated text', () => {
+    const markdown = htmlToMarkdown([
+      '<a href="tel:+19164262311">Call Sacramento</a>',
+      '<a href="mailto:ralph@rangeljanitorial.com">Email Rangel</a>',
+      '<a href="https://www.google.com/maps?cid=11803991425863125906">Google profile</a>',
+      '<a href="/locations/sacramento">Sacramento services</a>',
+    ].join('\n'));
+
+    expect(markdown).toContain('[Call Sacramento](tel:+19164262311)');
+    expect(markdown).toContain('[Email Rangel](mailto:ralph@rangeljanitorial.com)');
+    expect(markdown).toContain('[Google profile](https://www.google.com/maps?cid=11803991425863125906)');
+    expect(markdown).toContain('[Sacramento services](https://rangeljanitorial.com/locations/sacramento)');
+  });
+
   it('produces every mirror with an exact HTTP canonical and consistent regional facts', () => {
     const first = buildGeneratedFiles({ posts: records, business, regions, services });
     const second = buildGeneratedFiles({ posts: records, business, regions, services });

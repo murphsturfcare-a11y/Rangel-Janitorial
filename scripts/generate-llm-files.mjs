@@ -54,7 +54,7 @@ export function htmlToMarkdown(html, siteUrl = "https://rangeljanitorial.com") {
   md = md.replace(
     /<a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g,
     (_, href, text) => {
-      const abs = href.startsWith("http") ? href : `${siteUrl}${href}`;
+      const abs = /^(?:https?:|tel:|mailto:)/i.test(href) ? href : `${siteUrl}${href}`;
       return `[${text.trim()}](${abs})`;
     }
   );

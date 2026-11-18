@@ -62,6 +62,7 @@ interface LocationData {
   mapQuery: string;
   mapEmbedUrl?: string;
   gmb?: string;
+  googleReviewUrl?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -157,6 +158,49 @@ const locationFaqs = [
   },
 ];
 
+const sacramentoFaqs = [
+  {
+    question: 'Do you clean small offices and shops in Sacramento?',
+    answer:
+      'Yes. Rangel Janitorial provides commercial cleaning for small offices, retail spaces and other local businesses in Sacramento. Tell us about your space and the areas you want cleaned so we can recommend a suitable plan.',
+  },
+  {
+    question: 'What can a small business cleaning plan include?',
+    answer:
+      'Your plan can include office and customer areas, restroom cleaning, break rooms, trash removal and floor care. The walkthrough establishes which rooms, surfaces and tasks are included in your quote.',
+  },
+  {
+    question: 'How much does commercial cleaning cost in Sacramento?',
+    answer:
+      'Your quote depends on the size of the space, the cleaning tasks, floor surfaces and how often service is needed. Request a free quote or use our cleaning calculator for a planning estimate. Final pricing and scope are confirmed after a walkthrough.',
+  },
+  {
+    question: 'Can I request weekly cleaning instead of nightly service?',
+    answer:
+      'Yes. Weekly, nightly and custom cleaning schedules are available. Share your opening hours, foot traffic and priorities so we can discuss a schedule that fits your business.',
+  },
+  {
+    question: 'Can cleaning take place outside business hours?',
+    answer:
+      'Cleaning can be planned around your business hours. Include your preferred time and access arrangements in your request; our team will confirm the schedule with you.',
+  },
+  {
+    question: 'What are your Sacramento office and cleaning hours?',
+    answer:
+      'Contact hours for our Sacramento team are 9 AM to 9 PM every day, Pacific Time (America/Los_Angeles). Cleaning is available 24 hours a day. Tell us your preferred cleaning time so our team can confirm the schedule.',
+  },
+  {
+    question: 'Which Sacramento communities do you serve?',
+    answer:
+      'We serve Sacramento, including Downtown, Midtown and Natomas, as well as West Sacramento, Rancho Cordova, Citrus Heights, Roseville, Folsom and surrounding communities. Include your business address so our team can confirm service for your location.',
+  },
+  {
+    question: 'How do I request a Sacramento cleaning quote?',
+    answer:
+      'Use the quote form on this page or call our Sacramento team at (916) 426-2311. Share your business location, approximate square footage, the areas to clean and preferred frequency. We will discuss your needs and arrange the next step with you.',
+  },
+];
+
 // ---------------------------------------------------------------------------
 // Location data
 // ---------------------------------------------------------------------------
@@ -191,13 +235,15 @@ const locationData: Record<string, LocationData> = {
     ],
     metaTitle: "Professional Janitorial Services in Sacramento, CA | Rangel Janitorial",
     metaDescription:
-      "Sacramento's trusted janitorial and commercial cleaning service. Rangel Janitorial serves Downtown Sacramento, Midtown, Roseville, Folsom & Rancho Cordova. Licensed & insured. Get a free quote today.",
+      'Commercial cleaning for Sacramento offices, retail shops and local businesses. Discuss your space, scope and schedule with Rangel Janitorial. Get a free quote.',
     serviceAreaDescription:
       'Serving the greater Sacramento metro including Downtown Sacramento, Midtown Sacramento, Roseville, Folsom, Rancho Cordova, Citrus Heights, and West Sacramento.',
     climateNote:
       'Central Valley heat and dust demand frequent deep cleaning to maintain healthy, professional environments.',
     mapQuery: 'Sacramento+CA',
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199665.09544980843!2d-121.59483879453124!3d38.56165478832246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA!5e0!3m2!1sen!2sus!4v1',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!3m2!1m1!4s11803991425863125906',
+    gmb: 'https://share.google/JohiHvlHV2U1wvqn3',
+    googleReviewUrl: 'https://g.page/r/CZILVF6pM9CjEBM/review',
   },
 
   murrieta: {
@@ -295,7 +341,10 @@ export async function generateMetadata({
   if (!location) {
     return { title: 'Location Not Found' };
   }
-  return generatePageMetadata(`${regions.find((region) => region.slug === slug)!.name} Commercial Cleaning`, location.metaDescription, `/locations/${slug}`);
+  const title = slug === 'sacramento'
+    ? 'Sacramento Commercial Cleaning for Small Businesses'
+    : `${regions.find((region) => region.slug === slug)!.name} Commercial Cleaning`;
+  return generatePageMetadata(title, location.metaDescription, `/locations/${slug}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -314,11 +363,14 @@ export default async function LocationPage({
     notFound();
   }
 
+  const isSacramento = slug === 'sacramento';
+  const faqs = isSacramento ? sacramentoFaqs : locationFaqs;
+
   // JSON-LD: FAQPage
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: locationFaqs.map((faq) => ({
+    mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -335,6 +387,7 @@ export default async function LocationPage({
     serviceType: 'Commercial Janitorial Services',
     '@id': `${business.url}/locations/${slug}#service`,
     name: `Commercial cleaning in ${location.city}`,
+    ...(isSacramento ? { description: 'Commercial cleaning for small offices, retail spaces and local businesses in Sacramento, with scope and schedules tailored to the space.' } : {}),
     url: `${business.url}/locations/${slug}`,
     provider: { '@id': ORGANIZATION_ID },
     areaServed: location.neighborhoods.map((n) => ({
@@ -419,14 +472,16 @@ export default async function LocationPage({
             {/* Left: headline + phone */}
             <AnimateOnScroll direction="up">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading mb-4 leading-tight">
-                Professional Janitorial Services
+                {isSacramento ? 'Commercial Cleaning' : 'Professional Janitorial Services'}
                 <br />
                 <span className="text-cream">
                   in {location.city}, CA
                 </span>
               </h1>
               <p className="text-lg sm:text-xl text-white/80 font-body mb-8">
-                Reliable Commercial Cleaning You Can Count On
+                {isSacramento
+                  ? 'For small offices, retail shops and the local businesses that keep Sacramento moving. Get a cleaning plan built around your space and schedule.'
+                  : 'Reliable Commercial Cleaning You Can Count On'}
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
@@ -444,10 +499,22 @@ export default async function LocationPage({
                     className="inline-flex items-center gap-2 bg-white/10 text-white font-semibold text-base px-6 py-4 rounded-xl hover:bg-white/20 transition-colors font-body border border-white/20"
                   >
                     <MapPin className="w-5 h-5" />
-                    View on Google Maps
+                    {isSacramento ? 'View our Google profile' : 'View on Google Maps'}
                   </a>
                 )}
               </div>
+              {isSacramento && (
+                <dl className="mt-6 space-y-2 text-white/80 font-body text-sm leading-relaxed" aria-label="Sacramento contact and cleaning hours">
+                  <div>
+                    <dt className="inline font-semibold text-white">Office &amp; contact:</dt>{' '}
+                    <dd className="inline">9 AM to 9 PM every day, Pacific Time.</dd>
+                  </div>
+                  <div>
+                    <dt className="inline font-semibold text-white">Cleaning availability:</dt>{' '}
+                    <dd className="inline">24 hours. Confirm your service time with our team.</dd>
+                  </div>
+                </dl>
+              )}
             </AnimateOnScroll>
 
             {/* Right: Lead form */}
@@ -459,6 +526,46 @@ export default async function LocationPage({
           </div>
         </div>
       </section>
+
+      {isSacramento && (
+        <section aria-labelledby="sacramento-small-business-heading" className="py-14 sm:py-20 bg-cream">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mb-10">
+              <h2 id="sacramento-small-business-heading" className="text-3xl sm:text-4xl font-bold text-charcoal font-heading mb-5">
+                Janitorial cleaning for small offices and local shops
+              </h2>
+              <p className="text-lg text-charcoal-light font-body leading-relaxed">
+                Rangel Janitorial helps Sacramento businesses keep workspaces, customer areas, restrooms and floors clean.
+                Tell us what needs attention, how often you need help and when your doors are open. We will discuss a plan for your space.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { title: 'Your space and priorities', detail: 'Choose the areas that need regular attention, such as office desks, customer areas, break rooms, restrooms and floors. Your quote will define the included tasks.' },
+                { title: 'A schedule around your business', detail: 'Discuss weekly, nightly or custom cleaning and your preferred service time. We will confirm the schedule and access arrangements before service.' },
+                { title: 'A quote based on the work', detail: 'Size, cleaning scope, floor surfaces and visit frequency shape the price. Start with a free quote and confirm the details during a walkthrough.' },
+              ].map((item) => (
+                <div key={item.title} className="bg-white rounded-2xl border border-gray-100 p-6">
+                  <h3 className="text-xl font-bold text-charcoal font-heading mb-3">{item.title}</h3>
+                  <p className="text-charcoal-light font-body leading-relaxed">{item.detail}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4 font-body font-semibold text-forest">
+              <Link href="/services/office-cleaning" className="underline underline-offset-4">Office cleaning</Link>
+              <Link href="/services/janitorial-cleaning" className="underline underline-offset-4">Janitorial cleaning</Link>
+              <Link href="/services/floor-care" className="underline underline-offset-4">Floor care</Link>
+              <Link href="/quote/sacramento#cleaning-calculator" className="underline underline-offset-4">Estimate your cleaning budget</Link>
+            </div>
+            <p className="mt-8 text-charcoal-light font-body leading-relaxed">
+              Planning your service? Read our{' '}
+              <Link href="/blog/janitorial-services-sacramento" className="text-forest font-semibold underline underline-offset-4">Sacramento guide to choosing a janitorial company</Link>
+              {' '}and{' '}
+              <Link href="/blog/sacramento-after-hours-janitorial-service" className="text-forest font-semibold underline underline-offset-4">guide to after-hours cleaning</Link>.
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* ================================================================
           2. SERVICES
@@ -626,13 +733,29 @@ export default async function LocationPage({
               </StaggerItem>
             ))}
           </StaggerContainer>
+          {location.googleReviewUrl && (
+            <div className="mt-10 text-center">
+              <p className="text-charcoal-light font-body mb-4">
+                Share your experience with Rangel Janitorial on Google.
+              </p>
+              <a
+                href={location.googleReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-forest hover:bg-forest/90 text-white font-semibold px-6 py-3 rounded-lg transition-colors font-body"
+              >
+                Leave a Google review
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
       {/* ================================================================
           6. FAQ
           ================================================================ */}
-      <FAQ items={locationFaqs} />
+      <FAQ items={faqs} />
 
       {/* ================================================================
           7. NEIGHBORHOODS WE SERVE
@@ -686,7 +809,7 @@ export default async function LocationPage({
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title={`Rangel Janitorial - ${location.city}`}
+                title={isSacramento ? 'Rangel Janitorial Sacramento Google Maps listing' : `Rangel Janitorial - ${location.city}`}
                 className="rounded-xl shadow-lg"
               />
             </AnimateOnScroll>
@@ -719,6 +842,13 @@ export default async function LocationPage({
                   </div>
                   {location.phone}
                 </a>
+                {isSacramento && (
+                  <p className="text-white/80 font-body text-sm leading-relaxed">
+                    Office &amp; contact: 9 AM to 9 PM every day, Pacific Time.
+                    <br />
+                    Cleaning availability: 24 hours, with your service time confirmed by our team.
+                  </p>
+                )}
                 <a
                   href={`mailto:${location.email}`}
                   className="flex items-center gap-3 text-white hover:text-sage-light transition-colors font-body text-lg"
@@ -738,7 +868,7 @@ export default async function LocationPage({
                     <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-5 h-5" />
                     </div>
-                    View on Google Maps
+                    {isSacramento ? 'View our Google profile' : 'View on Google Maps'}
                   </a>
                 )}
               </div>
