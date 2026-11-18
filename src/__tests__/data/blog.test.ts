@@ -12,12 +12,21 @@ describe('canonical article inventory', () => {
     expect(blogPosts.map((post) => post.slug)).toEqual(BLOG_SLUGS);
   });
 
-  it('preserves article dates without fabricating modification dates', () => {
+  it('preserves publication dates and limits modification dates to reviewed articles', () => {
     expect(BLOG_POSTS['office-cleaning-best-practices'].publishDate).toBe('2026-03-15');
     expect(BLOG_POSTS['janitorial-services-walnut-creek'].publishDate).toBe('2025-12-08');
+    const reviewedArticles = new Set([
+      'janitorial-services-sacramento',
+      'sacramento-after-hours-janitorial-service',
+      'sacramento-industrial-warehouse-cleaning',
+    ]);
     for (const summary of BLOG_SUMMARIES) {
       expect(summary.date).toBe(BLOG_POSTS[summary.slug].publishDate);
-      expect(BLOG_POSTS[summary.slug].modifiedDate).toBeUndefined();
+      if (reviewedArticles.has(summary.slug)) {
+        expect(BLOG_POSTS[summary.slug].modifiedDate).toBe('2026-11-16');
+      } else {
+        expect(BLOG_POSTS[summary.slug].modifiedDate).toBeUndefined();
+      }
     }
   });
 
