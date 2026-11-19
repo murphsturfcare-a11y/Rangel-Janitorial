@@ -61,7 +61,7 @@ A named account manager who picks up the phone during an emergency is worth the 
 
 ## Choosing a Walnut Creek Downtown Cleaning Vendor
 
-Look for vendors experienced with downtown buildings, day porter coverage, wet weather response, and stable crews that know the building. Rangel Janitorial cleans downtown Walnut Creek offices including properties near the BART station.
+Look for vendors experienced with downtown buildings, day porter coverage, wet weather response, and stable crews that know the building. Rangel Janitorial provides office cleaning in Walnut Creek.
 
 Contact our Walnut Creek team at (925) 655-9008 for a walkthrough and a custom proposal.
 

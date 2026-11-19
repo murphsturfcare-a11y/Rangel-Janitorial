@@ -63,7 +63,7 @@ Lost badges should trigger immediate deactivation. Vendor turnover reports shoul
 
 Look for vendors with documented Class A experience, stable crews, named account managers, transparent reporting, and the ability to support sustainability certifications. The best vendors walk every property monthly with the property manager.
 
-Rangel Janitorial cleans Class A buildings throughout Walnut Creek, Concord, Pleasant Hill, and the Tri-Valley. Contact our Walnut Creek team at (925) 655-9008 or email ralph@rangeljanitorial.com.
+Rangel Janitorial provides commercial cleaning in Walnut Creek, Concord and Pleasant Hill as part of our East Bay service area. Contact our Walnut Creek team at (925) 655-9008 or email ralph@rangeljanitorial.com.
 
 ---
 

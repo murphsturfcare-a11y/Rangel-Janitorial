@@ -15,15 +15,17 @@ describe('canonical article inventory', () => {
   it('preserves publication dates and limits modification dates to reviewed articles', () => {
     expect(BLOG_POSTS['office-cleaning-best-practices'].publishDate).toBe('2026-03-15');
     expect(BLOG_POSTS['janitorial-services-walnut-creek'].publishDate).toBe('2025-12-08');
-    const reviewedArticles = new Set([
-      'janitorial-services-sacramento',
-      'sacramento-after-hours-janitorial-service',
-      'sacramento-industrial-warehouse-cleaning',
+    const reviewedArticles = new Map([
+      ['janitorial-services-sacramento', '2026-11-16'],
+      ['sacramento-after-hours-janitorial-service', '2026-11-16'],
+      ['sacramento-industrial-warehouse-cleaning', '2026-11-16'],
+      ['janitorial-services-walnut-creek', '2026-11-19'],
+      ['walnut-creek-financial-district-after-hours', '2026-11-19'],
     ]);
     for (const summary of BLOG_SUMMARIES) {
       expect(summary.date).toBe(BLOG_POSTS[summary.slug].publishDate);
       if (reviewedArticles.has(summary.slug)) {
-        expect(BLOG_POSTS[summary.slug].modifiedDate).toBe('2026-11-16');
+        expect(BLOG_POSTS[summary.slug].modifiedDate).toBe(reviewedArticles.get(summary.slug));
       } else {
         expect(BLOG_POSTS[summary.slug].modifiedDate).toBeUndefined();
       }

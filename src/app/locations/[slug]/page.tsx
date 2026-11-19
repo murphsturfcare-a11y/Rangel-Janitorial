@@ -201,6 +201,124 @@ const sacramentoFaqs = [
   },
 ];
 
+const walnutCreekFaqs = [
+  {
+    question: 'Do you provide commercial cleaning in Walnut Creek?',
+    answer:
+      'Yes. Rangel Janitorial provides commercial and office cleaning for businesses in Walnut Creek and nearby East Bay communities. Tell us about your space and the areas you want cleaned so we can recommend a suitable plan.',
+  },
+  {
+    question: 'What can an office cleaning plan include?',
+    answer:
+      'A plan can include workstations and private offices, conference rooms, break rooms, restrooms, entry areas, trash and recycling removal and floor care. The walkthrough establishes which rooms, surfaces and tasks are included in your quote.',
+  },
+  {
+    question: 'What affects the price of office cleaning in Walnut Creek?',
+    answer:
+      'Price depends on square footage, which rooms and tasks are included, the floor surfaces and how many visits you need. For a planning number, try our cleaning calculator. Your free quote is confirmed after we walk through the space.',
+  },
+  {
+    question: 'How often can you clean my office?',
+    answer:
+      'Nightly, weekly and custom cleaning schedules are available. Share your business hours, how many people use the space and your priorities so we can discuss a schedule that fits.',
+  },
+  {
+    question: 'Can cleaning take place after business hours?',
+    answer:
+      'Cleaning can be planned around your business hours. Include your preferred cleaning time and building access arrangements in your request; our team will confirm the schedule with you.',
+  },
+  {
+    question: 'Do you offer day porter service in the East Bay?',
+    answer:
+      'Yes. Day porter service is cleaning help while your business is open, such as restroom checks, restocking, trash removal and tidying shared areas. Tell us which areas need attention during the day and when.',
+  },
+  {
+    question: 'Which East Bay communities do you serve?',
+    answer:
+      'We serve Walnut Creek, Concord, Pleasant Hill, Lafayette, Danville, Martinez, San Ramon, Dublin, Pleasanton, Livermore, Orinda, Moraga, Alamo, Clayton and the other East Bay communities listed on this page. Include your business address so our team can confirm service for your location.',
+  },
+  {
+    question: 'How do I request a Walnut Creek cleaning quote?',
+    answer:
+      'Call our Walnut Creek team at (925) 655-9008 or send the quote form on this page. Include your address, approximate square footage, the areas you want cleaned and how often. We will talk through your needs and the next step with you.',
+  },
+];
+
+interface LocalFocus {
+  title: string;
+  heading: string;
+  subheading: string;
+  serviceDescription: string;
+  faqs: { question: string; answer: string }[];
+  introId: string;
+  introHeading: string;
+  introText: string;
+  cards: { title: string; detail: string }[];
+  links: { href: string; label: string }[];
+  guides: [{ href: string; label: string }, { href: string; label: string }];
+}
+
+// Region-specific search copy. Regions without an entry keep the shared copy and FAQs.
+const localFocus: Record<string, LocalFocus> = {
+  sacramento: {
+    title: 'Sacramento Commercial Cleaning for Small Businesses',
+    heading: 'Commercial Cleaning',
+    subheading:
+      'For small offices, retail shops and the local businesses that keep Sacramento moving. Get a cleaning plan built around your space and schedule.',
+    serviceDescription:
+      'Commercial cleaning for small offices, retail spaces and local businesses in Sacramento, with scope and schedules tailored to the space.',
+    faqs: sacramentoFaqs,
+    introId: 'sacramento-small-business-heading',
+    introHeading: 'Janitorial cleaning for small offices and local shops',
+    introText:
+      'Rangel Janitorial helps Sacramento businesses keep workspaces, customer areas, restrooms and floors clean. Tell us what needs attention, how often you need help and when your doors are open. We will discuss a plan for your space.',
+    cards: [
+      { title: 'Your space and priorities', detail: 'Choose the areas that need regular attention, such as office desks, customer areas, break rooms, restrooms and floors. Your quote will define the included tasks.' },
+      { title: 'A schedule around your business', detail: 'Discuss weekly, nightly or custom cleaning and your preferred service time. We will confirm the schedule and access arrangements before service.' },
+      { title: 'A quote based on the work', detail: 'Size, cleaning scope, floor surfaces and visit frequency shape the price. Start with a free quote and confirm the details during a walkthrough.' },
+    ],
+    links: [
+      { href: '/services/office-cleaning', label: 'Office cleaning' },
+      { href: '/services/janitorial-cleaning', label: 'Janitorial cleaning' },
+      { href: '/services/floor-care', label: 'Floor care' },
+      { href: '/quote/sacramento#cleaning-calculator', label: 'Estimate your cleaning budget' },
+    ],
+    guides: [
+      { href: '/blog/janitorial-services-sacramento', label: 'Sacramento guide to choosing a janitorial company' },
+      { href: '/blog/sacramento-after-hours-janitorial-service', label: 'guide to after-hours cleaning' },
+    ],
+  },
+  'walnut-creek': {
+    title: 'Walnut Creek Commercial and Office Cleaning',
+    heading: 'Commercial Cleaning',
+    subheading:
+      'For offices, employee areas and local businesses in Walnut Creek and the East Bay. Tell us what needs cleaning and when, and we will plan around it.',
+    serviceDescription:
+      'Commercial and office cleaning for businesses in Walnut Creek and nearby East Bay communities, with scope and schedules tailored to the space.',
+    faqs: walnutCreekFaqs,
+    introId: 'walnut-creek-office-cleaning-heading',
+    introHeading: 'Office cleaning for Walnut Creek and East Bay businesses',
+    introText:
+      'Rangel Janitorial helps Walnut Creek businesses keep offices, break rooms, restrooms and floors clean. Tell us what needs attention, how often you need help and your business hours, and we will discuss a plan that fits.',
+    cards: [
+      { title: 'Offices and employee areas', detail: 'Workstations, conference rooms, break rooms, restrooms and entry areas. The walkthrough sets which rooms and tasks are included.' },
+      { title: 'A schedule around your hours', detail: 'Discuss nightly, weekly or custom cleaning and your preferred service time. We will confirm the schedule and building access before service.' },
+      { title: 'Pricing tied to your scope', detail: 'Square footage, tasks, floors and visit frequency set the price. Your free quote is confirmed once we have walked the space.' },
+    ],
+    links: [
+      { href: '/services/office-cleaning', label: 'Office cleaning' },
+      { href: '/services/janitorial-cleaning', label: 'Janitorial cleaning' },
+      { href: '/services/day-porter', label: 'Day porter service' },
+      { href: '/services/floor-care', label: 'Floor care' },
+      { href: '/quote/walnut-creek#cleaning-calculator', label: 'Estimate your cleaning budget' },
+    ],
+    guides: [
+      { href: '/blog/janitorial-services-walnut-creek', label: 'Walnut Creek guide to choosing a janitorial company' },
+      { href: '/blog/walnut-creek-financial-district-after-hours', label: 'guide to after-hours office cleaning' },
+    ],
+  },
+};
+
 // ---------------------------------------------------------------------------
 // Location data
 // ---------------------------------------------------------------------------
@@ -313,9 +431,9 @@ const locationData: Record<string, LocationData> = {
     ],
     metaTitle: "Professional Janitorial Services in Walnut Creek & East Bay | Rangel Janitorial",
     metaDescription:
-      "East Bay janitorial and commercial cleaning experts. Rangel Janitorial serves Walnut Creek, Concord, Pleasant Hill, Lafayette & Danville. Licensed & insured. Get a free quote today.",
+      'Office and commercial cleaning for Walnut Creek and East Bay businesses. Plan offices, restrooms, break rooms and floors around your schedule. Get a free quote.',
     serviceAreaDescription:
-      'Serving Contra Costa County from Walnut Creek through Concord, Pleasant Hill, Lafayette, Danville, Martinez, San Ramon, and Dublin.',
+      'Serving Walnut Creek and nearby East Bay communities, including Concord, Pleasant Hill, Lafayette, Danville, Martinez, San Ramon, Dublin and Pleasanton.',
     climateNote:
       'Bay Area microclimates range from damp conditions near the coast to warm, dry conditions inland — requiring adaptable cleaning approaches.',
     mapQuery: 'Rangel+Janitorial+Walnut+Creek+CA',
@@ -341,9 +459,8 @@ export async function generateMetadata({
   if (!location) {
     return { title: 'Location Not Found' };
   }
-  const title = slug === 'sacramento'
-    ? 'Sacramento Commercial Cleaning for Small Businesses'
-    : `${regions.find((region) => region.slug === slug)!.name} Commercial Cleaning`;
+  const title = localFocus[slug]?.title
+    ?? `${regions.find((region) => region.slug === slug)!.name} Commercial Cleaning`;
   return generatePageMetadata(title, location.metaDescription, `/locations/${slug}`);
 }
 
@@ -364,7 +481,8 @@ export default async function LocationPage({
   }
 
   const isSacramento = slug === 'sacramento';
-  const faqs = isSacramento ? sacramentoFaqs : locationFaqs;
+  const focus = localFocus[slug];
+  const faqs = focus ? focus.faqs : locationFaqs;
 
   // JSON-LD: FAQPage
   const faqSchema = {
@@ -387,7 +505,7 @@ export default async function LocationPage({
     serviceType: 'Commercial Janitorial Services',
     '@id': `${business.url}/locations/${slug}#service`,
     name: `Commercial cleaning in ${location.city}`,
-    ...(isSacramento ? { description: 'Commercial cleaning for small offices, retail spaces and local businesses in Sacramento, with scope and schedules tailored to the space.' } : {}),
+    ...(focus ? { description: focus.serviceDescription } : {}),
     url: `${business.url}/locations/${slug}`,
     provider: { '@id': ORGANIZATION_ID },
     areaServed: location.neighborhoods.map((n) => ({
@@ -472,16 +590,14 @@ export default async function LocationPage({
             {/* Left: headline + phone */}
             <AnimateOnScroll direction="up">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading mb-4 leading-tight">
-                {isSacramento ? 'Commercial Cleaning' : 'Professional Janitorial Services'}
+                {focus ? focus.heading : 'Professional Janitorial Services'}
                 <br />
                 <span className="text-cream">
                   in {location.city}, CA
                 </span>
               </h1>
               <p className="text-lg sm:text-xl text-white/80 font-body mb-8">
-                {isSacramento
-                  ? 'For small offices, retail shops and the local businesses that keep Sacramento moving. Get a cleaning plan built around your space and schedule.'
-                  : 'Reliable Commercial Cleaning You Can Count On'}
+                {focus ? focus.subheading : 'Reliable Commercial Cleaning You Can Count On'}
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
@@ -527,24 +643,19 @@ export default async function LocationPage({
         </div>
       </section>
 
-      {isSacramento && (
-        <section aria-labelledby="sacramento-small-business-heading" className="py-14 sm:py-20 bg-cream">
+      {focus && (
+        <section aria-labelledby={focus.introId} className="py-14 sm:py-20 bg-cream">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mb-10">
-              <h2 id="sacramento-small-business-heading" className="text-3xl sm:text-4xl font-bold text-charcoal font-heading mb-5">
-                Janitorial cleaning for small offices and local shops
+              <h2 id={focus.introId} className="text-3xl sm:text-4xl font-bold text-charcoal font-heading mb-5">
+                {focus.introHeading}
               </h2>
               <p className="text-lg text-charcoal-light font-body leading-relaxed">
-                Rangel Janitorial helps Sacramento businesses keep workspaces, customer areas, restrooms and floors clean.
-                Tell us what needs attention, how often you need help and when your doors are open. We will discuss a plan for your space.
+                {focus.introText}
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { title: 'Your space and priorities', detail: 'Choose the areas that need regular attention, such as office desks, customer areas, break rooms, restrooms and floors. Your quote will define the included tasks.' },
-                { title: 'A schedule around your business', detail: 'Discuss weekly, nightly or custom cleaning and your preferred service time. We will confirm the schedule and access arrangements before service.' },
-                { title: 'A quote based on the work', detail: 'Size, cleaning scope, floor surfaces and visit frequency shape the price. Start with a free quote and confirm the details during a walkthrough.' },
-              ].map((item) => (
+              {focus.cards.map((item) => (
                 <div key={item.title} className="bg-white rounded-2xl border border-gray-100 p-6">
                   <h3 className="text-xl font-bold text-charcoal font-heading mb-3">{item.title}</h3>
                   <p className="text-charcoal-light font-body leading-relaxed">{item.detail}</p>
@@ -552,16 +663,15 @@ export default async function LocationPage({
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4 font-body font-semibold text-forest">
-              <Link href="/services/office-cleaning" className="underline underline-offset-4">Office cleaning</Link>
-              <Link href="/services/janitorial-cleaning" className="underline underline-offset-4">Janitorial cleaning</Link>
-              <Link href="/services/floor-care" className="underline underline-offset-4">Floor care</Link>
-              <Link href="/quote/sacramento#cleaning-calculator" className="underline underline-offset-4">Estimate your cleaning budget</Link>
+              {focus.links.map((link) => (
+                <Link key={link.href} href={link.href} className="underline underline-offset-4">{link.label}</Link>
+              ))}
             </div>
             <p className="mt-8 text-charcoal-light font-body leading-relaxed">
               Planning your service? Read our{' '}
-              <Link href="/blog/janitorial-services-sacramento" className="text-forest font-semibold underline underline-offset-4">Sacramento guide to choosing a janitorial company</Link>
+              <Link href={focus.guides[0].href} className="text-forest font-semibold underline underline-offset-4">{focus.guides[0].label}</Link>
               {' '}and{' '}
-              <Link href="/blog/sacramento-after-hours-janitorial-service" className="text-forest font-semibold underline underline-offset-4">guide to after-hours cleaning</Link>.
+              <Link href={focus.guides[1].href} className="text-forest font-semibold underline underline-offset-4">{focus.guides[1].label}</Link>.
             </p>
           </div>
         </section>

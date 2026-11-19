@@ -63,7 +63,7 @@ The cleaning program becomes part of the company's broader sustainability story.
 
 Look for vendors with certified product lists, microfiber and HEPA equipment, dilution control, written green policies, and the ability to support sustainability documentation.
 
-Rangel Janitorial offers green cleaning programs across Walnut Creek and the East Bay. Contact our Walnut Creek team at (925) 655-9008 to discuss your sustainability goals.
+Ask our team which cleaning products are used, and share any product requirements for your building. Contact our Walnut Creek team at (925) 655-9008 to discuss your sustainability goals.
 
 ---
 
