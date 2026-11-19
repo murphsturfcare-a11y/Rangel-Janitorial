@@ -63,7 +63,7 @@ A professional crew that respects the client's privacy becomes a long-term partn
 
 Look for vendors with boutique office experience, stable crews, premium finish care, and a personal approach to account management. Small account responsiveness matters more here than at large properties.
 
-Rangel Janitorial cleans boutique offices throughout Lafayette, Orinda, and Moraga. Contact our Walnut Creek team at (925) 655-9008 for a walkthrough and a custom proposal.
+Rangel Janitorial provides commercial cleaning in Lafayette, Orinda and Moraga as part of our East Bay service area. Contact our Walnut Creek team at (925) 655-9008 for a walkthrough and a custom proposal.
 
 ---
 

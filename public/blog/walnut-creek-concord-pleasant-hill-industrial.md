@@ -63,7 +63,7 @@ Coordinating with the pest control vendor keeps facilities ahead of issues.
 
 Look for vendors with documented industrial experience, owned equipment, OSHA training, and references from comparable facilities.
 
-Rangel Janitorial cleans industrial facilities throughout Concord, Pleasant Hill, Martinez, and the East Bay. Contact our Walnut Creek team at (925) 655-9008 for a walkthrough and a custom proposal.
+Rangel Janitorial provides commercial cleaning in Concord, Pleasant Hill and Martinez as part of our East Bay service area. Describe any specialized requirements so our team can confirm what can be included. Contact our Walnut Creek team at (925) 655-9008 for a walkthrough and a custom proposal.
 
 ---
 

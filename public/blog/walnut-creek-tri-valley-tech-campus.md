@@ -63,7 +63,7 @@ Cleaning vendors should be ready to support LEED O+M and company-specific sustai
 
 Look for vendors with tech campus experience, day porter capacity, green cleaning programs, stable trained crews, and flexibility to scale with amenity additions.
 
-Rangel Janitorial cleans tech campuses throughout the Tri-Valley. Contact our Walnut Creek team at (925) 655-9008 for a walkthrough and a custom proposal.
+Rangel Janitorial provides commercial cleaning in San Ramon, Dublin and Pleasanton as part of our East Bay service area. Contact our Walnut Creek team at (925) 655-9008 for a walkthrough and a custom proposal.
 
 ---
 

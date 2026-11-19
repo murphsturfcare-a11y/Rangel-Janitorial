@@ -15,7 +15,7 @@
 
 Walnut Creek property managers overseeing Class A and Class B multi-tenant buildings benefit from a formal RFP process when selecting or switching cleaning vendors. The process produces comparable proposals, surfaces qualified vendors, and documents the decision.
 
-Skipping the RFP often results in under-priced, under-delivered programs that fail within a year.
+Without one, bids are hard to compare.
 
 ## Writing the RFP
 
@@ -49,7 +49,7 @@ A walk-through of each bidding vendor's current account gives the strongest sign
 
 ## Pricing Structure
 
-Cleaning pricing is typically per square foot per month, with separate line items for floor care projects and special services. Avoid choosing on price alone — the lowest bid is almost always the most expensive program by year two.
+Cleaning pricing is typically per square foot per month, with separate line items for floor care projects and special services. Compare bids for the same scope rather than choosing on price alone.
 
 Multi-year contracts with built-in escalation clauses provide pricing stability for both parties.
 
@@ -61,7 +61,7 @@ Documenting the decision protects the property manager if the selected vendor is
 
 ## Choosing the Right Walnut Creek Vendor
 
-Look for vendors with stable crews, named account managers, documented quality programs, and transparent pricing. Rangel Janitorial responds to RFPs for Walnut Creek Class A and Class B buildings regularly.
+Look for vendors with stable crews, named account managers, documented quality programs, and transparent pricing. Rangel Janitorial can walk your property and prepare a quote for the scope in your RFP.
 
 Contact our Walnut Creek team at (925) 655-9008 or ralph@rangeljanitorial.com to discuss your RFP and schedule a walk-through.
 

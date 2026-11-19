@@ -63,7 +63,7 @@ Audit-ready documentation saves significant time during surveys.
 
 Look for vendors with documented medical experience, current OSHA training, hospital-grade chemistry, color-coded equipment, and audit-ready documentation. References from similar medical plazas are essential.
 
-Rangel Janitorial cleans medical plazas and clinics throughout Walnut Creek and the East Bay. Contact our Walnut Creek team at (925) 655-9008 for a walkthrough and a custom proposal.
+Rangel Janitorial provides commercial cleaning in Walnut Creek and nearby communities as part of our East Bay service area. Describe any specialized requirements so our team can confirm what can be included. Contact our Walnut Creek team at (925) 655-9008 for a walkthrough and a custom proposal.
 
 ---
 
